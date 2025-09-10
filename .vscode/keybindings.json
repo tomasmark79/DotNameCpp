@@ -1,0 +1,65 @@
+[
+    /* MIT License
+       Copyright (c) 2024-2025 Tomáš Mark */
+    /* The content below is intended for `~/.config/Code/User/keybindings.json` */
+    {
+        "key": "ctrl+alt+e",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Launch Standalone Emscripten"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Launch Standalone binary"
+    },
+    {
+        "key": "f7",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Direct Build"
+    },
+    {
+        "key": "shift+f7",
+        "command": "workbench.action.tasks.runTask",
+        "args": "DotName Building Tasks"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "workbench.action.tasks.runTask",
+        "args": "DotName Building Tasks"
+    },
+    {
+        "key": "ctrl+f7",
+        "command": "workbench.action.tasks.runTask",
+        "args": "DotName Other Tasks"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "workbench.action.tasks.runTask",
+        "args": "DotName Other Tasks"
+    },
+    {
+        "key": "ctrl+alt+m",
+        "command": "workbench.action.tasks.runTask",
+        "args": "cmake-format"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.action.tasks.runTask",
+        "args": "clang-format"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.tasks.runTask",
+        "args": "clang-tidy"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Build All CMakeUserPresets.json"
+    },
+    {
+        "key": "ctrl+alt+shift+o",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Coverage Tasks"
+    }
+]

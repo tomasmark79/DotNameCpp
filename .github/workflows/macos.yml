@@ -1,0 +1,72 @@
+name: MacOS
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'standalone/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/macos.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'standalone/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/macos.yml'
+
+env:
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: create CPM cache
+        id: cache-cpm
+        uses: actions/cache@v3
+        with:
+          path: ${{env.CPM_SOURCE_CACHE}}
+          key: ${{ runner.os }}-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+
+      - name: install conan to system
+        run: |
+          brew update
+          brew install ccache
+          pipx install conan
+          conan --version
+
+      - name: create Conan cache
+        id: cache-conan
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.conan2
+          key: ${{ runner.os }}-conan-${{ hashFiles('**/conanfile.py') }}
+
+      - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
+        name: Conan profile detect --force
+        run: conan profile detect --force
+      
+      - name: Conan profile show
+        run: conan profile show
+
+      - name: install Conan dependencies
+        run: conan install . -s build_type=${{env.BUILD_TYPE}} -of=${{github.workspace}}/build/standalone/default/debug -pr default -b=missing
+      
+      - name: CMake configure
+        run: cmake -B ${{github.workspace}}/build/standalone/default/debug -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_STANDALONE=ON
+      
+      - name: CMake build
+        run: cmake --build ${{github.workspace}}/build/standalone/default/debug --config ${{env.BUILD_TYPE}}

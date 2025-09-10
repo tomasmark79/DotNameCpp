@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/tomas/.cache/CPM/cxxopts/**",
+                "/home/tomas/.cache/CPM/fmt*/**",
+                "/home/tomas/.cache/CPM/cpptrace*/**",
+                "/home/tomas/.conan2/p/b/imgui*/**",
+                "/home/tomas/.conan2/p/glm*/**",
+                "/home/tomas/.conan2/p/nlohm*/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "recursiveIncludes": {
+                "reduce": "always",
+                "priority": "beforeSystemIncludes",
+                "order": "breadthFirst"
+            }
+        }
+    ],
+    "version": 4
+}

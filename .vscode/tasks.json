@@ -1,0 +1,406 @@
+{
+    /* MIT License
+       Copyright (c) 2024-2025 Tomáš Mark */
+    "version": "2.0.0",
+    "inputs": [
+        {
+            /* MENU ITEMS */
+            "id": "tasknameOther",
+            "type": "pickString",
+            "description": "Select Other Tasks",
+            "options": [
+                "🔨 Build All CMakeUserPresets.json",
+                "📐 Format Code",
+                "📏 Format CMake",
+                "⚔️ Create Conan Recipe",
+                "📊 Dependency Graph",
+                "📖 Generate Documentation",
+                "🚀 Launch Emscripten Server"
+            ],
+            "default": "🔨 Build All CMakeUserPresets.json"
+        },
+        {
+            /* MENU ITEMS */
+            "id": "taskName",
+            "type": "pickString",
+            "description": "Select DotName Building Tasks",
+            "options": [
+                "🚀 Zero to Build",
+                "🦸 Zero to Hero",
+                "🧹 Clean Build",
+                "🗡️ Conan Install",
+                "🔧 CMake Configure",
+                "📊 CMake Configure with Coverage",
+                "🪲 CMake Configure with CMake-debugger",
+                "🔨 Build",
+                "🔨 Build All CMakeUserPresets.json",
+                "🧪 Run Tests",
+                "📐 Format Code",
+                "📏 Format CMake",
+                "⚔️ Create Conan Recipe",
+                "📊 Dependency Graph",
+                "📖 Generate Documentation",
+                "🚀 Launch Emscripten Server",
+                "📜 Gather dependency licenses",
+                "📌 Install built components",
+                "🗜️ Create Tarballs for distribution",
+                "🛸 Run CPack",
+                "🔍 clang-tidy linting"
+            ],
+            "default": "🔨 Build"
+        },
+        {
+            /* PRODUCT ITEMS */
+            "id": "buildProduct",
+            "type": "pickString",
+            "description": "Select target product",
+            "options": [
+                "standalone",
+                "library",
+                "both"
+            ],
+            "default": "standalone"
+        },
+        {
+            /* ARCH ITEMS */
+            "id": "buildArch",
+            "type": "pickString",
+            "description": "Select target architecture",
+            "options": [
+                "default",
+                "x86_64_linux_gcc",
+                "x86_64_linux_clang",
+                "x86_64_w64_mingw32",
+                "emscripten",
+                "rpi4_glibc2.17_gcc10.5",
+                "rpi4_glibc2.36_gcc12.4",
+                "rpi4_glibc2.41_gcc14.2"
+            ],
+            "default": "default"
+        },
+        {
+            /* BUILD TYPE ITEMS */
+            "id": "buildType",
+            "type": "pickString",
+            "description": "Select type of build",
+            "options": [
+                "Debug",
+                "Release",
+                "RelWithDebInfo",
+                "MinSizeRel"
+            ],
+            "default": "Debug"
+        },
+        {
+            /* COVERAGE ITEMS */
+            "id": "coverageTask",
+            "type": "pickString",
+            "description": "Select Coverage Task",
+            "options": [
+                "📊 Coverage HTML Report",
+                "📊 Coverage XML Report",
+                "📊 Coverage Summary", 
+                "📊 Coverage Full Report",
+                "📊 Coverage Reset"
+            ],
+            "default": "📊 Coverage HTML Report"
+        }
+    ],
+    "tasks": [
+        {
+            "label": "Launch Standalone Emscripten",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "both",
+                "🚀 Launch Emscripten Server",
+                "noNeedArch"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Launch Standalone Emscripten",
+            "problemMatcher": [],
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "dependsOn": [
+                /* "clear terminal" */ /* uncomment if you want to clear terminal before each task */
+            ]
+        },
+        {
+            "label": "Launch Standalone binary",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/standalone/default/debug/DotNameStandalone",
+            "args": [
+                ""
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build/standalone/default/debug/"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Launch Standalone binary",
+            "problemMatcher": [],
+            "dependsOn": [
+                /* "clear terminal" */ /* uncomment if you want to clear terminal before each task */
+            ]
+        },
+        {
+            /* TASKS RUN OTHER*/
+            "label": "DotName Other Tasks",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "both",
+                "${input:tasknameOther}",
+                "noNeedArch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "DotName Other Tasks",
+            "problemMatcher": [],
+            "dependsOn": [
+                "clear terminal"
+            ]
+        },
+        {
+            /* COVERAGE TASKS FROM OTHER MENU */
+            "label": "Coverage Tasks from Other Menu",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "${input:coverageTaskFromOther}",
+                "default",
+                "Debug"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Coverage tasks with hardcoded native build parameters",
+            "problemMatcher": [],
+            "dependsOn": [
+                "clear terminal"
+            ]
+        },
+        {
+            /* TASKS RUN */
+            "label": "DotName Building Tasks",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "${input:buildProduct}",
+                "${input:taskName}",
+                "${input:buildArch}",
+                "${input:buildType}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "DotName Building Tasks",
+            "problemMatcher": [],
+            "dependsOn": [
+                "clear terminal"
+            ]
+        },
+        {
+            /* DIRECT BUILD (NO MENU) */
+            "label": "Direct Build",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "🔨 Build",
+                "default",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Direct Build",
+            "problemMatcher": [],
+            "dependsOn": [
+                "clear terminal"
+            ]
+        },
+        {
+            /* BUILD ALL CMAKEPRESETS (NO MENU)*/
+            "label": "Build All CMakeUserPresets.json",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "both",
+                "🔨 Build All CMakeUserPresets.json",
+                "noNeedArch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Build All CMakePresets without additional inputs",
+            "problemMatcher": []
+        },
+        {
+            /* DIRECT CLANG-TIDY C/C++ ( NEED MENU )  */
+            "label": "clang-tidy",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "${input:buildProduct}",
+                "🔍 clang-tidy linting",
+                "${input:buildArch}",
+                "${input:buildType}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "clang-tidy",
+            "problemMatcher": []
+        },
+        {
+            /* DIRECT CLANG-FORMAT */
+            "label": "clang-format",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "both",
+                "📐 Format Code",
+                "noNeedArch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "clang-format",
+            "problemMatcher": []
+        },
+        {
+            /* DIRECT CMAKE-FORMAT */
+            "label": "cmake-format",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "both",
+                "📏 Format CMake",
+                "noNeedArch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "cmake-format",
+            "problemMatcher": []
+        },
+        {
+            /* COVERAGE CONFIGURE */
+            "label": "Configure with Coverage",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "🔧 Configure with Coverage",
+                "default",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Configure build with code coverage enabled (native build only)",
+            "problemMatcher": []
+        },
+        {
+            /* COVERAGE TASKS */
+            "label": "Coverage Tasks",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "${input:coverageTask}",
+                "default",
+                "${input:buildType}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Run coverage analysis tasks",
+            "problemMatcher": []
+        },
+        {
+            /* COVERAGE HTML REPORT */
+            "label": "Coverage HTML Report",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "📊 Coverage HTML Report",
+                "default",
+                "Debug"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Generate HTML coverage report and open in browser",
+            "problemMatcher": []
+        },
+        {
+            /* COVERAGE FULL REPORT */
+            "label": "Coverage Full Report",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/SolutionController.py",
+                "standalone",
+                "📊 Coverage Full Report",
+                "default",
+                "Debug"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Generate both HTML and XML coverage reports",
+            "problemMatcher": []
+        },
+        { /* CLEAR TERMINAL */
+            "label": "clear terminal",
+            "type": "shell",
+            "command": "clear",
+            "group": "none",
+            "problemMatcher": []
+        }
+    ]
+}

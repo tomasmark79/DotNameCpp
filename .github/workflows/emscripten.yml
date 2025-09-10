@@ -1,0 +1,134 @@
+name: Emscripten
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'standalone/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/emscripten.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'standalone/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/emscripten.yml'
+
+env:
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
+  BUILD_TYPE: Release
+  EMSDK_VERSION: '3.1.45'
+  EM_CACHE: ${{ github.workspace }}/.emscripten_cache
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: ${{ env.EMSDK_VERSION }}
+          actions-cache-folder: 'emsdk-cache'
+
+      - name: Verify Emscripten installation
+        run: |
+          source $EMSDK/emsdk_env.sh
+          export EM_CACHE=${{ env.EM_CACHE }}
+          emcc --version
+          em++ --version
+
+      - name: create CPM cache
+        id: cache-cpm
+        uses: actions/cache@v4
+        with:
+          path: ${{env.CPM_SOURCE_CACHE}}
+          key: ${{ runner.os }}-emscripten-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+
+      - name: install conan to system
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install conan
+
+      - name: create Conan cache
+        id: cache-conan
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/.conan2
+          key: ${{ runner.os }}-emscripten-conan-${{ hashFiles('**/conanfile.py') }}
+
+      - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
+        name: Conan profile detect --force
+        run: conan profile detect --force
+      
+      - name: Conan profile show
+        run: conan profile show
+
+      - name: install Conan dependencies for Emscripten
+        run: |
+          source $EMSDK/emsdk_env.sh
+          export EM_CACHE=${{ env.EM_CACHE }}
+          conan install . \
+            -s build_type=${{env.BUILD_TYPE}} \
+            -of=${{github.workspace}}/build/standalone/emscripten/debug \
+            -pr default -b=missing \
+            -c tools.system.package_manager:mode=install \
+            -c tools.system.package_manager:sudo=true
+
+      - name: Cache Emscripten ports
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.EM_CACHE }}
+          key: ${{ runner.os }}-emsdk-cache-${{ env.EMSDK_VERSION }}
+
+      - name: Pre-build Emscripten ports
+        run: |
+          source $EMSDK/emsdk_env.sh
+          export EM_CACHE=${{ env.EM_CACHE }}
+          export EMSDK_QUIET=1
+          # Create a dummy C file for port compilation
+          echo 'int main() { return 0; }' > /tmp/dummy.c
+          # Pre-compile SDL2, Freetype, Harfbuzz, SDL2_ttf ports
+          emcc /tmp/dummy.c -sUSE_SDL=2 -sUSE_SDL_TTF=2 -sUSE_FREETYPE=1 -sUSE_HARFBUZZ=1 -o /tmp/dummy.html || true
+          rm -f /tmp/dummy.*
+
+      - name: CMake configure for Emscripten
+        run: |
+          source $EMSDK/emsdk_env.sh
+          export EM_CACHE=${{ env.EM_CACHE }}
+          export EMSDK_QUIET=1
+          cmake -B ${{github.workspace}}/build/standalone/emscripten/debug \
+            -DCMAKE_TOOLCHAIN_FILE=$EMSDK/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake \
+            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DBUILD_LIBRARY=ON \
+            -DBUILD_STANDALONE=ON
+      
+      - name: CMake build for Emscripten
+        run: |
+          source $EMSDK/emsdk_env.sh
+          export EM_CACHE=${{ env.EM_CACHE }}
+          export EMSDK_QUIET=1
+          export EMCC_DEBUG=0
+          cmake --build ${{github.workspace}}/build/standalone/emscripten/debug --config ${{env.BUILD_TYPE}} -j1
+
+      - name: Upload Emscripten artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: emscripten-build
+          path: |
+            ${{github.workspace}}/build/standalone/emscripten/debug/*.html
+            ${{github.workspace}}/build/standalone/emscripten/debug/*.js
+            ${{github.workspace}}/build/standalone/emscripten/debug/*.wasm
+            ${{github.workspace}}/build/standalone/emscripten/debug/*.data
+

@@ -1,0 +1,55 @@
+{
+    "strings": [
+        {
+            "id": "Author",
+            "data": {
+                "en": "Tomas Mark",
+                "cs": "Tomáš Mark"
+            }
+        },
+        {
+            "id": "Email",
+            "data": {
+                "en": "Email",
+                "email": "tomas@digitalspace.name"
+            }
+        },
+        {
+            "id": "Phone",
+            "data": {
+                "en": "Phone",
+                "cs": "Telefon",
+                "tel": "+420731122800"
+            }
+        },
+        {
+            "id": "GitHub",
+            "data": {
+                "en": "GitHub",
+                "url": "https://github.com/tomasmark79"
+            }
+        },
+        {
+            "id": "LinkedIn",
+            "data": {
+                "en": "LinkedIn",
+                "url": "https://www.linkedin.com/in/tomas79/"
+            }
+        },
+        {
+            "id": "Discord",
+            "data": {
+                "en": "Discord",
+                "url": "https://discord.gg/4vkSjvvqSW"
+            }
+        },
+        {
+            "id": "Website",
+            "data": {
+                "en": "Website",
+                "cs": "Web",
+                "url": "https://digitalspace.name"
+            }
+        }
+    ]
+}

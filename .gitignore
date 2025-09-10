@@ -1,0 +1,99 @@
+# Coverage reports
+coverage.css
+coverage.functions.html
+coverage.html
+coverage.xml
+*.gcov
+*.gcda
+*.gcno
+lcov.info
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Build files
+/build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.ninja
+.ninja_deps
+.ninja_log
+compile_commands.json
+
+# Conan files
+conandata.yml
+conan.lock
+.conan/
+test_package/build/
+
+# IDE files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Object files and libraries
+*.o
+*.lo
+*.so
+*.so.*
+*.a
+*.la
+*.lib
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Log files
+*.log
+
+# Backup files
+/dotnamebackup/
+*.bak
+*.orig
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Documentation generated files
+/doc/html/
+/doc/latex/
+/doc/man/
+/doc/rtf/
+
+# Emscripten build artifacts
+*.wasm
+*.js.mem
+*.bc
+*.wast
+
+# Package files
+*.tar.gz
+*.zip
+*.deb
+*.rpm
+
+# CMake user presets
+CMakeUserPresets.json

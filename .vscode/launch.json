@@ -1,0 +1,53 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Dbg Debug Standalone",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/standalone/default/debug/DotNameStandalone",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/standalone/default/debug/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Direct Build"
+        },
+        {
+            "name": "Dbg Release Standalone",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/standalone/default/release/DotNameStandalone",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/standalone/default/release/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Dbg CMake configuration",
+            "type": "cmake",
+            "request": "launch",
+            "pipeName": "/tmp/cmake-debugger-pipe-579646ae-9674-4608-8bf2-4eeb83bacf31",
+            "cmakeDebugType": "external"
+        }
+    ]
+}
