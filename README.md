@@ -8,6 +8,8 @@ Production-ready C++ starter focused on fast iteration, keyboard‑driven workfl
 
 > Quick start: `Shift+F7` → "🦸 Zero to Hero" (configure, build, test, package). Then use `F7` (rebuild) and `F5` (debug).
 
+[Youtube QuickStart](https://www.youtube.com/watch?v=0WoN8i8f7-o)
+
 ---
 
 ## 📚 Table of Contents
