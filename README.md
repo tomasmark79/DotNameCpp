@@ -58,7 +58,7 @@ Copy `.vscode/keybindings.json` into your user settings once (if not already). T
 1. `Shift+F7` → Build Menu (first: "🦸 Zero to Hero")
 2. `F7` Rebuild · `F5` Debug · `Ctrl+Alt+R` Run
 3. `Ctrl+F7` Utilities (format / lint / docs / coverage)
-4. `Ctrl+Alt+E` Emscripten serve · Coverage: `Ctrl+Alt+Shift+H`
+4. `Ctrl+Alt+E` Emscripten serve · Coverage: `Ctrl+Alt+H`
 
 ---
 
@@ -76,6 +76,7 @@ Keyboard-first development: every major action = shortcut → menu → determini
 | **Ctrl+F7** | 🛠️ Other Tasks | Utilities, formatting, documentation, coverage |
 | **Ctrl+Alt+R** | Run Standalone | Execute the built standalone binary |
 | **Ctrl+Alt+E** | Launch Emscripten | Build and serve WebAssembly version |
+| **Ctrl+Alt+P** | Build All Presets | Build all CMake presets |
 
 ### 🔨 Build Tasks Menu (Shift+F7)
 
@@ -116,10 +117,9 @@ Secondary workflow for code quality and maintenance:
 | Shortcut | Action | Description |
 |----------|--------|-------------|
 | **Ctrl+Alt+Shift+C** | Configure with Coverage | Configure build with coverage enabled |
-| **Ctrl+Alt+Shift+H** | Coverage HTML Report | Generate and open HTML coverage report |
-| **Ctrl+Alt+Shift+F** | Coverage Full Report | Generate both HTML and XML coverage reports |
-| **Ctrl+Alt+Shift+T** | Coverage Tasks Menu | Show detailed coverage task options |
-| **Ctrl+Alt+Shift+O** | Quick Coverage Tasks | Fast access to coverage tasks (native only) |
+| **Ctrl+Alt+H** | Coverage HTML Report | Generate and open HTML coverage report |
+| **Ctrl+Alt+Shift+H** | Coverage Full Report | Generate both HTML and XML coverage reports |
+| **Ctrl+Alt+T** | Coverage Tasks Menu | Show detailed coverage task options |
 
 ### 🚀 Recommended Development Flow
 
@@ -127,7 +127,7 @@ Secondary workflow for code quality and maintenance:
 2. Iterate: `F7` build → `F5` debug → edit → repeat
 3. Quality: `Ctrl+F7` utilities (format / tidy / docs)
 4. Tests: `Shift+F7` → "🧪 Run CTest"
-5. Coverage (native default only): `Ctrl+Alt+Shift+H`
+5. Coverage (native default only): `Ctrl+Alt+H`
 
 ### 💡 Pro Tips
 
@@ -330,8 +330,8 @@ python SolutionController.py standalone "🔨 Build" default Debug
 python SolutionController.py standalone "🧪 Run CTest" default Debug
 
 # Cross-platform builds
-python SolutionController.py standalone "🔨 Build" emscripten Release
-python SolutionController.py standalone "🔨 Build" x86_64_w64_mingw32 Release
+python SolutionController.py standalone "🔨 Build" emscripten Debug
+python SolutionController.py standalone "🔨 Build" x86_64_w64_mingw32 Debug
 
 # Code coverage workflow
 python SolutionController.py standalone "📊 Configure with Coverage" default Debug
@@ -340,8 +340,9 @@ python SolutionController.py standalone "🧪 Run CTest" default Debug
 python SolutionController.py standalone "📊 Coverage HTML Report" default Debug
 
 # Development tools
-python SolutionController.py both "📐 Format Code" noNeedArch
 python SolutionController.py both "🔍 clang-tidy linting" default Debug
+python SolutionController.py both "📐 Format Code" noNeedArch
+python SolutionController.py both "📏 Format CMake" noNeedArch
 python SolutionController.py both "📖 Generate Documentation" noNeedArch
 ```
 
