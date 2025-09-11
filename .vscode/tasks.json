@@ -35,12 +35,6 @@
                 "🔨 Build",
                 "🔨 Build All CMakeUserPresets.json",
                 "🧪 Run Tests",
-                "📐 Format Code",
-                "📏 Format CMake",
-                "⚔️ Create Conan Recipe",
-                "📊 Dependency Graph",
-                "📖 Generate Documentation",
-                "🚀 Launch Emscripten Server",
                 "📜 Gather dependency licenses",
                 "📌 Install built components",
                 "🗜️ Create Tarballs for distribution",
@@ -104,6 +98,20 @@
                 "📊 Coverage Reset"
             ],
             "default": "📊 Coverage HTML Report"
+        },
+        {
+            /* COVERAGE ITEMS FROM OTHER MENU */
+            "id": "coverageTaskFromOther",
+            "type": "pickString",
+            "description": "Select Coverage Task from Other Menu",
+            "options": [
+                "📊 Coverage HTML Report",
+                "📊 Coverage XML Report",
+                "📊 Coverage Summary", 
+                "📊 Coverage Full Report",
+                "📊 Coverage Reset"
+            ],
+            "default": "📊 Coverage HTML Report"
         }
     ],
     "tasks": [
@@ -125,8 +133,8 @@
                 "isDefault": false
             },
             "detail": "Launch Standalone Emscripten",
-            "problemMatcher": [],
-            "isBackground": false,
+            "problemMatcher": ["$gcc"],
+            "isBackground": true,
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -135,9 +143,7 @@
                 "showReuseMessage": false,
                 "clear": true
             },
-            "dependsOn": [
-                /* "clear terminal" */ /* uncomment if you want to clear terminal before each task */
-            ]
+            "dependsOn": []
         },
         {
             "label": "Launch Standalone binary",
@@ -154,10 +160,16 @@
                 "isDefault": true
             },
             "detail": "Launch Standalone binary",
-            "problemMatcher": [],
-            "dependsOn": [
-                /* "clear terminal" */ /* uncomment if you want to clear terminal before each task */
-            ]
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "dependsOn": []
         },
         {
             /* TASKS RUN OTHER*/
@@ -175,7 +187,15 @@
                 "isDefault": true
             },
             "detail": "DotName Other Tasks",
-            "problemMatcher": [],
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
             "dependsOn": [
                 "clear terminal"
             ]
@@ -197,7 +217,15 @@
                 "isDefault": false
             },
             "detail": "Coverage tasks with hardcoded native build parameters",
-            "problemMatcher": [],
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
             "dependsOn": [
                 "clear terminal"
             ]
@@ -219,7 +247,15 @@
                 "isDefault": true
             },
             "detail": "DotName Building Tasks",
-            "problemMatcher": [],
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
             "dependsOn": [
                 "clear terminal"
             ]
@@ -241,7 +277,15 @@
                 "isDefault": false
             },
             "detail": "Direct Build",
-            "problemMatcher": [],
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
             "dependsOn": [
                 "clear terminal"
             ]
@@ -262,7 +306,15 @@
                 "isDefault": false
             },
             "detail": "Build All CMakePresets without additional inputs",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* DIRECT CLANG-TIDY C/C++ ( NEED MENU )  */
@@ -281,7 +333,15 @@
                 "isDefault": false
             },
             "detail": "clang-tidy",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* DIRECT CLANG-FORMAT */
@@ -299,7 +359,15 @@
                 "isDefault": false
             },
             "detail": "clang-format",
-            "problemMatcher": []
+            "problemMatcher": ["$python"],
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* DIRECT CMAKE-FORMAT */
@@ -317,7 +385,15 @@
                 "isDefault": false
             },
             "detail": "cmake-format",
-            "problemMatcher": []
+            "problemMatcher": ["$python"],
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* COVERAGE CONFIGURE */
@@ -336,7 +412,15 @@
                 "isDefault": false
             },
             "detail": "Configure build with code coverage enabled (native build only)",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* COVERAGE TASKS */
@@ -355,7 +439,15 @@
                 "isDefault": false
             },
             "detail": "Run coverage analysis tasks",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* COVERAGE HTML REPORT */
@@ -374,7 +466,15 @@
                 "isDefault": false
             },
             "detail": "Generate HTML coverage report and open in browser",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             /* COVERAGE FULL REPORT */
@@ -393,14 +493,31 @@
                 "isDefault": false
             },
             "detail": "Generate both HTML and XML coverage reports",
-            "problemMatcher": []
+            "problemMatcher": ["$python", "$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         { /* CLEAR TERMINAL */
             "label": "clear terminal",
             "type": "shell",
             "command": "clear",
             "group": "none",
-            "problemMatcher": []
+            "detail": "Clear terminal output",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         }
     ]
 }
