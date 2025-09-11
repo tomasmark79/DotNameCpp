@@ -568,7 +568,7 @@ def launch_emrun_server():
         pass  # Ignore errors if no process is running
     
     # Build the path to the emscripten build directory
-    emscripten_build_dir = os.path.join(workSpaceDir, buildFolderName, "standalone", "emscripten", "debug")
+    emscripten_build_dir = os.path.join(workSpaceDir, buildFolderName, "standalone", "emscripten", "debug", "bin")
     html_file = os.path.join(emscripten_build_dir, f"{st_name}.html")
     
     # Check if the HTML file exists
