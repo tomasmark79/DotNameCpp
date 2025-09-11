@@ -1,6 +1,5 @@
 {
-    /* MIT License
-       Copyright (c) 2024-2025 Tomáš Mark */
+    /* MIT License Copyright (c) 2024-2025 Tomáš Mark */
     "version": "2.0.0",
     "inputs": [
         {
@@ -148,12 +147,12 @@
         {
             "label": "Launch Standalone binary",
             "type": "shell",
-            "command": "${workspaceFolder}/build/standalone/default/debug/DotNameStandalone",
+            "command": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameStandalone",
             "args": [
                 ""
             ],
             "options": {
-                "cwd": "${workspaceFolder}/build/standalone/default/debug/"
+                "cwd": "${workspaceFolder}/build/standalone/default/debug/bin/"
             },
             "group": {
                 "kind": "build",
