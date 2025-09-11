@@ -712,10 +712,8 @@ For support, questions, or suggestions, please [open an issue](https://github.co
 
 ## ⚠️ Limitations & Notes
 
-- Coverage: native `default` architecture only.
-- Cross / wasm builds: build + (where applicable) run; no local coverage.
-- Conan package publishing example is planned.
-- Ensure clean git state before running renamer / upgrader scripts (easy rollback).
+- Coverage tasks manages native `default` `Debug` only.
 - Emscripten requires an appropriate Conan profile (not auto-installed).
+- Cross-compilation Conan profiles aren't auto-generated; users must create them.
 
 [🔝 Back to top](#dotnamecpp---advanced-c-development-template)
