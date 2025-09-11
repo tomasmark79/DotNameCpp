@@ -9,7 +9,7 @@ Production-ready C++ starter focused on fast iteration, keyboard‑driven workfl
 > Quick start: `Shift+F7` → "🦸 Zero to Hero" (configure, build, test, package). Then use `F7` (rebuild) and `F5` (debug).
 
 [YouTube Video DotNameCpp QuickStart](https://www.youtube.com/watch?v=0WoN8i8f7-o)  
-[YouTube Video DotNameCpp C++ Structure](https://www.youtube.com/watch?v=24snI1QVlIA)
+[YouTube Video DotNameCpp C++ Structure](https://www.youtube.com/watch?v=24snI1QVlIA)  
 [Discord](https://discord.gg/4vkSjvvqSW)
 
 ---
