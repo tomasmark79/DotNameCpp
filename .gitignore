@@ -82,6 +82,7 @@ Thumbs.db
 /doc/latex/
 /doc/man/
 /doc/rtf/
+graph.html
 
 # Emscripten build artifacts
 *.wasm
