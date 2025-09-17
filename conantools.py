@@ -7,6 +7,7 @@ import json
 import re
 import copy
 from pathlib import Path
+from conan.tools.files import copy
 from conan.tools.cmake import CMakeToolchain
 
 
