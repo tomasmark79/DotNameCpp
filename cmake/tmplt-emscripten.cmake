@@ -26,8 +26,8 @@ function(emscripten target isHtml reqPthreads customPrePath)
 
     message(STATUS "Emscripten environment detected")
 
-    # Define PLATFORM_WEB
-    target_compile_definitions(${target} PRIVATE PLATFORM_WEB USE_WEBGL2)
+    # Define __EMSCRIPTEN__ for conditional compilation
+    target_compile_definitions(${target} PRIVATE __EMSCRIPTEN__ USE_WEBGL2)
 
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}")
 

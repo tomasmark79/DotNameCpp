@@ -5,7 +5,7 @@
 #include <Logger/Logger.hpp>
 #include <Utils/Utils.hpp>
 
-#if defined(PLATFORM_WEB)
+#if defined(__EMSCRIPTEN__)
   #include <emscripten/emscripten.h>
 #endif
 

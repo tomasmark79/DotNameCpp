@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-#if defined(PLATFORM_WEB)
+#if defined(__EMSCRIPTEN__)
   #include <emscripten/emscripten.h>
 #else
   #include <cpptrace/cpptrace.hpp>
