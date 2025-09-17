@@ -5,6 +5,7 @@ This module combines all conan_tools functionality into a single file.
 import os
 import json
 import re
+import copy
 from pathlib import Path
 from conan.tools.cmake import CMakeToolchain
 
@@ -58,13 +59,17 @@ class ConanTools:
     def copy_additional_files(self):
         """Copy additional files from dependencies (customize as needed)"""
         # Example: Copy ImGui bindings
-        # if "imgui" in self.conan.deps_cpp_info.deps:
-        #     copy(self.conan, "*opengl3*", 
-        #          os.path.join(self.conan.dependencies["imgui"].package_folder, "res", "bindings"), 
-        #          os.path.join(self.conan.source_folder, "src/bindings"))
-        #     copy(self.conan, "*sdl2*", 
-        #          os.path.join(self.conan.dependencies["imgui"].package_folder, "res", "bindings"), 
-        #          os.path.join(self.conan.source_folder, "src/bindings"))
+        if "imgui" in self.conan.dependencies:
+            try:
+                imgui_dep = self.conan.dependencies["imgui"]
+                copy(self.conan, "*opengl3*", 
+                     os.path.join(imgui_dep.package_folder, "res", "bindings"), 
+                     os.path.join(self.conan.source_folder, "src/bindings"))
+                copy(self.conan, "*sdl2*", 
+                     os.path.join(imgui_dep.package_folder, "res", "bindings"), 
+                     os.path.join(self.conan.source_folder, "src/bindings"))
+            except Exception as e:
+                self.conan.output.warning(f"Could not copy ImGui bindings: {e}")
         pass
     
     # ========================================================================
