@@ -2,14 +2,15 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>Digitalspace.name</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' ry='16' fill='%23111'/%3E%3Ctext x='50' y='60' font-size='40' text-anchor='middle' fill='%23fff' font-family='Arial,Helvetica,sans-serif'%3EDot%3C/text%3E%3C/svg%3E">
     <style>
       :root {
         --bg-color: #ffffff;
-        --text-color: #5d879b;
-        --console-bg: #fcfeff0900;
-        --console-text: #5d879b;
+        --text-color: #000000;
+        --console-bg: #46abca30;
+        --console-text: #ffffff;
         --console-border: rgba(0, 0, 0, 0.2);
         --console-shadow: rgba(0, 0, 0, 0.1);
         --logo-bg: #e8f4f8;
@@ -45,9 +46,10 @@
       }
       canvas {
         display: block;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         background: transparent;
+        touch-action: none;
       }
       
       #console {
@@ -84,15 +86,55 @@
     <div id="console"></div>
     <script type="text/javascript">
       var canvas = document.getElementById('canvas');
+      
       function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // Get actual viewport dimensions (like the working version)
+        const width = window.innerWidth || document.documentElement.clientWidth;
+        const height = window.innerHeight || document.documentElement.clientHeight;
+        
+        // Set both CSS size and canvas resolution (NO device pixel ratio scaling!)
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        canvas.width = width;
+        canvas.height = height;
+        
+        console.log('Canvas resized - Size:', width + 'x' + height);
       }
+      
       window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('orientationchange', function () {
+        setTimeout(resizeCanvas, 100);
+      });
+      
       resizeCanvas();
+
+      // --- Simplified WebGL Context Initialization (like working version) ---
+      var webglContext = (function() {
+        var contextNames = ["webgl2", "webgl", "experimental-webgl"];
+        var context = null;
+        
+        for (var i = 0; i < contextNames.length; i++) {
+          try {
+            context = canvas.getContext(contextNames[i], { 
+              alpha: false,
+              powerPreference: "high-performance" 
+            });
+          } catch(e) {}
+          if (context) {
+            console.log("Initialized WebGL context with '" + contextNames[i] + "'");
+            break;
+          }
+        }
+        if (!context) {
+          console.error("Failed to initialize WebGL context.");
+        }
+        return context;
+      })();
+      // ---
 
       var Module = {
         canvas: canvas,
+        preinitializedWebGLContext: webglContext, // Pass the context to Emscripten
         print: function(text) {
           // Capture stdout from C++ and display in console
           addToConsole(text, 'stdout');
