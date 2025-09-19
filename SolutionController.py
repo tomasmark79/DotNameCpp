@@ -7,11 +7,13 @@ import re
 import tarfile
 import uuid
 import json
+import webbrowser
 
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
-scriptVersion = "v20250821"
+controllerVersion = "v20250919"
 
+systemPlatform = platform.system().lower()
 pythonVersion = sys.version.split()[0]
 baseName = os.path.basename(__file__)
 workSpaceDir = os.path.dirname(os.path.abspath(__file__))
@@ -120,13 +122,13 @@ if not buildArch == "noNeedArch":
     if buildArch in valid_archs:
         isCrossCompilation = (buildArch != "default")
     else:
-        if "darwin" in platform.system().lower():
+        if "darwin" in systemPlatform:
             isCrossCompilation = False
         else:
             exit_with_error("Undefined build architecture. Exiting.")
 
 def print_header():
-    print(f"{YELLOW}DotName Controller (c) 2024-2025 Tomáš Mark - {scriptVersion}{NC}")
+    print(f"{GREEN}DotNameCpp Solution Controller (c) 2024-2025 Tomáš Mark - {controllerVersion}{NC}")
     print(f"{GREY}Python runtime\t: {pythonVersion}{NC}")
     print(f"{LIGHTBLUE}taskName\t: {taskName}{NC}")
     print(f"Build Product\t: {LIGHTRED}{buildProduct}{NC}")
@@ -164,7 +166,7 @@ def log2file(message):
 def execute_command(cmd):
     print(f"{LIGHTBLUE}> Executed: {cmd}{NC}")
     log2file(cmd)
-    if platform.system().lower() == "windows":
+    if systemPlatform == "windows":
         result = subprocess.run(cmd, shell=True)
     else:
         result = subprocess.run(cmd, shell=True, executable="/bin/bash")
@@ -173,7 +175,7 @@ def execute_command(cmd):
 
 def execute_subprocess(cmd, executable):
     print(f"{LIGHTBLUE}> Executed: {cmd}{NC}")
-    if platform.system().lower() == "windows":
+    if systemPlatform == "windows":
         executable = "C:\\Windows\\System32\\cmd.exe"
     log2file(cmd)
     result = subprocess.run(cmd, shell=True, executable=executable)
@@ -218,7 +220,7 @@ def cmake_configure(src, bdir, isCMakeDebugger=False, enable_coverage=False):
         print(f"{LIGHTBLUE} using file:", conan_toolchain_file_path, NC)
         DCMAKE_TOOLCHAIN_FILE_CMD = f'-DCMAKE_TOOLCHAIN_FILE="{conan_toolchain_file_path}"'
         # Linux and MacOS
-        if platform.system().lower() in ["linux", "darwin"]:
+        if systemPlatform in ["linux", "darwin"]:
             # CMake configuration for Linux and MacOS with Conan toolchain
             conan_build_sh_file = os.path.join(workSpaceDir, bdir, "conanbuild.sh")
             if (not isCMakeDebugger):
@@ -273,7 +275,7 @@ def cmake_configure(src, bdir, isCMakeDebugger=False, enable_coverage=False):
             # Execute comfigure bash command
             execute_subprocess(bashCmd, "/bin/bash")
         # Windows
-        if platform.system().lower() == "windows":
+        if systemPlatform == "windows":
             # CMake configuration for Windows x64 with Conan toolchain
             conan_build_bat_file = os.path.join(workSpaceDir, bdir, "conanbuild.bat")
             if (not isCMakeDebugger):
@@ -550,8 +552,10 @@ def find_clang_tidy():
     return "clang-tidy"  # Fallback to default clang-tidy if no versioned one is found
 
 def launch_emrun_server():
-    """Launch Emscripten emrun server for standalone application"""
-    # Get the standalone name from CMakeLists.txt
+    """Launch Emscripten emrun server for standalone application."""
+    """Serving whole workspace enabling load and debugging C++ in browser DevTools."""
+
+    # Get the standalone name and version from CMakeLists.txt
     try:
         lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
     except Exception as e:
@@ -560,52 +564,43 @@ def launch_emrun_server():
     # Kill any existing emrun processes first
     try:
         print(f"{YELLOW}Stopping any existing emrun processes...{NC}")
-        if platform.system().lower() == "windows":
+        if systemPlatform == "windows":
             subprocess.run("taskkill /F /IM emrun.exe", shell=True, capture_output=True)
         else:
+            # Unix-like
             subprocess.run(f"pkill -f 'emrun.*{st_name}.html'", shell=True, capture_output=True)
     except Exception:
-        pass  # Ignore errors if no process is running
+        print(f"{YELLOW}No existing emrun processes found or failed to stop them.{NC}")
     
     # Build the path to the emscripten build directory
-    emscripten_build_dir = os.path.join(workSpaceDir, buildFolderName, "standalone", "emscripten", "debug", "bin")
-    html_file = os.path.join(emscripten_build_dir, f"{st_name}.html")
+    emscripten_build_dir_relative = os.path.join(buildFolderName, "standalone", "emscripten", "debug", "bin")
+    html_file = os.path.join(workSpaceDir, emscripten_build_dir_relative, f"{st_name}.html")
     
     # Check if the HTML file exists
     if not os.path.exists(html_file):
         exit_with_error(f"HTML file not found: {html_file}\nPlease build the Emscripten target first.")
     
     # Change to the build directory
-    os.chdir(emscripten_build_dir)
-    print(f"{GREEN}Starting emrun server in: {emscripten_build_dir}{NC}")
-    print(f"{GREEN}Serving: {st_name}.html{NC}")
-    
+    os.chdir(workSpaceDir)  # Serve whole workspace due to relative paths in HTML
+    print(f"{GREEN}Starting emrun server in: {workSpaceDir}{NC}")
+    print(f"{GREEN}Serving relative path: {emscripten_build_dir_relative}/{st_name}.html{NC}")
+
     # Start emrun server
     try:
-        if platform.system().lower() == "windows":
-            # On Windows, start emrun in background
+        if systemPlatform == "windows":
             subprocess.Popen(f"emrun {st_name}.html", shell=True, 
                            creationflags=subprocess.CREATE_NEW_CONSOLE)
         else:
-            # On Unix-like systems, start emrun in background
-            subprocess.Popen(f"nohup emrun {st_name}.html > /dev/null 2>&1 &", 
-                           shell=True, executable="/bin/bash")
-        
-        import time
-        time.sleep(1)  # Give emrun a moment to start
+            # Unix-like
+            subprocess.Popen(f"nohup emrun {workSpaceDir} > /dev/null 2>&1 &", shell=True, executable="/bin/bash")
+       
         print(f"{GREEN}Emrun server started successfully!{NC}")
         print(f"{LIGHTBLUE}Server should be available at: http://localhost:6931/{NC}")
-        
-        # Try to open in browser (optional)
-        try:
-            if platform.system().lower() == "windows":
-                subprocess.run("start http://localhost:6931/", shell=True)
-            elif platform.system().lower() == "darwin":  # macOS
-                subprocess.run("open http://localhost:6931/", shell=True)
-            else:  # Linux
-                subprocess.run("xdg-open http://localhost:6931/ 2>/dev/null || true", shell=True)
-        except Exception:
-            pass  # Ignore browser opening errors
+
+        # Open the URL in the default web browser
+        url = f"http://localhost:6931/{emscripten_build_dir_relative}/{st_name}.html"
+        print("Opening default browser...")
+        webbrowser.open(url)
             
     except Exception as e:
         exit_with_error(f"Failed to start emrun server: {e}")
@@ -665,40 +660,13 @@ def conan_create():
     cmd = f'conan create "{workSpaceDir}"'
     execute_command(cmd)
 
-def open_in_browser(file_path):
-    """Open a file in the default web browser across different platforms."""
-    if not os.path.isfile(file_path):
-        print(f"File '{file_path}' does not exist.")
-        return False
-    
-    if platform.system().lower() == "windows":
-        os.startfile(file_path)
-    elif platform.system().lower() == "darwin":
-        subprocess.run(["open", file_path])
-    else:
-        # Linux: Try multiple browsers in order of preference
-        browsers = ["google-chrome", "chromium", "chromium-browser", "librewolf", "firefox"]
-        browser_opened = False
-        
-        for browser in browsers:
-            if shutil.which(browser):
-                subprocess.run([browser, file_path])
-                browser_opened = True
-                break
-        
-        if not browser_opened:
-            # Fallback to xdg-open with the HTML file
-            subprocess.run(["xdg-open", file_path])
-    
-    return True
-
 def conan_graph():
     cmd = f'conan graph info "{workSpaceDir}" --format=html > graph.html'
     execute_command(cmd)
 
     # Open the generated graph in the default web browser
     graph_file = os.path.join(workSpaceDir, "graph.html")
-    open_in_browser(graph_file)
+    webbrowser.open(graph_file)
 
 # Function to generate Doxygen documentation
 def doxygen_documentation():
@@ -716,8 +684,8 @@ def doxygen_documentation():
     # Open the generated documentation in the default web browser
     html_dir = os.path.join(workSpaceDir, "doc/html")
     index_file = os.path.join(html_dir, "index.html")
-    
-    if not open_in_browser(index_file):
+
+    if not webbrowser.open(index_file):
         print(f"Documentation index file '{index_file}' does not exist. Please check the Doxygen configuration.")
 
 # ------ coverage functions -----------------------------------
@@ -733,7 +701,7 @@ def run_coverage_html():
         # Try to open coverage report in browser
         coverage_file = os.path.join(os.getcwd(), "coverage.html")
         if os.path.exists(coverage_file):
-            open_in_browser(coverage_file)
+            webbrowser.open(coverage_file)
             print(f"Coverage HTML report opened in browser: {coverage_file}")
         else:
             print(f"Coverage report not found at {coverage_file}")
@@ -777,7 +745,7 @@ def run_coverage_full():
         # Try to open HTML coverage report in browser
         coverage_file = os.path.join(os.getcwd(), "coverage.html")
         if os.path.exists(coverage_file):
-            open_in_browser(coverage_file)
+            webbrowser.open(coverage_file)
             print(f"Coverage HTML report opened in browser: {coverage_file}")
         
         # Check XML report
