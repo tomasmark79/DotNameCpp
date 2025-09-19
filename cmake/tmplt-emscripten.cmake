@@ -1,23 +1,8 @@
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
-# clear cache
-# ./emcc --clear-cache
+# clear cache ./emcc --clear-cache
 
-# SERVER SIDE DEPENDENCIES
-# Apache directives example for CORS:
-# <IfModule mod_headers.c>
-#     Header set Cross-Origin-Opener-Policy "same-origin"
-#     Header set Cross-Origin-Embedder-Policy "require-corp"
-# </IfModule>
-
-# Check if WebGL 2.0 is supported in the browser:
-# const gl = canvas.getContext('webgl2');
-# if (gl) {
-#     console.log('WebGL 2.0 is active');
-#     console.log('GL Version:', gl.getParameter(gl.VERSION));
-# } else {
-#     console.log('WebGL 2.0 not supported');
-# }
+set(USER_DEFINED_PTHREAD_POOL_SIZE "PTHREAD_POOL_SIZE=4")
 
 function(emscripten target isHtml reqPthreads customPrePath)
     if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
@@ -26,7 +11,7 @@ function(emscripten target isHtml reqPthreads customPrePath)
 
     message(STATUS "Emscripten environment detected")
 
-    # Define __EMSCRIPTEN__ for conditional compilation
+    # Define __EMSCRIPTEN__
     target_compile_definitions(${target} PRIVATE __EMSCRIPTEN__ USE_WEBGL2)
 
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}")
@@ -39,8 +24,6 @@ function(emscripten target isHtml reqPthreads customPrePath)
     # Emscripten flags
     set(EMCC_FLAGS_WASM "-s WASM=1")
     set(EMCC_FLAGS_MP3 "-s USE_SDL_MIXER=2 -s SDL2_MIXER_FORMATS='[\"mp3\"]'")
-    set(EMCC_FLAGS_OPTIMIZATION "-O3")
-    set(EMCC_FLAGS_WEBGL2 "-s USE_WEBGL2=1 -s MIN_WEBGL_VERSION=2 -s MAX_WEBGL_VERSION=2")
     set(EMCC_FLAGS_SDL2 "-s USE_SDL=2")
     set(EMCC_FLAGS_SDL2_IMAGE "-s USE_SDL_IMAGE=2")
     set(EMCC_FLAGS_SDL2_TTF "-s USE_SDL_TTF=2")
@@ -48,15 +31,24 @@ function(emscripten target isHtml reqPthreads customPrePath)
     set(EMCC_FLAGS_ASYNCIFY "-s ASYNCIFY")
     set(EMCC_FLAGS_MEMORY "-s ALLOW_MEMORY_GROWTH=1")
     set(EMCC_FLAGS_EXCEPTIONS "-sNO_DISABLE_EXCEPTION_CATCHING")
+    set(EMCC_FLAGS_WEBGL2 "-s USE_WEBGL2=1 -s MIN_WEBGL_VERSION=2 -s MAX_WEBGL_VERSION=2")
 
-    # Future flags (not used yet)
-    # set(EMCC_FLAGS_GL_PROC "-s GL_ENABLE_GET_PROC_ADDRESS=1")
-    # set(EMCC_FLAGS_ASSERTIONS "-s ASSERTIONS=1")
+    # Debug flags
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        message(STATUS "Debug build for Emscripten")
+        set(EMCC_COMPILER_FLAGS_OPTIMIZATION "-O0")
+        set(EMCC_LINKER_FLAGS_ASSERTIONS "-s ASSERTIONS=1")
+        set(EMCC_LINKER_FLAGS_DEBUG "-gsource-map -s SAFE_HEAP=1 -s STACK_OVERFLOW_CHECK=1")
+    else()
+        set(EMCC_COMPILER_FLAGS_OPTIMIZATION "-O3")
+        set(EMCC_LINKER_FLAGS_ASSERTIONS "")
+        set(EMCC_LINKER_FLAGS_DEBUG "")
+    endif()
 
     # Pthread configuration
     if(reqPthreads EQUAL 1)
         set(EMCC_FLAGS_PTHREAD "-s USE_PTHREADS=1 -pthread")
-        set(EMCC_FLAGS_PTHREAD_POOL "-s PTHREAD_POOL_SIZE=8")
+        set(EMCC_FLAGS_PTHREAD_POOL "-s ${USER_DEFINED_PTHREAD_POOL_SIZE}")
     else()
         set(EMCC_FLAGS_PTHREAD "")
         set(EMCC_FLAGS_PTHREAD_POOL "")
@@ -67,27 +59,29 @@ function(emscripten target isHtml reqPthreads customPrePath)
         set(customPrePath "--preload-file ${CMAKE_SOURCE_DIR}/assets@share/${target}/assets")
     endif()
 
-    # Custom assets path - use CMAKE_SOURCE_DIR for modular structure
+    # Custom HTML shell file
     if(target MATCHES "LibTester")
         set(customHtmlPath "--shell-file ${CMAKE_SOURCE_DIR}/assets/ems-mini.html")
     else()
         set(customHtmlPath "--shell-file ${CMAKE_SOURCE_DIR}/assets/ems-mini.html")
     endif()
 
-    # Build compile flags
+    # Join compiler flags into strings
     set(COMPILE_FLAGS_LIST
-        ${EMCC_FLAGS_OPTIMIZATION}
+        ${EMCC_COMPILER_FLAGS_OPTIMIZATION}
         ${EMCC_FLAGS_PTHREAD}
         ${EMCC_FLAGS_SDL2}
         ${EMCC_FLAGS_SDL2_IMAGE}
         ${EMCC_FLAGS_SDL2_TTF}
         ${EMCC_FLAGS_SDL2_MIXER}
-        ${EMCC_FLAGS_EXCEPTIONS}
-    )
+        ${EMCC_FLAGS_EXCEPTIONS})
     string(JOIN " " COMPILE_FLAGS_STRING ${COMPILE_FLAGS_LIST})
 
-    # Build link flags
+    # Join linker flags into strings
     set(LINK_FLAGS_LIST
+        ${EMCC_LINKER_FLAGS_DEBUG}
+        ${EMCC_LINKER_FLAGS_ASSERTIONS}
+        ${EMCC_FLAGS_GSOURCE_MAP}
         ${EMCC_FLAGS_WEBGL2}
         ${EMCC_FLAGS_MP3}
         ${EMCC_FLAGS_ASYNCIFY}
@@ -101,26 +95,20 @@ function(emscripten target isHtml reqPthreads customPrePath)
         ${EMCC_FLAGS_SDL2_MIXER}
         ${EMCC_FLAGS_EXCEPTIONS}
         ${customPrePath}
-        ${customHtmlPath}
-    )
+        ${customHtmlPath})
     string(JOIN " " LINK_FLAGS_STRING ${LINK_FLAGS_LIST})
 
     # Apply flags to target
-    set_target_properties(${target} PROPERTIES
-        COMPILE_FLAGS "${COMPILE_FLAGS_STRING}"
-        LINK_FLAGS "${LINK_FLAGS_STRING}"
-    )
+    set_target_properties(${target} PROPERTIES COMPILE_FLAGS "${COMPILE_FLAGS_STRING}"
+                                               LINK_FLAGS "${LINK_FLAGS_STRING}")
 
-    # Note: Assets are now accessed only through Emscripten virtual filesystem
-    # No redundant copying needed - HTML loads assets via FS.readFile()
+    # Note: Assets are now accessed only through Emscripten virtual filesystem No redundant copying
+    # needed - HTML loads assets via FS.readFile()
 
     # macOS specific frameworks (only required on macOS)
     if(APPLE)
-        target_link_libraries(${target} PRIVATE
-            "-framework IOKit"
-            "-framework Cocoa"
-            "-framework OpenGL"
-        )
+        target_link_libraries(${target} PRIVATE "-framework IOKit" "-framework Cocoa"
+                                                "-framework OpenGL")
     endif()
 
 endfunction()
