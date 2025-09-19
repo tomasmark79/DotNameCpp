@@ -568,7 +568,7 @@ def launch_emrun_server():
             subprocess.run("taskkill /F /IM emrun.exe", shell=True, capture_output=True)
         else:
             # Unix-like
-            subprocess.run(f"pkill -f 'emrun.*{st_name}.html'", shell=True, capture_output=True)
+            subprocess.run(f"pkill -f 'emrun.*'", shell=True, capture_output=True)
     except Exception:
         print(f"{YELLOW}No existing emrun processes found or failed to stop them.{NC}")
     
