@@ -5,11 +5,9 @@ This module combines all conan_tools functionality into a single file.
 import os
 import json
 import re
-import copy
 from pathlib import Path
 from conan.tools.files import copy
 from conan.tools.cmake import CMakeToolchain
-
 
 class ConanTools:
     """
@@ -275,3 +273,4 @@ class CMakePatches:
     
     def remove_stdcpp_from_system_libs(self):
         return self._tools.remove_stdcpp_from_system_libs()
+    
