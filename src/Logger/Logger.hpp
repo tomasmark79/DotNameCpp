@@ -219,7 +219,7 @@ public:
   }
 
 #ifdef _WIN32
-  void setConsoleColorWindows (Level level) {
+  static void setConsoleColorWindows (Level level) {
     const std::map<Level, WORD> colorMap
         = { { Level::LOG_DEBUG, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
             { Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },

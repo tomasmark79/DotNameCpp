@@ -21,6 +21,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cmath>
+#include <thread>
 
 // fullfilled from ../cmake/tmplt-assets.cmake)
 #ifndef UTILS_ASSET_PATH
