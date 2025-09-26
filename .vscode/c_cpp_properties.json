@@ -20,7 +20,10 @@
                 "reduce": "always",
                 "priority": "beforeSystemIncludes",
                 "order": "breadthFirst"
-            }
+            },
+            "compileCommands": [
+                "${workspaceFolder}/build/standalone/default/debug/compile_commands.json"
+            ]
         }
     ],
     "version": 4
