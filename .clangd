@@ -1,0 +1,29 @@
+# Globální clangd konfigurace - bez projekt-specifických cest
+
+Index:
+  Background: Build
+
+Diagnostics:
+  ClangTidy:
+    Add: [performance-*, readability-*, modernize-*]
+    Remove: [modernize-use-trailing-return-type]
+    CheckOptions:
+      readability-identifier-length.MinimumVariableNameLength: 1
+      readability-identifier-length.MinimumParameterNameLength: 1  
+      readability-identifier-length.MinimumLoopCounterNameLength: 1
+      readability-identifier-length.IgnoredVariableNames: "^[a-z]$"
+      readability-identifier-length.IgnoredParameterNames: "^[a-z]$"
+  UnusedIncludes: Strict
+
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+
+CompileFlags:
+  Add: [-Wall, -Wextra, -std=c++17]
+  Remove: [-W*]
+  CompilationDatabase: build/standalone/default/debug/
+
+Completion:
+  AllScopes: true
