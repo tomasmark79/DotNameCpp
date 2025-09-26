@@ -33,6 +33,7 @@
         "bradlc.vscode-tailwindcss",
         "danielatanasov.todo",
         "ms-vscode.vscode-speech",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "ms-vscode.cmake-tools"
     ]
 }
