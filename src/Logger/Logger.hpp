@@ -1,7 +1,7 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
+#ifndef __LOGGER_HEADER_GUARD__
+#define __LOGGER_HEADER_GUARD__
 
-#ifndef LOGGER_HPP
-#define LOGGER_HPP
+// MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #include <chrono>
 #include <fstream>
@@ -413,4 +413,4 @@ public:
   #define LOG_C_FMT(format, ...) Logger::getInstance().logFmtMessage(Logger::Level::LOG_CRITICAL, format, FUNCTION_NAME, __VA_ARGS__)
 // clang-format on
 
-#endif // LOGGER_HPP
+#endif // __LOGGER_HEADER_GUARD__

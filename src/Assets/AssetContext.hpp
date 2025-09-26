@@ -1,7 +1,7 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
+#ifndef __ASSETCONTEXT_HEADER_GUARD__
+#define __ASSETCONTEXT_HEADER_GUARD__
 
-#ifndef __ASSETCONTEXT_H__
-#define __ASSETCONTEXT_H__
+// MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #include <filesystem>
 
@@ -13,4 +13,4 @@ namespace AssetContext {
                                         const std::string& appName);
 }
 
-#endif // __ASSETCONTEXT_H__
+#endif // __ASSETCONTEXT_HEADER_GUARD__

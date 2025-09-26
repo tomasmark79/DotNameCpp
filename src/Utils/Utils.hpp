@@ -1,7 +1,7 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
+#ifndef __UTILS_HEADER_GUARD__
+#define __UTILS_HEADER_GUARD__
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+// MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #define CUSTOM_STRINGS_FILE "customstrings.json"
 
@@ -489,4 +489,4 @@ namespace DotNameUtils {
 
 } // namespace DotNameUtils
 
-#endif // UTILS_HPP
+#endif // __UTILS_HEADER_GUARD__
