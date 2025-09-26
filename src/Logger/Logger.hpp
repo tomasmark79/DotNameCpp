@@ -8,11 +8,10 @@
 #include <iomanip>
 #include <iostream>
 #include <map>
-#include <memory>
 #include <mutex>
 #include <sstream>
 #include <string>
-#include <thread>
+#include <cstdint>
 
 #include "fmt/core.h"
 
@@ -84,7 +83,6 @@ public:
     return instance;
   }
 
-public:
   static void setAddNewLine (bool addNewLine) {
     getInstance ().addNewLine_ = addNewLine;
   }
@@ -92,9 +90,7 @@ public:
   static bool isAddNewLine () {
     return getInstance ().addNewLine_;
   }
-
-public:
-  enum class Level { LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR, LOG_CRITICAL };
+  enum class Level : std::uint8_t { LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR, LOG_CRITICAL };
 
 private:
 #ifdef DEBUG
@@ -149,7 +145,7 @@ public:
     if (logFile_.is_open ()) {
       logFile_ << "[" << std::put_time (&now_tm, "%d-%m-%Y %H:%M:%S") << "] ";
       logFile_ << "[" << (caller.empty () ? "empty caller" : caller) << "] ";
-      logFile_ << "[" << levelToString (level) << "] " << message << std::endl;
+      logFile_ << "[" << levelToString (level) << "] " << message << "\n";
     }
   }
 
@@ -160,7 +156,6 @@ public:
     log (level, message, caller);
   }
 
-public:
   // Metody pro nastavení a získání úrovně logování
   void setLevel (Level level) {
     std::lock_guard<std::mutex> lock (logMutex_);
@@ -171,20 +166,19 @@ public:
     return currentLevel_;
   }
 
-public:
   bool enableFileLogging (const std::string& filename) {
     std::lock_guard<std::mutex> lock (logMutex_);
     try {
       logFile_.open (filename, std::ios::out | std::ios::app);
       return logFile_.is_open ();
     } catch (const std::ios_base::failure& e) {
-      std::cerr << "Failed to open log file: " << filename << " - " << e.what () << std::endl;
+      std::cerr << "Failed to open log file: " << filename << " - " << e.what () << "\n";
       return false;
     } catch (const std::exception& e) {
-      std::cerr << "Failed to open log file: " << filename << " - " << e.what () << std::endl;
+      std::cerr << "Failed to open log file: " << filename << " - " << e.what () << "\n";
       return false;
     } catch (...) {
-      std::cerr << "Failed to open log file: " << filename << std::endl;
+      std::cerr << "Failed to open log file: " << filename << "\n";
       return false;
     }
   }
@@ -196,7 +190,7 @@ public:
     }
   }
 
-  std::string levelToString (Level level) const {
+  static std::string levelToString (Level level) {
     switch (level) {
     case Level::LOG_DEBUG:
       return "DBG";
@@ -213,7 +207,7 @@ public:
     }
   }
 
-  void resetConsoleColor () {
+  static void resetConsoleColor () {
 #ifdef _WIN32
     SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE),
                              FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
@@ -240,7 +234,7 @@ public:
     }
   }
 #else
-  void setConsoleColorUnix (Level level) {
+  static void setConsoleColorUnix (Level level) {
     static const std::map<Level, const char*> colorMap = { { Level::LOG_DEBUG, "\033[34m" },
                                                            { Level::LOG_INFO, "\033[32m" },
                                                            { Level::LOG_WARNING, "\033[33m" },
@@ -255,7 +249,7 @@ public:
   }
 #endif
 
-  void setConsoleColor (Level level) {
+  static void setConsoleColor (Level level) {
 #ifdef _WIN32
     setConsoleColorWindows (level);
 #elif EMSCRIPTEN
@@ -285,7 +279,7 @@ private:
 
     // Přidat nový řádek pokud je požadován
     if (addNewLine_) {
-      stream << std::endl;
+      stream << "\n";
     }
   }
 
@@ -348,7 +342,6 @@ public:
     showHeaderLevel (incLevel);
   }
 
-public:
   class LogStream {
   public:
     LogStream (Logger& logger, Level level, const std::string& caller)

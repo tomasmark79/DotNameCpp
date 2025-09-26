@@ -12,7 +12,6 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <memory>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -43,7 +42,6 @@
   #include <limits.h>
   #include <mach-o/dyld.h>
 #else // Linux
-  #include <limits.h>
   #include <unistd.h>
 #endif
 
@@ -204,8 +202,9 @@ namespace DotNameUtils {
         nlohmann::json current = json;
 
         while (std::getline (pathStream, segment, '/')) {
-          if (segment.empty ())
+          if (segment.empty ()) {
             continue;
+          }
 
           // Check if segment is numeric (array index)
           if (std::all_of (segment.begin (), segment.end (), ::isdigit)) {
@@ -333,12 +332,8 @@ namespace DotNameUtils {
     // Validate JSON against basic schema
     inline bool validateStructure (const nlohmann::json& json,
                                    const std::vector<std::string>& requiredKeys) {
-      for (const auto& key : requiredKeys) {
-        if (!json.contains (key)) {
-          return false;
-        }
-      }
-      return true;
+      return std::all_of (requiredKeys.begin (), requiredKeys.end (),
+                          [&json] (const std::string& key) { return json.contains (key); });
     }
 
     // Pretty print JSON to string
@@ -371,35 +366,41 @@ namespace DotNameUtils {
         auto linkedin = getUrl (customStrings, "LinkedIn");
         auto discord = getUrl (customStrings, "Discord");
 
-        if (email)
+        if (email) {
           result += "Email: " + *email + "\n";
-        else
+        } else {
           result += "No email provided.\n";
+        }
 
-        if (phone)
+        if (phone) {
           result += "Phone: " + *phone + "\n";
-        else
+        } else {
           result += "No phone provided.\n";
+        }
 
-        if (website)
+        if (website) {
           result += "Website: " + *website + "\n";
-        else
+        } else {
           result += "No website provided.\n";
+        }
 
-        if (github)
+        if (github) {
           result += "GitHub: " + *github + "\n";
-        else
+        } else {
           result += "No GitHub provided.\n";
+        }
 
-        if (linkedin)
+        if (linkedin) {
           result += "LinkedIn: " + *linkedin + "\n";
-        else
+        } else {
           result += "No LinkedIn provided.\n";
+        }
 
-        if (discord)
+        if (discord) {
           result += "Discord: " + *discord;
-        else
+        } else {
           result += "No Discord provided.";
+        }
 
       } catch (const std::exception& e) {
         result = "Error loading custom strings: " + std::string (e.what ());
@@ -411,16 +412,17 @@ namespace DotNameUtils {
 
   namespace Performance {
 
+#define iterationCount 1000
     inline double heavy_calculation (double x) {
       double result = x;
-      for (int i = 0; i < 1000; i++) {
+      for (int i = 0; i < iterationCount; i++) {
         result = sin (result) + cos (result);
       }
       return result;
     }
 
     inline void parUnseqHeavyCalculation (double initialValue) {
-      LOG_I_STREAM << "Parallel unsequenced heavy calculation" << std::endl;
+      LOG_I_STREAM << "Parallel unsequenced heavy calculation" << "\n";
       const size_t N = 500'000; std::vector<double> data (N); iota (data.begin (), data.end (), initialValue);
 
 #if defined(__cpp_lib_execution) && __cpp_lib_execution >= 201603L && !defined(__APPLE__)
@@ -460,10 +462,11 @@ namespace DotNameUtils {
 #endif
     }
 
+#define iterationCountSimple 1000000
     inline void simpleCpuBenchmark (std::chrono::microseconds duration
-                                    = std::chrono::microseconds (1000000)) {
-      LOG_I_STREAM << "Simple CPU benchmark" << std::endl;
-      LOG_I_STREAM << "CPU cores: " << std::thread::hardware_concurrency () << std::endl;
+                                    = std::chrono::microseconds (iterationCountSimple)) {
+      LOG_I_STREAM << "Simple CPU benchmark" << "\n";
+      LOG_I_STREAM << "CPU cores: " << std::thread::hardware_concurrency () << "\n";
       auto start = std::chrono::high_resolution_clock::now ();
       auto end = start + duration;
       long int iterations = 0;
@@ -482,8 +485,8 @@ namespace DotNameUtils {
       auto actualDuration
           = std::chrono::duration_cast<std::chrono::milliseconds> (actualEnd - start);
       std::string iterationsStr = std::to_string (iterations);
-      LOG_I_STREAM << "CPU benchmark duration: " << actualDuration.count () << " ms" << std::endl;
-      LOG_I_STREAM << "Total iterations: " << Dots::addDots (iterationsStr) << std::endl;
+      LOG_I_STREAM << "CPU benchmark duration: " << actualDuration.count () << " ms" << "\n";
+      LOG_I_STREAM << "Total iterations: " << Dots::addDots (iterationsStr) << "\n";
     }
   } // namespace Performance
 

@@ -9,7 +9,7 @@ namespace {
 
 namespace AssetContext {
 
-  void clearAssetsPath (void) {
+  void clearAssetsPath () {
     g_assetsPath.clear ();
   }
 

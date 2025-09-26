@@ -6,7 +6,7 @@
 #include <filesystem>
 
 namespace AssetContext {
-  void clearAssetsPath (void);
+  void clearAssetsPath ();
   void setAssetsPath (const std::filesystem::path& path);
   const std::filesystem::path& getAssetsPath ();
   std::filesystem::path findAssetsPath (const std::filesystem::path& executablePath,
