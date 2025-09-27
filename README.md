@@ -154,7 +154,7 @@ Secondary workflow for code quality and maintenance:
 - **Cross-Compilation**: ARM, x86, x64 architectures, etc.
 
 ### 🧰 **Development Tools Integration**
-- **Dual Language Servers**: clangd (IntelliSense) + ccls (CodeLens) setup
+- **Dual Language Servers**: clangd (IntelliSense) + ccls (CodeLens + semantic rainbow)
 - **Static Analysis**: clang-tidy with comprehensive rule sets
 - **Code Formatting**: clang-format and cmake-format
 - **Documentation**: Doxygen with automated generation
@@ -434,7 +434,8 @@ def requirements(self):
 This template uses a **dual LSP configuration** optimized for C++ development:
 
 - **clangd** - Primary LSP for IntelliSense, code completion, and diagnostics
-- **ccls** - Secondary LSP exclusively for CodeLens reference counting  
+- **ccls** - Secondary LSP for CodeLens reference counting + semantic highlighting (rainbow colors)
+
 [if you want your own ccls building & installation instructions](https://github.com/MaskRay/ccls/wiki/Build)
 
 #### Required VS Code Extensions
@@ -448,6 +449,11 @@ sudo dnf install clang-tools-extra
 # - Disable MS C/C++ IntelliSense (set C_Cpp.intelliSenseEngine: "disabled")
 ```
 
+#### Key Features
+- **CodeLens**: Reference counting above functions/methods
+- **Semantic Rainbow**: Advanced syntax highlighting with rainbow colors for better code readability
+- **Diagnostics disabled**: Only clangd provides error/warning diagnostics
+
 #### Configuration Files
 
 The template includes pre-configured `.clangd` and `.ccls` files:
@@ -459,10 +465,11 @@ The template includes pre-configured `.clangd` and `.ccls` files:
 - Inlay hints for parameters and deduced types
 - Compilation database path: `build/standalone/default/debug/`
 
-**📁 `.ccls`** - CodeLens-only configuration:
+**📁 `.ccls`** - CodeLens + semantic highlighting configuration:
 - Header file detection for `.h`, `.hpp`, `.hxx`
 - Include paths for project structure
 - Objective-C and CUDA support
+- Diagnostics disabled (handled by clangd)
 
 #### Troubleshooting
 ```bash

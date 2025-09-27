@@ -9,7 +9,7 @@ This setup combines **clangd** for IntelliSense and diagnostics with **ccls** fo
 
 ### 1. **Dual Language Server Architecture**
 - **clangd** - Primary LSP for IntelliSense, code completion, diagnostics
-- **ccls** - Secondary LSP solely for CodeLens (reference counting)
+- **ccls** - Secondary LSP for CodeLens (reference counting) + semantic rainbow highlighting
 
 ### 2. **Required VS Code Extensions**
 ```bash
@@ -99,14 +99,15 @@ Completion:
         "--clang-tidy"                  // Enable clang-tidy checks
     ],
     
-    // CCLS - CodeLens only
+    // CCLS - CodeLens + semantic highlighting only
     "ccls.launch.command": "ccls",
     "ccls.cache.directory": "/home/user/.cache/ccls-cache",
     "ccls.codeLens.enabled": true,
     "ccls.codeLens.localVariables": false,
-    "ccls.diagnostics.onChange": 0,    // Disabled - using clangd
-    "ccls.diagnostics.onOpen": 0,      // Disabled - using clangd
-    "ccls.diagnostics.onSave": 1       // Minimal check on save
+    "ccls.diagnostics.onChange": -1,    // Disabled - using clangd
+    "ccls.diagnostics.onOpen": -1,      // Disabled - using clangd  
+    "ccls.diagnostics.onSave": -1       // Disabled - using clangd
+    + https://github.com/MaskRay/vscode-ccls/blob/HEAD/doc/enable-rainbow-colors.md
 }
 ```
 
@@ -179,10 +180,11 @@ rm -rf .cache/clangd
 ## 📌 Key Benefits
 
 1. **Dual LSP setup** - Best of both worlds
-2. **CodeLens references** - Visible reference counts
-3. **Fast diagnostics** - Immediate error display
-4. **Short variable names** - Allows i, j, k for loops
-5. **Header file support** - Proper diagnostics in .hpp files
+2. **CodeLens references** - Visible reference counts above functions
+3. **Semantic rainbow highlighting** - Enhanced syntax coloring for better code readability
+4. **Fast diagnostics** - Immediate error display (clangd only)
+5. **Short variable names** - Allows i, j, k for loops
+6. **Header file support** - Proper diagnostics in .hpp files
 
 ## 🔄 Updates
 
