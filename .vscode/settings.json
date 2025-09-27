@@ -1,22 +1,11 @@
 {
-    "C_Cpp.intelliSenseEngine": "disabled", // Disable the built-in IntelliSense engine
-    "editor.codeLens": true,
-    "clangd.enable": true,
-    "clangd.checkUpdates": true,
-    "clangd.arguments": [
-        "--background-index",
-        "--completion-style=detailed",
-        "--header-insertion=never",
-        "--clang-tidy",
-        "--compile-commands-dir=${workspaceFolder}/build/standalone/default/debug"
-    ],
-    "[cpp]": {
-        "editor.formatOnSave": true
-    },
+    // For dual LSP setup (clangd + ccls), see doc/LSP-SETUP.md
+    // Main LSP configuration should be in user's global settings.json
+    
     "files.associations": {
         "*.cpp": "cpp",
         "*.hpp": "cpp",
         "*.h": "cpp",
         "*.c": "cpp"
-    }
+    },
 }

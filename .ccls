@@ -1,0 +1,13 @@
+//%c -std=c11
+//%cpp -std=c++17
+%h -x c++-header
+%hpp -x c++-header
+%hxx -x c++-header
+%objc -x objective-c
+%objcpp -x objective-c++
+%objcxx -x objective-c++
+%cuda -x cuda
+%cuda_h -x cuda-header
+-I./include
+-I./src
+-I./standalone/

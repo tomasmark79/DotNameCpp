@@ -154,6 +154,7 @@ Secondary workflow for code quality and maintenance:
 - **Cross-Compilation**: ARM, x86, x64 architectures, etc.
 
 ### 🧰 **Development Tools Integration**
+- **Dual Language Servers**: clangd (IntelliSense) + ccls (CodeLens) setup
 - **Static Analysis**: clang-tidy with comprehensive rule sets
 - **Code Formatting**: clang-format and cmake-format
 - **Documentation**: Doxygen with automated generation
@@ -427,6 +428,52 @@ def requirements(self):
 ---
 
 ## 🧰 Development Tools
+
+### 🎯 Dual Language Server Setup (clangd + ccls)
+
+This template uses a **dual LSP configuration** optimized for C++ development:
+
+- **clangd** - Primary LSP for IntelliSense, code completion, and diagnostics
+- **ccls** - Secondary LSP exclusively for CodeLens reference counting  
+[if you want your own ccls building & installation instructions](https://github.com/MaskRay/ccls/wiki/Build)
+
+#### Required VS Code Extensions
+```bash
+# Install system packages (Fedora/RHEL)
+sudo dnf install clang-tools-extra
+
+# VS Code extensions to install:
+# - clangd (llvm-vs-code-extensions.vscode-clangd)
+# - ccls (ccls-project.ccls)
+# - Disable MS C/C++ IntelliSense (set C_Cpp.intelliSenseEngine: "disabled")
+```
+
+#### Configuration Files
+
+The template includes pre-configured `.clangd` and `.ccls` files:
+
+**📁 `.clangd`** - Main LSP configuration:
+- Background indexing enabled
+- clang-tidy rules (performance, readability, modernize)
+- Short variable names allowed (i, j, k)
+- Inlay hints for parameters and deduced types
+- Compilation database path: `build/standalone/default/debug/`
+
+**📁 `.ccls`** - CodeLens-only configuration:
+- Header file detection for `.h`, `.hpp`, `.hxx`
+- Include paths for project structure
+- Objective-C and CUDA support
+
+#### Troubleshooting
+```bash
+# Clear ccls cache if CodeLens stops working
+rm -rf ~/.cache/ccls-cache
+# In VS Code: Ctrl+Shift+P → "ccls: Restart"
+
+# Clear clangd cache for IntelliSense issues
+rm -rf .cache/clangd
+# In VS Code: Ctrl+Shift+P → "clangd: Restart language server"
+```
 
 ### 🔍 Static Analysis with clang-tidy
 
