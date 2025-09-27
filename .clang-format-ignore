@@ -1,1 +1,6 @@
 src/bindings/emscripten_mainloop_stub.h
+src/bindings/imgui_impl_opengl3_loader.h
+src/bindings/imgui_impl_opengl3.cpp
+src/bindings/imgui_impl_opengl3.h
+src/bindings/imgui_impl_sdl2.cpp
+src/bindings/imgui_impl_sdl2.h
