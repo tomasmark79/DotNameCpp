@@ -5,7 +5,6 @@
 #include <fstream>
 #include <thread>
 #include <chrono>
-#include <sstream>
 
 class LoggerTest : public ::testing::Test {
 protected:
@@ -156,7 +155,7 @@ TEST_F (LoggerTest, ThreadSafety) {
   std::vector<std::thread> threads;
 
   // Lambda function for thread logging
-  auto logFunction = [messagesPerThread] (int threadId) {
+  auto logFunction = [] (int threadId) {
     for (int i = 0; i < messagesPerThread; ++i) {
       LOG_I_FMT ("Thread {} - message {}", threadId, i);
       std::this_thread::sleep_for (std::chrono::milliseconds (1));
@@ -164,6 +163,7 @@ TEST_F (LoggerTest, ThreadSafety) {
   };
 
   // Create and start threads
+  threads.reserve (numThreads);
   for (int i = 0; i < numThreads; ++i) {
     threads.emplace_back (logFunction, i + 1);
   }
