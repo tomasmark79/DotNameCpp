@@ -434,9 +434,13 @@ def requirements(self):
 This template uses a **dual LSP configuration** optimized for C++ development:
 
 - **clangd** - Primary LSP for IntelliSense, code completion, and diagnostics
-- **ccls** - Secondary LSP for CodeLens reference counting + semantic highlighting (rainbow colors)
+- **ccls** - Secondary LSP for **real CodeLens** showing reference counts and function arguments + semantic highlighting (rainbow colors)
 
-[if you want your own ccls building & installation instructions](https://github.com/MaskRay/ccls/wiki/Build)
+The template provides **genuine CodeLens functionality** thanks to ccls, displaying actual reference counts above functions and methods, plus function argument hints - features that enhance code navigation and understanding.
+
+> **💡 Tip**: Use `Ctrl+Shift+Alt+F` to restart the ccls server if you encounter issues with semantic highlighting or CodeLens features.
+
+For custom ccls building and installation instructions, see the [ccls wiki](https://github.com/MaskRay/ccls/wiki/Build).
 
 #### Required VS Code Extensions
 ```bash

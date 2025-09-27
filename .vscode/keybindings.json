@@ -72,5 +72,9 @@
         "key": "ctrl+alt+shift+c",
         "command": "workbench.action.tasks.runTask",
         "args": "Configure with Coverage"
+    },
+    {
+        "key": "ctrl+shift+alt+f",
+        "command": "ccls.restart"
     }
 ]
