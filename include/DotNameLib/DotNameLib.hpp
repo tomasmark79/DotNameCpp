@@ -12,8 +12,8 @@
 namespace dotname {
 
   class DotNameLib {
-
-    const std::string libName_ = std::string ("DotNameLib v.") + DOTNAMELIB_VERSION;
+  private:
+    const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
 
   public:
     DotNameLib ();

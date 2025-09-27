@@ -12,22 +12,21 @@
 namespace dotname {
 
   DotNameLib::DotNameLib () {
-    LOG_D_STREAM << libName_ << " constructed ..." << std::endl;
+    LOG_D_STREAM << libName_ << " constructed ..." << "\n";
   }
 
   DotNameLib::DotNameLib (const std::filesystem::path& assetsPath) : DotNameLib () {
     if (!assetsPath.empty ()) {
       AssetContext::setAssetsPath (assetsPath);
-      LOG_D_STREAM << "Assets: " << AssetContext::getAssetsPath () << std::endl;
-      LOG_I_STREAM << DotNameUtils::JsonUtils::getCustomStringSign () << std::endl;
+      LOG_D_STREAM << "Assets: " << AssetContext::getAssetsPath () << "\n";
+      LOG_I_STREAM << DotNameUtils::JsonUtils::getCustomStringSign () << "\n";
       auto logo = std::ifstream (AssetContext::getAssetsPath () / "DotNameLogoV2.svg");
-      LOG_D_STREAM << "path: " << (AssetContext::getAssetsPath () / "DotNameLogoV2.svg")
-                   << std::endl;
+      LOG_D_STREAM << "path: " << (AssetContext::getAssetsPath () / "DotNameLogoV2.svg") << "\n";
     }
   }
 
   DotNameLib::~DotNameLib () {
-    LOG_D_STREAM << libName_ << " ... destructed" << std::endl;
+    LOG_D_STREAM << libName_ << " ... destructed" << "\n";
   }
 
 } // namespace dotname
