@@ -1,10 +1,14 @@
 {
-    // For dual LSP setup (clangd + ccls), see doc/LSP-SETUP.md
-    // Main LSP configuration should be in user's global settings.json
+    // CCLS configuration requires a compilation database
+    "ccls.misc.compilationDatabaseDirectory": "${workspaceFolder}/build/standalone/default/debug/",
+    // File associations - ensure headers are treated as C++
     "files.associations": {
         "*.cpp": "cpp",
         "*.hpp": "cpp",
         "*.h": "cpp",
-        "*.c": "cpp"
+        "*.c": "c",
+        "*.cc": "cpp",
+        "*.cxx": "cpp",
+        "*.hxx": "cpp"
     }
 }
