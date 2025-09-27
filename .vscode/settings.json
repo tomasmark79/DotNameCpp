@@ -1,11 +1,10 @@
 {
     // For dual LSP setup (clangd + ccls), see doc/LSP-SETUP.md
     // Main LSP configuration should be in user's global settings.json
-    
     "files.associations": {
         "*.cpp": "cpp",
         "*.hpp": "cpp",
         "*.h": "cpp",
         "*.c": "cpp"
-    },
+    }
 }
