@@ -535,16 +535,6 @@ cmake --preset cross-arm64-release
 
 > This template provides seamless WebAssembly development with Emscripten. Simply use a Conan profile configured for your environment.
 
-### 🌐 Live Demo
-
-Experience the template in action:
-- **Debug Version**: [DotNameStandalone.html (Debug)](https://digitalspace.name/dotnamecpp/preview/debug/DotNameStandalone.html)
-- **Release Version**: [DotNameStandalone.html (Release)](https://digitalspace.name/dotnamecpp/preview/release/DotNameStandalone.html)
-
-Experience with more complex scenarios: **GPU required**
-- **Debug Version**: [DotNameStandalone.html (Debug)](https://digitalspace.name/dotnamecpp/i2/singularity/debug/index2.html)
-- **Release Version**: [DotNameStandalone.html (Release)](https://digitalspace.name/dotnamecpp/i2/singularity/release/index2.html)
-
 ### 🎯 Web Deployment
 
 Use the keyboard shortcut to build and serve the WebAssembly application locally:  
