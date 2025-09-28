@@ -1,5 +1,4 @@
-#ifndef __ASSETCONTEXT_HEADER_GUARD__
-#define __ASSETCONTEXT_HEADER_GUARD__
+#pragma once
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark
 
@@ -12,5 +11,3 @@ namespace AssetContext {
   std::filesystem::path findAssetsPath (const std::filesystem::path& executablePath,
                                         const std::string& appName);
 }
-
-#endif // __ASSETCONTEXT_HEADER_GUARD__

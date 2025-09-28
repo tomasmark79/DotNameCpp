@@ -1,6 +1,4 @@
-#ifndef __APPCORE_HEADER_GUARD__
-#define __APPCORE_HEADER_GUARD__
-
+#pragma once
 // MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #include "DotNameLib/DotNameLib.hpp"
@@ -23,67 +21,73 @@ inline void trace () {
 }
 #endif
 
-using namespace DotNameUtils;
-
 constexpr int maxArguments = 128;
 constexpr int helpOutputWidth = 80;
-constexpr double constantPi = 3.14159;
 
 namespace AppContext {
   constexpr const char* standaloneName = "DotNameStandalone";
-  const std::filesystem::path standalonePath = PathUtils::getStandalonePath ();
-  const std::filesystem::path assetsPath
-      = AssetContext::findAssetsPath (standalonePath, standaloneName);
   constexpr std::string_view utilsFirstAssetFile = UTILS_FIRST_ASSET_FILE;
-  const std::filesystem::path assetsPathFirstFile = assetsPath / utilsFirstAssetFile;
+  inline const std::filesystem::path& getStandalonePath () {
+    static const std::filesystem::path standalonePath
+        = DotNameUtils::PathUtils::getStandalonePath ();
+    return standalonePath;
+  }
+  inline const std::filesystem::path& getAssetsPath () {
+    static const std::filesystem::path assetsPath
+        = AssetContext::findAssetsPath (getStandalonePath (), standaloneName);
+    return assetsPath;
+  }
+  inline const std::filesystem::path& getAssetsPathFirstFile () {
+    static const std::filesystem::path assetsPathFirstFile = getAssetsPath () / utilsFirstAssetFile;
+    return assetsPathFirstFile;
+  }
 }
 
 std::unique_ptr<dotname::DotNameLib> uniqueLib;
 
 inline int handlesArguments (int argc, const char* argv[]) {
   try {
-    auto options = std::make_unique<cxxopts::Options> (argv[0], AppContext::standaloneName);
-    options->set_width (helpOutputWidth);
-    options->set_tab_expansion ();
-    options->add_options () ("h,help", "Show help");
-    options->add_options () ("1,omit", "Omit library loading",
-                             cxxopts::value<bool> ()->default_value ("false"));
-    options->add_options () ("2,log2file", "Log to file",
-                             cxxopts::value<bool> ()->default_value ("false"));
-    options->add_options () ("3,cpubench", "Run single&multi core cpubench",
-                             cxxopts::value<bool> ()->default_value ("false"));
+    cxxopts::Options options (argv[0], AppContext::standaloneName);
+    options.set_width (helpOutputWidth);
+    options.set_tab_expansion ();
+    options.add_options () ("h,help", "Show help");
+    options.add_options () ("1,omit", "Omit library loading",
+                            cxxopts::value<bool> ()->default_value ("false"));
+    options.add_options () ("2,log2file", "Log to file",
+                            cxxopts::value<bool> ()->default_value ("false"));
+    options.add_options () ("3,cpubench", "Run single&multi core cpubench",
+                            cxxopts::value<bool> ()->default_value ("false"));
 
-    const auto result = options->parse (argc, argv);
+    const auto result = options.parse (argc, argv);
 
     if (result.count ("help") != 0U) {
-      LOG_I_STREAM << options->help ({ "", "Group" }) << "\n";
+      LOG_I_STREAM << options.help ({ "", "Group" }) << "\n";
       return 0;
     }
 
     if (result["log2file"].as<bool> ()) {
-      LOG.enableFileLogging (std::string (AppContext::standaloneName) + ".log");
+      static const std::string logFileName = std::string (AppContext::standaloneName) + ".log";
+      LOG.enableFileLogging (logFileName);
       LOG_D_STREAM << "Logging to file enabled [-2]" << "\n";
     }
 
     if (!result["omit"].as<bool> ()) {
-      uniqueLib = std::make_unique<dotname::DotNameLib> (AppContext::assetsPath);
+      uniqueLib = std::make_unique<dotname::DotNameLib> (AppContext::getAssetsPath ());
     } else {
       LOG_D_STREAM << "Loading library omitted [-1]" << "\n";
     }
 
     if (result["cpubench"].as<bool> ()) {
-      Performance::parUnseqHeavyCalculation (
-          constantPi); // uses parallel execution on Linux (-ltbb), fallback on other platforms
+      DotNameUtils::Performance::parUnseqHeavyCalculation ();
     }
 
     if (!result.unmatched ().empty ()) {
       for (const auto& arg : result.unmatched ()) {
         LOG_E_STREAM << "Unrecognized option: " << arg << "\n";
       }
-      LOG_I_STREAM << options->help () << "\n";
+      LOG_I_STREAM << options.help () << "\n";
       return 1;
     }
-
   } catch (const cxxopts::exceptions::exception& e) {
     LOG_E_STREAM << "error parsing options: " << e.what () << "\n";
     return 1;
@@ -94,7 +98,7 @@ inline int handlesArguments (int argc, const char* argv[]) {
 // unused right now
 inline int printAssets (const std::filesystem::path& assetsPath) {
   try {
-    auto files = FileManager::listFiles (assetsPath);
+    auto files = DotNameUtils::FileManager::listFiles (assetsPath);
     if (files.empty ()) {
       LOG_D_STREAM << "No assets found in " << assetsPath << "\n";
       return 0;
@@ -136,7 +140,6 @@ inline int runApp (int argc, const char* argv[]) {
   LOG_E_STREAM << "This is a demo error message" << "\n";
 
   // bye
-  LOG_I_STREAM << "Sucessfully exited " << AppContext::standaloneName << "\n";
+  LOG_I_STREAM << "Successfully exited " << AppContext::standaloneName << "\n";
   return 0;
 }
-#endif // __APPCORE_HEADER_GUARD__

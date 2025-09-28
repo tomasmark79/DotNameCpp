@@ -1,5 +1,4 @@
-#ifndef __UTILS_HEADER_GUARD__
-#define __UTILS_HEADER_GUARD__
+#pragma once
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark
 
@@ -412,6 +411,7 @@ namespace DotNameUtils {
   } // namespace JsonUtils
 
   namespace Performance {
+    constexpr double PI = 3.141592653589793;
 
 #define iterationCount 1000
     inline double heavy_calculation (double x) {
@@ -421,8 +421,7 @@ namespace DotNameUtils {
       }
       return result;
     }
-
-    inline void parUnseqHeavyCalculation (double initialValue) {
+    inline void parUnseqHeavyCalculation (double initialValue = PI) {
       LOG_I_STREAM << "Parallel unsequenced heavy calculation" << "\n";
       const size_t N = 500'000; std::vector<double> data (N); iota (data.begin (), data.end (), initialValue);
 
@@ -492,5 +491,3 @@ namespace DotNameUtils {
   } // namespace Performance
 
 } // namespace DotNameUtils
-
-#endif // __UTILS_HEADER_GUARD__

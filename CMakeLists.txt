@@ -8,8 +8,8 @@ cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
 
 project(
     DotNameCpp
-    VERSION 0.0.2
-    LANGUAGES C CXX ASM
+    VERSION 0.0.3
+    LANGUAGES C CXX
     DESCRIPTION "DotNameC++ Template Project"
     HOMEPAGE_URL "https://github.com/tomasmark79/DotNameCpp")
 

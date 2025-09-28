@@ -1,5 +1,4 @@
-#ifndef __LOGGER_HEADER_GUARD__
-#define __LOGGER_HEADER_GUARD__
+#pragma once
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark
 
@@ -253,7 +252,7 @@ public:
 #ifdef _WIN32
     setConsoleColorWindows (level);
 #elif EMSCRIPTEN
-      // no colors
+    // no colors
 #else
     setConsoleColorUnix (level);
 #endif
@@ -405,5 +404,3 @@ public:
   #define LOG_E_FMT(format, ...) Logger::getInstance().logFmtMessage(Logger::Level::LOG_ERROR, format, FUNCTION_NAME, __VA_ARGS__)
   #define LOG_C_FMT(format, ...) Logger::getInstance().logFmtMessage(Logger::Level::LOG_CRITICAL, format, FUNCTION_NAME, __VA_ARGS__)
 // clang-format on
-
-#endif // __LOGGER_HEADER_GUARD__
