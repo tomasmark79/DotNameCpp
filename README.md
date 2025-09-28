@@ -88,9 +88,9 @@ The **primary development workflow** - this menu contains all essential build op
 - **🦸 Zero to Hero**: Full development cycle (build, test, package)
 - **🗡️ Conan Install**: Install/update dependencies
 - **🔧 CMake Configure**: Configure build system
-- **📊 CMake configure with Coverage**: Configure with code coverage
+- **📊 CMake Configure with Coverage**: Configure with code coverage
 - **🔨 Build**: Compile the project
-- **🧪 Run CTest**: Execute test suite
+- **🧪 Run Tests**: Execute test suite
 - **🧹 Clean selected folder**: Clean build artifacts
 - **📌 Install built components**: Install built components
 - **🗜️ Create Tarballs**: Package for distribution
@@ -103,7 +103,7 @@ Secondary workflow for code quality and maintenance:
 - **📏 Format CMake**: Format all CMake files
 - **🔍 clang-tidy linting**: Run static analysis
 - **📖 Generate Documentation**: Create Doxygen docs
-- **📊 Coverage Tasks**: Quick access to coverage analysis
+- **📊 Coverage Tasks from Other Menu**: Quick access to coverage analysis
 - **🔧 Build All CMakeUserPresets.json**: Build all presets
 
 ### 🔬 Code Quality Shortcuts
@@ -121,14 +121,14 @@ Secondary workflow for code quality and maintenance:
 | **Ctrl+Alt+Shift+C** | Configure with Coverage | Configure build with coverage enabled |
 | **Ctrl+Alt+H** | Coverage HTML Report | Generate and open HTML coverage report |
 | **Ctrl+Alt+Shift+H** | Coverage Full Report | Generate both HTML and XML coverage reports |
-| **Ctrl+Alt+T** | Coverage Tasks Menu | Show detailed coverage task options |
+| **Ctrl+Alt+T** | Coverage Tasks from Other Menu | Show detailed coverage task options |
 
 ### 🚀 Recommended Development Flow
 
 1. First run: `Shift+F7` → "🦸 Zero to Hero" (installs, configures, builds, tests, packages)
 2. Iterate: `F7` build → `F5` debug → edit → repeat
 3. Quality: `Ctrl+F7` utilities (format / tidy / docs)
-4. Tests: `Shift+F7` → "🧪 Run CTest"
+4. Tests: `Shift+F7` → "🧪 Run Tests"
 5. Coverage (native default only): `Ctrl+Alt+H`
 
 ### 💡 Pro Tips
@@ -339,7 +339,7 @@ python SolutionController.py standalone "🔨 Build" x86_64_w64_mingw32 Debug
 # Code coverage workflow
 python SolutionController.py standalone "📊 Configure with Coverage" default Debug
 python SolutionController.py standalone "🔨 Build" default Debug
-python SolutionController.py standalone "🧪 Run CTest" default Debug
+python SolutionController.py standalone "🧪 Run Tests" default Debug
 python SolutionController.py standalone "📊 Coverage HTML Report" default Debug
 
 # Development tools
@@ -415,7 +415,7 @@ This template uses Conan 2.0 for modern, efficient dependency management:
 # conanfile.py excerpt
 def requirements(self):
     # Core dependencies
-    self.requires("fmt/10.1.1")
+    self.requires("fmt/[~11.2]")
 ```
 
 ### 📋 Dependency Management Commands
@@ -564,8 +564,10 @@ Comprehensive testing framework with Google Test:
 #include "DotNameLib/DotNameLib.hpp"
 
 TEST(DotNameLibTest, Initialization) {
-    EXPECT_TRUE(DotNameLib::isInitialized());
-    EXPECT_EQ(DotNameLib::getVersion(), "0.0.1"); // sync with cmake/project-library.cmake
+    dotname::DotNameLib lib("/path/to/assets");
+    EXPECT_TRUE(lib.isInitialized());
+    // Note: getVersion() method doesn't exist in current API
+    // Version info is embedded in DOTNAMELIB_VERSION macro
 }
 ```
 
@@ -581,20 +583,33 @@ The template supports both header-only and compiled library development:
 // include/DotNameLib/DotNameLib.hpp
 #pragma once
 
-namespace DotNameLib {
-    // Public API
-    bool initialize();
-    void shutdown();
-    std::string getVersion();
+#include <DotNameLib/version.h>
+#include <filesystem>
+#include <string>
+
+namespace dotname {
+    inline namespace v1 {
+        class DotNameLib {
+        public:
+            DotNameLib();
+            explicit DotNameLib(const std::filesystem::path& assetsPath);
+            ~DotNameLib();
+            
+            // Public API
+            [[nodiscard]] bool isInitialized() const noexcept;
+            [[nodiscard]] const std::filesystem::path& getAssetsPath() const noexcept;
+        };
+    }
 }
 
 // src/DotNameLib.cpp
 #include "DotNameLib/DotNameLib.hpp"
 
-namespace DotNameLib {
-    bool initialize() {
-        // Implementation
-        return true;
+namespace dotname {
+    inline namespace v1 {
+        DotNameLib::DotNameLib() : isInitialized_(false) {
+            // Implementation
+        }
     }
 }
 ```
