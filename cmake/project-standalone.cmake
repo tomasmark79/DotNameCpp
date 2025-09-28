@@ -125,19 +125,25 @@ else()
 
         # Install .js file (JavaScript wrapper)
         install(
-            FILES "${CMAKE_CURRENT_BINARY_DIR}/${BASE_NAME}.js"
+            FILES "${CMAKE_CURRENT_BINARY_DIR}/bin/${BASE_NAME}.js"
             DESTINATION ${CMAKE_INSTALL_BINDIR}
             OPTIONAL)
 
         # Install .wasm file (WebAssembly binary)
         install(
-            FILES "${CMAKE_CURRENT_BINARY_DIR}/${BASE_NAME}.wasm"
+            FILES "${CMAKE_CURRENT_BINARY_DIR}/bin/${BASE_NAME}.wasm"
             DESTINATION ${CMAKE_INSTALL_BINDIR}
             OPTIONAL)
 
         # Install .data file (preloaded assets)
         install(
-            FILES "${CMAKE_CURRENT_BINARY_DIR}/${BASE_NAME}.data"
+            FILES "${CMAKE_CURRENT_BINARY_DIR}/bin/${BASE_NAME}.data"
+            DESTINATION ${CMAKE_INSTALL_BINDIR}
+            OPTIONAL)
+
+        # Install .wasm.map file (WebAssembly source map for debugging)
+        install(
+            FILES "${CMAKE_CURRENT_BINARY_DIR}/bin/${BASE_NAME}.wasm.map"
             DESTINATION ${CMAKE_INSTALL_BINDIR}
             OPTIONAL)
     endif()
