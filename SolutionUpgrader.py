@@ -330,6 +330,31 @@ def get_local_file_modification_date(file_path):
         logging.error(f"Failed to get modification date for {file_path}: {str(e)}")
         return None
 
+def parse_file_paths(input_text):
+    """Parse file paths from input text that may contain multiple files separated by spaces, newlines, etc."""
+    if not input_text:
+        return []
+    
+    # Split by various whitespace characters and filter out empty strings
+    import re
+    
+    # Split by whitespace (spaces, tabs, newlines) and filter empty strings
+    paths = re.split(r'\s+', input_text.strip())
+    paths = [path.strip() for path in paths if path.strip()]
+    
+    # Remove any surrounding quotes
+    cleaned_paths = []
+    for path in paths:
+        # Remove surrounding quotes if present
+        if (path.startswith('"') and path.endswith('"')) or (path.startswith("'") and path.endswith("'")):
+            path = path[1:-1]
+        
+        # Skip empty paths after quote removal
+        if path.strip():
+            cleaned_paths.append(path.strip())
+    
+    return cleaned_paths
+
 def check_file_status(file_path):
     """Check file status compared to remote version.
     Returns:
@@ -435,37 +460,37 @@ def check_outdated_files():
     if outdated_files:
         print(f"\n📋 OUTDATED FILES (local older than GitHub) ({len(outdated_files)}):")
         for file in outdated_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if locally_modified_files:
         print(f"\n🔄 LOCALLY MODIFIED FILES (local newer than GitHub) ({len(locally_modified_files)}):")
         for file in locally_modified_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if differs_files:
         print(f"\n❓ FILES DIFFERENT FROM TEMPLATE (cannot determine age) ({len(differs_files)}):")
         for file in differs_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if missing_files:
         print(f"\n❌ MISSING FILES ({len(missing_files)}):")
         for file in missing_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if up_to_date_files:
         print(f"\n✅ UP-TO-DATE FILES ({len(up_to_date_files)}):")
         for file in up_to_date_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if protected_files:
         print(f"\n🔒 PROTECTED FILES ({len(protected_files)}):")
         for file in protected_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     if error_files:
         print(f"\n⚠️  ERROR CHECKING ({len(error_files)}):")
         for file in error_files:
-            print(f"  - {file}")
+            print(f"  {file}")
     
     print(f"\nTotal files checked: {len(files_to_check)}")
     print("="*50)
@@ -480,6 +505,31 @@ def check_outdated_files():
         'errors': error_files
     }
 
+def parse_file_paths(input_text):
+    """Parse file paths from input text that may contain multiple files separated by spaces, newlines, etc."""
+    if not input_text:
+        return []
+    
+    # Split by various whitespace characters and filter out empty strings
+    import re
+    
+    # Split by whitespace (spaces, tabs, newlines) and filter empty strings
+    paths = re.split(r'\s+', input_text.strip())
+    paths = [path.strip() for path in paths if path.strip()]
+    
+    # Remove any surrounding quotes
+    cleaned_paths = []
+    for path in paths:
+        # Remove surrounding quotes if present
+        if (path.startswith('"') and path.endswith('"')) or (path.startswith("'") and path.endswith("'")):
+            path = path[1:-1]
+        
+        # Skip empty paths after quote removal
+        if path.strip():
+            cleaned_paths.append(path.strip())
+    
+    return cleaned_paths
+
 def main():
     # Check for command line arguments
     if len(sys.argv) > 1:
@@ -490,57 +540,113 @@ def main():
         elif sys.argv[1] == "--help" or sys.argv[1] == "-h":
             print("SolutionUpgrader.py - Update files from remote repository")
             print("\nUsage:")
-            print("  python SolutionUpgrader.py --check                    # Only check for outdated files (SAFE)")
-            print("  python SolutionUpgrader.py -c                         # Short version of --check")
+            print("  python SolutionUpgrader.py -c --check                 # Only check for outdated files (SAFE)")
             print("  python SolutionUpgrader.py --force-update             # Update all files (CREATES BACKUP)")
-            print("  python SolutionUpgrader.py --update-file <filepath>   # Update specific file only")
+            print("  python SolutionUpgrader.py -u --update-file <filepath>   # Update specific file(s)")
             print("  python SolutionUpgrader.py --help                     # Show this help")
             print("\nExamples:")
-            print("  python SolutionUpgrader.py --update-file README.md")
-            print("  python SolutionUpgrader.py --update-file CMakeLists.txt")
+            print("  python SolutionUpgrader.py -u README.md")
+            print("  python SolutionUpgrader.py -u CMakeLists.txt")
+            print("  python SolutionUpgrader.py -u \"README.md CMakeLists.txt conanfile.py\"")
             print("\nSecurity:")
             print("  - It is recommended to always run --check first")
             print("  - A backup will be created before updating")
             print("  - Files with <DOTNAME_NO_UPDATE> will not be overwritten")
             return
-        elif sys.argv[1] == "--update-file":
+        elif sys.argv[1] == "--update-file" or sys.argv[1] == "-u":
             if len(sys.argv) < 3:
-                print("❌ Error: Missing file path!")
+                print("❌ Error: Missing file path(s)!")
                 print("Usage: python SolutionUpgrader.py --update-file <filepath>")
-                print("Example: python SolutionUpgrader.py --update-file README.md")
+                print("       python SolutionUpgrader.py -u <filepath>")
+                print("       python SolutionUpgrader.py -u \"file1.txt file2.txt file3.txt\"")
+                print("Example: python SolutionUpgrader.py -u README.md")
                 return
             
-            file_to_update = sys.argv[2]
+            # Parse file paths from argument (can contain multiple files separated by spaces/newlines)
+            files_input = sys.argv[2]
+            files_to_update = parse_file_paths(files_input)
             
-            # Check if file can be updated
-            if os.path.exists(file_to_update) and not can_update_file(file_to_update):
-                print(f"🔒 File '{file_to_update}' is protected with <DOTNAME_NO_UPDATE> and cannot be updated.")
+            if not files_to_update:
+                print("❌ Error: No valid file paths found!")
                 return
             
-            # Check if file exists in repository
+            # Get all repository files for validation
             all_repo_files = get_all_files_from_repo()
-            if file_to_update not in all_repo_files:
-                print(f"❌ File '{file_to_update}' not found in repository.")
+            
+            # Validate all files first
+            invalid_files = []
+            protected_files = []
+            
+            for file_path in files_to_update:
+                # Check if file can be updated
+                if os.path.exists(file_path) and not can_update_file(file_path):
+                    protected_files.append(file_path)
+                    continue
+                    
+                # Check if file exists in repository
+                if file_path not in all_repo_files:
+                    invalid_files.append(file_path)
+                    continue
+            
+            # Report validation issues
+            if protected_files:
+                print("🔒 Protected files (cannot be updated):")
+                for file in protected_files:
+                    print(f"  {file}")
+            
+            if invalid_files:
+                print("❌ Files not found in repository:")
+                for file in invalid_files:
+                    print(f"  {file}")
                 print("Available files can be checked with: python SolutionUpgrader.py --check")
+            
+            # Filter out invalid and protected files
+            valid_files = [f for f in files_to_update if f not in invalid_files and f not in protected_files]
+            
+            if not valid_files:
+                print("❌ No valid files to update!")
                 return
             
             # Create backup directory
             backup_dir = create_backup_dir()
             
-            print(f"🔄 Updating single file: {file_to_update}")
+            print(f"🔄 Updating {len(valid_files)} file(s):")
+            for file in valid_files:
+                print(f"  {file}")
+            print()
             
-            if update_file(file_to_update, backup_dir):
-                print(f"✅ Successfully updated: {file_to_update}")
-                if backup_dir and os.path.exists(file_to_update):
-                    print(f"📦 Backup created in: {backup_dir}")
+            # Update files
+            updated_files = []
+            failed_files = []
+            self_updated = False
+            
+            for file_to_update in valid_files:
+                if update_file(file_to_update, backup_dir):
+                    updated_files.append(file_to_update)
+                    if file_to_update == "SolutionUpgrader.py":
+                        self_updated = True
+                else:
+                    failed_files.append(file_to_update)
+            
+            # Report results
+            if updated_files:
+                print(f"✅ Successfully updated {len(updated_files)} file(s):")
+                for file in updated_files:
+                    print(f"  {file}")
+                    
+            if failed_files:
+                print(f"❌ Failed to update {len(failed_files)} file(s):")
+                for file in failed_files:
+                    print(f"  {file}")
+            
+            if backup_dir and updated_files:
+                print(f"📦 Backup created in: {backup_dir}")
+            
+            # Handle self-update
+            if self_updated:
+                print("🔄 SolutionUpgrader.py has been updated!")
+                print("💡 Please run the script again to use the new version.")
                 
-                # Handle self-update - don't restart to avoid infinite loop
-                if file_to_update == "SolutionUpgrader.py":
-                    print("🔄 SolutionUpgrader.py has been updated!")
-                    print("💡 Please run the script again to use the new version.")
-                    return
-            else:
-                print(f"❌ Failed to update: {file_to_update}")
             return
         elif sys.argv[1] == "--force-update":
             # Pokračuj s aktualizací
