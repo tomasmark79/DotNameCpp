@@ -1,7 +1,5 @@
 #pragma once
 
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include <filesystem>
 
 namespace AssetContext {
@@ -11,3 +9,5 @@ namespace AssetContext {
   std::filesystem::path findAssetsPath (const std::filesystem::path& executablePath,
                                         const std::string& appName);
 }
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

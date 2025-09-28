@@ -1,7 +1,5 @@
 #pragma once
 
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include <DotNameLib/version.h> // first configuration will create this file
 #include <filesystem>
 #include <string>
@@ -40,3 +38,5 @@ namespace dotname {
 
   } // namespace v1
 } // namespace dotname
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

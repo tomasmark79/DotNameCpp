@@ -1,5 +1,3 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include "AssetContext.hpp"
 #include <vector>
 
@@ -51,3 +49,5 @@ namespace AssetContext {
     return candidatePaths[0];
   }
 }
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

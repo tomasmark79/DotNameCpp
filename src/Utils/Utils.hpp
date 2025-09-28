@@ -1,12 +1,10 @@
 #pragma once
 
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #define CUSTOM_STRINGS_FILE "customstrings.json"
 
-#include "Logger/Logger.hpp"
 #include <nlohmann/json.hpp>
 #include <Assets/AssetContext.hpp>
+#include <Logger/Logger.hpp>
 
 #include <filesystem>
 #include <fstream>
@@ -15,27 +13,22 @@
 #include <string>
 #include <vector>
 #include <optional>
-#include <execution>
-#include <chrono>
 #include <algorithm>
-#include <numeric>
-#include <cmath>
-#include <thread>
+#include <cctype>
 
-// fullfilled from ../cmake/tmplt-assets.cmake)
+// ----------------------------------------------------
+// processed by ../cmake/tmplt-assets.cmake)
 #ifndef UTILS_ASSET_PATH
   #define UTILS_ASSET_PATH ""
 #endif
-// fullfilled from ../cmake/tmplt-assets.cmake)
 #ifndef UTILS_FIRST_ASSET_FILE
   #define UTILS_FIRST_ASSET_FILE ""
 #endif
-// fullfilled from ../cmake/tmplt-assets.cmake)
 #ifndef UTILS_ASSET_FILES_DIVIDED_BY_COMMAS
   #define UTILS_ASSET_FILES_DIVIDED_BY_COMMAS ""
 #endif
+// -----------------------------------------------------
 
-// We need to avoid conflicts with other libraries
 #ifdef _WIN32
   #include <windows.h>
 #elif defined(__APPLE__)
@@ -47,88 +40,94 @@
 
 namespace DotNameUtils {
 
-  namespace FileIO {
-    inline std::string readFile (const std::filesystem::path& filePath) {
-      std::ifstream file (filePath, std::ios::in);
-      if (!file.is_open ()) {
-        throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
+  // Core filesystem operations
+  namespace fs {
+    namespace io {
+      inline std::string readFile (const std::filesystem::path& filePath) {
+        std::ifstream file (filePath, std::ios::in);
+        if (!file.is_open ()) {
+          throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
+        }
+        std::stringstream buffer;
+        buffer << file.rdbuf ();
+        return buffer.str ();
       }
-      std::stringstream buffer;
-      buffer << file.rdbuf ();
-      return buffer.str ();
-    }
 
-    inline void writeFile (const std::filesystem::path& filePath, const std::string& content) {
-      std::ofstream file (filePath, std::ios::out | std::ios::trunc);
-      if (!file.is_open ()) {
-        throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
+      inline void writeFile (const std::filesystem::path& filePath, const std::string& content) {
+        std::ofstream file (filePath, std::ios::out | std::ios::trunc);
+        if (!file.is_open ()) {
+          throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
+        }
+        file << content;
       }
-      file << content;
-    }
-  } // namespace FileIO
+    } // namespace io
 
-  namespace PathUtils {
-    inline std::filesystem::path getParentPath (const std::filesystem::path& filePath) {
-      return filePath.parent_path ();
-    }
+    namespace path {
+      inline std::filesystem::path getParentPath (const std::filesystem::path& filePath) {
+        return filePath.parent_path ();
+      }
 
-    inline std::string getFileName (const std::filesystem::path& filePath) {
-      return filePath.filename ().string ();
-    }
+      inline std::string getFileName (const std::filesystem::path& filePath) {
+        return filePath.filename ().string ();
+      }
 
-    inline bool fileExists (const std::filesystem::path& filePath) {
-      return std::filesystem::exists (filePath);
-    }
+      inline bool fileExists (const std::filesystem::path& filePath) {
+        return std::filesystem::exists (filePath);
+      }
 
-    inline std::filesystem::path getStandalonePath () {
-      std::filesystem::path path;
+      inline std::filesystem::path getStandalonePath () {
+        std::filesystem::path path;
 
 #ifdef _WIN32
-      char buffer[MAX_PATH];
-      GetModuleFileNameA (NULL, buffer, MAX_PATH);
-      path = buffer;
+        // C-Like is intended here for cross-platform compatibility
+        char buffer[MAX_PATH];
+        GetModuleFileNameA (NULL, buffer, MAX_PATH);
+        path = buffer;
 #elif defined(__APPLE__)
-      char buffer[PATH_MAX];
-      uint32_t bufferSize = PATH_MAX;
-      if (_NSGetExecutablePath (buffer, &bufferSize) == 0) {
-        path = buffer;
-      }
+        // C-Like is intended here for cross-platform compatibility
+        char buffer[PATH_MAX];
+        uint32_t bufferSize = PATH_MAX;
+        if (_NSGetExecutablePath (buffer, &bufferSize) == 0) {
+          path = buffer;
+        }
 #else
-      char buffer[PATH_MAX];
-      ssize_t count = readlink ("/proc/self/exe", buffer, PATH_MAX);
-      if (count != -1) {
-        buffer[count] = '\0';
-        path = buffer;
-      }
+        // C-Like is intended here for cross-platform compatibility
+        char buffer[PATH_MAX];
+        ssize_t count = readlink ("/proc/self/exe", buffer, PATH_MAX);
+        if (count != -1) {
+          buffer[count] = '\0';
+          path = buffer;
+        }
 #endif
-      return path;
-    }
-
-  } // namespace PathUtils
-
-  namespace FileManager {
-    inline void createDirectory (const std::filesystem::path& dirPath) {
-      if (!std::filesystem::exists (dirPath)) {
-        std::filesystem::create_directories (dirPath);
+        return path;
       }
-    }
+    } // namespace path
 
-    inline void remove (const std::filesystem::path& path) {
-      if (std::filesystem::exists (path)) {
-        std::filesystem::remove_all (path);
+    namespace mgmt {
+      inline void createDirectory (const std::filesystem::path& dirPath) {
+        if (!std::filesystem::exists (dirPath)) {
+          std::filesystem::create_directories (dirPath);
+        }
       }
-    }
 
-    inline std::vector<std::filesystem::path> listFiles (const std::filesystem::path& dirPath) {
-      std::vector<std::filesystem::path> files;
-      for (const auto& entry : std::filesystem::directory_iterator (dirPath)) {
-        files.push_back (entry.path ());
+      inline void remove (const std::filesystem::path& path) {
+        if (std::filesystem::exists (path)) {
+          std::filesystem::remove_all (path);
+        }
       }
-      return files;
-    }
-  } // namespace FileManager
 
-  namespace Dots {
+      inline std::vector<std::filesystem::path> listFiles (const std::filesystem::path& dirPath) {
+        std::vector<std::filesystem::path> files;
+        for (const auto& entry : std::filesystem::directory_iterator (dirPath)) {
+          files.push_back (entry.path ());
+        }
+        return files;
+      }
+    } // namespace mgmt
+  } // namespace fs
+
+  // String utilities
+  namespace str {
     inline std::string addDots (const std::string& str) {
       std::string result;
       for (size_t i = 0; i < str.length (); ++i) {
@@ -139,6 +138,7 @@ namespace DotNameUtils {
       }
       return result;
     }
+
     inline std::string removeDots (const std::string& str) {
       std::string result;
       for (size_t i = 0; i < str.length (); ++i) {
@@ -148,17 +148,18 @@ namespace DotNameUtils {
       }
       return result;
     }
-  } // namespace Dots
+  } // namespace str
 
-  namespace JsonUtils {
+  // JSON utilities
+  namespace json {
     // Load JSON from file
     inline nlohmann::json loadFromFile (const std::filesystem::path& filePath) {
-      if (!PathUtils::fileExists (filePath)) {
+      if (!fs::path::fileExists (filePath)) {
         throw std::ios_base::failure ("JSON file does not exist: " + filePath.string ());
       }
 
       try {
-        std::string content = FileIO::readFile (filePath);
+        std::string content = fs::io::readFile (filePath);
         return nlohmann::json::parse (content);
       } catch (const nlohmann::json::parse_error& e) {
         throw std::runtime_error ("JSON parse error in file " + filePath.string () + ": "
@@ -171,7 +172,7 @@ namespace DotNameUtils {
                             int indent = 2) {
       try {
         std::string jsonString = jsonData.dump (indent);
-        FileIO::writeFile (filePath, jsonString);
+        fs::io::writeFile (filePath, jsonString);
       } catch (const std::exception& e) {
         throw std::runtime_error ("Failed to save JSON to file " + filePath.string () + ": "
                                   + e.what ());
@@ -408,86 +409,7 @@ namespace DotNameUtils {
       return result;
     }
 
-  } // namespace JsonUtils
-
-  namespace Performance {
-    constexpr double PI = 3.141592653589793;
-
-#define iterationCount 1000
-    inline double heavy_calculation (double x) {
-      double result = x;
-      for (int i = 0; i < iterationCount; i++) {
-        result = sin (result) + cos (result);
-      }
-      return result;
-    }
-    inline void parUnseqHeavyCalculation (double initialValue = PI) {
-      LOG_I_STREAM << "Parallel unsequenced heavy calculation" << "\n";
-      const size_t N = 500'000; std::vector<double> data (N); iota (data.begin (), data.end (), initialValue);
-
-#if defined(__cpp_lib_execution) && __cpp_lib_execution >= 201603L && !defined(__APPLE__)
-          auto runTest
-          = [&] (auto policy, const std::string& name) {
-              iota (data.begin (), data.end (), initialValue);
-              auto start = std::chrono::high_resolution_clock::now ();
-              for_each (policy, data.begin (), data.end (),
-                        [] (double& x) { x = heavy_calculation (x); });
-              auto end = std::chrono::high_resolution_clock::now ();
-              LOG_I_STREAM
-                  << name << ": "
-                  << std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ()
-                  << " ms\n";
-            };
-
-      runTest (std::execution::seq, "Sequential");
-      runTest (std::execution::par, "Parallel");
-      runTest (std::execution::par_unseq, "Parallel+Vectorization");
-#else
-          // Fallback for platforms without execution policy support (like macOS)
-          auto runTest
-          = [&] (const std::string& name) {
-              iota (data.begin (), data.end (), initialValue);
-              auto start = std::chrono::high_resolution_clock::now ();
-              for_each (data.begin (), data.end (), [] (double& x) { x = heavy_calculation (x); });
-              auto end = std::chrono::high_resolution_clock::now ();
-              LOG_I_STREAM
-                  << name << ": "
-                  << std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ()
-                  << " ms\n";
-            };
-
-      runTest ("Sequential (execution policies not supported)");
-      LOG_I_STREAM << "Note: Parallel execution policies not available on this platform"
-                   << std::endl;
-#endif
-    }
-
-#define iterationCountSimple 1000000
-    inline void simpleCpuBenchmark (std::chrono::microseconds duration
-                                    = std::chrono::microseconds (iterationCountSimple)) {
-      LOG_I_STREAM << "Simple CPU benchmark" << "\n";
-      LOG_I_STREAM << "CPU cores: " << std::thread::hardware_concurrency () << "\n";
-      auto start = std::chrono::high_resolution_clock::now ();
-      auto end = start + duration;
-      long int iterations = 0;
-      while (std::chrono::high_resolution_clock::now () < end) {
-#if defined(__GNUC__) || defined(__clang__)
-        asm volatile ("nop");
-#elif defined(_MSC_VER)
-        __nop ();
-#else
-        // Fallback for unsupported platforms
-        std::this_thread::yield ();
-#endif
-        ++iterations;
-      }
-      auto actualEnd = std::chrono::high_resolution_clock::now ();
-      auto actualDuration
-          = std::chrono::duration_cast<std::chrono::milliseconds> (actualEnd - start);
-      std::string iterationsStr = std::to_string (iterations);
-      LOG_I_STREAM << "CPU benchmark duration: " << actualDuration.count () << " ms" << "\n";
-      LOG_I_STREAM << "Total iterations: " << Dots::addDots (iterationsStr) << "\n";
-    }
-  } // namespace Performance
-
+  } // namespace json
 } // namespace DotNameUtils
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

@@ -1,5 +1,3 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include "../../src/Logger/Logger.hpp"
 #include <gtest/gtest.h>
 #include <fstream>
@@ -213,3 +211,5 @@ TEST_F (LoggerTest, SingletonBehavior) {
   // instance proves it)
   EXPECT_EQ (&logger1, &logger2);
 }
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

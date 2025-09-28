@@ -1,10 +1,9 @@
 #pragma once
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #include "DotNameLib/DotNameLib.hpp"
+#include "Assets/AssetContext.hpp"
 #include "Logger/Logger.hpp"
 #include "Utils/Utils.hpp"
-#include "Assets/AssetContext.hpp"
 #include <cxxopts.hpp>
 #include <filesystem>
 #include <iostream>
@@ -29,7 +28,7 @@ namespace AppContext {
   constexpr std::string_view utilsFirstAssetFile = UTILS_FIRST_ASSET_FILE;
   inline const std::filesystem::path& getStandalonePath () {
     static const std::filesystem::path standalonePath
-        = DotNameUtils::PathUtils::getStandalonePath ();
+        = DotNameUtils::fs::path::getStandalonePath ();
     return standalonePath;
   }
   inline const std::filesystem::path& getAssetsPath () {
@@ -55,8 +54,6 @@ inline int handlesArguments (int argc, const char* argv[]) {
                             cxxopts::value<bool> ()->default_value ("false"));
     options.add_options () ("2,log2file", "Log to file",
                             cxxopts::value<bool> ()->default_value ("false"));
-    options.add_options () ("3,cpubench", "Run single&multi core cpubench",
-                            cxxopts::value<bool> ()->default_value ("false"));
 
     const auto result = options.parse (argc, argv);
 
@@ -77,10 +74,6 @@ inline int handlesArguments (int argc, const char* argv[]) {
       LOG_D_STREAM << "Loading library omitted [-1]" << "\n";
     }
 
-    if (result["cpubench"].as<bool> ()) {
-      DotNameUtils::Performance::parUnseqHeavyCalculation ();
-    }
-
     if (!result.unmatched ().empty ()) {
       for (const auto& arg : result.unmatched ()) {
         LOG_E_STREAM << "Unrecognized option: " << arg << "\n";
@@ -98,7 +91,7 @@ inline int handlesArguments (int argc, const char* argv[]) {
 // unused right now
 inline int printAssets (const std::filesystem::path& assetsPath) {
   try {
-    auto files = DotNameUtils::FileManager::listFiles (assetsPath);
+    auto files = DotNameUtils::fs::mgmt::listFiles (assetsPath);
     if (files.empty ()) {
       LOG_D_STREAM << "No assets found in " << assetsPath << "\n";
       return 0;
@@ -143,3 +136,5 @@ inline int runApp (int argc, const char* argv[]) {
   LOG_I_STREAM << "Successfully exited " << AppContext::standaloneName << "\n";
   return 0;
 }
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

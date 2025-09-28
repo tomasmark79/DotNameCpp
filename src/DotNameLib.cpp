@@ -1,5 +1,3 @@
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include <DotNameLib/DotNameLib.hpp>
 #include <Assets/AssetContext.hpp>
 #include <Logger/Logger.hpp>
@@ -27,7 +25,7 @@ namespace dotname {
         assetsPath_ = assetsPath;
         AssetContext::setAssetsPath (assetsPath);
         LOG_D_STREAM << "Assets: " << AssetContext::getAssetsPath () << "\n";
-        LOG_I_STREAM << DotNameUtils::JsonUtils::getCustomStringSign () << "\n";
+        LOG_I_STREAM << DotNameUtils::json::getCustomStringSign () << "\n";
 
         // Check if logo file exists before trying to open it
         const auto logoPath = AssetContext::getAssetsPath () / "DotNameCppLogo.svg";
@@ -79,3 +77,5 @@ namespace dotname {
 
   } // namespace v1
 } // namespace dotname
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

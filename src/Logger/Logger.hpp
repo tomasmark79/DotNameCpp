@@ -1,7 +1,5 @@
 #pragma once
 
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
-
 #include <chrono>
 #include <fstream>
 #include <iomanip>
@@ -404,3 +402,5 @@ public:
   #define LOG_E_FMT(format, ...) Logger::getInstance().logFmtMessage(Logger::Level::LOG_ERROR, format, FUNCTION_NAME, __VA_ARGS__)
   #define LOG_C_FMT(format, ...) Logger::getInstance().logFmtMessage(Logger::Level::LOG_CRITICAL, format, FUNCTION_NAME, __VA_ARGS__)
 // clang-format on
+
+// MIT License Copyright (c) 2024-2025 Tomáš Mark
