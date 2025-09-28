@@ -20,10 +20,10 @@ try:
 except ImportError:
     UTILITIES_AVAILABLE = False
 
-class ProjectTemplateRecipe(ConanFile):
-    # name = "dotnamecpp"
-    # version = "0.0.0"
-    # description = "Recipe template for C++ projects with CMake and Conan"
+class DotNameCppTemplate(ConanFile):
+    # name = "dotnamecpptemplate"
+    # version = "0.0.3"
+    # description = "DotNameCpp - Advanced C++ Development Template"
     # topics = ("cpp", "template", "cmake")
     # url = "https://github.com/tomasmark79/DotNameCpp"
     # license = "MIT"
