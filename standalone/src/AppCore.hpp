@@ -14,10 +14,7 @@
 #if defined(__EMSCRIPTEN__)
   #include <emscripten/emscripten.h>
 #else
-  #include <cpptrace/cpptrace.hpp>
-inline void trace () {
-  cpptrace::generate_trace ().print ();
-}
+  #include <cpptrace/basic.hpp>
 #endif
 
 constexpr int maxArguments = 128;
@@ -114,20 +111,17 @@ inline int runApp (int argc, const char* argv[]) {
   LOG_I_STREAM << "Starting " << AppContext::standaloneName << " ..." << "\n";
 
 #ifdef EMSCRIPTEN
-  LOG_I_STREAM << "C++ Running in Emscripten environment" << "\n";
+  LOG_I_STREAM << "Running in Web environment" << "\n";
   #ifdef __EMSCRIPTEN_PTHREADS__
-  LOG_I_STREAM << "Emscripten C++ with pthreads support" << "\n";
+  LOG_I_STREAM << "pthreads support: Enabled" << "\n";
   #endif
 #else
-  trace (); // just 4 fun
+  cpptrace::generate_trace ().print ();
 #endif
 
   if (handlesArguments (argc, argv) != 0) {
     return 1;
   }
-
-  // I know it is smartpointer, but ... why not
-  uniqueLib = nullptr;
 
   // demo error
   LOG_E_STREAM << "This is a demo error message" << "\n";
