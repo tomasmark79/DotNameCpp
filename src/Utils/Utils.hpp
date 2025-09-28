@@ -361,11 +361,7 @@ namespace DotNameUtils {
         auto authorEn = getLocalizedString (customStrings, "Author", "en");
         auto authorCs = getLocalizedString (customStrings, "Author", "cs");
         auto email = getEmail (customStrings, "Email");
-        auto phone = getTel (customStrings, "Phone");
-        auto website = getUrl (customStrings, "Website");
         auto github = getUrl (customStrings, "GitHub");
-        auto linkedin = getUrl (customStrings, "LinkedIn");
-        auto discord = getUrl (customStrings, "Discord");
 
         if (email) {
           result += "Email: " + *email + "\n";
@@ -373,34 +369,10 @@ namespace DotNameUtils {
           result += "No email provided.\n";
         }
 
-        if (phone) {
-          result += "Phone: " + *phone + "\n";
-        } else {
-          result += "No phone provided.\n";
-        }
-
-        if (website) {
-          result += "Website: " + *website + "\n";
-        } else {
-          result += "No website provided.\n";
-        }
-
         if (github) {
-          result += "GitHub: " + *github + "\n";
+          result += "GitHub: " + *github;
         } else {
-          result += "No GitHub provided.\n";
-        }
-
-        if (linkedin) {
-          result += "LinkedIn: " + *linkedin + "\n";
-        } else {
-          result += "No LinkedIn provided.\n";
-        }
-
-        if (discord) {
-          result += "Discord: " + *discord;
-        } else {
-          result += "No Discord provided.";
+          result += "No GitHub provided.";
         }
 
       } catch (const std::exception& e) {

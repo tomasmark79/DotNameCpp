@@ -14,7 +14,9 @@
 #if defined(__EMSCRIPTEN__)
   #include <emscripten/emscripten.h>
 #else
-  #include <cpptrace/basic.hpp>
+  #if defined(DEBUG)
+    #include <cpptrace/basic.hpp>
+  #endif
 #endif
 
 constexpr int maxArguments = 128;
@@ -62,13 +64,13 @@ inline int handlesArguments (int argc, const char* argv[]) {
     if (result["log2file"].as<bool> ()) {
       static const std::string logFileName = std::string (AppContext::standaloneName) + ".log";
       LOG.enableFileLogging (logFileName);
-      LOG_D_STREAM << "Logging to file enabled [-2]" << "\n";
+      LOG_I_STREAM << "Logging to file enabled [-2]" << "\n";
     }
 
     if (!result["omit"].as<bool> ()) {
       uniqueLib = std::make_unique<dotname::DotNameLib> (AppContext::getAssetsPath ());
     } else {
-      LOG_D_STREAM << "Loading library omitted [-1]" << "\n";
+      LOG_I_STREAM << "Loading library omitted [-1]" << "\n";
     }
 
     if (!result.unmatched ().empty ()) {
@@ -116,15 +118,14 @@ inline int runApp (int argc, const char* argv[]) {
   LOG_I_STREAM << "pthreads support: Enabled" << "\n";
   #endif
 #else
-  cpptrace::generate_trace ().print ();
+  #if defined(DEBUG)
+    LOG_D_STREAM << cpptrace::generate_trace ();
+  #endif
 #endif
 
   if (handlesArguments (argc, argv) != 0) {
     return 1;
   }
-
-  // demo error
-  LOG_E_STREAM << "This is a demo error message" << "\n";
 
   // bye
   LOG_I_STREAM << "Successfully exited " << AppContext::standaloneName << "\n";
