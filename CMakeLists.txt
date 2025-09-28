@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
 # DotNameCpp Version should be synchronized with git tags
 
 project(
-    DotNameCpp
+    DotNameCppTemplate
     VERSION 0.0.3
     LANGUAGES C CXX
     DESCRIPTION "DotNameC++ Template Project"
