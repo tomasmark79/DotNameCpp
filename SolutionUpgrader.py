@@ -530,6 +530,25 @@ def parse_file_paths(input_text):
     
     return cleaned_paths
 
+def show_help():
+    """Display help information."""
+    print("⚠️ SECURITY WARNING ⚠️")
+    print("This script can overwrite files!")
+    print("SolutionUpgrader.py - Update files from remote repository")
+    print("\nUsage:")
+    print("  python SolutionUpgrader.py -c --check                  # Only check for outdated files (SAFE)")
+    print("  python SolutionUpgrader.py -u --update-file <filepath> # Update specific file(s)")
+    print("  python SolutionUpgrader.py --force-update              # Update all files (CREATES BACKUP)")
+    print("  python SolutionUpgrader.py --help                      # Show this help")
+    print("\nExamples:")
+    print("  python SolutionUpgrader.py -u README.md")
+    print("  python SolutionUpgrader.py -u CMakeLists.txt")
+    print("  python SolutionUpgrader.py -u \"README.md CMakeLists.txt conanfile.py\"")
+    print("\nSecurity:")
+    print("  - It is recommended to always run --check first")
+    print("  - A backup will be created before updating")
+    print("  - Files with <DOTNAME_NO_UPDATE> will not be overwritten")
+
 def main():
     # Check for command line arguments
     if len(sys.argv) > 1:
@@ -538,20 +557,7 @@ def main():
             check_outdated_files()
             return
         elif sys.argv[1] == "--help" or sys.argv[1] == "-h":
-            print("SolutionUpgrader.py - Update files from remote repository")
-            print("\nUsage:")
-            print("  python SolutionUpgrader.py -c --check                 # Only check for outdated files (SAFE)")
-            print("  python SolutionUpgrader.py --force-update             # Update all files (CREATES BACKUP)")
-            print("  python SolutionUpgrader.py -u --update-file <filepath>   # Update specific file(s)")
-            print("  python SolutionUpgrader.py --help                     # Show this help")
-            print("\nExamples:")
-            print("  python SolutionUpgrader.py -u README.md")
-            print("  python SolutionUpgrader.py -u CMakeLists.txt")
-            print("  python SolutionUpgrader.py -u \"README.md CMakeLists.txt conanfile.py\"")
-            print("\nSecurity:")
-            print("  - It is recommended to always run --check first")
-            print("  - A backup will be created before updating")
-            print("  - Files with <DOTNAME_NO_UPDATE> will not be overwritten")
+            show_help()
             return
         elif sys.argv[1] == "--update-file" or sys.argv[1] == "-u":
             if len(sys.argv) < 3:
@@ -652,18 +658,11 @@ def main():
             # Pokračuj s aktualizací
             pass
         else:
-            print("⚠️ SECURITY WARNING ⚠️")
-            print("This script can overwrite files!")
-            print("It is recommended to run: python SolutionUpgrader.py --check")
-            print("To continue, use: python SolutionUpgrader.py --force-update")
-            print("For help: python SolutionUpgrader.py --help")
+            show_help()
             return
     else:
-        print("⚠️  SECURITY WARNING ⚠️")
-        print("This script can overwrite files!")
-        print("It is recommended to run: python SolutionUpgrader.py --check")
-        print("To continue, use: python SolutionUpgrader.py --force-update")
-        print("For help: python SolutionUpgrader.py --help")
+        # Show help when no parameters provided
+        show_help()
         return
 
     backup_dir = None
