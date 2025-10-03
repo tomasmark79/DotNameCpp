@@ -278,6 +278,9 @@ private:
     if (addNewLine_) {
       stream << "\n";
     }
+    
+    // Explicitně flushovat buffer pro okamžitý výstup
+    stream.flush ();
   }
 
   std::string buildHeader (const std::tm& now_tm, const std::string& caller, Level level) const {
