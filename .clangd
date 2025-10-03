@@ -1,7 +1,5 @@
 # Configuration file for clangd IntelliSense LSP server
-Index:
-  Background: Build
-
+# Att: User .clangd configuration is prioritized over workspace
 Diagnostics:
   ClangTidy:
     Add: [performance-*, readability-*, modernize-*]
@@ -15,9 +13,12 @@ Diagnostics:
   UnusedIncludes: Strict
 
 InlayHints:
-  Enabled: true
-  ParameterNames: true
-  DeducedTypes: true
+  Enabled: Yes
+  BlockEnd: Yes
+  Designators: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  TypeNameLimit: 0
 
 CompileFlags:
   Add: [-Wall, -Wextra, -std=c++17]
