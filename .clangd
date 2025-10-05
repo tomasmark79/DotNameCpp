@@ -14,7 +14,7 @@ Diagnostics:
 
 InlayHints:
   Enabled: Yes
-  BlockEnd: Yes
+  BlockEnd: No
   Designators: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
