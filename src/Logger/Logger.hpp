@@ -138,11 +138,14 @@ public:
     } else {
       logToStream (std::cout, level, message, caller, now_tm);
     }
+
     // Výstup do souboru, pokud je povolen
     if (logFile_.is_open ()) {
       logFile_ << "[" << std::put_time (&now_tm, "%d-%m-%Y %H:%M:%S") << "] ";
       logFile_ << "[" << (caller.empty () ? "empty caller" : caller) << "] ";
       logFile_ << "[" << levelToString (level) << "] " << message << "\n";
+
+      logFile_.flush (); // Flush the log file to ensure all messages are written
     }
   }
 
@@ -278,7 +281,7 @@ private:
     if (addNewLine_) {
       stream << "\n";
     }
-    
+
     // Explicitně flushovat buffer pro okamžitý výstup
     stream.flush ();
   }
