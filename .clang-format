@@ -1,7 +1,7 @@
 ---
 BasedOnStyle: GNU
 AccessModifierOffset: -2
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: DontAlign
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
   Enabled: false
@@ -63,7 +63,7 @@ AlignOperands: Align
 AlignTrailingComments:
   Kind: Always
   OverEmptyLines: 0
-AllowAllArgumentsOnNextLine: true
+AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowBreakBeforeNoexceptSpecifier: Never
 AllowShortBlocksOnASingleLine: Never
