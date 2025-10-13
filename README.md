@@ -159,7 +159,6 @@ Secondary workflow for code quality and maintenance:
 - **Documentation**: Doxygen with automated generation
 - **Testing**: Google Test framework integration
 - **Debugging**: GDB/LLDB/CMake support with VSCode integration
-- **Parallel Computing**: TBB - Threading Building Blocks
 
 ### 📦 **Project Flexibility**
 - **Dual Structure**: Library and standalone application support
@@ -236,6 +235,8 @@ Click the **Code** button on GitHub → **Codespaces** → **Create codespace** 
 | **Conan** | 2.0+ | Package manager | `pip install conan` |
 | **Python** | 3.8+ | Automation scripts | [Download](https://python.org) |
 | **Ninja** | 1.10+ | Build tool | [Download](https://ninja-build.org/) |
+| **VSCode** | Latest | IDE | [Download](https://code.visualstudio.com/) |
+
 
 ### 🛡️ Recommended Tools
 
@@ -247,7 +248,8 @@ Click the **Code** button on GitHub → **Codespaces** → **Create codespace** 
 | **cmake-format** | CMake formatting | `pip install cmake-format` |
 | **Doxygen** | Documentation | [Download](https://www.doxygen.nl/download.html) |
 | **gcovr** | Code coverage | `pip install gcovr` |
-| **TBB** | Parallel computing (Linux) | `sudo dnf install tbb-devel` (Fedora), `sudo apt install libtbb-dev` (Ubuntu) |
+| **Emscripten** | WebAssembly compilation | [Download](https://emscripten.org/docs/getting_started/downloads.html) |
+
 
 ### 💻 Supported Compilers
 
@@ -509,8 +511,6 @@ Keyboard shortcuts: `Ctrl+Alt+F` (C++), `Ctrl+Alt+M` (CMake)
 | **Package Management** | ✅ | ✅ | ✅ | ✅ |
 | **IDE Integration** | ✅ | ✅ | ✅ | ✅ |
 | **CI/CD** | ✅ | ✅ | ✅ | ✅ |
-
-> **📝 parallel computing support note**: For full parallel computing support, install TBB development package: `sudo apt install libtbb-dev` (Ubuntu/Debian) or `sudo dnf install tbb-devel` (Fedora/RHEL)
 
 ### 🔧 Cross-Compilation Setup
 
