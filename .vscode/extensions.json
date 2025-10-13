@@ -35,6 +35,5 @@
         "redhat.vscode-yaml",
         "ms-vscode.cmake-tools",
         "llvm-vs-code-extensions.vscode-clangd",
-        "wallenwang.ccls-plus"
     ]
 }
