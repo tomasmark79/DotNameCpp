@@ -20,7 +20,7 @@ namespace AssetContext {
   }
 
   std::filesystem::path findAssetsPath (const std::filesystem::path& executablePath,
-                                        const std::string& appName) {
+      const std::string& appName) {
     std::filesystem::path execDir = executablePath.parent_path ();
 
     // Priority list of asset locations to try

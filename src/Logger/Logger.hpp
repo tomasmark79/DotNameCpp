@@ -151,7 +151,7 @@ public:
 
   template <typename... Args>
   void logFmtMessage (Level level, const std::string& format, const std::string& caller,
-                      Args&&... args) {
+      Args&&... args) {
     std::string message = fmt::vformat (format, fmt::make_format_args (args...));
     log (level, message, caller);
   }
@@ -210,7 +210,7 @@ public:
   static void resetConsoleColor () {
 #ifdef _WIN32
     SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE),
-                             FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+        FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 #elif defined(__EMSCRIPTEN__)
 // no colors, no reset
 #else
@@ -236,10 +236,8 @@ public:
 #else
   static void setConsoleColorUnix (Level level) {
     static const std::map<Level, const char*> colorMap = { { Level::LOG_DEBUG, "\033[34m" },
-                                                           { Level::LOG_INFO, "\033[32m" },
-                                                           { Level::LOG_WARNING, "\033[33m" },
-                                                           { Level::LOG_ERROR, "\033[31m" },
-                                                           { Level::LOG_CRITICAL, "\033[95m" } };
+      { Level::LOG_INFO, "\033[32m" }, { Level::LOG_WARNING, "\033[33m" },
+      { Level::LOG_ERROR, "\033[31m" }, { Level::LOG_CRITICAL, "\033[95m" } };
     auto it = colorMap.find (level);
     if (it != colorMap.end ()) {
       std::cout << it->second;
@@ -267,7 +265,7 @@ private:
   bool includeLevel_ = true;
 
   void logToStream (std::ostream& stream, Level level, const std::string& message,
-                    const std::string& caller, const std::tm& now_tm) {
+      const std::string& caller, const std::tm& now_tm) {
     // Nejdříve nastavit barvu
     setConsoleColor (level);
 
