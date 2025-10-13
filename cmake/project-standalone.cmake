@@ -63,14 +63,6 @@ else()
     target_link_libraries(${STANDALONE_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
 endif()
 
-# Link TBB only on Linux X86 where it's properly supported
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-    target_link_libraries(${STANDALONE_NAME} PRIVATE tbb)
-    message(STATUS "TBB enabled for Linux X86 build")
-else()
-    message(STATUS "TBB disabled for ${CMAKE_SYSTEM_NAME} - using fallback implementation")
-endif()
-
 # ==============================================================================
 # Asset processing and Emscripten configuration
 # ==============================================================================
@@ -93,11 +85,6 @@ if(ENABLE_GTESTS)
     else()
         target_link_libraries(${TEST_NAME_LOWER}_standalone_common INTERFACE ${LIBRARY_NAME}
                                                                              cxxopts::cxxopts)
-    endif()
-
-    # Link TBB only on Linux for tests
-    if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-        target_link_libraries(${TEST_NAME_LOWER}_standalone_common INTERFACE tbb)
     endif()
 
     add_library(dotname::${TEST_NAME_LOWER}_standalone_common ALIAS
