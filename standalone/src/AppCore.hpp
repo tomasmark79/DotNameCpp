@@ -50,9 +50,9 @@ inline int handlesArguments (int argc, const char* argv[]) {
     options.set_tab_expansion ();
     options.add_options () ("h,help", "Show help");
     options.add_options () ("1,omit", "Omit library loading",
-                            cxxopts::value<bool> ()->default_value ("false"));
+        cxxopts::value<bool> ()->default_value ("false"));
     options.add_options () ("2,log2file", "Log to file",
-                            cxxopts::value<bool> ()->default_value ("false"));
+        cxxopts::value<bool> ()->default_value ("false"));
 
     const auto result = options.parse (argc, argv);
 
@@ -119,7 +119,7 @@ inline int runApp (int argc, const char* argv[]) {
   #endif
 #else
   #if defined(DEBUG)
-    LOG_D_STREAM << cpptrace::generate_trace ();
+  LOG_D_STREAM << cpptrace::generate_trace ();
   #endif
 #endif
 

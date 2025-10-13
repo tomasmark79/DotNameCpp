@@ -162,27 +162,27 @@ namespace DotNameUtils {
         std::string content = fs::io::readFile (filePath);
         return nlohmann::json::parse (content);
       } catch (const nlohmann::json::parse_error& e) {
-        throw std::runtime_error ("JSON parse error in file " + filePath.string () + ": "
-                                  + e.what ());
+        throw std::runtime_error (
+            "JSON parse error in file " + filePath.string () + ": " + e.what ());
       }
     }
 
     // Save JSON to file
     inline void saveToFile (const std::filesystem::path& filePath, const nlohmann::json& jsonData,
-                            int indent = 2) {
+        int indent = 2) {
       try {
         std::string jsonString = jsonData.dump (indent);
         fs::io::writeFile (filePath, jsonString);
       } catch (const std::exception& e) {
-        throw std::runtime_error ("Failed to save JSON to file " + filePath.string () + ": "
-                                  + e.what ());
+        throw std::runtime_error (
+            "Failed to save JSON to file " + filePath.string () + ": " + e.what ());
       }
     }
 
     // Get value with default fallback
     template <typename T>
     inline T getValue (const nlohmann::json& json, const std::string& key,
-                       const T& defaultValue = T{}) {
+        const T& defaultValue = T{}) {
       try {
         if (json.contains (key)) {
           return json[key].get<T> ();
@@ -196,7 +196,7 @@ namespace DotNameUtils {
     // Get nested value with path (e.g., "strings/0/data/en")
     template <typename T>
     inline T getNestedValue (const nlohmann::json& json, const std::string& path,
-                             const T& defaultValue = T{}) {
+        const T& defaultValue = T{}) {
       try {
         std::istringstream pathStream (path);
         std::string segment;
@@ -233,8 +233,7 @@ namespace DotNameUtils {
 
     // Find item by id in array
     inline std::optional<nlohmann::json> findById (const nlohmann::json& jsonArray,
-                                                   const std::string& id,
-                                                   const std::string& idField = "id") {
+        const std::string& id, const std::string& idField = "id") {
       try {
         if (jsonArray.is_array ()) {
           for (const auto& item : jsonArray) {
@@ -251,8 +250,7 @@ namespace DotNameUtils {
 
     // Get localized string from your custom format
     inline std::optional<std::string> getLocalizedString (const nlohmann::json& stringsJson,
-                                                          const std::string& id,
-                                                          const std::string& locale = "en") {
+        const std::string& id, const std::string& locale = "en") {
       try {
         if (stringsJson.contains ("strings") && stringsJson["strings"].is_array ()) {
           auto item = findById (stringsJson["strings"], id);
@@ -275,7 +273,7 @@ namespace DotNameUtils {
 
     // Get EMAIL from your custom format
     inline std::optional<std::string> getEmail (const nlohmann::json& stringsJson,
-                                                const std::string& id) {
+        const std::string& id) {
       try {
         if (stringsJson.contains ("strings") && stringsJson["strings"].is_array ()) {
           auto item = findById (stringsJson["strings"], id);
@@ -294,7 +292,7 @@ namespace DotNameUtils {
 
     // Get URL from your custom format
     inline std::optional<std::string> getUrl (const nlohmann::json& stringsJson,
-                                              const std::string& id) {
+        const std::string& id) {
       try {
         if (stringsJson.contains ("strings") && stringsJson["strings"].is_array ()) {
           auto item = findById (stringsJson["strings"], id);
@@ -313,7 +311,7 @@ namespace DotNameUtils {
 
     // Get telephone from your custom format
     inline std::optional<std::string> getTel (const nlohmann::json& stringsJson,
-                                              const std::string& id) {
+        const std::string& id) {
       try {
         if (stringsJson.contains ("strings") && stringsJson["strings"].is_array ()) {
           auto item = findById (stringsJson["strings"], id);
@@ -332,9 +330,9 @@ namespace DotNameUtils {
 
     // Validate JSON against basic schema
     inline bool validateStructure (const nlohmann::json& json,
-                                   const std::vector<std::string>& requiredKeys) {
+        const std::vector<std::string>& requiredKeys) {
       return std::all_of (requiredKeys.begin (), requiredKeys.end (),
-                          [&json] (const std::string& key) { return json.contains (key); });
+          [&json] (const std::string& key) { return json.contains (key); });
     }
 
     // Pretty print JSON to string
