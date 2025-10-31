@@ -6,12 +6,12 @@ Production-ready C++ starter focused on fast iteration, keyboard‑driven workfl
 
 <span id="linux-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('linux-badge').remove()" style="border:0;"></a></span> <span id="macos-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('macos-badge').remove()" style="border:0;"></a></span> <span id="windows-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('windows-badge').remove()" style="border:0;"></a></span><span id="emscripten-badge"> <a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('emscripten-badge').remove()" style="border:0;"></a></span>
 
+
 > Quick start: `Shift+F7` → "🦸 Zero to Hero" (configure, build, test, package). Then use `F7` (rebuild) and `F5` (debug).
 
 [YouTube Video DotNameCpp QuickStart](https://www.youtube.com/watch?v=0WoN8i8f7-o)  
-[Discord](https://discord.gg/4vkSjvvqSW)  
 
-Born from DotNameCpp [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexStandalone.html)
+[![discord](https://img.shields.io/discord/1220657359572172810?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/4vkSjvvqSW)
 
 ---
 
@@ -772,6 +772,8 @@ This template is provided "as is" without warranties of any kind. While extensiv
 **Happy coding! 🚀**
 
 For support, questions, or suggestions, please [open an issue](https://github.com/tomasmark79/DotNameCpp/issues) or [start a discussion](https://github.com/tomasmark79/DotNameCpp/discussions).
+
+Exmaple born from DotNameCpp [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexStandalone.html)
 
 ---
 
