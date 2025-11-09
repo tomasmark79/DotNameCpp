@@ -1,0 +1,6 @@
+# Exclude Python from language statistics
+*.py linguist-detectable=false
+
+# Mark C++ as primary language
+*.cpp linguist-language=C++
+*.hpp linguist-language=C++

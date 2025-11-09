@@ -98,6 +98,3 @@ graph.html
 
 # CMake user presets
 CMakeUserPresets.json
-
-# Github attributes
-.gitattributes
