@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdint>
 #include <sstream>
+#include <memory>
 #include "fmt/core.h"
 
 namespace dotnamecpp::logging {
@@ -16,8 +17,8 @@ namespace dotnamecpp::logging {
   // LogStream helper class - can be used by any ILogger implementation
   class LogStream {
   public:
-    LogStream (ILogger& logger, Level level, std::string caller)
-        : logger_ (logger), level_ (level), caller_ (std::move (caller)) {
+    LogStream (std::shared_ptr<ILogger> logger, Level level, std::string caller)
+        : logger_ (std::move (logger)), level_ (level), caller_ (std::move (caller)) {
     }
 
     // Destructor declared here, defined after ILogger
@@ -35,13 +36,13 @@ namespace dotnamecpp::logging {
     }
 
   private:
-    ILogger& logger_;
+    std::shared_ptr<ILogger> logger_;
     Level level_;
     std::string caller_;
     std::ostringstream oss_;
   };
 
-  class ILogger {
+  class ILogger : public std::enable_shared_from_this<ILogger> {
   public:
     ILogger () = default;
     virtual ~ILogger () = default;
@@ -62,7 +63,7 @@ namespace dotnamecpp::logging {
 
     // Non-virtual convenience methods - available through interface
     LogStream stream (Level level, const std::string& caller = "") {
-      return LogStream{ *this, level, caller };
+      return LogStream{ shared_from_this (), level, caller };
     }
 
     LogStream debugStream (const std::string& caller = "") {
@@ -99,19 +100,19 @@ namespace dotnamecpp::logging {
     const std::string message = oss_.str ();
     switch (level_) {
     case Level::LOG_DEBUG:
-      logger_.debug (message, caller_);
+      logger_->debug (message, caller_);
       break;
     case Level::LOG_INFO:
-      logger_.info (message, caller_);
+      logger_->info (message, caller_);
       break;
     case Level::LOG_WARNING:
-      logger_.warning (message, caller_);
+      logger_->warning (message, caller_);
       break;
     case Level::LOG_ERROR:
-      logger_.error (message, caller_);
+      logger_->error (message, caller_);
       break;
     case Level::LOG_CRITICAL:
-      logger_.critical (message, caller_);
+      logger_->critical (message, caller_);
       break;
     }
   }
