@@ -4,8 +4,6 @@
 
 #include <nlohmann/json.hpp>
 #include <Assets/AssetContext.hpp>
-#include <Logger/Logger.hpp>
-
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -92,8 +90,9 @@ namespace DotNameUtils {
         }
 #else
         // C-Like is intended here for cross-platform compatibility
-        char buffer[PATH_MAX];
-        ssize_t count = readlink ("/proc/self/exe", buffer, PATH_MAX);
+        const size_t BUFFER_SIZE = 4096;
+        char buffer[BUFFER_SIZE];
+        ssize_t count = readlink ("/proc/self/exe", buffer, BUFFER_SIZE);
         if (count != -1) {
           buffer[count] = '\0';
           path = buffer;
