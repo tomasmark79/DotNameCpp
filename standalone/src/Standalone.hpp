@@ -65,6 +65,15 @@ namespace dotnamecpp::app {
     Standalone (const Standalone&) = delete;
     Standalone& operator= (const Standalone&) = delete;
 
+    logging::ILogger& getLogger () {
+      return *logger_;
+    }
+
+    [[nodiscard]]
+    const std::string& getAppName () const {
+      return appName_;
+    }
+
     // Initialize all components (1. logger, 2. assets, 3. library)
     bool initializeComponents (const logging::LoggerConfig& loggerConfig,
         const std::filesystem::path& executablePath) {
@@ -94,18 +103,12 @@ namespace dotnamecpp::app {
         return EXIT_FAILURE;
       }
 
+      logger_->warningStream () << "... warning example ...";
+      logger_->errorStream () << "... error example ...";
       logger_->infoStream () << appName_ << " running...";
+      logger_->infoStream () << ".";
 
       return EXIT_SUCCESS;
-    }
-
-    logging::ILogger& getLogger () {
-      return *logger_;
-    }
-
-    [[nodiscard]]
-    const std::string& getAppName () const {
-      return appName_;
     }
   };
 

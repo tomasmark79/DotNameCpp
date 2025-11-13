@@ -32,12 +32,10 @@ namespace dotnamecpp::v1 {
       if (assetManager_ && assetManager_->validate ()) {
 
         logger_->infoStream () << "DotNameLib initialized";
-        logger_->infoStream () << "Assets: " << assetManager_->getAssetsPath ();
-        logger_->debugStream () << "Assets: " << assetManager_->getAssetsPath ();
 
         const auto logoPath = assetManager_->resolveAsset ("DotNameCppLogo.svg");
         if (assetManager_->assetExists ("DotNameCppLogo.svg")) {
-          logger_->debugStream () << "Logo: " << logoPath;
+          logger_->debugStream () << "Logo: " << logoPath << " found";
         } else {
           logger_->warningStream () << "Logo not found: " << logoPath;
         }
