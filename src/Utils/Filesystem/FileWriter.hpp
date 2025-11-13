@@ -2,9 +2,10 @@
 
 #include <Utils/Filesystem/IFileWriter.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IFileWriter interface
  * 
  * Provides file writing operations using std::filesystem and standard C++ streams.
@@ -52,4 +53,5 @@ namespace dotname {
         const std::filesystem::path& filePath) const;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

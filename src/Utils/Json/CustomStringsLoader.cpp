@@ -1,12 +1,10 @@
 #include "CustomStringsLoader.hpp"
 #include <fmt/core.h>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::JsonErrorCode;
-
-  CustomStringsLoader::CustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
+    CustomStringsLoader::CustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
       std::shared_ptr<IJsonSerializer> jsonSerializer, std::string filename)
       : assetManager_ (std::move (assetManager)), jsonSerializer_ (std::move (jsonSerializer)),
         filename_ (std::move (filename)) {
@@ -181,4 +179,5 @@ namespace dotname {
     return result.empty () ? "No custom strings available" : result;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

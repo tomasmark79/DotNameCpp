@@ -2,9 +2,10 @@
 
 #include <Utils/Filesystem/IFileReader.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IFileReader interface
  * 
  * Provides file reading operations using std::filesystem and standard C++ streams.
@@ -45,4 +46,5 @@ namespace dotname {
         const std::filesystem::path& filePath) const;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

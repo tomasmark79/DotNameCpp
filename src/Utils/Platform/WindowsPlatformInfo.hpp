@@ -2,12 +2,13 @@
 
 #include <Utils/Platform/IPlatformInfo.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Windows-specific platform information implementation
  */
-  class WindowsPlatformInfo final : public IPlatformInfo {
+    class WindowsPlatformInfo final : public IPlatformInfo {
   public:
     WindowsPlatformInfo () = default;
     ~WindowsPlatformInfo () override = default;
@@ -27,4 +28,5 @@ namespace dotname {
     [[nodiscard]] bool isEmscripten () const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

@@ -15,14 +15,14 @@
 //   ├── app::             // Standalone application
 //   ├── logging::         // Logging subsystem
 //   ├── assets::          // Asset management
-//   └── dotname::         // Utils (new OOP refactored)
+//   └── utils::           // Utils (new OOP refactored)
 //       ├── IFileReader, IFileWriter, IPathResolver, IDirectoryManager
 //       ├── IPlatformInfo (Windows, Unix, Emscripten)
 //       ├── IJsonSerializer, ICustomStringsLoader
 //       └── IStringFormatter
 
 std::filesystem::path getStandalonePath () {
-  auto platformInfo = dotname::UtilsFactory::createPlatformInfo ();
+  auto platformInfo = dotnamecpp::utils::UtilsFactory::createPlatformInfo ();
   auto result = platformInfo->getExecutablePath ();
   if (!result.hasValue ()) {
     throw std::runtime_error ("Failed to get executable path: " + result.error ().toString ());

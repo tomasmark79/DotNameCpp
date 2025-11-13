@@ -2,12 +2,13 @@
 
 #include <Utils/String/IStringFormatter.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IStringFormatter
  */
-  class StringFormatter final : public IStringFormatter {
+    class StringFormatter final : public IStringFormatter {
   public:
     StringFormatter () = default;
     ~StringFormatter () override = default;
@@ -21,4 +22,5 @@ namespace dotname {
     [[nodiscard]] std::string removeDots (const std::string& str) const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

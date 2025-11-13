@@ -5,9 +5,10 @@
 #include <Utils/Filesystem/IFileWriter.hpp>
 #include <memory>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IJsonSerializer interface
  * 
  * Uses IFileReader/IFileWriter for file I/O with dependency injection.
@@ -46,4 +47,5 @@ namespace dotname {
     std::shared_ptr<IFileWriter> fileWriter_;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

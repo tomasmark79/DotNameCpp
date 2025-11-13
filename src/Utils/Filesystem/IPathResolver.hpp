@@ -5,13 +5,10 @@
 #include <string>
 #include <vector>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Interface for path resolution and manipulation
  * 
  * Provides abstraction for filesystem path operations.
@@ -101,4 +98,5 @@ namespace dotname {
         = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

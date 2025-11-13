@@ -2,9 +2,10 @@
 
 #include <string>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Interface for string formatting operations
  * 
  * Provides utilities for string manipulation and formatting.
@@ -28,4 +29,5 @@ namespace dotname {
     [[nodiscard]] virtual std::string removeDots (const std::string& str) const = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

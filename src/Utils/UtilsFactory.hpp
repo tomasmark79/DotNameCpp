@@ -11,12 +11,13 @@
 #include <Assets/IAssetManager.hpp>
 #include <memory>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import asset types
-  using dotnamecpp::assets::IAssetManager;
+    // Import asset types
+    using dotnamecpp::assets::IAssetManager;
 
-  /**
+    /**
  * @brief Factory for creating all utility component instances
  * 
  * Provides centralized creation and dependency injection for all Utils subsystems.
@@ -123,4 +124,5 @@ namespace dotname {
     [[nodiscard]] static UtilsBundle createBundle ();
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

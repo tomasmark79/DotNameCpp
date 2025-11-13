@@ -2,12 +2,10 @@
 #include <fmt/core.h>
 #include <system_error>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Result<void, FileError> DirectoryManager::createDirectory (
+    Result<void, FileError> DirectoryManager::createDirectory (
       const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
@@ -253,4 +251,5 @@ namespace dotname {
     return temp;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

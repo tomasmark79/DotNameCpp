@@ -1,8 +1,9 @@
 #include "StringFormatter.hpp"
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  std::string StringFormatter::addDots (const std::string& str) const {
+    std::string StringFormatter::addDots (const std::string& str) const {
     if (str.empty ()) {
       return str;
     }
@@ -38,4 +39,5 @@ namespace dotname {
     return result;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

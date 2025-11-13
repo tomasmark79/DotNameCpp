@@ -2,9 +2,10 @@
 
 #include <Utils/Filesystem/IPathResolver.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IPathResolver interface
  * 
  * Provides path resolution and manipulation using std::filesystem.
@@ -46,4 +47,5 @@ namespace dotname {
     [[nodiscard]] std::filesystem::path join (const std::vector<std::string>& parts) const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

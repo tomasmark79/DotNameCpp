@@ -5,18 +5,15 @@
 #include <filesystem>
 #include <string>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Platform information enumeration
  */
-  enum class Platform : std::uint8_t { Windows, Linux, macOS, Emscripten, Unknown };
+    enum class Platform : std::uint8_t { Windows, Linux, macOS, Emscripten, Unknown };
 
-  /**
+    /**
  * @brief Interface for platform-specific information
  * 
  * Provides abstraction for platform detection and executable path retrieval.
@@ -75,4 +72,5 @@ namespace dotname {
     [[nodiscard]] virtual bool isEmscripten () const = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

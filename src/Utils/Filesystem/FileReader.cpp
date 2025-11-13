@@ -4,12 +4,10 @@
 #include <sstream>
 #include <system_error>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Result<std::string, FileError> FileReader::read (const std::filesystem::path& filePath) const {
+    Result<std::string, FileError> FileReader::read (const std::filesystem::path& filePath) const {
     if (auto error = validatePath (filePath)) {
       return *error;
     }
@@ -165,4 +163,5 @@ namespace dotname {
     return std::nullopt;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

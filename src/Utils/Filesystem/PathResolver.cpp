@@ -2,12 +2,10 @@
 #include <fmt/core.h>
 #include <system_error>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Result<std::filesystem::path, FileError> PathResolver::getAbsolutePath (
+    Result<std::filesystem::path, FileError> PathResolver::getAbsolutePath (
       const std::filesystem::path& path) const {
     if (path.empty ()) {
       return FileError{
@@ -111,4 +109,5 @@ namespace dotname {
     return result;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

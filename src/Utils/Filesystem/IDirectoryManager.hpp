@@ -4,13 +4,10 @@
 #include <filesystem>
 #include <vector>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Interface for directory operations
  * 
  * Provides abstraction for directory creation, removal, and listing.
@@ -92,4 +89,5 @@ namespace dotname {
     [[nodiscard]] virtual Result<std::filesystem::path, FileError> getTempDirectory () const = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

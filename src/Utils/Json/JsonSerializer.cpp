@@ -1,12 +1,10 @@
 #include "JsonSerializer.hpp"
 #include <fmt/core.h>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::JsonErrorCode;
-
-  JsonSerializer::JsonSerializer (std::shared_ptr<IFileReader> fileReader,
+    JsonSerializer::JsonSerializer (std::shared_ptr<IFileReader> fileReader,
       std::shared_ptr<IFileWriter> fileWriter)
       : fileReader_ (std::move (fileReader)), fileWriter_ (std::move (fileWriter)) {
     if (!fileReader_ || !fileWriter_) {
@@ -82,6 +80,7 @@ namespace dotname {
     }
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark

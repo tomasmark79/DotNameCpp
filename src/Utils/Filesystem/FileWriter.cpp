@@ -3,12 +3,10 @@
 #include <fstream>
 #include <system_error>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Result<void, FileError> FileWriter::write (const std::filesystem::path& filePath,
+    Result<void, FileError> FileWriter::write (const std::filesystem::path& filePath,
       const std::string& content, bool append) const {
     if (auto error = validatePath (filePath, false)) {
       return *error;
@@ -212,4 +210,5 @@ namespace dotname {
     return std::nullopt;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

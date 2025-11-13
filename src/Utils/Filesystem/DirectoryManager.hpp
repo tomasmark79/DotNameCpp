@@ -2,9 +2,10 @@
 
 #include <Utils/Filesystem/IDirectoryManager.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Standard implementation of IDirectoryManager interface
  * 
  * Provides directory operations using std::filesystem.
@@ -46,4 +47,5 @@ namespace dotname {
     [[nodiscard]] Result<std::filesystem::path, FileError> getTempDirectory () const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

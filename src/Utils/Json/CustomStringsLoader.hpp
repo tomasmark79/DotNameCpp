@@ -6,12 +6,13 @@
 #include <memory>
 #include <mutex>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import asset types
-  using dotnamecpp::assets::IAssetManager;
+    // Import asset types
+    using dotnamecpp::assets::IAssetManager;
 
-  /**
+    /**
  * @brief Implementation of ICustomStringsLoader with dependency injection
  * 
  * Loads customstrings.json from assets using IAssetManager and IJsonSerializer.
@@ -72,4 +73,5 @@ namespace dotname {
     [[nodiscard]] std::optional<nlohmann::json> findById (const std::string& id) const;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

@@ -8,13 +8,14 @@
 #include "Platform/PlatformInfoFactory.hpp"
 #include "String/StringFormatter.hpp"
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // ========================================================================
-  // Filesystem factories
-  // ========================================================================
+    // ========================================================================
+    // Filesystem factories
+    // ========================================================================
 
-  std::shared_ptr<IFileReader> UtilsFactory::createFileReader () {
+    std::shared_ptr<IFileReader> UtilsFactory::createFileReader () {
     return std::make_shared<FileReader> ();
   }
 
@@ -87,4 +88,5 @@ namespace dotname {
     };
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

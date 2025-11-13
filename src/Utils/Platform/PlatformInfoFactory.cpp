@@ -4,9 +4,10 @@
 #include "WindowsPlatformInfo.hpp"
 #include <stdexcept>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  std::unique_ptr<IPlatformInfo> PlatformInfoFactory::createForCurrentPlatform () {
+    std::unique_ptr<IPlatformInfo> PlatformInfoFactory::createForCurrentPlatform () {
 #ifdef _WIN32
     return std::make_unique<WindowsPlatformInfo> ();
 #elif defined(__EMSCRIPTEN__)
@@ -33,4 +34,5 @@ namespace dotname {
     }
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

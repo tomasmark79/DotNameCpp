@@ -5,13 +5,10 @@
 #include <nlohmann/json.hpp>
 #include <string>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::JsonError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Interface for JSON serialization and parsing
  * 
  * Provides safe JSON operations with Result<T,E> error handling.
@@ -60,4 +57,5 @@ namespace dotname {
         = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

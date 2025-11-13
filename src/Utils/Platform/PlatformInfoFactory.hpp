@@ -3,12 +3,13 @@
 #include <Utils/Platform/IPlatformInfo.hpp>
 #include <memory>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Factory for creating platform-specific IPlatformInfo instances
  */
-  class PlatformInfoFactory {
+    class PlatformInfoFactory {
   public:
     /**
      * @brief Create platform info for current platform
@@ -24,4 +25,5 @@ namespace dotname {
     [[nodiscard]] static std::unique_ptr<IPlatformInfo> create (Platform platform);
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

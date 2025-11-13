@@ -8,12 +8,10 @@
   #include <unistd.h>
 #endif
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Platform UnixPlatformInfo::getPlatform () const {
+    Platform UnixPlatformInfo::getPlatform () const {
 #if defined(__APPLE__)
     return Platform::macOS;
 #elif defined(__linux__)
@@ -106,4 +104,5 @@ namespace dotname {
     return false;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

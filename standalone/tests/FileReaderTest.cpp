@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 
-using namespace dotname;
+using namespace dotnamecpp::utils;
 namespace fs = std::filesystem;
 
 class FileReaderTest : public ::testing::Test {

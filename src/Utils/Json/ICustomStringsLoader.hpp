@@ -5,13 +5,10 @@
 #include <optional>
 #include <string>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::JsonError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Interface for loading custom application strings
  * 
  * Provides abstraction for loading localized strings, emails, URLs, etc.
@@ -65,4 +62,5 @@ namespace dotname {
     [[nodiscard]] virtual std::string getCustomStringSign () const = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

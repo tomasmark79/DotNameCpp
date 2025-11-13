@@ -6,13 +6,10 @@
 #include <string>
 #include <vector>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileError;
-  using dotnamecpp::utils::Result;
-
-  /**
+    /**
  * @brief Interface for writing file content
  * 
  * Provides abstraction for file writing operations with explicit error handling.
@@ -65,4 +62,5 @@ namespace dotname {
         = 0;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

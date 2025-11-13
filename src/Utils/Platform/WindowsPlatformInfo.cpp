@@ -5,12 +5,10 @@
   #include "WindowsHeaders.hpp"
 #endif
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Platform WindowsPlatformInfo::getPlatform () const {
+    Platform WindowsPlatformInfo::getPlatform () const {
     return Platform::Windows;
   }
 
@@ -66,4 +64,5 @@ namespace dotname {
     return false;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

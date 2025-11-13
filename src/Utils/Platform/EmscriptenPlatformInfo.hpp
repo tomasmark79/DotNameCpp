@@ -2,12 +2,13 @@
 
 #include <Utils/Platform/IPlatformInfo.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Emscripten/WebAssembly platform information implementation
  */
-  class EmscriptenPlatformInfo final : public IPlatformInfo {
+    class EmscriptenPlatformInfo final : public IPlatformInfo {
   public:
     EmscriptenPlatformInfo () = default;
     ~EmscriptenPlatformInfo () override = default;
@@ -27,4 +28,5 @@ namespace dotname {
     [[nodiscard]] bool isEmscripten () const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp

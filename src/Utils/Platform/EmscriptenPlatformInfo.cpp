@@ -1,12 +1,10 @@
 #include "EmscriptenPlatformInfo.hpp"
 #include <fmt/core.h>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  // Import error types
-  using dotnamecpp::utils::FileErrorCode;
-
-  Platform EmscriptenPlatformInfo::getPlatform () const {
+    Platform EmscriptenPlatformInfo::getPlatform () const {
     return Platform::Emscripten;
   }
 
@@ -48,6 +46,7 @@ namespace dotname {
     return true;
   }
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark

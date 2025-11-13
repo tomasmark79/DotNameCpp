@@ -2,12 +2,13 @@
 
 #include <Utils/Platform/IPlatformInfo.hpp>
 
-namespace dotname {
+namespace dotnamecpp {
+  namespace utils {
 
-  /**
+    /**
  * @brief Unix-like platform information implementation (Linux/macOS)
  */
-  class UnixPlatformInfo final : public IPlatformInfo {
+    class UnixPlatformInfo final : public IPlatformInfo {
   public:
     UnixPlatformInfo () = default;
     ~UnixPlatformInfo () override = default;
@@ -27,4 +28,5 @@ namespace dotname {
     [[nodiscard]] bool isEmscripten () const override;
   };
 
-} // namespace dotname
+  } // namespace utils
+} // namespace dotnamecpp
