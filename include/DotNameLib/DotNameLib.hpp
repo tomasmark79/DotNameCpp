@@ -2,7 +2,8 @@
 
 #include <DotNameLib/version.h> // first configuration will create this file
 #include <Logger/ILogger.hpp>
-#include <Assets/AssetContext.hpp>
+#include <Logger/NullLogger.hpp>
+#include <Assets/AssetManagerFactory.hpp>
 #include <Utils/Utils.hpp>
 #include <filesystem>
 #include <memory>
@@ -14,45 +15,36 @@ namespace dotnamecpp::v1 {
   private:
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
+    std::shared_ptr<IAssetManager> assetManager_;
     std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
 
   public:
-    explicit DotNameLib (std::shared_ptr<dotnamecpp::logging::ILogger> logger,
-        const std::filesystem::path& assetsPath)
-        : logger_ (std::move (logger)), assetsPath_ (assetsPath) {
+    // Nový konstruktor s asset managerem
+    DotNameLib (std::shared_ptr<logging::ILogger> logger,
+        std::shared_ptr<IAssetManager> assetManager)
+        : logger_ (logger ? std::move (logger) : std::make_shared<logging::NullLogger> ()),
+          assetManager_ (std::move (assetManager)) {
+      if (assetManager_ && assetManager_->validate ()) {
+        logger_->infoStream () << "DotNameLib initialized";
+        logger_->infoStream () << "Assets: " << assetManager_->getAssetsPath ();
+        logger_->debugStream () << "Assets: " << assetManager_->getAssetsPath ();
 
-      if (assetsPath.empty ()) {
-        logger_->warning ("Empty assets path provided");
-        return;
-      }
-      try {
-        assetsPath_ = assetsPath;
-        AssetContext::setAssetsPath (assetsPath);
-        logger_->infoStream () << libName_ << " initialized with assets path: "
-                               << AssetContext::getAssetsPath ();
-        logger_->debugStream () << "Assets: " << AssetContext::getAssetsPath ();
-        logger_->debugStream () << DotNameUtils::json::getCustomStringSign ();
-
-        // Check if logo file exists before trying to open it
-        const auto logoPath = AssetContext::getAssetsPath () / "DotNameCppLogo.svg";
-        logger_->debugStream () << "Logo path: " << logoPath;
-
-        if (std::filesystem::exists (logoPath)) {
-          std::ifstream logoFile (logoPath);
-          if (logoFile.is_open ()) {
-            logger_->debugStream () << "Logo file successfully opened";
-            isInitialized_ = true;
-          } else {
-            logger_->warningStream () << "Could not open logo file: " << logoPath;
-          }
+        const auto logoPath = assetManager_->resolveAsset ("DotNameCppLogo.svg");
+        if (assetManager_->assetExists ("DotNameCppLogo.svg")) {
+          logger_->debugStream () << "Logo: " << logoPath;
         } else {
-          logger_->warningStream () << "Logo file does not exist: " << logoPath;
+          logger_->warningStream () << "Logo not found: " << logoPath;
         }
-      } catch (const std::exception& e) {
-        logger_->errorStream () << "Error initializing DotNameLib: " << e.what ();
-        isInitialized_ = false;
+      } else {
+        logger_->errorStream () << "Invalid or missing asset manager";
       }
+    }
+
+    // Nová metoda pro získání asset manageru
+    [[nodiscard]]
+    std::shared_ptr<IAssetManager> getAssetManager () const noexcept {
+      return assetManager_;
     }
 
     // Non-copyable

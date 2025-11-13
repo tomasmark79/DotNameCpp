@@ -1,33 +1,51 @@
 #include "Standalone.hpp"
-#include "Utils/Utils.hpp"
+#include <Logger/LoggerFactory.hpp>
+#include <Utils/Utils.hpp>
+#include <cxxopts.hpp>
+#include <iostream>
 
-// TODO: OOP fix
-namespace AppContext {
-  constexpr const char* standaloneName = "DotNameStandalone";
+std::filesystem::path getStandalonePath () {
+  return DotNameUtils::fs::path::getStandalonePath ();
+}
 
-  std::filesystem::path getStandalonePath () {
-    return DotNameUtils::fs::path::getStandalonePath ();
+int main (int argc, char** argv) {
+  const std::string standaloneName = "DotNameStandalone";
+
+  try {
+    // Parse command line
+    cxxopts::Options options (standaloneName, "DotName C++ Application");
+    options.add_options () ("h,help", "Print usage");
+    auto result = options.parse (argc, argv);
+
+    if (result.count ("help") > 0) {
+      std::cout << options.help () << '\n';
+      return 0;
+    }
+
+    // Create standalone instance
+    dotnamecpp::app::Standalone app (standaloneName);
+
+    // Initialize logger config
+    dotnamecpp::logging::LoggerConfig loggerConfig {
+        .level = dotnamecpp::logging::Level::LOG_INFO,
+        .enableFileLogging = false,
+        .logFilePath = "standalone.log",
+        .colorOutput = true};
+
+    // Initialize all components
+    auto execPath = getStandalonePath ();
+    if (!app.initialize (loggerConfig, execPath)) {
+      std::cerr << "Failed to initialize application\n";
+      return 1;
+    }
+
+    // Run application
+    return app.run ();
   }
-
-  std::filesystem::path getAssetsPath () {
-    return AssetContext::findAssetsPath (getStandalonePath (), standaloneName);
+  catch (const std::exception& e) {
+    std::cerr << "Fatal error: " << e.what () << '\n';
+    return 1;
   }
 }
 
-int main (int argc, const char* argv[]) {
-  using namespace dotnamecpp;
-
-  logging::LoggerConfig logConfig{ .level = logging::Level::LOG_INFO,
-    .enableFileLogging = false,
-    .logFilePath = "",
-    .colorOutput = true };
-
-  app::StandaloneConfig config{ .appName = AppContext::standaloneName,
-    .assetsPath = AppContext::getAssetsPath (),
-    .loggerConfig = logConfig,
-    .omitLibraryLoading = false };
-
-  // Vytvoření a spuštění aplikace
-  app::Standalone app (config);
-  return app.run (argc, argv);
-}
+// MIT License Copyright (c) 2024-2025 Tomáš Mark

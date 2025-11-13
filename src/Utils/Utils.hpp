@@ -3,7 +3,6 @@
 #define CUSTOM_STRINGS_FILE "customstrings.json"
 
 #include <nlohmann/json.hpp>
-#include <Assets/AssetContext.hpp>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -354,32 +353,12 @@ namespace DotNameUtils {
       return result;
     }
 
+    // DEPRECATED: This function requires AssetContext which has been removed.
+    // TODO: Refactor to accept IAssetManager parameter when Utils is refactored
     // get Author, Email, Phone, Website, GitHub, ...
     inline std::string getCustomStringSign () {
-      std::string result;
-      try {
-        auto customStrings = loadFromFile (AssetContext::getAssetsPath () / CUSTOM_STRINGS_FILE);
-        auto authorEn = getLocalizedString (customStrings, "Author", "en");
-        auto authorCs = getLocalizedString (customStrings, "Author", "cs");
-        auto email = getEmail (customStrings, "Email");
-        auto github = getUrl (customStrings, "GitHub");
-
-        if (email) {
-          result += "Email: " + *email + "\n";
-        } else {
-          result += "No email provided.\n";
-        }
-
-        if (github) {
-          result += "GitHub: " + *github;
-        } else {
-          result += "No GitHub provided.";
-        }
-
-      } catch (const std::exception& e) {
-        result = "Error loading custom strings: " + std::string (e.what ());
-      }
-      return result;
+      // Temporarily disabled - requires IAssetManager injection
+      return "Custom strings functionality disabled (pending Utils refactoring)";
     }
 
   } // namespace json
