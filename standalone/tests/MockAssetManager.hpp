@@ -8,43 +8,42 @@
  * 
  * Allows controlling behavior for test scenarios without filesystem dependencies.
  */
-class MockAssetManager : public dotnamecpp::IAssetManager
-{
-  public:
-    explicit MockAssetManager (std::filesystem::path mockPath)
-        : mockPath_ (std::move (mockPath)), mockExists_ (true), mockValid_ (true) {
-    }
+class MockAssetManager : public dotnamecpp::IAssetManager {
+public:
+  explicit MockAssetManager (std::filesystem::path mockPath)
+      : mockPath_ (std::move (mockPath)), mockExists_ (true), mockValid_ (true) {
+  }
 
-    [[nodiscard]] const std::filesystem::path& getAssetsPath () const override {
-      return mockPath_;
-    }
+  [[nodiscard]] const std::filesystem::path& getAssetsPath () const override {
+    return mockPath_;
+  }
 
-    [[nodiscard]] std::filesystem::path
-    resolveAsset (const std::filesystem::path& relativePath) const override {
-      return mockPath_ / relativePath;
-    }
+  [[nodiscard]] std::filesystem::path resolveAsset (
+      const std::filesystem::path& relativePath) const override {
+    return mockPath_ / relativePath;
+  }
 
-    [[nodiscard]] bool assetExists (const std::filesystem::path& /*relativePath*/) const override {
-      return mockExists_;
-    }
+  [[nodiscard]] bool assetExists (const std::filesystem::path& /*relativePath*/) const override {
+    return mockExists_;
+  }
 
-    [[nodiscard]] bool validate () const override {
-      return mockValid_;
-    }
+  [[nodiscard]] bool validate () const override {
+    return mockValid_;
+  }
 
-    // Test control methods
-    void setMockExists (bool exists) {
-      mockExists_ = exists;
-    }
+  // Test control methods
+  void setMockExists (bool exists) {
+    mockExists_ = exists;
+  }
 
-    void setMockValid (bool valid) {
-      mockValid_ = valid;
-    }
+  void setMockValid (bool valid) {
+    mockValid_ = valid;
+  }
 
-  private:
-    std::filesystem::path mockPath_;
-    bool mockExists_;
-    bool mockValid_;
+private:
+  std::filesystem::path mockPath_;
+  bool mockExists_;
+  bool mockValid_;
 };
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark
