@@ -4,9 +4,21 @@
 #include <cxxopts.hpp>
 #include <iostream>
 
+// Flow
 // Main.cpp ->
 // Standalone.hpp -> [Standalone.cpp (All implementations are inline)]
 // DotNameLib.hpp -> [DotNameLib.cpp (All implementations are inline)] 
+
+// Namespace structure:
+// dotnamecpp::
+//   ├── v1::              // Main library
+//   ├── app::             // Standalone application  
+//   ├── logging::         // Logging subsystem
+//   ├── assets::          // Asset management
+//   └── utils::
+//       ├── fs::          // Filesystem operations
+//       ├── string::      // String utilities
+//       └── json::        // JSON utilities
 
 std::filesystem::path getStandalonePath () {
   return dotnamecpp::utils::fs::getExecutablePath ();
