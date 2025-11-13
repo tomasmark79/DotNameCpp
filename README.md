@@ -6,6 +6,9 @@
 
 ~~Production-ready~~ (**now again  under heavy OOP refreshing development**)  
 
+>todo remains: utils OOP rearchitecturing
+
+
 C++20 starter focused on fast iteration, keyboard‑driven workflows in VSCode, cross‑platform + WebAssembly targets, and automated, reproducible build tooling (CMake + Conan 2 + presets + scripted orchestration). Built to eliminate friction from ad‑hoc shell commands and fragile IDE integrations.
 
 <span id="linux-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('linux-badge').remove()" style="border:0;"></a></span> <span id="macos-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('macos-badge').remove()" style="border:0;"></a></span> <span id="windows-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('windows-badge').remove()" style="border:0;"></a></span><span id="emscripten-badge"> <a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('emscripten-badge').remove()" style="border:0;"></a></span>
@@ -17,7 +20,7 @@ C++20 starter focused on fast iteration, keyboard‑driven workflows in VSCode, 
 [![discord](https://img.shields.io/discord/1220657359572172810?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/4vkSjvvqSW)
 
 ---
-v
+
 ## 📚 Table of Contents
 
 - [🚀 Overview](#-overview)
