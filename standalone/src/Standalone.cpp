@@ -14,7 +14,6 @@ namespace dotnamecpp::app {
 
   void Standalone::initializeLogger () {
     logger_ = logging::LoggerFactory::create (logging::LoggerType::Console, config_.loggerConfig);
-
     logger_->infoStream () << config_.appName << " logger initialized";
   }
 
@@ -39,10 +38,7 @@ namespace dotnamecpp::app {
       return EXIT_FAILURE;
     }
 
-    // Argument parsing logic zde
     logger_->infoStream () << config_.appName << " running...";
-
-    // Vaše business logic
 
     return 0;
   }

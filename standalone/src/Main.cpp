@@ -17,20 +17,15 @@ namespace AppContext {
 int main (int argc, const char* argv[]) {
   using namespace dotnamecpp;
 
-  // Konfigurace aplikace - C++20 designated initializers
-  logging::LoggerConfig logConfig {
-    .level = logging::Level::LOG_INFO,
+  logging::LoggerConfig logConfig{ .level = logging::Level::LOG_INFO,
     .enableFileLogging = false,
     .logFilePath = "",
-    .colorOutput = true
-  };
+    .colorOutput = true };
 
-  app::StandaloneConfig config {
-    .appName = AppContext::standaloneName,
+  app::StandaloneConfig config{ .appName = AppContext::standaloneName,
     .assetsPath = AppContext::getAssetsPath (),
     .loggerConfig = logConfig,
-    .omitLibraryLoading = false
-  };
+    .omitLibraryLoading = false };
 
   // Vytvoření a spuštění aplikace
   app::Standalone app (config);

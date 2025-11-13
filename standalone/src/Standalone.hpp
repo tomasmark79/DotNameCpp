@@ -34,7 +34,6 @@ namespace dotnamecpp::app {
 
     int run (int argc, const char* argv[]);
 
-    // Getters pro testování
     logging::ILogger& getLogger () {
       return *logger_;
     }

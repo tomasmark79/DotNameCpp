@@ -45,20 +45,20 @@ public:
   ConsoleLogger (ConsoleLogger&& other) noexcept : logFile_ (std::move (other.logFile_)),
                                                    addNewLine_ (other.addNewLine_) {
   }
-  
-ConsoleLogger& operator=(ConsoleLogger&& other) noexcept {
+
+  ConsoleLogger& operator= (ConsoleLogger&& other) noexcept {
     if (this != &other) {
-        // Use std::lock to avoid deadlocks
-        std::lock(logMutex_, other.logMutex_);
-        std::lock_guard<std::mutex> lock1(logMutex_, std::adopt_lock);
-        std::lock_guard<std::mutex> lock2(other.logMutex_, std::adopt_lock);
-        
-        logFile_ = std::move(other.logFile_);
-        addNewLine_ = other.addNewLine_;
-        currentLevel_ = other.currentLevel_;
+      // Use std::lock to avoid deadlocks
+      std::lock (logMutex_, other.logMutex_);
+      std::lock_guard<std::mutex> lock1 (logMutex_, std::adopt_lock);
+      std::lock_guard<std::mutex> lock2 (other.logMutex_, std::adopt_lock);
+
+      logFile_ = std::move (other.logFile_);
+      addNewLine_ = other.addNewLine_;
+      currentLevel_ = other.currentLevel_;
     }
     return *this;
-}
+  }
 
   void debug (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_DEBUG, message, caller);

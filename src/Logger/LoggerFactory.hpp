@@ -5,11 +5,7 @@
 
 namespace dotnamecpp::logging {
 
-  enum class LoggerType : uint8_t {
-    Console,
-    File,
-    Null // Pro testy
-  };
+  enum class LoggerType : uint8_t { Console, File, Null };
 
   struct LoggerConfig {
     Level level = Level::LOG_INFO;
@@ -25,7 +21,7 @@ namespace dotnamecpp::logging {
 
     static std::shared_ptr<ILogger> createConsole (const LoggerConfig& config = LoggerConfig{});
 
-    static std::shared_ptr<ILogger> createNull (); // Pro unit testy
+    static std::shared_ptr<ILogger> createNull ();
   };
 
 } // namespace dotnamecpp::logging
