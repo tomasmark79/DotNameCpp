@@ -28,11 +28,13 @@
 // -----------------------------------------------------
 
 #ifdef _WIN32
-  #include <windows.h>
-#elif defined(__APPLE__)
+  #include "../WindowsHeaders.hpp"
+#endif
+
+#if defined(__APPLE__)
   #include <limits.h>
   #include <mach-o/dyld.h>
-#else // Linux
+#elif defined(__linux__)
   #include <unistd.h>
 #endif
 

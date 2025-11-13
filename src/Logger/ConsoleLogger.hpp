@@ -16,36 +16,7 @@
 #include "fmt/core.h"
 
 #ifdef _WIN32
-  #ifndef NOMINMAX
-    #define NOMINMAX
-  // Disable min/max macros in windows.h to avoid conflicts with std::min/max
-  // cxxopts.hpp uses std::min/max
-  #endif
-
-  // Undefine Raylib functions to avoid conflicts
-  #define Rectangle WindowsRectangle
-  #define CloseWindow WindowsCloseWindow
-  #define ShowCursor WindowsShowCursor
-  #define DrawText WindowsDrawText
-  #define PlaySound WindowsPlaySound
-  #define PlaySoundA WindowsPlaySoundA
-  #define PlaySoundW WindowsPlaySoundW
-  #define LoadImage WindowsLoadImage
-  #define DrawTextEx WindowsDrawTextEx
-
-  #include <windows.h>
-
-  // Restore Raylib functions
-  #undef Rectangle
-  #undef CloseWindow
-  #undef ShowCursor
-  #undef DrawText
-  #undef PlaySound
-  #undef PlaySoundA
-  #undef PlaySoundW
-  #undef LoadImage
-  #undef DrawTextEx
-
+  #include "../WindowsHeaders.hpp"
 #endif
 
 class ConsoleLogger : public dotnamecpp::logging::ILogger {
@@ -99,7 +70,8 @@ public:
   void critical (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_CRITICAL, message, caller);
   };
-  void log (dotnamecpp::logging::Level level, const std::string& message, const std::string& caller) {
+  void log (dotnamecpp::logging::Level level, const std::string& message,
+      const std::string& caller) {
     // thread-safety
     std::lock_guard<std::mutex> lock (logMutex_);
 
@@ -202,13 +174,15 @@ public:
   }
 
 #ifdef _WIN32
-  static void setConsoleColorWindows (Level level) {
-    const std::map<Level, WORD> colorMap
-        = { { Level::LOG_DEBUG, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { Level::LOG_WARNING, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { Level::LOG_ERROR, FOREGROUND_RED | FOREGROUND_INTENSITY },
-            { Level::LOG_CRITICAL,
+  static void setConsoleColorWindows (dotnamecpp::logging::Level level) {
+    const std::map<dotnamecpp::logging::Level, WORD> colorMap
+        = { { dotnamecpp::logging::Level::LOG_DEBUG,
+                FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+            { dotnamecpp::logging::Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+            { dotnamecpp::logging::Level::LOG_WARNING,
+                FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+            { dotnamecpp::logging::Level::LOG_ERROR, FOREGROUND_RED | FOREGROUND_INTENSITY },
+            { dotnamecpp::logging::Level::LOG_CRITICAL,
               FOREGROUND_RED | FOREGROUND_INTENSITY | FOREGROUND_BLUE } };
     auto it = colorMap.find (level);
     if (it != colorMap.end ()) {
@@ -251,8 +225,8 @@ private:
   bool includeCaller_ = true;
   bool includeLevel_ = true;
 
-  void logToStream (std::ostream& stream, dotnamecpp::logging::Level level, const std::string& message,
-      const std::string& caller, const std::tm& now_tm) {
+  void logToStream (std::ostream& stream, dotnamecpp::logging::Level level,
+      const std::string& message, const std::string& caller, const std::tm& now_tm) {
     setConsoleColor (level);
     stream << buildHeader (now_tm, caller, level) << message;
     resetConsoleColor ();
