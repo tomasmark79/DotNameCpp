@@ -1,7 +1,7 @@
-// Main.cpp - REFAKTOROVANÁ VERZE
 #include "Standalone.hpp"
 #include "Utils/Utils.hpp"
 
+// TODO: OOP fix
 namespace AppContext {
   constexpr const char* standaloneName = "DotNameStandalone";
 
