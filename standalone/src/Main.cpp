@@ -9,43 +9,40 @@ std::filesystem::path getStandalonePath () {
 }
 
 int main (int argc, char** argv) {
-  const std::string standaloneName = "DotNameStandalone";
+  using namespace dotnamecpp::app;
+  using namespace dotnamecpp::logging;
 
   try {
-    // Parse command line
-    cxxopts::Options options (standaloneName, "DotName C++ Application");
-    options.add_options () ("h,help", "Print usage");
-    auto result = options.parse (argc, argv);
 
+    Standalone app;
+
+    // Parse command-line options
+    cxxopts::Options options (app.getAppName (), "DotName C++ Standalone Application");
+    options.add_options () ("h,help", "Print usage");
+    options.add_options () ("w,write2file", "Write output to file",
+        cxxopts::value<bool> ()->default_value ("false"));
+    auto result = options.parse (argc, argv);
     if (result.count ("help") > 0) {
       std::cout << options.help () << '\n';
-      return 0;
+      return EXIT_SUCCESS;
     }
 
-    // Create standalone instance
-    dotnamecpp::app::Standalone app (standaloneName);
+    LoggerConfig loggerConfig{ .level = Level::LOG_INFO,
+      .enableFileLogging = result["write2file"].as<bool> (),
+      .logFilePath = "standalone.log",
+      .colorOutput = true };
 
-    // Initialize logger config
-    dotnamecpp::logging::LoggerConfig loggerConfig {
-        .level = dotnamecpp::logging::Level::LOG_INFO,
-        .enableFileLogging = false,
-        .logFilePath = "standalone.log",
-        .colorOutput = true};
-
-    // Initialize all components
-    auto execPath = getStandalonePath ();
-    if (!app.initialize (loggerConfig, execPath)) {
+    if (!app.initializeComponents (loggerConfig, getStandalonePath ())) {
       std::cerr << "Failed to initialize application\n";
-      return 1;
+      return EXIT_FAILURE;
     }
 
-    // Run application
     return app.run ();
-  }
-  catch (const std::exception& e) {
-    std::cerr << "Fatal error: " << e.what () << '\n';
-    return 1;
-  }
-}
 
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
+  } catch (const std::exception& e) {
+    std::cerr << "Fatal error: " << e.what () << '\n';
+    return EXIT_FAILURE;
+  }
+
+  //
+}
