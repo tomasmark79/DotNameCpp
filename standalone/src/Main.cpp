@@ -7,12 +7,12 @@
 // Flow
 // Main.cpp ->
 // Standalone.hpp -> [Standalone.cpp (All implementations are inline)]
-// DotNameLib.hpp -> [DotNameLib.cpp (All implementations are inline)] 
+// DotNameLib.hpp -> [DotNameLib.cpp (All implementations are inline)]
 
 // Namespace structure:
 // dotnamecpp::
 //   ├── v1::              // Main library
-//   ├── app::             // Standalone application  
+//   ├── app::             // Standalone application
 //   ├── logging::         // Logging subsystem
 //   ├── assets::          // Asset management
 //   └── utils::

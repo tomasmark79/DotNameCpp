@@ -23,17 +23,18 @@ namespace dotnamecpp::app {
 
     bool initializeAssets (const std::filesystem::path& executablePath) {
       try {
-        assetManager_ = dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
+        assetManager_
+            = dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
         if (!assetManager_->validate ()) {
           logger_->errorStream () << "Failed to validate assets path: "
                                   << assetManager_->getAssetsPath ();
-          return false;
+          return initialized_ = false;
         }
         logger_->infoStream () << "Assets initialized: " << assetManager_->getAssetsPath ();
-        return true;
+        return initialized_ = true;
       } catch (const std::exception& e) {
         logger_->errorStream () << "Asset initialization error: " << e.what ();
-        return false;
+        return initialized_ = false;
       }
     }
 
@@ -41,20 +42,22 @@ namespace dotnamecpp::app {
       try {
         if (!assetManager_) {
           logger_->errorStream () << "Asset manager not initialized";
-          return false;
+          return initialized_ = false;
         }
         library_ = std::make_unique<dotnamecpp::v1::DotNameLib> (logger_, assetManager_);
         logger_->infoStream () << "Library initialized successfully";
-        initialized_ = true;
-        return true;
+        return initialized_ = true;
       } catch (const std::exception& e) {
         logger_->errorStream () << "Failed to initialize library: " << e.what ();
-        initialized_ = false;
-        return false;
+        return initialized_ = false;
       }
     }
 
   public:
+    /**
+    * @brief Construct a new Standalone object 
+    * 
+    */
     explicit Standalone () = default;
     ~Standalone () {
       if (logger_) {
@@ -62,6 +65,7 @@ namespace dotnamecpp::app {
       }
     }
 
+    // Delete copy constructor and assignment operator
     Standalone (const Standalone&) = delete;
     Standalone& operator= (const Standalone&) = delete;
 
@@ -74,22 +78,33 @@ namespace dotnamecpp::app {
       return appName_;
     }
 
-    // Initialize all components (1. logger, 2. assets, 3. library)
+    /**
+     * @brief Initializes all components: logger, assets, and library.
+     * 
+     * @param loggerConfig Configuration for the logger.
+     * @param executablePath Path to the executable, used for asset initialization.
+     * @return true if all components are initialized successfully.
+     * @return false if any component fails to initialize.
+     */
     bool initializeComponents (const logging::LoggerConfig& loggerConfig,
         const std::filesystem::path& executablePath) {
       if (!initializeLogger (loggerConfig)) {
-        return false;
+        return initialized_ = false;
       }
       if (!initializeAssets (executablePath)) {
-        return false;
+        return initialized_ = false;
       }
       if (!initializeLibrary ()) {
-        return false;
+        return initialized_ = false;
       }
-      initialized_ = true;
-      return true;
+      return initialized_ = true;
     }
 
+    /**
+     * @brief Runs the application.
+     * 
+     * @return int EXIT_SUCCESS on success, EXIT_FAILURE on failure.
+     */
     int run () {
       if (!initialized_) {
         if (logger_) {
