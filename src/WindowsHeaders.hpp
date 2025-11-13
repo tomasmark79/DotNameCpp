@@ -33,5 +33,3 @@
 #endif // _WIN32
 
 #endif // WINDOWS_HEADERS_HPP
-
-// MIT License Copyright (c) 2024-2025 Tomáš Mark

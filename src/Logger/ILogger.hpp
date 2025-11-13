@@ -19,7 +19,7 @@ namespace dotnamecpp::logging {
     LogStream (ILogger& logger, Level level, std::string caller)
         : logger_ (logger), level_ (level), caller_ (std::move (caller)) {
     }
-    
+
     // Destructor declared here, defined after ILogger
     ~LogStream ();
 

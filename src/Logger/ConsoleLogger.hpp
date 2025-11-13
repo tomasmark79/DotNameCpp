@@ -296,11 +296,6 @@ public:
     showHeaderLevel (incLevel);
   }
 
-  // Stream and fmt methods inherited from ILogger
-  // No need to redefine - they're already available!
-
 }; // class ConsoleLogger
-
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 #endif

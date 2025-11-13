@@ -60,7 +60,8 @@ TEST_F (ConsoleLoggerTest, StreamLogging) {
   EXPECT_NO_THROW ({
     logger->stream (Level::LOG_INFO, "StreamTest") << "Stream info: " << 42 << " value";
     logger->stream (Level::LOG_WARNING) << "Stream warning without caller";
-    logger->stream (Level::LOG_ERROR, "StreamTest") << "Stream error: " << "error with number " << 123;
+    logger->stream (Level::LOG_ERROR, "StreamTest")
+        << "Stream error: " << "error with number " << 123;
   });
 }
 
@@ -195,17 +196,17 @@ TEST_F (ConsoleLoggerTest, ColorMethods) {
 TEST_F (ConsoleLoggerTest, PolymorphicUsage) {
   // Test using logger through ILogger interface
   std::shared_ptr<ILogger> interfaceLogger = std::make_shared<ConsoleLogger> ();
-  
+
   EXPECT_NO_THROW (interfaceLogger->debug ("Debug via interface"));
   EXPECT_NO_THROW (interfaceLogger->info ("Info via interface"));
   EXPECT_NO_THROW (interfaceLogger->warning ("Warning via interface"));
   EXPECT_NO_THROW (interfaceLogger->error ("Error via interface"));
   EXPECT_NO_THROW (interfaceLogger->critical ("Critical via interface"));
-  
+
   // Test stream methods through interface
   EXPECT_NO_THROW (interfaceLogger->infoStream () << "Stream via interface: " << 42);
   EXPECT_NO_THROW (interfaceLogger->debugStream () << "Debug stream");
-  
+
   // Test fmt methods through interface
   EXPECT_NO_THROW (interfaceLogger->infoFmt ("Formatted via interface: {}", 123));
   EXPECT_NO_THROW (interfaceLogger->errorFmt ("Error code: {}", 404));
@@ -215,13 +216,13 @@ TEST_F (ConsoleLoggerTest, MultipleInstances) {
   // Test that multiple logger instances work independently
   auto logger1 = std::make_shared<ConsoleLogger> ();
   auto logger2 = std::make_shared<ConsoleLogger> ();
-  
+
   logger1->setHeaderName ("Logger1");
   logger2->setHeaderName ("Logger2");
-  
+
   EXPECT_NO_THROW (logger1->info ("Message from logger1"));
   EXPECT_NO_THROW (logger2->info ("Message from logger2"));
-  
+
   // They should be different instances
   EXPECT_NE (logger1.get (), logger2.get ());
 }
@@ -230,10 +231,10 @@ TEST_F (ConsoleLoggerTest, MoveSemantics) {
   // Test move constructor
   ConsoleLogger logger1;
   logger1.setHeaderName ("MovedLogger");
-  
+
   ConsoleLogger logger2 (std::move (logger1));
   EXPECT_NO_THROW (logger2.info ("Message from moved logger"));
-  
+
   // Test move assignment
   ConsoleLogger logger3;
   logger3 = std::move (logger2);
@@ -243,10 +244,8 @@ TEST_F (ConsoleLoggerTest, MoveSemantics) {
 TEST_F (ConsoleLoggerTest, StreamWithMultipleValues) {
   // Test stream with various types
   EXPECT_NO_THROW ({
-    logger->infoStream () << "Integer: " << 42 
-                         << ", Float: " << 3.14 
-                         << ", String: " << "test" 
-                         << ", Bool: " << true;
+    logger->infoStream () << "Integer: " << 42 << ", Float: " << 3.14 << ", String: " << "test"
+                          << ", Bool: " << true;
   });
 }
 
