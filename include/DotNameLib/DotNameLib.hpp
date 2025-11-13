@@ -5,7 +5,6 @@
 #include <Logger/NullLogger.hpp>
 #include <Assets/IAssetManager.hpp>
 #include <Assets/AssetManagerFactory.hpp>
-#include <Utils/Utils.hpp>
 #include <filesystem>
 #include <string>
 

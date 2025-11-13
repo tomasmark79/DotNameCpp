@@ -1,0 +1,63 @@
+#pragma once
+
+#include <Utils/UtilsError.hpp>
+#include <filesystem>
+#include <nlohmann/json.hpp>
+#include <string>
+
+namespace dotname {
+
+  // Import error types
+  using dotnamecpp::utils::JsonError;
+  using dotnamecpp::utils::Result;
+
+  /**
+ * @brief Interface for JSON serialization and parsing
+ * 
+ * Provides safe JSON operations with Result<T,E> error handling.
+ */
+  class IJsonSerializer {
+  public:
+    virtual ~IJsonSerializer () = default;
+
+    /**
+     * @brief Load JSON from file
+     * @param filePath Path to JSON file
+     * @return Result with JSON object or JsonError
+     */
+    [[nodiscard]] virtual Result<nlohmann::json, JsonError> loadFromFile (
+        const std::filesystem::path& filePath) const
+        = 0;
+
+    /**
+     * @brief Save JSON to file
+     * @param filePath Path to save to
+     * @param jsonData JSON object to save
+     * @param indent Indentation level (default: 2)
+     * @return Result with success or JsonError
+     */
+    [[nodiscard]] virtual Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
+        const nlohmann::json& jsonData, int indent = 2) const
+        = 0;
+
+    /**
+     * @brief Parse JSON from string
+     * @param jsonString String containing JSON
+     * @return Result with JSON object or JsonError
+     */
+    [[nodiscard]] virtual Result<nlohmann::json, JsonError> parse (
+        const std::string& jsonString) const
+        = 0;
+
+    /**
+     * @brief Convert JSON to string
+     * @param jsonData JSON object
+     * @param indent Indentation level (default: 2)
+     * @return Result with string or JsonError
+     */
+    [[nodiscard]] virtual Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
+        int indent = 2) const
+        = 0;
+  };
+
+} // namespace dotname

@@ -1,6 +1,6 @@
 #include "Standalone.hpp"
 #include <Logger/LoggerFactory.hpp>
-#include <Utils/Utils.hpp>
+#include <Utils/UtilsFactory.hpp>
 #include <cxxopts.hpp>
 #include <iostream>
 
@@ -15,13 +15,19 @@
 //   ├── app::             // Standalone application
 //   ├── logging::         // Logging subsystem
 //   ├── assets::          // Asset management
-//   └── utils::
-//       ├── fs::          // Filesystem operations
-//       ├── string::      // String utilities
-//       └── json::        // JSON utilities
+//   └── dotname::         // Utils (new OOP refactored)
+//       ├── IFileReader, IFileWriter, IPathResolver, IDirectoryManager
+//       ├── IPlatformInfo (Windows, Unix, Emscripten)
+//       ├── IJsonSerializer, ICustomStringsLoader
+//       └── IStringFormatter
 
 std::filesystem::path getStandalonePath () {
-  return dotnamecpp::utils::fs::getExecutablePath ();
+  auto platformInfo = dotname::UtilsFactory::createPlatformInfo ();
+  auto result = platformInfo->getExecutablePath ();
+  if (!result.hasValue ()) {
+    throw std::runtime_error ("Failed to get executable path: " + result.error ().toString ());
+  }
+  return result.value ();
 }
 
 int main (int argc, char** argv) {

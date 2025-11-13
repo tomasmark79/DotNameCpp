@@ -263,5 +263,3 @@ TEST_F (ConsoleLoggerTest, LongMessages) {
   EXPECT_NO_THROW (logger->infoStream () << longMessage);
   EXPECT_NO_THROW (logger->infoFmt ("Long: {}", longMessage));
 }
-
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
