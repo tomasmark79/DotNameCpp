@@ -55,20 +55,28 @@ namespace dotnamecpp::v1 {
       }
     }
 
-    // Rule of 5 for better resource management
+    // Non-copyable
     DotNameLib (const DotNameLib& other) = delete;
     DotNameLib& operator= (const DotNameLib& other) = delete;
-    DotNameLib (DotNameLib&& other) noexcept : assetsPath_ (std::move (other.assetsPath_)),
+
+    // Moveable
+    DotNameLib (DotNameLib&& other) noexcept : logger_ (std::move (other.logger_)),
+                                               assetsPath_ (std::move (other.assetsPath_)),
                                                isInitialized_ (other.isInitialized_) {
       other.isInitialized_ = false;
-      logger_->infoStream () << libName_ << " move constructed";
+      if (logger_) {
+        logger_->infoStream () << libName_ << " move constructed";
+      }
     }
     DotNameLib& operator= (DotNameLib&& other) noexcept {
       if (this != &other) {
+        logger_ = std::move (other.logger_);
         assetsPath_ = std::move (other.assetsPath_);
         isInitialized_ = other.isInitialized_;
         other.isInitialized_ = false;
-        logger_->infoStream () << libName_ << " move assigned";
+        if (logger_) {
+          logger_->infoStream () << libName_ << " move assigned";
+        }
       }
       return *this;
     }
