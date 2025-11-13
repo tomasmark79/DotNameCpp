@@ -4,8 +4,12 @@
 #include <cxxopts.hpp>
 #include <iostream>
 
+// Main.cpp ->
+// Standalone.hpp -> [Standalone.cpp (All implementations are inline)]
+// DotNameLib.hpp -> [DotNameLib.cpp (All implementations are inline)] 
+
 std::filesystem::path getStandalonePath () {
-  return DotNameUtils::fs::path::getStandalonePath ();
+  return dotnamecpp::utils::fs::getExecutablePath ();
 }
 
 int main (int argc, char** argv) {

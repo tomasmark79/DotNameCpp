@@ -37,99 +37,94 @@
   #include <unistd.h>
 #endif
 
-namespace DotNameUtils {
+namespace dotnamecpp {
+namespace utils {
 
   // Core filesystem operations
   namespace fs {
-    namespace io {
-      inline std::string readFile (const std::filesystem::path& filePath) {
-        std::ifstream file (filePath, std::ios::in);
-        if (!file.is_open ()) {
-          throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
-        }
-        std::stringstream buffer;
-        buffer << file.rdbuf ();
-        return buffer.str ();
+    inline std::string readFile (const std::filesystem::path& filePath) {
+      std::ifstream file (filePath, std::ios::in);
+      if (!file.is_open ()) {
+        throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
       }
+      std::stringstream buffer;
+      buffer << file.rdbuf ();
+      return buffer.str ();
+    }
 
-      inline void writeFile (const std::filesystem::path& filePath, const std::string& content) {
-        std::ofstream file (filePath, std::ios::out | std::ios::trunc);
-        if (!file.is_open ()) {
-          throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
-        }
-        file << content;
+    inline void writeFile (const std::filesystem::path& filePath, const std::string& content) {
+      std::ofstream file (filePath, std::ios::out | std::ios::trunc);
+      if (!file.is_open ()) {
+        throw std::ios_base::failure ("Failed to open file: " + filePath.string ());
       }
-    } // namespace io
+      file << content;
+    }
 
-    namespace path {
-      inline std::filesystem::path getParentPath (const std::filesystem::path& filePath) {
-        return filePath.parent_path ();
-      }
+    inline std::filesystem::path getParentPath (const std::filesystem::path& filePath) {
+      return filePath.parent_path ();
+    }
 
-      inline std::string getFileName (const std::filesystem::path& filePath) {
-        return filePath.filename ().string ();
-      }
+    inline std::string getFileName (const std::filesystem::path& filePath) {
+      return filePath.filename ().string ();
+    }
 
-      inline bool fileExists (const std::filesystem::path& filePath) {
-        return std::filesystem::exists (filePath);
-      }
+    inline bool fileExists (const std::filesystem::path& filePath) {
+      return std::filesystem::exists (filePath);
+    }
 
-      inline std::filesystem::path getStandalonePath () {
-        std::filesystem::path path;
+    inline std::filesystem::path getExecutablePath () {
+      std::filesystem::path path;
 
 #ifdef _WIN32
-        // C-Like is intended here for cross-platform compatibility
-        char buffer[MAX_PATH];
-        GetModuleFileNameA (NULL, buffer, MAX_PATH);
-        path = buffer;
+      // C-Like is intended here for cross-platform compatibility
+      char buffer[MAX_PATH];
+      GetModuleFileNameA (NULL, buffer, MAX_PATH);
+      path = buffer;
 #elif defined(__APPLE__)
-        // C-Like is intended here for cross-platform compatibility
-        char buffer[PATH_MAX];
-        uint32_t bufferSize = PATH_MAX;
-        if (_NSGetExecutablePath (buffer, &bufferSize) == 0) {
-          path = buffer;
-        }
+      // C-Like is intended here for cross-platform compatibility
+      char buffer[PATH_MAX];
+      uint32_t bufferSize = PATH_MAX;
+      if (_NSGetExecutablePath (buffer, &bufferSize) == 0) {
+        path = buffer;
+      }
 #elif defined(__EMSCRIPTEN__)
-        // Emscripten doesn't have readlink, use current directory
-        path = std::filesystem::current_path ().string ();
+      // Emscripten doesn't have readlink, use current directory
+      path = std::filesystem::current_path ().string ();
 #elif defined(__linux__)
-        // C-Like is intended here for cross-platform compatibility
-        char buffer[4096];
-        ssize_t len = readlink ("/proc/self/exe", buffer, sizeof (buffer) - 1);
-        if (len != -1) {
-          buffer[len] = '\0';
-          path = buffer;
-        }
+      // C-Like is intended here for cross-platform compatibility
+      char buffer[4096];
+      ssize_t len = readlink ("/proc/self/exe", buffer, sizeof (buffer) - 1);
+      if (len != -1) {
+        buffer[len] = '\0';
+        path = buffer;
+      }
 #endif
-        return path;
-      }
-    } // namespace path
+      return path;
+    }
 
-    namespace mgmt {
-      inline void createDirectory (const std::filesystem::path& dirPath) {
-        if (!std::filesystem::exists (dirPath)) {
-          std::filesystem::create_directories (dirPath);
-        }
+    inline void createDirectory (const std::filesystem::path& dirPath) {
+      if (!std::filesystem::exists (dirPath)) {
+        std::filesystem::create_directories (dirPath);
       }
+    }
 
-      inline void remove (const std::filesystem::path& path) {
-        if (std::filesystem::exists (path)) {
-          std::filesystem::remove_all (path);
-        }
+    inline void remove (const std::filesystem::path& path) {
+      if (std::filesystem::exists (path)) {
+        std::filesystem::remove_all (path);
       }
+    }
 
-      inline std::vector<std::filesystem::path> listFiles (const std::filesystem::path& dirPath) {
-        std::vector<std::filesystem::path> files;
-        for (const auto& entry : std::filesystem::directory_iterator (dirPath)) {
-          files.push_back (entry.path ());
-        }
-        return files;
+    inline std::vector<std::filesystem::path> listFiles (const std::filesystem::path& dirPath) {
+      std::vector<std::filesystem::path> files;
+      for (const auto& entry : std::filesystem::directory_iterator (dirPath)) {
+        files.push_back (entry.path ());
       }
-    } // namespace mgmt
+      return files;
+    }
   } // namespace fs
 
   // String utilities
-  namespace str {
+  namespace string {
     inline std::string addDots (const std::string& str) {
       std::string result;
       for (size_t i = 0; i < str.length (); ++i) {
@@ -150,36 +145,36 @@ namespace DotNameUtils {
       }
       return result;
     }
-  } // namespace str
+  } // namespace string
 
   // JSON utilities
   namespace json {
-    // Load JSON from file
-    inline nlohmann::json loadFromFile (const std::filesystem::path& filePath) {
-      if (!fs::path::fileExists (filePath)) {
-        throw std::ios_base::failure ("JSON file does not exist: " + filePath.string ());
+      // Load JSON from file
+      inline nlohmann::json loadFromFile (const std::filesystem::path& filePath) {
+        if (!utils::fs::fileExists (filePath)) {
+          throw std::ios_base::failure ("JSON file does not exist: " + filePath.string ());
+        }
+
+        try {
+          std::string content = utils::fs::readFile (filePath);
+          return nlohmann::json::parse (content);
+        } catch (const nlohmann::json::parse_error& e) {
+          throw std::runtime_error (
+              "JSON parse error in file " + filePath.string () + ": " + e.what ());
+        }
       }
 
-      try {
-        std::string content = fs::io::readFile (filePath);
-        return nlohmann::json::parse (content);
-      } catch (const nlohmann::json::parse_error& e) {
-        throw std::runtime_error (
-            "JSON parse error in file " + filePath.string () + ": " + e.what ());
+      // Save JSON to file
+      inline void saveToFile (const std::filesystem::path& filePath, const nlohmann::json& jsonData,
+          int indent = 2) {
+        try {
+          std::string jsonString = jsonData.dump (indent);
+          utils::fs::writeFile (filePath, jsonString);
+        } catch (const std::exception& e) {
+          throw std::runtime_error (
+              "Failed to save JSON to file " + filePath.string () + ": " + e.what ());
+        }
       }
-    }
-
-    // Save JSON to file
-    inline void saveToFile (const std::filesystem::path& filePath, const nlohmann::json& jsonData,
-        int indent = 2) {
-      try {
-        std::string jsonString = jsonData.dump (indent);
-        fs::io::writeFile (filePath, jsonString);
-      } catch (const std::exception& e) {
-        throw std::runtime_error (
-            "Failed to save JSON to file " + filePath.string () + ": " + e.what ());
-      }
-    }
 
     // Get value with default fallback
     template <typename T>
@@ -362,6 +357,8 @@ namespace DotNameUtils {
     }
 
   } // namespace json
-} // namespace DotNameUtils
+
+} // namespace utils
+} // namespace dotnamecpp
 
 // MIT License Copyright (c) 2024-2025 Tomáš Mark

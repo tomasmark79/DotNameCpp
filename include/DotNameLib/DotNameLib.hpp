@@ -15,18 +15,18 @@ namespace dotnamecpp::v1 {
   private:
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
-    std::shared_ptr<dotnamecpp::IAssetManager> assetManager_;
+    std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
     std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
 
     [[nodiscard]]
-    std::shared_ptr<dotnamecpp::IAssetManager> getAssetManager () const noexcept {
+    std::shared_ptr<dotnamecpp::assets::IAssetManager> getAssetManager () const noexcept {
       return assetManager_;
     }
 
   public:
     DotNameLib (std::shared_ptr<logging::ILogger> logger,
-        std::shared_ptr<dotnamecpp::IAssetManager> assetManager)
+        std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
         : logger_ (logger ? std::move (logger) : std::make_shared<logging::NullLogger> ()),
           assetManager_ (std::move (assetManager)) {
       if (assetManager_ && assetManager_->validate ()) {

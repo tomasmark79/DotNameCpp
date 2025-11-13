@@ -5,6 +5,7 @@
 #include <memory>
 
 namespace dotnamecpp {
+namespace assets {
 
   /**
  * @brief Concrete implementation of IAssetManager
@@ -50,4 +51,5 @@ namespace dotnamecpp {
         const std::string& appName);
   };
 
-} // namespace dotname
+} // namespace assets
+} // namespace dotnamecpp

@@ -3,6 +3,7 @@
 #include <filesystem>
 
 namespace dotnamecpp {
+namespace assets {
 
   /**
  * @brief Interface for managing application assets
@@ -43,4 +44,5 @@ namespace dotnamecpp {
     [[nodiscard]] virtual bool validate () const = 0;
   };
 
-} // namespace dotname
+} // namespace assets
+} // namespace dotnamecpp

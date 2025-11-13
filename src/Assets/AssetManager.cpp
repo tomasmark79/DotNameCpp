@@ -2,6 +2,7 @@
 #include <vector>
 
 namespace dotnamecpp {
+namespace assets {
 
   AssetManager::AssetManager (std::filesystem::path assetsPath)
       : assetsPath_ (std::move (assetsPath)) {
@@ -61,8 +62,10 @@ namespace dotnamecpp {
       }
     }
 
+
     // Fallback to first candidate if none found
     return candidatePaths[0];
   }
 
-} // namespace dotname
+} // namespace assets
+} // namespace dotnamecpp

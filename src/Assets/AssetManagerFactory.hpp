@@ -7,6 +7,7 @@
 #include <string>
 
 namespace dotnamecpp {
+namespace assets {
 
   /**
  * @brief Factory for creating IAssetManager instances
@@ -34,4 +35,5 @@ namespace dotnamecpp {
     }
   };
 
+} // namespace assets
 } // namespace dotnamecpp

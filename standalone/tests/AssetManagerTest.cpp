@@ -5,7 +5,7 @@
 #include <filesystem>
 #include <fstream>
 
-using namespace dotnamecpp;
+using namespace dotnamecpp::assets;
 
 class AssetManagerTest : public ::testing::Test {
 protected:

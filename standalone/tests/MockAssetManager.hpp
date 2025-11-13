@@ -8,7 +8,7 @@
  * 
  * Allows controlling behavior for test scenarios without filesystem dependencies.
  */
-class MockAssetManager : public dotnamecpp::IAssetManager {
+class MockAssetManager : public dotnamecpp::assets::IAssetManager {
 public:
   explicit MockAssetManager (std::filesystem::path mockPath)
       : mockPath_ (std::move (mockPath)), mockExists_ (true), mockValid_ (true) {

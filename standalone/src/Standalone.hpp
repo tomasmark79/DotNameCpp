@@ -13,7 +13,7 @@ namespace dotnamecpp::app {
     bool initialized_ = false;
     std::string appName_ = "DotNameStandalone";
     std::shared_ptr<logging::ILogger> logger_;
-    std::shared_ptr<dotnamecpp::IAssetManager> assetManager_;
+    std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
     std::unique_ptr<dotnamecpp::v1::DotNameLib> library_;
 
     bool initializeLogger (const logging::LoggerConfig& loggerConfig) {
@@ -23,7 +23,7 @@ namespace dotnamecpp::app {
 
     bool initializeAssets (const std::filesystem::path& executablePath) {
       try {
-        assetManager_ = dotnamecpp::AssetManagerFactory::createDefault (executablePath, appName_);
+        assetManager_ = dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
         if (!assetManager_->validate ()) {
           logger_->errorStream () << "Failed to validate assets path: "
                                   << assetManager_->getAssetsPath ();
