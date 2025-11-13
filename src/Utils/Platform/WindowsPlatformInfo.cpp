@@ -2,7 +2,7 @@
 #include <fmt/core.h>
 
 #ifdef _WIN32
-  #include "../WindowsHeaders.hpp"
+  #include "WindowsHeaders.hpp"
 #endif
 
 namespace dotname {
