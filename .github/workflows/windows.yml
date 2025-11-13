@@ -63,7 +63,7 @@ jobs:
         run: conan profile show
 
       - name: install Conan dependencies
-        run: conan install . -s build_type=${{env.BUILD_TYPE}} -of=${{github.workspace}}/build/standalone/default/debug -pr default -b=missing
+        run: conan install . -s build_type=${{env.BUILD_TYPE}} -s compiler.cppstd=20 -of=${{github.workspace}}/build/standalone/default/debug -pr default -b=missing
       
       - name: CMake configure
         run: cmake -B ${{github.workspace}}/build/standalone/default/debug -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/build/standalone/default/debug/conan_toolchain.cmake -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_COMPILER=cl -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_STANDALONE=ON

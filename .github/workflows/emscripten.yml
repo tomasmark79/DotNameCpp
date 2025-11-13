@@ -81,6 +81,7 @@ jobs:
           export EM_CACHE=${{ env.EM_CACHE }}
           conan install . \
             -s build_type=${{env.BUILD_TYPE}} \
+            -s compiler.cppstd=20 \
             -of=${{github.workspace}}/build/standalone/emscripten/debug \
             -pr default -b=missing \
             -c tools.system.package_manager:mode=install \
