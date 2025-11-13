@@ -92,8 +92,8 @@ target_compile_options(
 )
 
 # C++ standard
-target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_17)
-set(CMAKE_CXX_STANDARD 17)
+target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 

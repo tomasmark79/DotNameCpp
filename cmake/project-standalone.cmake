@@ -34,12 +34,7 @@ CPMAddPackage(
     VERSION 3.2.1
     OPTIONS "CXXOPTS_BUILD_EXAMPLES NO" "CXXOPTS_BUILD_TESTS NO" "CXXOPTS_ENABLE_INSTALL NO")
 
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    CPMAddPackage(
-        NAME cpptrace
-        GITHUB_REPOSITORY jeremy-rifkin/cpptrace
-        VERSION 1.0.4)
-endif()
+# cpptrace removed due to C++20 modules incompatibility with Unix Makefiles generator
 
 # ==============================================================================
 # Standalone source files
@@ -57,11 +52,7 @@ target_sources(${STANDALONE_NAME} PRIVATE ${sources})
 apply_common_target_settings(${STANDALONE_NAME})
 
 # Link with library
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    target_link_libraries(${STANDALONE_NAME} PRIVATE DotNameLib cxxopts::cxxopts cpptrace::cpptrace)
-else()
-    target_link_libraries(${STANDALONE_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
-endif()
+target_link_libraries(${STANDALONE_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
 
 # ==============================================================================
 # Asset processing and Emscripten configuration
@@ -79,13 +70,8 @@ if(ENABLE_GTESTS)
     message(STATUS "GTESTS enabled")
     include(CTest) # Enable testing at the root level
     add_library(${TEST_NAME_LOWER}_standalone_common INTERFACE)
-    if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-        target_link_libraries(${TEST_NAME_LOWER}_standalone_common
-                              INTERFACE ${LIBRARY_NAME} cxxopts::cxxopts cpptrace::cpptrace)
-    else()
-        target_link_libraries(${TEST_NAME_LOWER}_standalone_common INTERFACE ${LIBRARY_NAME}
-                                                                             cxxopts::cxxopts)
-    endif()
+    target_link_libraries(${TEST_NAME_LOWER}_standalone_common
+                          INTERFACE ${LIBRARY_NAME} cxxopts::cxxopts)
 
     add_library(dotname::${TEST_NAME_LOWER}_standalone_common ALIAS
                 ${TEST_NAME_LOWER}_standalone_common)

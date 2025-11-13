@@ -6,7 +6,6 @@
                 "${workspaceFolder}/**",
                 "/home/tomas/.cache/CPM/cxxopts/**",
                 "/home/tomas/.cache/CPM/fmt*/**",
-                "/home/tomas/.cache/CPM/cpptrace*/**",
                 "/home/tomas/.conan2/p/b/imgui*/**",
                 "/home/tomas/.conan2/p/glm*/**",
                 "/home/tomas/.conan2/p/nlohm*/**"
