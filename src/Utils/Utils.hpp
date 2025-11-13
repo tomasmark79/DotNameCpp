@@ -90,13 +90,15 @@ namespace DotNameUtils {
         if (_NSGetExecutablePath (buffer, &bufferSize) == 0) {
           path = buffer;
         }
-#else
+#elif defined(__EMSCRIPTEN__)
+        // Emscripten doesn't have readlink, use current directory
+        path = std::filesystem::current_path ().string ();
+#elif defined(__linux__)
         // C-Like is intended here for cross-platform compatibility
-        const size_t BUFFER_SIZE = 4096;
-        char buffer[BUFFER_SIZE];
-        ssize_t count = readlink ("/proc/self/exe", buffer, BUFFER_SIZE);
-        if (count != -1) {
-          buffer[count] = '\0';
+        char buffer[4096];
+        ssize_t len = readlink ("/proc/self/exe", buffer, sizeof (buffer) - 1);
+        if (len != -1) {
+          buffer[len] = '\0';
           path = buffer;
         }
 #endif
