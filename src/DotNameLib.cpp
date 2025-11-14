@@ -6,8 +6,8 @@ namespace dotnamecpp::v1 {
   // Constructor
   DotNameLib::DotNameLib (std::shared_ptr<logging::ILogger> logger,
       std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
-      : logger_ (logger ? std::move (logger)
-                        : std::make_shared<dotnamecpp::logging::NullLogger> ()),
+      : logger_ (
+            logger ? std::move (logger) : std::make_shared<dotnamecpp::logging::NullLogger> ()),
         assetManager_ (std::move (assetManager)) {
     if (assetManager_ && assetManager_->validate ()) {
 
@@ -70,8 +70,7 @@ namespace dotnamecpp::v1 {
   }
 
   // Private methods
-  std::shared_ptr<dotnamecpp::assets::IAssetManager>
-  DotNameLib::getAssetManager () const noexcept {
+  std::shared_ptr<dotnamecpp::assets::IAssetManager> DotNameLib::getAssetManager () const noexcept {
     return assetManager_;
   }
 

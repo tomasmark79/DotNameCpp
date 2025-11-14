@@ -39,9 +39,8 @@ namespace dotnamecpp::utils {
   }
 
   // Assets factories
-  std::shared_ptr<IAssetManager>
-  UtilsFactory::createAssetManager (const std::filesystem::path& executablePath,
-      const std::string& appName) {
+  std::shared_ptr<IAssetManager> UtilsFactory::createAssetManager (
+      const std::filesystem::path& executablePath, const std::string& appName) {
     return dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName);
   }
 
@@ -55,7 +54,8 @@ namespace dotnamecpp::utils {
   std::shared_ptr<ICustomStringsLoader> UtilsFactory::createCustomStringsLoader (
       std::shared_ptr<IAssetManager> assetManager, const std::string& filename) {
     if (!assetManager) {
-      throw std::invalid_argument ("UtilsFactory::createCustomStringsLoader requires valid asset manager");
+      throw std::invalid_argument (
+          "UtilsFactory::createCustomStringsLoader requires valid asset manager");
     }
     auto jsonSerializer = createJsonSerializer ();
     return std::make_shared<CustomStringsLoader> (assetManager, jsonSerializer, filename);
@@ -67,12 +67,12 @@ namespace dotnamecpp::utils {
   }
 
   // Logger factories
-  std::shared_ptr<ILogger> UtilsFactory::createLogger (LoggerType type, const LoggerConfig& config) {
+  std::shared_ptr<ILogger> UtilsFactory::createLogger (LoggerType type,
+      const LoggerConfig& config) {
     return dotnamecpp::logging::LoggerFactory::create (type, config);
   }
 
-  std::shared_ptr<ILogger>
-  UtilsFactory::createDefaultLogger () {
+  std::shared_ptr<ILogger> UtilsFactory::createDefaultLogger () {
     LoggerConfig config{ .level = dotnamecpp::logging::Level::LOG_INFO,
       .enableFileLogging = false,
       .logFilePath = "",
@@ -81,15 +81,14 @@ namespace dotnamecpp::utils {
   }
 
   // Application initialization helper
-  UtilsFactory::AppComponents
-  UtilsFactory::createAppComponents (const std::string& appName,
+  UtilsFactory::AppComponents UtilsFactory::createAppComponents (const std::string& appName,
       const LoggerConfig& loggerConfig) {
     // Create platform info to get executable path
     auto platformInfo = createPlatformInfo ();
     auto execPathResult = platformInfo->getExecutablePath ();
     if (!execPathResult.hasValue ()) {
-      throw std::runtime_error ("Failed to get executable path: "
-                                + execPathResult.error ().toString ());
+      throw std::runtime_error (
+          "Failed to get executable path: " + execPathResult.error ().toString ());
     }
 
     // Create logger

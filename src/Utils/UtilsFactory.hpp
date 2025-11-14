@@ -26,32 +26,43 @@ namespace dotnamecpp::utils {
   class UtilsFactory {
   public:
     // Filesystem factories
-    [[nodiscard]] static std::shared_ptr<IFileReader> createFileReader ();
-    [[nodiscard]] static std::shared_ptr<IFileWriter> createFileWriter ();
-    [[nodiscard]] static std::shared_ptr<IPathResolver> createPathResolver ();
-    [[nodiscard]] static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
+    [[nodiscard]]
+    static std::shared_ptr<IFileReader> createFileReader ();
+    [[nodiscard]]
+    static std::shared_ptr<IFileWriter> createFileWriter ();
+    [[nodiscard]]
+    static std::shared_ptr<IPathResolver> createPathResolver ();
+    [[nodiscard]]
+    static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
 
     // Platform factories
-    [[nodiscard]] static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
-    [[nodiscard]] static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
+    [[nodiscard]]
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
+    [[nodiscard]]
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
 
     // Assets factories
-    [[nodiscard]] static std::shared_ptr<IAssetManager> createAssetManager (
+    [[nodiscard]]
+    static std::shared_ptr<IAssetManager> createAssetManager (
         const std::filesystem::path& executablePath, const std::string& appName);
 
     // JSON factories
-    [[nodiscard]] static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
-    [[nodiscard]] static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
+    [[nodiscard]]
+    static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
+    [[nodiscard]]
+    static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
         std::shared_ptr<IAssetManager> assetManager,
         const std::string& filename = "customstrings.json");
 
     // String factories
-    [[nodiscard]] static std::shared_ptr<IStringFormatter> createStringFormatter ();
+    [[nodiscard]]
+    static std::shared_ptr<IStringFormatter> createStringFormatter ();
 
     // Logger factories
-    [[nodiscard]] static std::shared_ptr<ILogger> createLogger (LoggerType type,
-        const LoggerConfig& config);
-    [[nodiscard]] static std::shared_ptr<ILogger> createDefaultLogger ();
+    [[nodiscard]]
+    static std::shared_ptr<ILogger> createLogger (LoggerType type, const LoggerConfig& config);
+    [[nodiscard]]
+    static std::shared_ptr<ILogger> createDefaultLogger ();
 
     // Application initialization helper
     struct AppComponents {
@@ -66,7 +77,8 @@ namespace dotnamecpp::utils {
      * @param loggerConfig Logger configuration
      * @return AppComponents with logger, assetManager, and platformInfo
      */
-    [[nodiscard]] static AppComponents createAppComponents (const std::string& appName,
+    [[nodiscard]]
+    static AppComponents createAppComponents (const std::string& appName,
         const LoggerConfig& loggerConfig);
 
     // Convenience: Create complete utility set
@@ -81,7 +93,8 @@ namespace dotnamecpp::utils {
       std::shared_ptr<ILogger> logger;
     };
 
-    [[nodiscard]] static UtilsBundle createBundle ();
+    [[nodiscard]]
+    static UtilsBundle createBundle ();
   };
 
 } // namespace dotnamecpp::utils
