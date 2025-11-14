@@ -45,9 +45,12 @@ git clone git@github.com:tomasmark79/DotNameCpp.git
 
 ```bash
 clonedotname() {
-    local PN="${1:-AppName}"
-    git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && rm -rf "$PN/.git" && cd "$PN"
-    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN"Application
+    local PN="${1:-App}"
+    git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && \
+    rm -rf "$PN/.git" && \
+    cd "$PN" && \
+    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN" && \
+    code .
 }
 ```
 
