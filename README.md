@@ -34,15 +34,6 @@
 
 ## Quick Start
 
-### Recommended: VSCode Workflow
-
-Open in VSCode and use keyboard shortcuts:
-
-```text
-Shift+F7 → "🦸 Zero to Hero"    # Complete setup, build, test, package
-F7                              # Quick rebuild
-F5                              # Start debugging
-```
 
 ### Clone Template
 
@@ -61,6 +52,17 @@ clonedotname() {
 ```
 
 Then use: `clonedotname MyProject`
+
+### Recommended: VSCode Workflow
+
+Open in VSCode and use keyboard shortcuts:
+
+```text
+Shift+F7 | 🦸 Zero to Hero" |   # Complete setup, build and create packages
+F7                              # Quick build
+F5                              # Start debugging
+```
+
 
 ### GitHub Codespaces
 
