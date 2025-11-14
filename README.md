@@ -58,8 +58,8 @@ Then use: `clonedotname MyProject`
 Open in VSCode and use keyboard shortcuts:
 
 ```text
-Shift+F7 | 🦸 Zero to Hero" |   # Complete setup, build and create packages
-F7                              # Quick build
+Shift+F7 → "Zero to Hero"    # Complete setup, build, test, package
+F7                              # Quick rebuild
 F5                              # Start debugging
 ```
 
@@ -230,6 +230,15 @@ option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 | **macOS** | Clang, GCC | Xcode 14+, GCC 11+ |
 | **Windows** | MSVC, Clang, GCC | VS 2022, Clang 14+, MinGW 11+ |
 | **Emscripten** | emcc | 3.1.0+ |
+
+---
+
+## Development Tools
+
+**Static Analysis**: `Ctrl+Alt+L` (clang-tidy - requires build artifacts)  
+**Code Formatting**: `Ctrl+Alt+F` (C++), `Ctrl+Alt+M` (CMake)  
+**Documentation**: `Ctrl+F7` → "Generate Documentation" (Doxygen)  
+**Code Coverage**: `Ctrl+Alt+H` (native builds only)
 
 ---
 
