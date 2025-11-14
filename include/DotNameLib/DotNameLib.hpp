@@ -28,14 +28,12 @@ namespace dotnamecpp::v1 {
         std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
     ~DotNameLib ();
+
+    // Non-copyable
     DotNameLib (const DotNameLib& other) = delete;
     DotNameLib& operator= (const DotNameLib& other) = delete;
-
-    /**
-     * @brief Construct a new Dot Name Lib object by moving
-     * 
-     * @param other 
-     */
+    
+    // Moveable
     DotNameLib (DotNameLib&& other) noexcept;
     DotNameLib& operator= (DotNameLib&& other) noexcept;
 
