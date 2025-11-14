@@ -11,7 +11,9 @@
 #include <Utils/Platform/IPlatformInfo.hpp>
 #include <Utils/String/IStringFormatter.hpp>
 #include <Utils/Assets/IAssetManager.hpp>
+#include <DotNameLib/version.h>
 #include <memory>
+#include <filesystem>
 
 namespace dotnamecpp::utils {
 
@@ -47,8 +49,25 @@ namespace dotnamecpp::utils {
     [[nodiscard]] static std::shared_ptr<IStringFormatter> createStringFormatter ();
 
     // Logger factories
-    [[nodiscard]] static std::shared_ptr<ILogger> createLogger (LoggerType type, const LoggerConfig& config);
+    [[nodiscard]] static std::shared_ptr<ILogger> createLogger (LoggerType type,
+        const LoggerConfig& config);
     [[nodiscard]] static std::shared_ptr<ILogger> createDefaultLogger ();
+
+    // Application initialization helper
+    struct AppComponents {
+      std::shared_ptr<ILogger> logger;
+      std::shared_ptr<IAssetManager> assetManager;
+      std::unique_ptr<IPlatformInfo> platformInfo;
+    };
+
+    /**
+     * @brief Create complete application components
+     * @param appName Application name for asset resolution
+     * @param loggerConfig Logger configuration
+     * @return AppComponents with logger, assetManager, and platformInfo
+     */
+    [[nodiscard]] static AppComponents createAppComponents (const std::string& appName,
+        const LoggerConfig& loggerConfig);
 
     // Convenience: Create complete utility set
     struct UtilsBundle {

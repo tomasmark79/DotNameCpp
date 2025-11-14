@@ -71,12 +71,36 @@ namespace dotnamecpp::utils {
     return dotnamecpp::logging::LoggerFactory::create (type, config);
   }
 
-  std::shared_ptr<ILogger> UtilsFactory::createDefaultLogger () {
+  std::shared_ptr<ILogger>
+  UtilsFactory::createDefaultLogger () {
     LoggerConfig config{ .level = dotnamecpp::logging::Level::LOG_INFO,
       .enableFileLogging = false,
       .logFilePath = "",
       .colorOutput = true };
     return createLogger (LoggerType::Console, config);
+  }
+
+  // Application initialization helper
+  UtilsFactory::AppComponents
+  UtilsFactory::createAppComponents (const std::string& appName,
+      const LoggerConfig& loggerConfig) {
+    // Create platform info to get executable path
+    auto platformInfo = createPlatformInfo ();
+    auto execPathResult = platformInfo->getExecutablePath ();
+    if (!execPathResult.hasValue ()) {
+      throw std::runtime_error ("Failed to get executable path: "
+                                + execPathResult.error ().toString ());
+    }
+
+    // Create logger
+    auto logger = createLogger (LoggerType::Console, loggerConfig);
+
+    // Create asset manager
+    auto assetManager = createAssetManager (execPathResult.value (), appName);
+
+    return AppComponents{ .logger = std::move (logger),
+      .assetManager = std::move (assetManager),
+      .platformInfo = std::move (platformInfo) };
   }
 
   // Convenience: Create complete utility set

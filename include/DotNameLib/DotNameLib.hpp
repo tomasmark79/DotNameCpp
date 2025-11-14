@@ -2,10 +2,10 @@
 
 #include <DotNameLib/version.h> // first configuration will create this file
 #include <Utils/Logger/ILogger.hpp>
-#include <Utils/Logger/NullLogger.hpp>
 #include <Utils/Assets/IAssetManager.hpp>
 #include <filesystem>
 #include <string>
+#include <memory>
 
 namespace dotnamecpp::v1 {
   class DotNameLib {
@@ -18,73 +18,29 @@ namespace dotnamecpp::v1 {
     bool isInitialized_ = false;
 
     [[nodiscard]]
-    std::shared_ptr<dotnamecpp::assets::IAssetManager> getAssetManager () const noexcept {
-      return assetManager_;
-    }
+    std::shared_ptr<dotnamecpp::assets::IAssetManager> getAssetManager () const noexcept;
 
   public:
+    // Constructor with dependency injection
     DotNameLib (std::shared_ptr<logging::ILogger> logger,
-        std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
-        : logger_ (logger ? std::move (logger) : std::make_shared<logging::NullLogger> ()),
-          assetManager_ (std::move (assetManager)) {
-      if (assetManager_ && assetManager_->validate ()) {
+        std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
-        logger_->infoStream () << "DotNameLib initialized";
-
-        const auto logoPath = assetManager_->resolveAsset ("DotNameCppLogo.svg");
-        if (assetManager_->assetExists ("DotNameCppLogo.svg")) {
-          logger_->debugStream () << "Logo: " << logoPath << " found";
-        } else {
-          logger_->warningStream () << "Logo not found: " << logoPath;
-        }
-      } else {
-        logger_->errorStream () << "Invalid or missing asset manager";
-      }
-    }
+    // Destructor
+    ~DotNameLib ();
 
     // Non-copyable
     DotNameLib (const DotNameLib& other) = delete;
     DotNameLib& operator= (const DotNameLib& other) = delete;
 
     // Moveable
-    DotNameLib (DotNameLib&& other) noexcept : logger_ (std::move (other.logger_)),
-                                               assetsPath_ (std::move (other.assetsPath_)),
-                                               isInitialized_ (other.isInitialized_) {
-      other.isInitialized_ = false;
-      if (logger_) {
-        logger_->infoStream () << libName_ << " move constructed";
-      }
-    }
-    DotNameLib& operator= (DotNameLib&& other) noexcept {
-      if (this != &other) {
-        logger_ = std::move (other.logger_);
-        assetsPath_ = std::move (other.assetsPath_);
-        isInitialized_ = other.isInitialized_;
-        other.isInitialized_ = false;
-        if (logger_) {
-          logger_->infoStream () << libName_ << " move assigned";
-        }
-      }
-      return *this;
-    }
-
-    ~DotNameLib () {
-      if (isInitialized_) {
-        logger_->infoStream () << libName_ << " destructed";
-      } else {
-        logger_->infoStream () << libName_ << " (not initialized) destructed";
-      }
-    }
+    DotNameLib (DotNameLib&& other) noexcept;
+    DotNameLib& operator= (DotNameLib&& other) noexcept;
 
     // Public interface
     [[nodiscard]]
-    bool isInitialized () const noexcept {
-      return isInitialized_;
-    }
+    bool isInitialized () const noexcept;
 
     [[nodiscard]]
-    const std::filesystem::path& getAssetsPath () const noexcept {
-      return assetsPath_;
-    }
+    const std::filesystem::path& getAssetsPath () const noexcept;
   };
 } // namespace dotnamecpp::v1
