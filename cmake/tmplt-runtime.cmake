@@ -1,7 +1,7 @@
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 # !!! -lstdc++ mus not be used in the final link command
-# build/standalone/default/debug/CMakeFiles/index2.dir/link.txt
+# build/application/default/debug/CMakeFiles/index2.dir/link.txt
 
 # ==============================================================================
 # Static Runtime Configuration (SIMPLIFIED)

@@ -23,7 +23,7 @@ InlayHints:
 CompileFlags:
   Add: [-Wall, -Wextra, -std=c++17]
   Remove: [-W*]
-  CompilationDatabase: build/standalone/default/debug/
+  CompilationDatabase: build/application/default/debug/
 
 Completion:
   AllScopes: true

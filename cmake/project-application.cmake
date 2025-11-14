@@ -1,12 +1,12 @@
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 # ==============================================================================
-# STANDALONE-SPECIFIC CONFIGURATION
+# APPLICATION-SPECIFIC CONFIGURATION
 # ==============================================================================
 include(${CMAKE_CURRENT_LIST_DIR}/project-common.cmake)
 
 project(
-    ${STANDALONE_NAME}
+    ${APPLICATION_NAME}
     LANGUAGES C CXX ASM
     DESCRIPTION "template Copyright (c) 2024 TomasMark [at] digitalspace.name"
     HOMEPAGE_URL "https://github.com/tomasmark79/DotNameCpp")
@@ -22,13 +22,13 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
 endif()
 
 # ==============================================================================
-# Standalone dependencies
+# Application dependencies
 # ==============================================================================
 # Note: DotNameLib target should be available from orchestrator
 CPMAddPackage("gh:cpm-cmake/CPMLicenses.cmake@0.0.7")
 cpm_licenses_create_disclaimer_target(
-    write-licenses-${STANDALONE_NAME}
-    "${CMAKE_CURRENT_BINARY_DIR}/${STANDALONE_NAME}_third_party.txt" "${CPM_PACKAGES}")
+    write-licenses-${APPLICATION_NAME}
+    "${CMAKE_CURRENT_BINARY_DIR}/${APPLICATION_NAME}_third_party.txt" "${CPM_PACKAGES}")
 CPMAddPackage(
     GITHUB_REPOSITORY jarro2783/cxxopts
     VERSION 3.2.1
@@ -37,31 +37,31 @@ CPMAddPackage(
 # cpptrace removed due to C++20 modules incompatibility with Unix Makefiles generator
 
 # ==============================================================================
-# Standalone source files
+# Application source files
 # ==============================================================================
-gather_sources(sources ${CMAKE_CURRENT_SOURCE_DIR}/standalone/src)
-list(APPEND sources ${CMAKE_CURRENT_SOURCE_DIR}/standalone/src/Application.cpp)
+gather_sources(sources ${CMAKE_CURRENT_SOURCE_DIR}/application/src)
+list(APPEND sources ${CMAKE_CURRENT_SOURCE_DIR}/application/src/Application.cpp)
 
 # ==============================================================================
-# Create standalone target
+# Create application target
 # ==============================================================================
-add_executable(${STANDALONE_NAME})
-target_sources(${STANDALONE_NAME} PRIVATE ${sources})
+add_executable(${APPLICATION_NAME})
+target_sources(${APPLICATION_NAME} PRIVATE ${sources})
 
 # Apply common target settings
-apply_common_target_settings(${STANDALONE_NAME})
+apply_common_target_settings(${APPLICATION_NAME})
 
 # Link with library
-target_link_libraries(${STANDALONE_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
+target_link_libraries(${APPLICATION_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
 
 # ==============================================================================
 # Asset processing and Emscripten configuration
 # ==============================================================================
 include(${CMAKE_CURRENT_LIST_DIR}/tmplt-assets.cmake)
-apply_assets_processing_standalone()
+apply_assets_processing_application()
 
 include(${CMAKE_CURRENT_LIST_DIR}/tmplt-emscripten.cmake)
-emscripten(${STANDALONE_NAME} 1 1 "")
+emscripten(${APPLICATION_NAME} 1 1 "")
 
 # ==============================================================================
 # Tests configuration
@@ -69,13 +69,13 @@ emscripten(${STANDALONE_NAME} 1 1 "")
 if(ENABLE_GTESTS)
     message(STATUS "GTESTS enabled")
     include(CTest) # Enable testing at the root level
-    add_library(${TEST_NAME_LOWER}_standalone_common INTERFACE)
-    target_link_libraries(${TEST_NAME_LOWER}_standalone_common
+    add_library(${TEST_NAME_LOWER}_application_common INTERFACE)
+    target_link_libraries(${TEST_NAME_LOWER}_application_common
                           INTERFACE ${LIBRARY_NAME} cxxopts::cxxopts)
 
-    add_library(dotname::${TEST_NAME_LOWER}_standalone_common ALIAS
-                ${TEST_NAME_LOWER}_standalone_common)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/standalone/tests tests)
+    add_library(dotname::${TEST_NAME_LOWER}_application_common ALIAS
+                ${TEST_NAME_LOWER}_application_common)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/application/tests tests)
 endif()
 
 # ==============================================================================
@@ -85,16 +85,16 @@ set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # Standard installation for native platforms
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    install(TARGETS ${STANDALONE_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(TARGETS ${APPLICATION_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 else()
     # Special installation for Emscripten - install all generated files
-    install(TARGETS ${STANDALONE_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(TARGETS ${APPLICATION_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
     # Install additional Emscripten files (js, wasm, data) These files are generated alongside the
     # .html file
-    get_target_property(TARGET_SUFFIX ${STANDALONE_NAME} SUFFIX)
+    get_target_property(TARGET_SUFFIX ${APPLICATION_NAME} SUFFIX)
     if(TARGET_SUFFIX STREQUAL ".html")
-        set(BASE_NAME "${STANDALONE_NAME}")
+        set(BASE_NAME "${APPLICATION_NAME}")
 
         # Install .js file (JavaScript wrapper)
         install(

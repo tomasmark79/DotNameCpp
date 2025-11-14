@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Default Standalone",
+            "name": "Debug Default Application",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/standalone/default/debug/Debug/bin/DotNameStandalone.exe",
+            "program": "${workspaceFolder}/build/application/default/debug/Debug/bin/DotNameApplication.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build/standalone/default/debug/bin/",
+            "cwd": "${workspaceFolder}/build/application/default/debug/bin/",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

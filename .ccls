@@ -10,8 +10,8 @@ clang
 # %cuda_h -x cuda-header
 # -I./include/
 # -I./src/
-# -I./standalone/src/
-# -I./standalone/
+# -I./application/src/
+# -I./application/
 # -std=c++17
 # -Wall
 # -Wextra

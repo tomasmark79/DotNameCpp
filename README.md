@@ -53,7 +53,7 @@ DotNameCpp is an **opinionated template**: everything (configure, build, test, f
 - Unified automation via `SolutionController.py` (CI mirrors local)
 - Modern CMake presets + Conan 2 + optional cross / wasm profiles
 - Built‑in quality: clang-format, clang-tidy, coverage, Doxygen
-- Dual target: reusable library + standalone app
+- Dual target: reusable library + application app
 - Cross‑platform (native + wasm) with consistent task semantics
 
 ### Philosophy
@@ -78,11 +78,11 @@ Keyboard-first development: every major action = shortcut → menu → determini
 
 | Shortcut | Action | Description |
 |----------|--------|-------------|
-| **F5** | Quick Debug | Start debugging standalone application |
-| **F7** | Quick Build | Build standalone application (default Debug) |
+| **F5** | Quick Debug | Start debugging application |
+| **F7** | Quick Build | Build application (default Debug) |
 | **Shift+F7** | 🔨 Build Menu | **PRIMARY BUILD WORKFLOW** - Access all build tasks |
 | **Ctrl+F7** | 🛠️ Other Tasks | Utilities, formatting, documentation, coverage |
-| **Ctrl+Alt+R** | Run Standalone | Execute the built standalone binary |
+| **Ctrl+Alt+R** | Run Application | Execute the built application binary |
 | **Ctrl+Alt+E** | Launch Emscripten | Build and serve WebAssembly version |
 | **Ctrl+Alt+P** | Build All Presets | Build all CMake presets |
 
@@ -167,7 +167,7 @@ Secondary workflow for code quality and maintenance:
 - **Debugging**: GDB/LLDB/CMake support with VSCode integration
 
 ### 📦 **Project Flexibility**
-- **Dual Structure**: Library and standalone application support
+- **Dual Structure**: Library and application support
 - **Modular Architecture**: Reusable components and utilities
 - **Asset Management**: Integrated resource handling system
 - **Licensing**: Built-in license collection and management
@@ -205,7 +205,7 @@ add this function to your `.bashrc` or `.zshrc`:
 clonedotname() {
     local PN="${1:-AppName}"
     git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && rm -rf "$PN/.git" && cd "$PN"
-    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameStandalone "$PN"Standalone
+    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN"Application
 }
 ```
 
@@ -221,9 +221,9 @@ clonedotname MyCustomAppName # Clone with custom name
 pip install conan
 conan profile detect
 # Use the Python controller for advanced options - callable from VSCode tasks
-python SolutionController.py standalone "🗡️ Conan install" default Debug
-python SolutionController.py standalone "🔧 CMake configure" default Debug
-python SolutionController.py standalone "🔨 Build" default Debug
+python SolutionController.py application "🗡️ Conan install" default Debug
+python SolutionController.py application "🔧 CMake configure" default Debug
+python SolutionController.py application "🔨 Build" default Debug
 ```
 
 Click the **Code** button on GitHub → **Codespaces** → **Create codespace** for instant cloud development environment.
@@ -280,12 +280,12 @@ Click the **Code** button on GitHub → **Codespaces** → **Create codespace** 
 │   └── ems-mini.html               # Emscripten template
 ├── 📁 build/                       # Build outputs (auto-generated)
 │   ├── 📁 installation/            # Installation artifacts
-│   ├── 📁 standalone/              # Standalone builds
+│   ├── 📁 application/             # Application builds
 │   └── 📁 tarballs/                # Distribution packages
 ├── 📁 cmake/                       # CMake modules and utilities
 │   ├── project-common.cmake        # Common project settings
 │   ├── project-library.cmake       # Library-specific configuration
-│   ├── project-standalone.cmake    # Standalone app configuration
+│   ├── project-application.cmake   # Application app configuration
 │   ├── tmplt-*.cmake               # Feature modules (sanitizers, hardening, etc.)
 │   └── 📁 modules/                 # Custom CMake modules
 ├── 📁 doc/                         # Documentation (auto-generated)
@@ -295,7 +295,7 @@ Click the **Code** button on GitHub → **Codespaces** → **Create codespace** 
 │   ├── 📁 Assets/                  # Asset management utilities
 │   ├── 📁 Logger/                  # Logging functionality
 │   └── 📁 Utils/                   # Utility classes
-├── 📁 standalone/                  # Standalone application
+├── 📁 application/                 # Application source
 │   ├── 📁 src/                     # Application source
 │   └── 📁 tests/                   # Application tests
 ├── 📄 CMakeLists.txt               # Root CMake configuration
@@ -335,20 +335,20 @@ Ctrl+Alt+R                      # Run application
 python SolutionController.py both "🦸 Zero to Hero" default Debug
 
 # Step-by-step build process
-python SolutionController.py standalone "🗡️ Conan install" default Debug
-python SolutionController.py standalone "🔧 CMake configure" default Debug
-python SolutionController.py standalone "🔨 Build" default Debug
-python SolutionController.py standalone "🧪 Run CTest" default Debug
+python SolutionController.py application "🗡️ Conan install" default Debug
+python SolutionController.py application "🔧 CMake configure" default Debug
+python SolutionController.py application "🔨 Build" default Debug
+python SolutionController.py application "🧪 Run CTest" default Debug
 
 # Cross-platform builds
-python SolutionController.py standalone "🔨 Build" emscripten Debug
-python SolutionController.py standalone "🔨 Build" x86_64_w64_mingw32 Debug
+python SolutionController.py application "🔨 Build" emscripten Debug
+python SolutionController.py application "🔨 Build" x86_64_w64_mingw32 Debug
 
 # Code coverage workflow
-python SolutionController.py standalone "📊 Configure with Coverage" default Debug
-python SolutionController.py standalone "🔨 Build" default Debug
-python SolutionController.py standalone "🧪 Run Tests" default Debug
-python SolutionController.py standalone "📊 Coverage HTML Report" default Debug
+python SolutionController.py application "📊 Configure with Coverage" default Debug
+python SolutionController.py application "🔨 Build" default Debug
+python SolutionController.py application "🧪 Run Tests" default Debug
+python SolutionController.py application "📊 Coverage HTML Report" default Debug
 
 # Development tools
 python SolutionController.py both "🔍 clang-tidy linting" default Debug
@@ -364,7 +364,7 @@ python SolutionController.py both "📖 Generate Documentation" noNeedArch
 ```bash
 # Quick start (recommended for simple cases)
 conan install . --output-folder="build/" --build=missing --deployer=full_deploy -s build_type=Debug
-cmake --preset generic-linux-x86_64-gcc-15-debug -DBUILD_LIBRARY=ON -DBUILD_STANDALONE=ON
+cmake --preset generic-linux-x86_64-gcc-15-debug -DBUILD_LIBRARY=ON -DBUILD_application=ON
 cmake --build build/ -j $(nproc)
 
 # Advanced CMake with presets
@@ -376,7 +376,7 @@ ctest --preset debug-linux-x86_64-gcc-15               # Test with preset
 # Manual CMake configuration (not recommended)
 mkdir build && cd build
 conan install .. --build=missing
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_LIBRARY=ON -DBUILD_STANDALONE=ON
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_LIBRARY=ON -DBUILD_application=ON
 make -j $(nproc)
 ```
 
@@ -474,7 +474,7 @@ The template includes pre-configured `.clangd` and `.ccls` files:
 - clang-tidy rules (performance, readability, modernize)
 - Short variable names allowed (i, j, k)
 - Inlay hints for parameters and deduced types
-- Compilation database path: `build/standalone/default/debug/`
+- Compilation database path: `build/application/default/debug/`
 
 **📁 `.ccls`** - CodeLens + semantic highlighting configuration:
 - Header file detection for `.h`, `.hpp`, `.hxx`
@@ -555,7 +555,7 @@ Keyboard shortcut: `Ctrl+Alt+E`
 Comprehensive testing framework with Google Test:
 
 ```cpp
-// Example test (standalone/tests/)
+// Example test (application/tests/)
 #include <gtest/gtest.h>
 #include "DotNameLib/DotNameLib.hpp"
 
@@ -617,10 +617,10 @@ namespace dotname {
 
 #### Method 1: CPM.cmake (Recommended)
 
-In project Car in file project-standalone.cmake:
+In project Car in file project-application.cmake:
 ```cmake
 CPMAddPackage("gh:tomasmark79/Wheels#main")
-target_link_libraries(${STANDALONE_NAME} PRIVATE WheelsLib)
+target_link_libraries(${application_NAME} PRIVATE WheelsLib)
 ```
 
 In project Car in file project-tests.cmake:
@@ -714,8 +714,8 @@ Comprehensive CI/CD with multi-platform support:
 Rename your project from the template:
 
 ```bash
-python SolutionRenamer.py DotNameLib MyAwesomeLib DotNameStandalone MyAwesomeApp
-python SolutionRenamer.py MyAwesomeLib DotNameLib MyAwesomeApp DotNameStandalone
+python SolutionRenamer.py DotNameLib MyAwesomeLib DotNameapplication MyAwesomeApp
+python SolutionRenamer.py MyAwesomeLib DotNameLib MyAwesomeApp DotNameapplication
 ```
 
 Affected files: Check source code for the complete list.
@@ -738,7 +738,7 @@ python SolutionController.py
 python SolutionController.py <product> "<task>" <architecture> [build_type]
 
 # Examples:
-python SolutionController.py standalone "🔨 Build" default Debug
+python SolutionController.py application "🔨 Build" default Debug
 python SolutionController.py both "🦸 Zero to Hero" default Release
 python SolutionController.py emscripten "🚀 Launch Emscripten Server" noNeedArch
 
@@ -779,7 +779,7 @@ This template is provided "as is" without warranties of any kind. While extensiv
 
 For support, questions, or suggestions, please [open an issue](https://github.com/tomasmark79/DotNameCpp/issues) or [start a discussion](https://github.com/tomasmark79/DotNameCpp/discussions).
 
-Exmaple born from DotNameCpp [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexStandalone.html)
+Exmaple born from DotNameCpp [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexapplication.html)
 
 ---
 

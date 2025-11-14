@@ -27,12 +27,12 @@
     {
         "key": "ctrl+alt+r",
         "command": "workbench.action.tasks.runTask",
-        "args": "Launch Standalone binary"
+        "args": "Launch Application binary"
     },
     {
         "key": "ctrl+alt+e",
         "command": "workbench.action.tasks.runTask",
-        "args": "Launch Standalone Emscripten"
+        "args": "Launch Application Emscripten"
     },
 
     /* === FORMATTING & LINTING === */

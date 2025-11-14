@@ -36,7 +36,7 @@ file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/*.c
 # configure the test executable
 add_executable(${TEST_NAME} ${TEST_SOURCES})
 target_link_libraries(${TEST_NAME} PRIVATE GTest::gtest GTest::gtest_main
-                                           dotname::${TEST_NAME_LOWER}_standalone_common)
+                                           dotname::${TEST_NAME_LOWER}_application_common)
 set_target_properties(${TEST_NAME} PROPERTIES OUTPUT_NAME "${TEST_NAME}")
 
 # Skip test discovery when cross-compiling (includes Emscripten)

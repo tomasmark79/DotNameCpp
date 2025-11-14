@@ -3,7 +3,7 @@
 #include <cxxopts.hpp>
 #include <iostream>
 
-// Standalone application using DotNameLib
+// Application application using DotNameLib
 // All components initialized via UtilsFactory
 
 int main (int argc, char** argv) {

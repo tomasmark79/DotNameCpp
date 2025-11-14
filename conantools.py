@@ -121,7 +121,7 @@ class ConanTools:
         build_target = "generic"
         if "library" in working_dir_path:
             build_target = "lib"
-        elif "standalone" in working_dir_path:
+        elif "application" in working_dir_path:
             build_target = "app"
         
         # Create descriptive name: target-os-arch-compiler-version-buildtype
@@ -214,7 +214,7 @@ class ConanTools:
         build_target = "generic"
         if "library" in cwd:
             build_target = "lib"
-        elif "standalone" in cwd:
+        elif "application" in cwd:
             build_target = "app"
         
         # Create descriptive name: target-os-arch-compiler-version-buildtype

@@ -6,7 +6,7 @@ on:
     paths:
       - 'src/**'
       - 'include/**'
-      - 'standalone/**'
+      - 'application/**'
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
@@ -16,7 +16,7 @@ on:
     paths:
       - 'src/**'
       - 'include/**'
-      - 'standalone/**'
+      - 'application/**'
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
@@ -63,10 +63,10 @@ jobs:
         run: conan profile show
 
       - name: install Conan dependencies
-        run: conan install . -s build_type=${{env.BUILD_TYPE}} -s compiler.cppstd=20 -of=${{github.workspace}}/build/standalone/default/debug -pr default -b=missing
+        run: conan install . -s build_type=${{env.BUILD_TYPE}} -s compiler.cppstd=20 -of=${{github.workspace}}/build/application/default/debug -pr default -b=missing
       
       - name: CMake configure
-        run: cmake -B ${{github.workspace}}/build/standalone/default/debug -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_STANDALONE=ON
+        run: cmake -B ${{github.workspace}}/build/application/default/debug -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
       
       - name: CMake build
-        run: cmake --build ${{github.workspace}}/build/standalone/default/debug --config ${{env.BUILD_TYPE}}
+        run: cmake --build ${{github.workspace}}/build/application/default/debug --config ${{env.BUILD_TYPE}}

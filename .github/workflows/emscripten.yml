@@ -6,7 +6,7 @@ on:
     paths:
       - 'src/**'
       - 'include/**'
-      - 'standalone/**'
+      - 'application/**'
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
@@ -16,7 +16,7 @@ on:
     paths:
       - 'src/**'
       - 'include/**'
-      - 'standalone/**'
+      - 'application/**'
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
@@ -82,7 +82,7 @@ jobs:
           conan install . \
             -s build_type=${{env.BUILD_TYPE}} \
             -s compiler.cppstd=20 \
-            -of=${{github.workspace}}/build/standalone/emscripten/debug \
+            -of=${{github.workspace}}/build/application/emscripten/debug \
             -pr default -b=missing \
             -c tools.system.package_manager:mode=install \
             -c tools.system.package_manager:sudo=true
@@ -109,11 +109,11 @@ jobs:
           source $EMSDK/emsdk_env.sh
           export EM_CACHE=${{ env.EM_CACHE }}
           export EMSDK_QUIET=1
-          cmake -B ${{github.workspace}}/build/standalone/emscripten/debug \
+          cmake -B ${{github.workspace}}/build/application/emscripten/debug \
             -DCMAKE_TOOLCHAIN_FILE=$EMSDK/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
             -DBUILD_LIBRARY=ON \
-            -DBUILD_STANDALONE=ON
+            -DBUILD_APPLICATION=ON
       
       - name: CMake build for Emscripten
         run: |
@@ -121,15 +121,15 @@ jobs:
           export EM_CACHE=${{ env.EM_CACHE }}
           export EMSDK_QUIET=1
           export EMCC_DEBUG=0
-          cmake --build ${{github.workspace}}/build/standalone/emscripten/debug --config ${{env.BUILD_TYPE}} -j1
+          cmake --build ${{github.workspace}}/build/application/emscripten/debug --config ${{env.BUILD_TYPE}} -j1
 
       - name: Upload Emscripten artifacts
         uses: actions/upload-artifact@v4
         with:
           name: emscripten-build
           path: |
-            ${{github.workspace}}/build/standalone/emscripten/debug/*.html
-            ${{github.workspace}}/build/standalone/emscripten/debug/*.js
-            ${{github.workspace}}/build/standalone/emscripten/debug/*.wasm
-            ${{github.workspace}}/build/standalone/emscripten/debug/*.data
+            ${{github.workspace}}/build/application/emscripten/debug/*.html
+            ${{github.workspace}}/build/application/emscripten/debug/*.js
+            ${{github.workspace}}/build/application/emscripten/debug/*.wasm
+            ${{github.workspace}}/build/application/emscripten/debug/*.data
 

@@ -6,19 +6,19 @@ import re
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
 # Implicitly usable:
-# python SolutionRenamer.py DotNameLib DotNameLib DotNameStandalone DotNameStandalone
+# python SolutionRenamer.py DotNameLib DotNameLib DotNameApplication DotNameApplication
 
 # Renamer is respecting existing Uper and Lower letters and keep them in the new name
 source_dir = "src"
 include_dir = "include"
-standalone_dir = "standalone"
+application_dir = "application"
 test_dir = "tests"
 asset_dir = "assets"
 cmake_dir = "cmake"
 
 # forbidden words that cannot be used in the project name
 FORBIDDEN_WORDS = [
-    'build', 'standalone', 'library', 'default', 'debug', 'release', 'relwithdebinfo',
+    'build', 'application', 'library', 'default', 'debug', 'release', 'relwithdebinfo',
     'minsizerel', "appcontext", "index", "main", "test", "tests", "example", "examples"
 ]
 
@@ -37,11 +37,11 @@ def check_forbidden_words(name):
             return False
     return True
 
-def rename_project(old_lib_name, new_lib_name, old_standalone_name, new_standalone_name):
+def rename_project(old_lib_name, new_lib_name, old_application_name, new_application_name):
     # Add validation at the start of the function
     if not check_forbidden_words(new_lib_name):
         sys.exit(1)
-    if not check_forbidden_words(new_standalone_name):
+    if not check_forbidden_words(new_application_name):
         sys.exit(1)
 
     # Convert to lowercase and uppercase
@@ -49,26 +49,26 @@ def rename_project(old_lib_name, new_lib_name, old_standalone_name, new_standalo
     new_lib_name_lower = new_lib_name.lower()
     old_lib_name_upper = old_lib_name.upper()
     new_lib_name_upper = new_lib_name.upper()
-    old_standalone_name_lower = old_standalone_name.lower()
-    new_standalone_name_lower = new_standalone_name.lower()
-    old_standalone_name_upper = old_standalone_name.upper()
-    new_standalone_name_upper = new_standalone_name.upper()
+    old_application_name_lower = old_application_name.lower()
+    new_application_name_lower = new_application_name.lower()
+    old_application_name_upper = old_application_name.upper()
+    new_application_name_upper = new_application_name.upper()
 
-    # Library can't have the same name as the standalone project
-    if new_lib_name == new_standalone_name:
-        print("Error: new_lib_name and new_standalone_name must be different")
+    # Library can't have the same name as the application project
+    if new_lib_name == new_application_name:
+        print("Error: new_lib_name and new_application_name must be different")
         sys.exit(1)
 
     # List of files where the project names should be changed
     files = [
         "CMakeLists.txt",
         f"{cmake_dir}/project-common.cmake",
-        f"{cmake_dir}/project-standalone.cmake",
+        f"{cmake_dir}/project-application.cmake",
         f"{cmake_dir}/project-library.cmake",
         f"{cmake_dir}/project-tests.cmake",
-        f"{standalone_dir}/{source_dir}/Main.cpp",
-        f"{standalone_dir}/{source_dir}/AppCore.hpp",
-        f"{standalone_dir}/{test_dir}/CMakeLists.txt",
+        f"{application_dir}/{source_dir}/Main.cpp",
+        f"{application_dir}/{source_dir}/AppCore.hpp",
+        f"{application_dir}/{test_dir}/CMakeLists.txt",
         f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp",
         f"{source_dir}/{old_lib_name}.cpp",
         f"{source_dir}/Logger/Logger.hpp",
@@ -93,9 +93,9 @@ def rename_project(old_lib_name, new_lib_name, old_standalone_name, new_standalo
             # Replace all variants using regex with word boundaries for safer replacement
             # Order matters - do longer strings first to avoid partial matches
             patterns = [
-                (r'\b' + re.escape(old_standalone_name_upper) + r'\b', new_standalone_name_upper),
-                (r'\b' + re.escape(old_standalone_name_lower) + r'\b', new_standalone_name_lower),
-                (r'\b' + re.escape(old_standalone_name) + r'\b', new_standalone_name),
+                (r'\b' + re.escape(old_application_name_upper) + r'\b', new_application_name_upper),
+                (r'\b' + re.escape(old_application_name_lower) + r'\b', new_application_name_lower),
+                (r'\b' + re.escape(old_application_name) + r'\b', new_application_name),
                 # Special pattern for constants with underscores (must come before general lib name patterns)
                 (re.escape(old_lib_name_upper) + r'_(\w+)', new_lib_name_upper + r'_\1'),
                 (r'\b' + re.escape(old_lib_name_upper) + r'\b', new_lib_name_upper),
@@ -133,12 +133,12 @@ def rename_project(old_lib_name, new_lib_name, old_standalone_name, new_standalo
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python3 SolutionRenamer.py <DotNameLib> <DotNameLib_New> <DotNameStandalone> <DotNameStandalone_New>")
+        print("Usage: python3 SolutionRenamer.py <DotNameLib> <DotNameLib_New> <DotNameApplication> <DotNameApplication_New>")
         sys.exit(1)
 
     old_lib_name = sys.argv[1]
     new_lib_name = sys.argv[2]
-    old_standalone_name = sys.argv[3]
-    new_standalone_name = sys.argv[4]
+    old_application_name = sys.argv[3]
+    new_application_name = sys.argv[4]
 
-    rename_project(old_lib_name, new_lib_name, old_standalone_name, new_standalone_name)
+    rename_project(old_lib_name, new_lib_name, old_application_name, new_application_name)

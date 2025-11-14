@@ -21,7 +21,7 @@
                 "order": "breadthFirst"
             },
             "compileCommands": [
-                "${workspaceFolder}/build/standalone/default/debug/compile_commands.json"
+                "${workspaceFolder}/build/application/default/debug/compile_commands.json"
             ]
         }
     ],

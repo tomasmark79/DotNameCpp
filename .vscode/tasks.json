@@ -48,11 +48,11 @@
             "type": "pickString",
             "description": "Select target product",
             "options": [
-                "standalone",
+                "application",
                 "library",
                 "both"
             ],
-            "default": "standalone"
+            "default": "application"
         },
         {
             /* ARCH ITEMS */
@@ -115,7 +115,7 @@
     ],
     "tasks": [
         {
-            "label": "Launch Standalone Emscripten",
+            "label": "Launch Application Emscripten",
             "type": "shell",
             "command": "python",
             "args": [
@@ -131,7 +131,7 @@
                 "kind": "build",
                 "isDefault": false
             },
-            "detail": "Launch Standalone Emscripten",
+            "detail": "Launch Application Emscripten",
             "problemMatcher": ["$gcc"],
             "isBackground": true,
             "presentation": {
@@ -147,12 +147,12 @@
         {
             "label": "Launch Application binary",
             "type": "shell",
-            "command": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameApplication",
+            "command": "${workspaceFolder}/build/application/default/debug/bin/DotNameApplication",
             "args": [
                 ""
             ],
             "options": {
-                "cwd": "${workspaceFolder}/build/standalone/default/debug/bin/"
+                "cwd": "${workspaceFolder}/build/application/default/debug/bin/"
             },
             "group": {
                 "kind": "build",
@@ -206,7 +206,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "${input:coverageTaskFromOther}",
                 "default",
                 "Debug"
@@ -266,7 +266,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "🔨 Build",
                 "default",
                 "Debug"
@@ -401,7 +401,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "🔧 Configure with Coverage",
                 "default",
                 "Debug"
@@ -428,7 +428,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "${input:coverageTask}",
                 "default",
                 "${input:buildType}"
@@ -455,7 +455,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "📊 Coverage HTML Report",
                 "default",
                 "Debug"
@@ -482,7 +482,7 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/SolutionController.py",
-                "standalone",
+                "application",
                 "📊 Coverage Full Report",
                 "default",
                 "Debug"

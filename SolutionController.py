@@ -32,9 +32,9 @@ tarrballsOutputDir = os.path.join(workSpaceDir, buildFolderName, "tarballs")
 cmake_files = [
     os.path.join(workSpaceDir, "CMakeLists.txt"),
     os.path.join(workSpaceDir, "cmake", "project-library.cmake"),
-    os.path.join(workSpaceDir, "cmake", "project-standalone.cmake"),
+    os.path.join(workSpaceDir, "cmake", "project-application.cmake"),
     os.path.join(workSpaceDir, "cmake", "project-common.cmake"),
-    os.path.join(workSpaceDir, "standalone", "tests", "CMakeLists.txt")
+    os.path.join(workSpaceDir, "application", "tests", "CMakeLists.txt")
 ]
 
 GREEN = "\033[0;32m"
@@ -60,9 +60,9 @@ taskName = sys.argv[2] if len(sys.argv) > 2 else None
 buildArch = sys.argv[3] if len(sys.argv) > 3 else None
 buildType = sys.argv[4] if len(sys.argv) > 4 else "not defined"
 
-# Calculate the flags for library and standalone
+# Calculate the flags for library and application
 lib_flag = buildProduct in ["both", "library"]
-st_flag = buildProduct in ["both", "standalone"]
+app_flag = buildProduct in ["both", "application"]
 
 # Cross compilation flag
 isCrossCompilation = False
@@ -146,7 +146,7 @@ def get_version_and_names_from_cmake_lists():
     with open('CMakeLists.txt', 'r') as file:
         cmake_content = file.read()
     
-    # Read common cmake file for names (both LIBRARY_NAME and STANDALONE_NAME are defined there)
+    # Read common cmake file for names (both LIBRARY_NAME and APPLICATION_NAME are defined there)
     with open('cmake/project-common.cmake', 'r') as file:
         common_content = file.read()
     
@@ -155,9 +155,9 @@ def get_version_and_names_from_cmake_lists():
     
     # Extract names from common cmake file
     lib_name = re.search(r'set\(LIBRARY_NAME\s+(\w+)', common_content).group(1)
-    st_name = re.search(r'set\(STANDALONE_NAME\s+(\w+)', common_content).group(1)
+    app_name = re.search(r'set\(APPLICATION_NAME\s+(\w+)', common_content).group(1)
     
-    return lib_ver, lib_name, st_name
+    return lib_ver, lib_name, app_name
 
 def log2file(message):
     with open(os.path.join(workSpaceDir, "SolutionController.log"), "a") as f:
@@ -204,10 +204,10 @@ def cmake_configure(src, bdir, isCMakeDebugger=False, enable_coverage=False):
     
     # Determine build flags based on build directory
     is_library_build = "library" in bdir
-    is_standalone_build = "standalone" in bdir
+    is_application_build = "application" in bdir
     
     # Set CMake options for orchestrator
-    BUILD_OPTIONS = f'-DBUILD_LIBRARY={"ON" if is_library_build else "OFF"} -DBUILD_STANDALONE={"ON" if is_standalone_build else "OFF"}'
+    BUILD_OPTIONS = f'-DBUILD_LIBRARY={"ON" if is_library_build else "OFF"} -DBUILD_APPLICATION={"ON" if is_application_build else "OFF"}'
     
     # Add coverage option if requested
     if enable_coverage:
@@ -408,20 +408,20 @@ def clean_build_folder(bdir):
 def build_spltr():
     if lib_flag:
         cmake_build(get_build_dir("library"))
-    if st_flag:
-        cmake_build(get_build_dir("standalone"))
+    if app_flag:
+        cmake_build(get_build_dir("application"))
 
 def configure_spltr(enable_coverage=False):
     if lib_flag:
         cmake_configure(".", get_build_dir("library"), False, enable_coverage)
-    if st_flag:
-        cmake_configure(".", get_build_dir("standalone"), False, enable_coverage)
+    if app_flag:
+        cmake_configure(".", get_build_dir("application"), False, enable_coverage)
 
 def configure_spltr_cmake_debugger():
     if lib_flag:
         cmake_configure(".", get_build_dir("library"), True)
-    if st_flag:
-        cmake_configure(".", get_build_dir("standalone"), True)
+    if app_flag:
+        cmake_configure(".", get_build_dir("application"), True)
 
 def cmake_install(bdir):
     cmake_build(bdir, target="install")
@@ -429,27 +429,27 @@ def cmake_install(bdir):
 def conan_spltr():
     if lib_flag:
         conan_install(get_build_dir("library"))
-    if st_flag:
-        conan_install(get_build_dir("standalone"))
+    if app_flag:
+        conan_install(get_build_dir("application"))
 
 def clean_spltr():
     if lib_flag:
         clean_build_folder(get_build_dir("library"))
-    if st_flag:
-        clean_build_folder(get_build_dir("standalone"))
+    if app_flag:
+        clean_build_folder(get_build_dir("application"))
 
 def installation_spltr():
     if lib_flag:
         cmake_install(get_build_dir("library"))
-    if st_flag:
-        cmake_install(get_build_dir("standalone"))
+    if app_flag:
+        cmake_install(get_build_dir("application"))
 
 def license_spltr():
     lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
     if lib_flag:
         cmake_build(get_build_dir("library"), f"write-licenses-{lib_name}")
-    if st_flag:
-        cmake_build(get_build_dir("standalone"), f"write-licenses-{st_name}")
+    if app_flag:
+        cmake_build(get_build_dir("application"), f"write-licenses-{st_name}")
 
 def reorder_build_type_to_end(preset_name, build_type):
     """
@@ -499,9 +499,9 @@ def release_tarballs_spltr():
             else:
                 print(f"No content found in {source_dir} for library.")
 
-        if st_flag:
-            # Determine the suffix for the standalone tarball
-            bdir = get_build_dir("standalone")
+        if app_flag:
+            # Determine the suffix for the application tarball
+            bdir = get_build_dir("application")
             preset_file = os.path.join(workSpaceDir, bdir, "CMakePresets.json")
             # fallback suffix - buildType at the end
             suffix = f"{buildArch}-{buildType.lower()}"
@@ -519,17 +519,17 @@ def release_tarballs_spltr():
             source_dir = os.path.join(installationOutputDir, buildArch, buildType.lower())
 
             if os.listdir(source_dir):
-                print(f"Creating standalone tarball from: {source_dir}")
+                print(f"Creating application tarball from: {source_dir}")
                 out_path = os.path.join(tarrballsOutputDir, st_archive_name)
                 with tarfile.open(out_path, "w:gz") as tar:
                     tar.add(source_dir, arcname=".")
                 print(f"Created tarball: {out_path}")
 
             else:
-                print(f"No content found in {source_dir} for standalone.")
+                print(f"No content found in {source_dir} for application.")
 
 def run_ctest():
-    st_build_dir = get_build_dir("standalone") + "/tests"
+    st_build_dir = get_build_dir("application") + "/tests"
     if os.path.exists(st_build_dir):
         os.chdir(st_build_dir)
         print(f"Running CTest in {st_build_dir}")
@@ -541,8 +541,8 @@ def run_ctest():
 def run_cpack():
     if lib_flag:
         cmake_build(get_build_dir("library"), target="package")
-    if st_flag:
-        cmake_build(get_build_dir("standalone"), target="package")
+    if app_flag:
+        cmake_build(get_build_dir("application"), target="package")
 
 def find_clang_tidy():
     for version in range(20, 0, -1):
@@ -552,10 +552,10 @@ def find_clang_tidy():
     return "clang-tidy"  # Fallback to default clang-tidy if no versioned one is found
 
 def launch_emrun_server():
-    """Launch Emscripten emrun server for standalone application."""
+    """Launch Emscripten emrun server for application application."""
     """Serving whole workspace enabling load and debugging C++ in browser DevTools."""
 
-    # Get the standalone name and version from CMakeLists.txt
+    # Get the application name and version from CMakeLists.txt
     try:
         lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
     except Exception as e:
@@ -573,7 +573,7 @@ def launch_emrun_server():
         print(f"{YELLOW}No existing emrun processes found or failed to stop them.{NC}")
     
     # Build the path to the emscripten build directory
-    emscripten_build_dir_relative = os.path.join(buildFolderName, "standalone", "emscripten", "debug", "bin")
+    emscripten_build_dir_relative = os.path.join(buildFolderName, "application", "emscripten", "debug", "bin")
     html_file = os.path.join(workSpaceDir, emscripten_build_dir_relative, f"{st_name}.html")
     
     # Check if the HTML file exists
@@ -623,8 +623,8 @@ def clang_tidy_spltr():
     if lib_flag:
         bdir = get_build_dir("library")
         run_clang_tidy(bdir)
-    if st_flag:
-        bdir = get_build_dir("standalone")
+    if app_flag:
+        bdir = get_build_dir("application")
         run_clang_tidy(bdir)
 
 def find_clang_format():
@@ -692,7 +692,7 @@ def doxygen_documentation():
 
 def run_coverage_html():
     """Generate HTML coverage report"""
-    build_dir = get_build_dir("standalone")
+    build_dir = get_build_dir("application")
     if os.path.exists(build_dir):
         os.chdir(build_dir)
         print(f"Generating HTML coverage report in {build_dir}")
@@ -710,7 +710,7 @@ def run_coverage_html():
 
 def run_coverage_xml():
     """Generate XML coverage report (for CI/CD)"""
-    build_dir = get_build_dir("standalone")
+    build_dir = get_build_dir("application")
     if os.path.exists(build_dir):
         os.chdir(build_dir)
         print(f"Generating XML coverage report in {build_dir}")
@@ -726,7 +726,7 @@ def run_coverage_xml():
 
 def run_coverage_summary():
     """Display coverage summary in console"""
-    build_dir = get_build_dir("standalone")
+    build_dir = get_build_dir("application")
     if os.path.exists(build_dir):
         os.chdir(build_dir)
         print(f"Displaying coverage summary from {build_dir}")
@@ -736,7 +736,7 @@ def run_coverage_summary():
 
 def run_coverage_full():
     """Generate both HTML and XML coverage reports"""
-    build_dir = get_build_dir("standalone")
+    build_dir = get_build_dir("application")
     if os.path.exists(build_dir):
         os.chdir(build_dir)
         print(f"Generating full coverage report in {build_dir}")
@@ -757,7 +757,7 @@ def run_coverage_full():
 
 def run_coverage_reset():
     """Reset coverage counters"""
-    build_dir = get_build_dir("standalone")
+    build_dir = get_build_dir("application")
     if os.path.exists(build_dir):
         os.chdir(build_dir)
         print(f"Resetting coverage counters in {build_dir}")
