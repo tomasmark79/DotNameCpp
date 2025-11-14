@@ -70,8 +70,8 @@ if(ENABLE_GTESTS)
     message(STATUS "GTESTS enabled")
     include(CTest) # Enable testing at the root level
     add_library(${TEST_NAME_LOWER}_application_common INTERFACE)
-    target_link_libraries(${TEST_NAME_LOWER}_application_common
-                          INTERFACE ${LIBRARY_NAME} cxxopts::cxxopts)
+    target_link_libraries(${TEST_NAME_LOWER}_application_common INTERFACE ${LIBRARY_NAME}
+                                                                          cxxopts::cxxopts)
 
     add_library(dotname::${TEST_NAME_LOWER}_application_common ALIAS
                 ${TEST_NAME_LOWER}_application_common)
