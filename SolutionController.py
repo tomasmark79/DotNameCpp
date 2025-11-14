@@ -445,11 +445,11 @@ def installation_spltr():
         cmake_install(get_build_dir("application"))
 
 def license_spltr():
-    lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
+    lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
     if lib_flag:
         cmake_build(get_build_dir("library"), f"write-licenses-{lib_name}")
     if app_flag:
-        cmake_build(get_build_dir("application"), f"write-licenses-{st_name}")
+        cmake_build(get_build_dir("application"), f"write-licenses-{app_name}")
 
 def reorder_build_type_to_end(preset_name, build_type):
     """
@@ -467,7 +467,7 @@ def reorder_build_type_to_end(preset_name, build_type):
 
 def release_tarballs_spltr():
     os.makedirs(tarrballsOutputDir, exist_ok=True)
-    lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
+    lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
 
     if buildArch in valid_archs:
         if lib_flag:
@@ -515,7 +515,7 @@ def release_tarballs_spltr():
                         suffix = reorder_build_type_to_end(preset_name, buildType)
                 except Exception:
                     pass
-            st_archive_name = f"{st_name}-{lib_ver}-{suffix}.tar.gz"
+            st_archive_name = f"{app_name}-{lib_ver}-{suffix}.tar.gz"
             source_dir = os.path.join(installationOutputDir, buildArch, buildType.lower())
 
             if os.listdir(source_dir):
@@ -557,7 +557,7 @@ def launch_emrun_server():
 
     # Get the application name and version from CMakeLists.txt
     try:
-        lib_ver, lib_name, st_name = get_version_and_names_from_cmake_lists()
+        lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
     except Exception as e:
         exit_with_error(f"Failed to read project names from CMakeLists.txt: {e}")
     
@@ -574,7 +574,7 @@ def launch_emrun_server():
     
     # Build the path to the emscripten build directory
     emscripten_build_dir_relative = os.path.join(buildFolderName, "application", "emscripten", "debug", "bin")
-    html_file = os.path.join(workSpaceDir, emscripten_build_dir_relative, f"{st_name}.html")
+    html_file = os.path.join(workSpaceDir, emscripten_build_dir_relative, f"{app_name}.html")
     
     # Check if the HTML file exists
     if not os.path.exists(html_file):
@@ -583,12 +583,12 @@ def launch_emrun_server():
     # Change to the build directory
     os.chdir(workSpaceDir)  # Serve whole workspace due to relative paths in HTML
     print(f"{GREEN}Starting emrun server in: {workSpaceDir}{NC}")
-    print(f"{GREEN}Serving relative path: {emscripten_build_dir_relative}/{st_name}.html{NC}")
+    print(f"{GREEN}Serving relative path: {emscripten_build_dir_relative}/{app_name}.html{NC}")
 
     # Start emrun server
     try:
         if systemPlatform == "windows":
-            subprocess.Popen(f"emrun {st_name}.html", shell=True, 
+            subprocess.Popen(f"emrun {app_name}.html", shell=True, 
                            creationflags=subprocess.CREATE_NEW_CONSOLE)
         else:
             # Unix-like
@@ -598,7 +598,7 @@ def launch_emrun_server():
         print(f"{LIGHTBLUE}Server should be available at: http://localhost:6931/{NC}")
 
         # Open the URL in the default web browser
-        url = f"http://localhost:6931/{emscripten_build_dir_relative}/{st_name}.html"
+        url = f"http://localhost:6931/{emscripten_build_dir_relative}/{app_name}.html"
         print("Opening default browser...")
         webbrowser.open(url)
             
