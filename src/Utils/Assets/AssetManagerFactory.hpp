@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Assets/IAssetManager.hpp>
-#include <Assets/AssetManager.hpp>
+#include <Utils/Assets/IAssetManager.hpp>
+#include <Utils/Assets/AssetManager.hpp>
 #include <filesystem>
 #include <memory>
 #include <string>

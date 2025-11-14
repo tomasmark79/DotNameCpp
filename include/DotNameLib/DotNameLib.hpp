@@ -1,11 +1,9 @@
 #pragma once
 
 #include <DotNameLib/version.h> // first configuration will create this file
-#include <Logger/LoggerFactory.hpp>
-#include <Logger/ILogger.hpp>
-#include <Logger/NullLogger.hpp>
-#include <Assets/IAssetManager.hpp>
-#include <Assets/AssetManagerFactory.hpp>
+#include <Utils/Logger/ILogger.hpp>
+#include <Utils/Logger/NullLogger.hpp>
+#include <Utils/Assets/IAssetManager.hpp>
 #include <filesystem>
 #include <string>
 

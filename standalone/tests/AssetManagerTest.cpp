@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../../src/Assets/AssetManager.hpp"
-#include "../../src/Assets/AssetManagerFactory.hpp"
+#include "../../src/Utils/Assets/AssetManager.hpp"
+#include "../../src/Utils/Assets/AssetManagerFactory.hpp"
 #include "MockAssetManager.hpp"
 #include <filesystem>
 #include <fstream>

@@ -1,5 +1,4 @@
 #include "Standalone.hpp"
-#include <Logger/LoggerFactory.hpp>
 #include <Utils/UtilsFactory.hpp>
 #include <cxxopts.hpp>
 #include <iostream>

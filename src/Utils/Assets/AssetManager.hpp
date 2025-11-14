@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Assets/IAssetManager.hpp>
+#include <Utils/Assets/IAssetManager.hpp>
 #include <mutex>
 #include <memory>
 

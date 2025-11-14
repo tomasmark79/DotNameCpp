@@ -1,9 +1,8 @@
 #pragma once
+#include "Utils/Assets/IAssetManager.hpp"
+#include "Utils/Logger/ILogger.hpp"
+#include "Utils/UtilsFactory.hpp"
 #include "DotNameLib/DotNameLib.hpp"
-#include <Logger/ILogger.hpp>
-#include <Logger/LoggerFactory.hpp>
-#include <Assets/IAssetManager.hpp>
-#include <Assets/AssetManagerFactory.hpp>
 #include <memory>
 #include <string>
 #include <filesystem>
@@ -19,14 +18,13 @@ namespace dotnamecpp::app {
     std::unique_ptr<dotnamecpp::v1::DotNameLib> library_;
 
     bool initializeLogger (const logging::LoggerConfig& loggerConfig) {
-      logger_ = logging::LoggerFactory::create (logging::LoggerType::Console, loggerConfig);
+      logger_ = utils::UtilsFactory::createLogger (logging::LoggerType::Console, loggerConfig);
       return logger_ != nullptr;
     }
 
     bool initializeAssets (const std::filesystem::path& executablePath) {
       try {
-        assetManager_ =
-            dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
+        assetManager_ = utils::UtilsFactory::createAssetManager (executablePath, appName_);
         if (!assetManager_->validate ()) {
           logger_->errorStream () << "Failed to validate assets path: "
                                   << assetManager_->getAssetsPath ();

@@ -1,4 +1,4 @@
-#include "../../src/Logger/ConsoleLogger.hpp"
+#include "../../src/Utils/Logger/ConsoleLogger.hpp"
 #include <gtest/gtest.h>
 #include <fstream>
 #include <thread>

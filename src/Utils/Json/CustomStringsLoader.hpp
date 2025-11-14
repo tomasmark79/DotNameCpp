@@ -2,7 +2,7 @@
 
 #include <Utils/Json/ICustomStringsLoader.hpp>
 #include <Utils/Json/IJsonSerializer.hpp>
-#include <Assets/IAssetManager.hpp>
+#include <Utils/Assets/IAssetManager.hpp>
 #include <memory>
 #include <mutex>
 
