@@ -17,11 +17,11 @@ namespace dotnamecpp::utils {
   using dotnamecpp::assets::IAssetManager;
 
   /**
-  * @brief Factory for creating all utility component instances
-  * 
-  * Provides centralized creation and dependency injection for all Utils subsystems.
-  * Creates properly initialized instances with all required dependencies.
-  */
+   * @brief Factory for creating all utility component instances
+   * 
+   * Provides centralized creation and dependency injection for all Utils subsystems.
+   * Creates properly initialized instances with all required dependencies.
+   */
   class UtilsFactory {
   public:
     // ========================================================================
@@ -29,29 +29,33 @@ namespace dotnamecpp::utils {
     // ========================================================================
 
     /**
-     * @brief Create file reader instance
-     * @return Shared pointer to IFileReader implementation
+     * @brief Create a File Reader object
+     * 
+     * @return std::shared_ptr<IFileReader> 
      */
     [[nodiscard]]
     static std::shared_ptr<IFileReader> createFileReader ();
 
     /**
-     * @brief Create file writer instance
-     * @return Shared pointer to IFileWriter implementation
+     * @brief Create a File Writer object
+     * 
+     * @return std::shared_ptr<IFileWriter> 
      */
     [[nodiscard]]
     static std::shared_ptr<IFileWriter> createFileWriter ();
 
     /**
-     * @brief Create path resolver instance
-     * @return Shared pointer to IPathResolver implementation
+     * @brief Create a Path Resolver object
+     * 
+     * @return std::shared_ptr<IPathResolver> 
      */
     [[nodiscard]]
     static std::shared_ptr<IPathResolver> createPathResolver ();
 
     /**
-     * @brief Create directory manager instance
-     * @return Shared pointer to IDirectoryManager implementation
+     * @brief Create a Directory Manager object
+     * 
+     * @return std::shared_ptr<IDirectoryManager> 
      */
     [[nodiscard]]
     static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
@@ -61,16 +65,18 @@ namespace dotnamecpp::utils {
     // ========================================================================
 
     /**
-     * @brief Create platform info for current platform
-     * @return Unique pointer to IPlatformInfo implementation
+     * @brief Create a Platform Info object
+     * 
+     * @return std::unique_ptr<IPlatformInfo> 
      */
     [[nodiscard]]
     static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
-
+    
     /**
-     * @brief Create platform info for specific platform
-     * @param platform Target platform
-     * @return Unique pointer to IPlatformInfo implementation
+     * @brief Create a Platform Info object
+     * 
+     * @param platform 
+     * @return std::unique_ptr<IPlatformInfo> 
      */
     [[nodiscard]]
     static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
@@ -80,17 +86,19 @@ namespace dotnamecpp::utils {
     // ========================================================================
 
     /**
-     * @brief Create JSON serializer with file I/O dependencies
-     * @return Shared pointer to IJsonSerializer implementation
+     * @brief Create a Json Serializer object
+     * 
+     * @return std::shared_ptr<IJsonSerializer> 
      */
     [[nodiscard]]
     static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
 
     /**
-     * @brief Create custom strings loader with all dependencies
-     * @param assetManager Asset manager for resolving asset paths
-     * @param filename Custom strings filename (default: "customstrings.json")
-     * @return Shared pointer to ICustomStringsLoader implementation
+     * @brief Create a Custom Strings Loader object
+     * 
+     * @param assetManager 
+     * @param filename 
+     * @return std::shared_ptr<ICustomStringsLoader> 
      */
     [[nodiscard]]
     static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
@@ -102,8 +110,9 @@ namespace dotnamecpp::utils {
     // ========================================================================
 
     /**
-     * @brief Create string formatter instance
-     * @return Shared pointer to IStringFormatter implementation
+     * @brief Create a String Formatter object
+     * 
+     * @return std::shared_ptr<IStringFormatter> 
      */
     [[nodiscard]]
     static std::shared_ptr<IStringFormatter> createStringFormatter ();
@@ -112,9 +121,6 @@ namespace dotnamecpp::utils {
     // Convenience: Create complete utility set
     // ========================================================================
 
-    /**
-     * @brief Utility bundle containing all commonly used components
-     */
     struct UtilsBundle {
       std::shared_ptr<IFileReader> fileReader;
       std::shared_ptr<IFileWriter> fileWriter;
@@ -126,8 +132,9 @@ namespace dotnamecpp::utils {
     };
 
     /**
-     * @brief Create complete utility bundle with all components
-     * @return UtilsBundle with all utility instances
+     * @brief Create a Bundle object
+     * 
+     * @return UtilsBundle 
      */
     [[nodiscard]]
     static UtilsBundle createBundle ();
