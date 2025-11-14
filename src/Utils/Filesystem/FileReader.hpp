@@ -22,18 +22,22 @@ namespace dotnamecpp {
       FileReader (FileReader&&) = delete;
       FileReader& operator= (FileReader&&) = delete;
 
-      [[nodiscard]] Result<std::string, FileError> read (
+      [[nodiscard]]
+      Result<std::string, FileError> read (const std::filesystem::path& filePath) const override;
+
+      [[nodiscard]]
+      Result<std::vector<uint8_t>, FileError> readBytes (
           const std::filesystem::path& filePath) const override;
 
-      [[nodiscard]] Result<std::vector<uint8_t>, FileError> readBytes (
+      [[nodiscard]]
+      Result<std::vector<std::string>, FileError> readLines (
           const std::filesystem::path& filePath) const override;
 
-      [[nodiscard]] Result<std::vector<std::string>, FileError> readLines (
-          const std::filesystem::path& filePath) const override;
+      [[nodiscard]]
+      bool exists (const std::filesystem::path& filePath) const override;
 
-      [[nodiscard]] bool exists (const std::filesystem::path& filePath) const override;
-
-      [[nodiscard]] Result<std::uintmax_t, FileError> getSize (
+      [[nodiscard]]
+      Result<std::uintmax_t, FileError> getSize (
           const std::filesystem::path& filePath) const override;
 
     private:
@@ -42,8 +46,8 @@ namespace dotnamecpp {
      * @param filePath Path to validate
      * @return FileError if path is invalid/inaccessible, std::nullopt if OK
      */
-      [[nodiscard]] static std::optional<FileError> validatePath (
-          const std::filesystem::path& filePath);
+      [[nodiscard]]
+      static std::optional<FileError> validatePath (const std::filesystem::path& filePath);
     };
 
   } // namespace utils

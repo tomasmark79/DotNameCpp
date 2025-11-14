@@ -18,15 +18,22 @@ namespace dotnamecpp {
       WindowsPlatformInfo (WindowsPlatformInfo&&) = delete;
       WindowsPlatformInfo& operator= (WindowsPlatformInfo&&) = delete;
 
-      [[nodiscard]] Platform getPlatform () const override;
-      [[nodiscard]] std::string getPlatformName () const override;
-      [[nodiscard]] Result<std::filesystem::path, FileError> getExecutablePath () const override;
-      [[nodiscard]] Result<std::filesystem::path, FileError>
-      getExecutableDirectory () const override;
-      [[nodiscard]] bool isWindows () const override;
-      [[nodiscard]] bool isLinux () const override;
-      [[nodiscard]] bool isMacOS () const override;
-      [[nodiscard]] bool isEmscripten () const override;
+      [[nodiscard]]
+      Platform getPlatform () const override;
+      [[nodiscard]]
+      std::string getPlatformName () const override;
+      [[nodiscard]]
+      Result<std::filesystem::path, FileError> getExecutablePath () const override;
+      [[nodiscard]]
+      Result<std::filesystem::path, FileError> getExecutableDirectory () const override;
+      [[nodiscard]]
+      bool isWindows () const override;
+      [[nodiscard]]
+      bool isLinux () const override;
+      [[nodiscard]]
+      bool isMacOS () const override;
+      [[nodiscard]]
+      bool isEmscripten () const override;
     };
 
   } // namespace utils

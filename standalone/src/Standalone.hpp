@@ -25,8 +25,8 @@ namespace dotnamecpp::app {
 
     bool initializeAssets (const std::filesystem::path& executablePath) {
       try {
-        assetManager_
-            = dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
+        assetManager_ =
+            dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName_);
         if (!assetManager_->validate ()) {
           logger_->errorStream () << "Failed to validate assets path: "
                                   << assetManager_->getAssetsPath ();

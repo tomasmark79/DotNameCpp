@@ -32,25 +32,29 @@ namespace dotnamecpp::utils {
      * @brief Create file reader instance
      * @return Shared pointer to IFileReader implementation
      */
-    [[nodiscard]] static std::shared_ptr<IFileReader> createFileReader ();
+    [[nodiscard]]
+    static std::shared_ptr<IFileReader> createFileReader ();
 
     /**
      * @brief Create file writer instance
      * @return Shared pointer to IFileWriter implementation
      */
-    [[nodiscard]] static std::shared_ptr<IFileWriter> createFileWriter ();
+    [[nodiscard]]
+    static std::shared_ptr<IFileWriter> createFileWriter ();
 
     /**
      * @brief Create path resolver instance
      * @return Shared pointer to IPathResolver implementation
      */
-    [[nodiscard]] static std::shared_ptr<IPathResolver> createPathResolver ();
+    [[nodiscard]]
+    static std::shared_ptr<IPathResolver> createPathResolver ();
 
     /**
      * @brief Create directory manager instance
      * @return Shared pointer to IDirectoryManager implementation
      */
-    [[nodiscard]] static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
+    [[nodiscard]]
+    static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
 
     // ========================================================================
     // Platform factories
@@ -60,14 +64,16 @@ namespace dotnamecpp::utils {
      * @brief Create platform info for current platform
      * @return Unique pointer to IPlatformInfo implementation
      */
-    [[nodiscard]] static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
+    [[nodiscard]]
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
 
     /**
      * @brief Create platform info for specific platform
      * @param platform Target platform
      * @return Unique pointer to IPlatformInfo implementation
      */
-    [[nodiscard]] static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
+    [[nodiscard]]
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
 
     // ========================================================================
     // JSON factories
@@ -77,7 +83,8 @@ namespace dotnamecpp::utils {
      * @brief Create JSON serializer with file I/O dependencies
      * @return Shared pointer to IJsonSerializer implementation
      */
-    [[nodiscard]] static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
+    [[nodiscard]]
+    static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
 
     /**
      * @brief Create custom strings loader with all dependencies
@@ -85,7 +92,8 @@ namespace dotnamecpp::utils {
      * @param filename Custom strings filename (default: "customstrings.json")
      * @return Shared pointer to ICustomStringsLoader implementation
      */
-    [[nodiscard]] static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
+    [[nodiscard]]
+    static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
         std::shared_ptr<IAssetManager> assetManager,
         const std::string& filename = "customstrings.json");
 
@@ -97,7 +105,8 @@ namespace dotnamecpp::utils {
      * @brief Create string formatter instance
      * @return Shared pointer to IStringFormatter implementation
      */
-    [[nodiscard]] static std::shared_ptr<IStringFormatter> createStringFormatter ();
+    [[nodiscard]]
+    static std::shared_ptr<IStringFormatter> createStringFormatter ();
 
     // ========================================================================
     // Convenience: Create complete utility set
@@ -120,7 +129,8 @@ namespace dotnamecpp::utils {
      * @brief Create complete utility bundle with all components
      * @return UtilsBundle with all utility instances
      */
-    [[nodiscard]] static UtilsBundle createBundle ();
+    [[nodiscard]]
+    static UtilsBundle createBundle ();
   };
 
 } // namespace dotnamecpp::utils

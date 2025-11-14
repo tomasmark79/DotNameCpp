@@ -31,8 +31,8 @@ namespace dotnamecpp::assets {
 
   bool AssetManager::validate () const {
     std::lock_guard<std::mutex> lock (mutex_);
-    return !assetsPath_.empty () && std::filesystem::exists (assetsPath_)
-           && std::filesystem::is_directory (assetsPath_);
+    return !assetsPath_.empty () && std::filesystem::exists (assetsPath_) &&
+           std::filesystem::is_directory (assetsPath_);
   }
 
   std::filesystem::path AssetManager::findAssetsPath (const std::filesystem::path& executablePath,
@@ -40,19 +40,19 @@ namespace dotnamecpp::assets {
     std::filesystem::path execDir = executablePath.parent_path ();
 
     // Priority list of asset locations to try
-    std::vector<std::filesystem::path> candidatePaths
-        = { // 1. Development/debug - assets next to executable
-            execDir / "assets",
+    std::vector<std::filesystem::path> candidatePaths = {
+      // 1. Development/debug - assets next to executable
+      execDir / "assets",
 
-            // 2. Standard Unix installation - share directory
-            execDir / ".." / "share" / appName / "assets",
+      // 2. Standard Unix installation - share directory
+      execDir / ".." / "share" / appName / "assets",
 
-            // 3. Alternative Unix location
-            execDir / ".." / "share" / "assets",
+      // 3. Alternative Unix location
+      execDir / ".." / "share" / "assets",
 
-            // 4. Build directory structure
-            execDir / ".." / "assets"
-          };
+      // 4. Build directory structure
+      execDir / ".." / "assets"
+    };
 
     // Find first existing path
     for (const auto& candidate : candidatePaths) {

@@ -37,7 +37,8 @@ namespace dotnamecpp::utils {
     std::string message;
     std::string path;
 
-    [[nodiscard]] std::string toString () const {
+    [[nodiscard]]
+    std::string toString () const {
       std::string codeStr;
       switch (code) {
       case FileErrorCode::NotFound:
@@ -78,7 +79,8 @@ namespace dotnamecpp::utils {
     std::string message;
     std::string details;
 
-    [[nodiscard]] std::string toString () const {
+    [[nodiscard]]
+    std::string toString () const {
       std::string codeStr;
       switch (code) {
       case JsonErrorCode::ParseError:
@@ -135,30 +137,35 @@ namespace dotnamecpp::utils {
     }
 
     // Check if result contains value
-    [[nodiscard]] bool hasValue () const noexcept {
+    [[nodiscard]]
+    bool hasValue () const noexcept {
       return hasValue_;
     }
 
-    [[nodiscard]] explicit operator bool () const noexcept {
+    [[nodiscard]]
+    explicit operator bool () const noexcept {
       return hasValue_;
     }
 
     // Get value (throws if error)
-    [[nodiscard]] T& value () & {
+    [[nodiscard]]
+    T& value () & {
       if (!hasValue_) {
         throw std::logic_error ("Accessing value of Result with error");
       }
       return std::get<T> (data_);
     }
 
-    [[nodiscard]] const T& value () const& {
+    [[nodiscard]]
+    const T& value () const& {
       if (!hasValue_) {
         throw std::logic_error ("Accessing value of Result with error");
       }
       return std::get<T> (data_);
     }
 
-    [[nodiscard]] T&& value () && {
+    [[nodiscard]]
+    T&& value () && {
       if (!hasValue_) {
         throw std::logic_error ("Accessing value of Result with error");
       }
@@ -166,21 +173,24 @@ namespace dotnamecpp::utils {
     }
 
     // Get error (throws if value)
-    [[nodiscard]] E& error () & {
+    [[nodiscard]]
+    E& error () & {
       if (hasValue_) {
         throw std::logic_error ("Accessing error of Result with value");
       }
       return std::get<E> (data_);
     }
 
-    [[nodiscard]] const E& error () const& {
+    [[nodiscard]]
+    const E& error () const& {
       if (hasValue_) {
         throw std::logic_error ("Accessing error of Result with value");
       }
       return std::get<E> (data_);
     }
 
-    [[nodiscard]] E&& error () && {
+    [[nodiscard]]
+    E&& error () && {
       if (hasValue_) {
         throw std::logic_error ("Accessing error of Result with value");
       }
@@ -188,34 +198,41 @@ namespace dotnamecpp::utils {
     }
 
     // Dereference operators (for value)
-    [[nodiscard]] T* operator->() {
+    [[nodiscard]]
+    T* operator->() {
       return &value ();
     }
 
-    [[nodiscard]] const T* operator->() const {
+    [[nodiscard]]
+    const T* operator->() const {
       return &value ();
     }
 
-    [[nodiscard]] T& operator* () & {
+    [[nodiscard]]
+    T& operator* () & {
       return value ();
     }
 
-    [[nodiscard]] const T& operator* () const& {
+    [[nodiscard]]
+    const T& operator* () const& {
       return value ();
     }
 
-    [[nodiscard]] T&& operator* () && {
+    [[nodiscard]]
+    T&& operator* () && {
       return std::move (value ());
     }
 
     // Get value or default
     template <typename U>
-    [[nodiscard]] T valueOr (U&& defaultValue) const& {
+    [[nodiscard]]
+    T valueOr (U&& defaultValue) const& {
       return hasValue_ ? std::get<T> (data_) : static_cast<T> (std::forward<U> (defaultValue));
     }
 
     template <typename U>
-    [[nodiscard]] T valueOr (U&& defaultValue) && {
+    [[nodiscard]]
+    T valueOr (U&& defaultValue) && {
       return hasValue_ ? std::get<T> (std::move (data_))
                        : static_cast<T> (std::forward<U> (defaultValue));
     }
@@ -240,22 +257,26 @@ namespace dotnamecpp::utils {
     Result (E&& error) : error_ (std::move (error)), hasValue_ (false) {
     }
 
-    [[nodiscard]] bool hasValue () const noexcept {
+    [[nodiscard]]
+    bool hasValue () const noexcept {
       return hasValue_;
     }
 
-    [[nodiscard]] explicit operator bool () const noexcept {
+    [[nodiscard]]
+    explicit operator bool () const noexcept {
       return hasValue_;
     }
 
-    [[nodiscard]] E& error () & {
+    [[nodiscard]]
+    E& error () & {
       if (hasValue_) {
         throw std::logic_error ("Accessing error of successful Result");
       }
       return *error_;
     }
 
-    [[nodiscard]] const E& error () const& {
+    [[nodiscard]]
+    const E& error () const& {
       if (hasValue_) {
         throw std::logic_error ("Accessing error of successful Result");
       }

@@ -22,17 +22,20 @@ namespace dotnamecpp {
       FileWriter (FileWriter&&) = delete;
       FileWriter& operator= (FileWriter&&) = delete;
 
-      [[nodiscard]] Result<void, FileError> write (const std::filesystem::path& filePath,
+      [[nodiscard]]
+      Result<void, FileError> write (const std::filesystem::path& filePath,
           const std::string& content, bool append = false) const override;
 
-      [[nodiscard]] Result<void, FileError> writeBytes (const std::filesystem::path& filePath,
+      [[nodiscard]]
+      Result<void, FileError> writeBytes (const std::filesystem::path& filePath,
           const std::vector<uint8_t>& data, bool append = false) const override;
 
-      [[nodiscard]] Result<void, FileError> writeLines (const std::filesystem::path& filePath,
+      [[nodiscard]]
+      Result<void, FileError> writeLines (const std::filesystem::path& filePath,
           const std::vector<std::string>& lines, bool append = false) const override;
 
-      [[nodiscard]] Result<void, FileError> touch (
-          const std::filesystem::path& filePath) const override;
+      [[nodiscard]]
+      Result<void, FileError> touch (const std::filesystem::path& filePath) const override;
 
     private:
       /**
@@ -41,16 +44,17 @@ namespace dotnamecpp {
      * @param requireParent If true, parent directory must exist
      * @return FileError if path is invalid, std::nullopt if OK
      */
-      [[nodiscard]] static std::optional<FileError> validatePath (
-          const std::filesystem::path& filePath, bool requireParent);
+      [[nodiscard]]
+      static std::optional<FileError> validatePath (const std::filesystem::path& filePath,
+          bool requireParent);
 
       /**
      * @brief Ensure parent directory exists, create if needed
      * @param filePath File path whose parent should be created
      * @return FileError if creation failed, std::nullopt if OK
      */
-      [[nodiscard]] static std::optional<FileError> ensureParentExists (
-          const std::filesystem::path& filePath);
+      [[nodiscard]]
+      static std::optional<FileError> ensureParentExists (const std::filesystem::path& filePath);
     };
 
   } // namespace utils

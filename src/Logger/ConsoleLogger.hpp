@@ -122,7 +122,8 @@ public:
     std::lock_guard<std::mutex> lock (logMutex_);
     currentLevel_ = level;
   };
-  [[nodiscard]] dotnamecpp::logging::Level getLevel () const override {
+  [[nodiscard]]
+  dotnamecpp::logging::Level getLevel () const override {
     return currentLevel_;
   };
 
@@ -180,15 +181,16 @@ public:
 
 #ifdef _WIN32
   static void setConsoleColorWindows (dotnamecpp::logging::Level level) {
-    const std::map<dotnamecpp::logging::Level, WORD> colorMap
-        = { { dotnamecpp::logging::Level::LOG_DEBUG,
-                FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { dotnamecpp::logging::Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { dotnamecpp::logging::Level::LOG_WARNING,
-                FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
-            { dotnamecpp::logging::Level::LOG_ERROR, FOREGROUND_RED | FOREGROUND_INTENSITY },
-            { dotnamecpp::logging::Level::LOG_CRITICAL,
-              FOREGROUND_RED | FOREGROUND_INTENSITY | FOREGROUND_BLUE } };
+    const std::map<dotnamecpp::logging::Level, WORD> colorMap = {
+      { dotnamecpp::logging::Level::LOG_DEBUG,
+          FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+      { dotnamecpp::logging::Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+      { dotnamecpp::logging::Level::LOG_WARNING,
+          FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+      { dotnamecpp::logging::Level::LOG_ERROR, FOREGROUND_RED | FOREGROUND_INTENSITY },
+      { dotnamecpp::logging::Level::LOG_CRITICAL,
+        FOREGROUND_RED | FOREGROUND_INTENSITY | FOREGROUND_BLUE }
+    };
     auto it = colorMap.find (level);
     if (it != colorMap.end ()) {
       SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), it->second);
@@ -198,12 +200,13 @@ public:
   }
 #else
   static void setConsoleColorUnix (dotnamecpp::logging::Level level) {
-    static const std::map<dotnamecpp::logging::Level, const char*> colorMap
-        = { { dotnamecpp::logging::Level::LOG_DEBUG, "\033[34m" },
-            { dotnamecpp::logging::Level::LOG_INFO, "\033[32m" },
-            { dotnamecpp::logging::Level::LOG_WARNING, "\033[33m" },
-            { dotnamecpp::logging::Level::LOG_ERROR, "\033[31m" },
-            { dotnamecpp::logging::Level::LOG_CRITICAL, "\033[95m" } };
+    static const std::map<dotnamecpp::logging::Level, const char*> colorMap = {
+      { dotnamecpp::logging::Level::LOG_DEBUG, "\033[34m" },
+      { dotnamecpp::logging::Level::LOG_INFO, "\033[32m" },
+      { dotnamecpp::logging::Level::LOG_WARNING, "\033[33m" },
+      { dotnamecpp::logging::Level::LOG_ERROR, "\033[31m" },
+      { dotnamecpp::logging::Level::LOG_CRITICAL, "\033[95m" }
+    };
     auto it = colorMap.find (level);
     if (it != colorMap.end ()) {
       std::cout << it->second;

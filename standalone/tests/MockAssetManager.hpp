@@ -14,20 +14,23 @@ public:
       : mockPath_ (std::move (mockPath)), mockExists_ (true), mockValid_ (true) {
   }
 
-  [[nodiscard]] const std::filesystem::path& getAssetsPath () const override {
+  [[nodiscard]]
+  const std::filesystem::path& getAssetsPath () const override {
     return mockPath_;
   }
 
-  [[nodiscard]] std::filesystem::path resolveAsset (
-      const std::filesystem::path& relativePath) const override {
+  [[nodiscard]]
+  std::filesystem::path resolveAsset (const std::filesystem::path& relativePath) const override {
     return mockPath_ / relativePath;
   }
 
-  [[nodiscard]] bool assetExists (const std::filesystem::path& /*relativePath*/) const override {
+  [[nodiscard]]
+  bool assetExists (const std::filesystem::path& /*relativePath*/) const override {
     return mockExists_;
   }
 
-  [[nodiscard]] bool validate () const override {
+  [[nodiscard]]
+  bool validate () const override {
     return mockValid_;
   }
 

@@ -10,7 +10,8 @@ namespace dotnamecpp::assets {
   class AssetManagerFactory {
   public:
     /**
-     * @brief Create a Default object of the Asset Manager
+     * @brief Create a Default object
+     * 
      * @param executablePath 
      * @param appName 
      * @return std::shared_ptr<IAssetManager> 
@@ -22,6 +23,7 @@ namespace dotnamecpp::assets {
 
     /**
      * @brief Create an Asset Manager object with a specified assets path
+     * 
      * @param assetsPath 
      * @return std::shared_ptr<IAssetManager> 
      */
@@ -29,4 +31,5 @@ namespace dotnamecpp::assets {
       return std::make_shared<AssetManager> (std::move (assetsPath));
     }
   };
+
 } // namespace dotnamecpp::assets

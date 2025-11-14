@@ -79,11 +79,13 @@ namespace dotnamecpp::v1 {
     }
 
     // Public interface
-    [[nodiscard]] bool isInitialized () const noexcept {
+    [[nodiscard]]
+    bool isInitialized () const noexcept {
       return isInitialized_;
     }
 
-    [[nodiscard]] const std::filesystem::path& getAssetsPath () const noexcept {
+    [[nodiscard]]
+    const std::filesystem::path& getAssetsPath () const noexcept {
       return assetsPath_;
     }
   };

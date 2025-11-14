@@ -18,8 +18,10 @@ namespace dotnamecpp {
       StringFormatter (StringFormatter&&) = delete;
       StringFormatter& operator= (StringFormatter&&) = delete;
 
-      [[nodiscard]] std::string addDots (const std::string& str) const override;
-      [[nodiscard]] std::string removeDots (const std::string& str) const override;
+      [[nodiscard]]
+      std::string addDots (const std::string& str) const override;
+      [[nodiscard]]
+      std::string removeDots (const std::string& str) const override;
     };
 
   } // namespace utils

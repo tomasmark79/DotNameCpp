@@ -37,18 +37,24 @@ namespace dotnamecpp {
       CustomStringsLoader (CustomStringsLoader&&) = delete;
       CustomStringsLoader& operator= (CustomStringsLoader&&) = delete;
 
-      [[nodiscard]] Result<nlohmann::json, JsonError> load () const override;
+      [[nodiscard]]
+      Result<nlohmann::json, JsonError> load () const override;
 
-      [[nodiscard]] std::optional<std::string> getLocalizedString (const std::string& id,
+      [[nodiscard]]
+      std::optional<std::string> getLocalizedString (const std::string& id,
           const std::string& locale = "en") const override;
 
-      [[nodiscard]] std::optional<std::string> getEmail (const std::string& id) const override;
+      [[nodiscard]]
+      std::optional<std::string> getEmail (const std::string& id) const override;
 
-      [[nodiscard]] std::optional<std::string> getUrl (const std::string& id) const override;
+      [[nodiscard]]
+      std::optional<std::string> getUrl (const std::string& id) const override;
 
-      [[nodiscard]] std::optional<std::string> getTel (const std::string& id) const override;
+      [[nodiscard]]
+      std::optional<std::string> getTel (const std::string& id) const override;
 
-      [[nodiscard]] std::string getCustomStringSign () const override;
+      [[nodiscard]]
+      std::string getCustomStringSign () const override;
 
     private:
       std::shared_ptr<IAssetManager> assetManager_;
@@ -63,14 +69,16 @@ namespace dotnamecpp {
      * @brief Ensure data is loaded and cached
      * @return Result with JSON or error
      */
-      [[nodiscard]] Result<nlohmann::json, JsonError> ensureLoaded () const;
+      [[nodiscard]]
+      Result<nlohmann::json, JsonError> ensureLoaded () const;
 
       /**
      * @brief Find item by ID in strings array
      * @param id Item identifier
      * @return JSON object if found, nullopt otherwise
      */
-      [[nodiscard]] std::optional<nlohmann::json> findById (const std::string& id) const;
+      [[nodiscard]]
+      std::optional<nlohmann::json> findById (const std::string& id) const;
     };
 
   } // namespace utils

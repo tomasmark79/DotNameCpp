@@ -30,16 +30,19 @@ namespace dotnamecpp {
       JsonSerializer (JsonSerializer&&) = delete;
       JsonSerializer& operator= (JsonSerializer&&) = delete;
 
-      [[nodiscard]] Result<nlohmann::json, JsonError> loadFromFile (
+      [[nodiscard]]
+      Result<nlohmann::json, JsonError> loadFromFile (
           const std::filesystem::path& filePath) const override;
 
-      [[nodiscard]] Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
+      [[nodiscard]]
+      Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
           const nlohmann::json& jsonData, int indent = 2) const override;
 
-      [[nodiscard]] Result<nlohmann::json, JsonError> parse (
-          const std::string& jsonString) const override;
+      [[nodiscard]]
+      Result<nlohmann::json, JsonError> parse (const std::string& jsonString) const override;
 
-      [[nodiscard]] Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
+      [[nodiscard]]
+      Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
           int indent = 2) const override;
 
     private:

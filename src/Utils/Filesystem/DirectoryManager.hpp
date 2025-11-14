@@ -22,29 +22,35 @@ namespace dotnamecpp {
       DirectoryManager (DirectoryManager&&) = delete;
       DirectoryManager& operator= (DirectoryManager&&) = delete;
 
-      [[nodiscard]] Result<void, FileError> createDirectory (
+      [[nodiscard]]
+      Result<void, FileError> createDirectory (const std::filesystem::path& dirPath) const override;
+
+      [[nodiscard]]
+      Result<void, FileError> removeDirectory (const std::filesystem::path& dirPath) const override;
+
+      [[nodiscard]]
+      Result<std::uintmax_t, FileError> removeDirectoryRecursive (
           const std::filesystem::path& dirPath) const override;
 
-      [[nodiscard]] Result<void, FileError> removeDirectory (
+      [[nodiscard]]
+      bool exists (const std::filesystem::path& dirPath) const override;
+
+      [[nodiscard]]
+      Result<bool, FileError> isEmpty (const std::filesystem::path& dirPath) const override;
+
+      [[nodiscard]]
+      Result<std::vector<std::filesystem::path>, FileError> listEntries (
           const std::filesystem::path& dirPath) const override;
 
-      [[nodiscard]] Result<std::uintmax_t, FileError> removeDirectoryRecursive (
+      [[nodiscard]]
+      Result<std::vector<std::filesystem::path>, FileError> listEntriesRecursive (
           const std::filesystem::path& dirPath) const override;
 
-      [[nodiscard]] bool exists (const std::filesystem::path& dirPath) const override;
+      [[nodiscard]]
+      Result<std::filesystem::path, FileError> getCurrentDirectory () const override;
 
-      [[nodiscard]] Result<bool, FileError> isEmpty (
-          const std::filesystem::path& dirPath) const override;
-
-      [[nodiscard]] Result<std::vector<std::filesystem::path>, FileError> listEntries (
-          const std::filesystem::path& dirPath) const override;
-
-      [[nodiscard]] Result<std::vector<std::filesystem::path>, FileError> listEntriesRecursive (
-          const std::filesystem::path& dirPath) const override;
-
-      [[nodiscard]] Result<std::filesystem::path, FileError> getCurrentDirectory () const override;
-
-      [[nodiscard]] Result<std::filesystem::path, FileError> getTempDirectory () const override;
+      [[nodiscard]]
+      Result<std::filesystem::path, FileError> getTempDirectory () const override;
     };
 
   } // namespace utils

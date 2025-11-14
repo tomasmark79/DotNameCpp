@@ -11,25 +11,38 @@ namespace dotnamecpp::logging {
 
   enum class Level : std::uint8_t { LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR, LOG_CRITICAL };
 
-  // Forward declaration
+  /**
+   * @brief Interface for a logger
+   */
   class ILogger;
 
-  // LogStream helper class - can be used by any ILogger implementation
+  /**
+   * @brief Helper class for streaming log messages
+   */
   class LogStream {
   public:
     LogStream (std::shared_ptr<ILogger> logger, Level level, std::string caller)
         : logger_ (std::move (logger)), level_ (level), caller_ (std::move (caller)) {
     }
 
-    // Destructor declared here, defined after ILogger
     ~LogStream ();
 
+    /**
+     * @brief Stream a value into the log message
+     * @tparam T 
+     * @param value 
+     * @return LogStream& 
+     */
     template <typename T>
     LogStream& operator<< (const T& value) {
       oss_ << value;
       return *this;
     }
-    // Overload also for manipulators like std::endl
+    /**
+     * @brief Stream a manipulator into the log message (e.g., std::endl)
+     * @param manip Manipulator function
+     * @return LogStream& 
+     */
     LogStream& operator<< (std::ostream& (*manip) (std::ostream&)) {
       oss_ << manip;
       return *this;
@@ -53,15 +66,38 @@ namespace dotnamecpp::logging {
     virtual void error (const std::string& message, const std::string& caller = "") = 0;
     virtual void critical (const std::string& message, const std::string& caller = "") = 0;
 
+    /**
+     * @brief Set the Level object
+     * @param level 
+     */
     virtual void setLevel (Level level) = 0;
-    [[nodiscard]]
-    virtual Level getLevel () const
-        = 0;
 
+    /**
+     * @brief Get the current logging level
+     * @return Level 
+     */
+    [[nodiscard]]
+    virtual Level getLevel () const = 0;
+
+    /**
+     * @brief Enable logging to a file
+     * @param filename 
+     * @return true 
+     * @return false 
+     */
     virtual bool enableFileLogging (const std::string& filename) = 0;
+
+    /**
+     * @brief Disable logging to a file
+     */
     virtual void disableFileLogging () = 0;
 
-    // Non-virtual convenience methods - available through interface
+    /**
+     * @brief Create a LogStream for streaming log messages
+     * @param level Logging level
+     * @param caller Caller information (e.g., function name) 
+     * @return LogStream 
+     */
     LogStream stream (Level level, const std::string& caller = "") {
       return LogStream{ shared_from_this (), level, caller };
     }
