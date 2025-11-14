@@ -29,6 +29,7 @@ namespace dotnamecpp::logging {
 
     /**
      * @brief Stream a value into the log message
+     * 
      * @tparam T 
      * @param value 
      * @return LogStream& 
@@ -38,9 +39,11 @@ namespace dotnamecpp::logging {
       oss_ << value;
       return *this;
     }
+
     /**
      * @brief Stream a manipulator into the log message (e.g., std::endl)
-     * @param manip Manipulator function
+     * 
+     * @param manip 
      * @return LogStream& 
      */
     LogStream& operator<< (std::ostream& (*manip) (std::ostream&)) {
@@ -59,49 +62,29 @@ namespace dotnamecpp::logging {
   public:
     ILogger () = default;
     virtual ~ILogger () = default;
-
     virtual void debug (const std::string& message, const std::string& caller = "") = 0;
     virtual void info (const std::string& message, const std::string& caller = "") = 0;
     virtual void warning (const std::string& message, const std::string& caller = "") = 0;
     virtual void error (const std::string& message, const std::string& caller = "") = 0;
     virtual void critical (const std::string& message, const std::string& caller = "") = 0;
-
-    /**
-     * @brief Set the Level object
-     * @param level 
-     */
     virtual void setLevel (Level level) = 0;
-
-    /**
-     * @brief Get the current logging level
-     * @return Level 
-     */
     [[nodiscard]]
     virtual Level getLevel () const = 0;
-
-    /**
-     * @brief Enable logging to a file
-     * @param filename 
-     * @return true 
-     * @return false 
-     */
     virtual bool enableFileLogging (const std::string& filename) = 0;
-
-    /**
-     * @brief Disable logging to a file
-     */
     virtual void disableFileLogging () = 0;
 
     /**
      * @brief Create a LogStream for streaming log messages
-     * @param level Logging level
-     * @param caller Caller information (e.g., function name) 
+     * 
+     * @param level 
+     * @param caller 
      * @return LogStream 
      */
     LogStream stream (Level level, const std::string& caller = "") {
       return LogStream{ shared_from_this (), level, caller };
     }
 
+    // Convenience methods for each log level
     LogStream debugStream (const std::string& caller = "") {
       return stream (Level::LOG_DEBUG, caller);
     }

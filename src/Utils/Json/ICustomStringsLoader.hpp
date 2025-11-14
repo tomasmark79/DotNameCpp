@@ -5,67 +5,69 @@
 #include <optional>
 #include <string>
 
-namespace dotnamecpp {
-  namespace utils {
+namespace dotnamecpp::utils {
+
+  /**
+    * @brief Interface for loading custom strings from JSON 
+    * 
+    */
+  class ICustomStringsLoader {
+  public:
+    virtual ~ICustomStringsLoader () = default;
 
     /**
- * @brief Interface for loading custom application strings
- * 
- * Provides abstraction for loading localized strings, emails, URLs, etc.
- * from customstrings.json format.
- */
-    class ICustomStringsLoader {
-    public:
-      virtual ~ICustomStringsLoader () = default;
+      * @brief Load the custom strings JSON data
+      * 
+      * @return Result<nlohmann::json, JsonError> 
+      */
+    [[nodiscard]]
+    virtual Result<nlohmann::json, JsonError> load () const = 0;
 
-      /**
-     * @brief Load custom strings JSON from assets
-     * @return Result with JSON object or JsonError
-     */
-      [[nodiscard]]
-      virtual Result<nlohmann::json, JsonError> load () const = 0;
+    /**
+      * @brief Get the Localized String object
+      * 
+      * @param id 
+      * @param locale 
+      * @return std::optional<std::string> 
+      */
+    [[nodiscard]]
+    virtual std::optional<std::string> getLocalizedString (const std::string& id,
+        const std::string& locale = "en") const = 0;
 
-      /**
-     * @brief Get localized string by ID
-     * @param id String identifier
-     * @param locale Locale code (e.g., "en", "cs"), defaults to "en"
-     * @return Localized string if found, nullopt otherwise
-     */
-      [[nodiscard]]
-      virtual std::optional<std::string> getLocalizedString (const std::string& id,
-          const std::string& locale = "en") const = 0;
+    /**
+      * @brief Get the Email object
+      * 
+      * @param id 
+      * @return std::optional<std::string> 
+      */
+    [[nodiscard]]
+    virtual std::optional<std::string> getEmail (const std::string& id) const = 0;
 
-      /**
-     * @brief Get email by ID
-     * @param id String identifier
-     * @return Email string if found, nullopt otherwise
-     */
-      [[nodiscard]]
-      virtual std::optional<std::string> getEmail (const std::string& id) const = 0;
+    /**
+      * @brief Get the Url object
+      * 
+      * @param id 
+      * @return std::optional<std::string> 
+      */
+    [[nodiscard]]
+    virtual std::optional<std::string> getUrl (const std::string& id) const = 0;
 
-      /**
-     * @brief Get URL by ID
-     * @param id String identifier
-     * @return URL string if found, nullopt otherwise
-     */
-      [[nodiscard]]
-      virtual std::optional<std::string> getUrl (const std::string& id) const = 0;
+    /**
+      * @brief Get the Tel object
+      * 
+      * @param id 
+      * @return std::optional<std::string> 
+      */
+    [[nodiscard]]
+    virtual std::optional<std::string> getTel (const std::string& id) const = 0;
 
-      /**
-     * @brief Get telephone by ID
-     * @param id String identifier
-     * @return Telephone string if found, nullopt otherwise
-     */
-      [[nodiscard]]
-      virtual std::optional<std::string> getTel (const std::string& id) const = 0;
+    /**
+      * @brief Get the Custom String Sign object
+      * 
+      * @return std::string 
+      */
+    [[nodiscard]]
+    virtual std::string getCustomStringSign () const = 0;
+  };
 
-      /**
-     * @brief Get all custom string data as formatted signature
-     * @return Formatted string with author, contact info, etc.
-     */
-      [[nodiscard]]
-      virtual std::string getCustomStringSign () const = 0;
-    };
-
-  } // namespace utils
-} // namespace dotnamecpp
+} // namespace dotnamecpp::utils

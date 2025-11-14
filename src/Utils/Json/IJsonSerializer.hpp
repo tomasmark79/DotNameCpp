@@ -5,56 +5,57 @@
 #include <nlohmann/json.hpp>
 #include <string>
 
-namespace dotnamecpp {
-  namespace utils {
+namespace dotnamecpp::utils {
+  /**
+    * @brief Interface for JSON serialization and parsing
+    * 
+    * Provides safe JSON operations with Result<T,E> error handling.
+    */
+  class IJsonSerializer {
+  public:
+    virtual ~IJsonSerializer () = default;
 
     /**
- * @brief Interface for JSON serialization and parsing
- * 
- * Provides safe JSON operations with Result<T,E> error handling.
- */
-    class IJsonSerializer {
-    public:
-      virtual ~IJsonSerializer () = default;
-
-      /**
      * @brief Load JSON from file
-     * @param filePath Path to JSON file
-     * @return Result with JSON object or JsonError
+     * 
+     * @param filePath 
+     * @return Result<nlohmann::json, JsonError> 
      */
-      [[nodiscard]]
-      virtual Result<nlohmann::json, JsonError> loadFromFile (
-          const std::filesystem::path& filePath) const = 0;
+    [[nodiscard]]
+    virtual Result<nlohmann::json, JsonError> loadFromFile (
+        const std::filesystem::path& filePath) const = 0;
 
-      /**
+    /**
      * @brief Save JSON to file
-     * @param filePath Path to save to
-     * @param jsonData JSON object to save
+     * 
+     * @param filePath 
+     * @param jsonData 
      * @param indent Indentation level (default: 2)
-     * @return Result with success or JsonError
+     * @return Result<void, JsonError> 
      */
-      [[nodiscard]]
-      virtual Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
-          const nlohmann::json& jsonData, int indent = 2) const = 0;
+    [[nodiscard]]
+    virtual Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
+        const nlohmann::json& jsonData, int indent = 2) const = 0;
 
-      /**
+    /**
      * @brief Parse JSON from string
-     * @param jsonString String containing JSON
-     * @return Result with JSON object or JsonError
+     * 
+     * @param jsonString 
+     * @return Result<nlohmann::json, JsonError> 
      */
-      [[nodiscard]]
-      virtual Result<nlohmann::json, JsonError> parse (const std::string& jsonString) const = 0;
+    [[nodiscard]]
+    virtual Result<nlohmann::json, JsonError> parse (const std::string& jsonString) const = 0;
 
-      /**
+    /**
      * @brief Convert JSON to string
-     * @param jsonData JSON object
+     * 
+     * @param jsonData 
      * @param indent Indentation level (default: 2)
-     * @return Result with string or JsonError
+     * @return Result<std::string, JsonError> 
      */
-      [[nodiscard]]
-      virtual Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
-          int indent = 2) const = 0;
-    };
+    [[nodiscard]]
+    virtual Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
+        int indent = 2) const = 0;
+  };
 
-  } // namespace utils
-} // namespace dotnamecpp
+} // namespace dotnamecpp::utils

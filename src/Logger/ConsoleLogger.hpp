@@ -24,6 +24,11 @@ private:
   std::mutex logMutex_;
   std::ofstream logFile_;
   bool addNewLine_ = true;
+
+/**
+  * @brief Current logging level for the console logger defined at compile time.
+  * 
+  */
 #ifdef DEBUG
   dotnamecpp::logging::Level currentLevel_ = dotnamecpp::logging::Level::LOG_DEBUG;
 #else
@@ -31,7 +36,16 @@ private:
 #endif
 
 public:
+  /**
+   * @brief Construct a new Console Logger object 
+   * 
+   */
   ConsoleLogger () = default;
+
+  /**
+   * @brief Destroy the Console Logger object
+   * 
+   */
   ~ConsoleLogger () {
     std::lock_guard<std::mutex> lock (logMutex_);
     if (logFile_.is_open ()) {
@@ -39,13 +53,34 @@ public:
     }
   }
 
-  // Non-copyable, movable
+  /**
+   * @brief Copy constructor deleted to prevent copying
+   * 
+   */
   ConsoleLogger (const ConsoleLogger&) = delete;
+
+  /**
+   * @brief Copy assignment operator deleted to prevent copying
+   * 
+   * @return ConsoleLogger& 
+   */
   ConsoleLogger& operator= (const ConsoleLogger&) = delete;
+
+  /**
+   * @brief Move constructor
+   * 
+   * @param other 
+   */
   ConsoleLogger (ConsoleLogger&& other) noexcept : logFile_ (std::move (other.logFile_)),
                                                    addNewLine_ (other.addNewLine_) {
   }
 
+  /**
+   * @brief Move assignment operator
+   * 
+   * @param other 
+   * @return ConsoleLogger& 
+   */
   ConsoleLogger& operator= (ConsoleLogger&& other) noexcept {
     if (this != &other) {
       // Use std::lock to avoid deadlocks
@@ -63,27 +98,40 @@ public:
   void debug (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_DEBUG, message, caller);
   };
+
   void info (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_INFO, message, caller);
   };
+
   void warning (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_WARNING, message, caller);
   };
+
   void error (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_ERROR, message, caller);
   };
+
   void critical (const std::string& message, const std::string& caller = "") override {
     log (dotnamecpp::logging::Level::LOG_CRITICAL, message, caller);
   };
+
+  /**
+   * @brief Logs a message with a specified level to the console and optionally to a file.
+   * 
+   * @param level 
+   * @param message 
+   * @param caller 
+   */
   void log (dotnamecpp::logging::Level level, const std::string& message,
       const std::string& caller) {
-    // thread-safety
     std::lock_guard<std::mutex> lock (logMutex_);
 
     // Get current time
     auto now = std::chrono::system_clock::now ();
     std::time_t now_c = std::chrono::system_clock::to_time_t (now);
     std::tm now_tm;
+
+    // Windows and POSIX have different thread-safe localtime functions
 #ifdef _WIN32
     localtime_s (&now_tm, &now_c);
 #else
@@ -105,6 +153,7 @@ public:
     if (addNewLine_) {
       std::cout << "\n";
     }
+
     resetConsoleColor ();
 
     // Log to file if enabled
@@ -116,17 +165,33 @@ public:
     }
   };
 
-  // Fmt methods inherited from ILogger - no need to redefine
-
+  /**
+   * @brief Set the Level object  
+   * 
+   * @param level 
+   */
   void setLevel (dotnamecpp::logging::Level level) override {
     std::lock_guard<std::mutex> lock (logMutex_);
     currentLevel_ = level;
   };
+
+  /**
+   * @brief Get the Level object
+   * 
+   * @return dotnamecpp::logging::Level 
+   */
   [[nodiscard]]
   dotnamecpp::logging::Level getLevel () const override {
     return currentLevel_;
   };
 
+  /**
+   * @brief Enable logging to a file
+   * 
+   * @param filename 
+   * @return true 
+   * @return false 
+   */
   bool enableFileLogging (const std::string& filename) override {
     std::lock_guard<std::mutex> lock (logMutex_);
     try {
@@ -144,6 +209,10 @@ public:
     }
   };
 
+  /**
+   * @brief Disable logging to a file
+   * 
+   */
   void disableFileLogging () override {
     std::lock_guard<std::mutex> lock (logMutex_);
     if (logFile_.is_open ()) {
@@ -151,6 +220,12 @@ public:
     }
   };
 
+  /**
+   * @brief Convert a logging level to its string representation
+   * 
+   * @param level 
+   * @return std::string 
+   */
   static std::string levelToString (dotnamecpp::logging::Level level) {
     switch (level) {
     case dotnamecpp::logging::Level::LOG_DEBUG:
@@ -168,6 +243,10 @@ public:
     }
   }
 
+  /**
+   * @brief Reset the console color to default
+   * 
+   */
   static void resetConsoleColor () {
 #ifdef _WIN32
     SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE),
@@ -233,6 +312,15 @@ private:
   bool includeCaller_ = true;
   bool includeLevel_ = true;
 
+  /**
+   * @brief Log a message to a given stream with formatting
+   * 
+   * @param stream 
+   * @param level 
+   * @param message 
+   * @param caller 
+   * @param now_tm 
+   */
   void logToStream (std::ostream& stream, dotnamecpp::logging::Level level,
       const std::string& message, const std::string& caller, const std::tm& now_tm) {
     setConsoleColor (level);
@@ -245,6 +333,14 @@ private:
     stream.flush ();
   }
 
+  /**
+   * @brief Build the log header string
+   * 
+   * @param now_tm 
+   * @param caller 
+   * @param level 
+   * @return std::string 
+   */
   std::string buildHeader (const std::tm& now_tm, const std::string& caller,
       dotnamecpp::logging::Level level) const {
     std::ostringstream header;
@@ -264,26 +360,61 @@ private:
   }
 
 public:
+  /**
+   * @brief Set the Header Name object
+   * 
+   * @param headerName 
+   */
   void setHeaderName (const std::string& headerName) {
     std::lock_guard<std::mutex> lock (logMutex_);
     headerName_ = headerName;
   }
+
+  /**
+   * @brief Show or hide the header name in the log output
+   * 
+   * @param includeName Whether to include the header name
+   */
   void showHeaderName (bool includeName) {
     std::lock_guard<std::mutex> lock (logMutex_);
     includeName_ = includeName;
   }
+
+  /**
+   * @brief Show or hide the header time in the log output
+   * 
+   * @param includeTime Whether to include the header time
+   */
   void showHeaderTime (bool includeTime) {
     std::lock_guard<std::mutex> lock (logMutex_);
     includeTime_ = includeTime;
   }
+
+  /**
+   * @brief Show or hide the header caller in the log output
+   * 
+   * @param includeCaller Whether to include the header caller
+   */
   void showHeaderCaller (bool includeCaller) {
     std::lock_guard<std::mutex> lock (logMutex_);
     includeCaller_ = includeCaller;
   }
+
+  /**
+   * @brief Show or hide the header level in the log output
+   * 
+   * @param includeLevel Whether to include the header level
+   */
   void showHeaderLevel (bool includeLevel) {
     std::lock_guard<std::mutex> lock (logMutex_);
     includeLevel_ = includeLevel;
   }
+
+  /**
+   * @brief Show or hide all headers in the log output
+   * 
+   * @param noHeader Whether to hide all headers
+   */
   void noHeader (bool noHeader) {
     if (noHeader) {
       showHeaderName (false);
@@ -297,6 +428,15 @@ public:
       showHeaderLevel (true);
     }
   }
+
+  /**
+   * @brief Show or hide specific headers in the log output
+   * 
+   * @param incName 
+   * @param incTime 
+   * @param incCaller 
+   * @param incLevel 
+   */
   void visibleHeaders (bool incName, bool incTime, bool incCaller, bool incLevel) {
     showHeaderName (incName);
     showHeaderTime (incTime);

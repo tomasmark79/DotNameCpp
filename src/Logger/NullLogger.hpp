@@ -5,24 +5,28 @@ namespace dotnamecpp::logging {
 
   class NullLogger : public ILogger {
   public:
-    void debug (const std::string&, const std::string& = "") override {
-    }
-    void info (const std::string&, const std::string& = "") override {
-    }
-    void warning (const std::string&, const std::string& = "") override {
-    }
-    void error (const std::string&, const std::string& = "") override {
-    }
-    void critical (const std::string&, const std::string& = "") override {
+    void debug (const std::string& /*message*/, const std::string& /*caller*/ = "") override {
     }
 
-    void setLevel (Level) override {
+    void info (const std::string& /*message*/, const std::string& /*caller*/ = "") override {
+    }
+
+    void warning (const std::string& /*message*/, const std::string& /*caller*/ = "") override {
+    }
+
+    void error (const std::string& /*message*/, const std::string& /*caller*/ = "") override {
+    }
+
+    void critical (const std::string& /*message*/, const std::string& /*caller*/ = "") override {
+    }
+
+    void setLevel (Level /*level*/) override {
     }
     Level getLevel () const override {
       return Level::LOG_INFO;
     }
 
-    bool enableFileLogging (const std::string&) override {
+    bool enableFileLogging (const std::string& /*filename*/) override {
       return true;
     }
     void disableFileLogging () override {
