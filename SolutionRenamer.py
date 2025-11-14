@@ -3,11 +3,6 @@ import sys
 import codecs # For reading and writing files with utf-8 specific encoding (required for Windows)
 import re 
 
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
-
-# Implicitly usable:
-# python SolutionRenamer.py DotNameLib DotNameLib DotNameApplication DotNameApplication
-
 # Renamer is respecting existing Uper and Lower letters and keep them in the new name
 source_dir = "src"
 include_dir = "include"
@@ -83,7 +78,6 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
         f"{asset_dir}/ems-mini.html"
         # Add more files as needed
     ]
-        # f"{source_dir}/Logger/Logger.hpp", will soon replaced by dynamic name in Logger.hpp
 
     # 1. FIRST: Update content in files (before renaming paths)
     print("=== Updating file contents ===")
