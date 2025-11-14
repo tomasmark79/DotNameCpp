@@ -7,10 +7,10 @@
 
 namespace dotnamecpp::utils {
   /**
-    * @brief Interface for JSON serialization and parsing
-    * 
-    * Provides safe JSON operations with Result<T,E> error handling.
-    */
+   * @brief Interface for JSON serialization and parsing
+   * 
+   * Provides safe JSON operations with Result<T,E> error handling.
+   */
   class IJsonSerializer {
   public:
     virtual ~IJsonSerializer () = default;
