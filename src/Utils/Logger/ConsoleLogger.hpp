@@ -92,7 +92,7 @@ public:
    * @param caller 
    */
   void log (dotnamecpp::logging::Level level, const std::string& message,
-      const std::string& caller) {
+            const std::string& caller) {
     std::lock_guard<std::mutex> lock (logMutex_);
 
     // Get current time
@@ -198,7 +198,7 @@ public:
   static void resetConsoleColor () {
 #ifdef _WIN32
     SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE),
-        FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+                             FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 #elif defined(__EMSCRIPTEN__)
 // no colors, no reset
 #else
@@ -210,10 +210,10 @@ public:
   static void setConsoleColorWindows (dotnamecpp::logging::Level level) {
     const std::map<dotnamecpp::logging::Level, WORD> colorMap = {
       { dotnamecpp::logging::Level::LOG_DEBUG,
-          FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+        FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
       { dotnamecpp::logging::Level::LOG_INFO, FOREGROUND_GREEN | FOREGROUND_INTENSITY },
       { dotnamecpp::logging::Level::LOG_WARNING,
-          FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
+        FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY },
       { dotnamecpp::logging::Level::LOG_ERROR, FOREGROUND_RED | FOREGROUND_INTENSITY },
       { dotnamecpp::logging::Level::LOG_CRITICAL,
         FOREGROUND_RED | FOREGROUND_INTENSITY | FOREGROUND_BLUE }
@@ -270,7 +270,7 @@ private:
    * @param now_tm 
    */
   void logToStream (std::ostream& stream, dotnamecpp::logging::Level level,
-      const std::string& message, const std::string& caller, const std::tm& now_tm) {
+                    const std::string& message, const std::string& caller, const std::tm& now_tm) {
     setConsoleColor (level);
     stream << buildHeader (now_tm, caller, level) << message;
     resetConsoleColor ();
@@ -290,7 +290,7 @@ private:
    * @return std::string 
    */
   std::string buildHeader (const std::tm& now_tm, const std::string& caller,
-      dotnamecpp::logging::Level level) const {
+                           dotnamecpp::logging::Level level) const {
     std::ostringstream header;
     if (includeName_) {
       header << "[" << headerName_ << "] ";

@@ -22,8 +22,8 @@ namespace dotnamecpp::assets {
      * @return std::filesystem::path 
      */
     [[nodiscard]]
-    virtual std::filesystem::path resolveAsset (
-        const std::filesystem::path& relativePath) const = 0;
+    virtual std::filesystem::path
+    resolveAsset (const std::filesystem::path& relativePath) const = 0;
 
     /**
      * @brief Check if an asset exists given its relative path 

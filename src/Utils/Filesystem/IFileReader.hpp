@@ -34,8 +34,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::vector<uint8_t>, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::vector<uint8_t>, FileError> readBytes (
-        const std::filesystem::path& filePath) const = 0;
+    virtual Result<std::vector<uint8_t>, FileError>
+    readBytes (const std::filesystem::path& filePath) const = 0;
 
     /**
      * @brief Read the content of a file as a vector of lines
@@ -44,8 +44,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::vector<std::string>, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::vector<std::string>, FileError> readLines (
-        const std::filesystem::path& filePath) const = 0;
+    virtual Result<std::vector<std::string>, FileError>
+    readLines (const std::filesystem::path& filePath) const = 0;
 
     /**
      * @brief Check if a file exists
@@ -64,8 +64,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::uintmax_t, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::uintmax_t, FileError> getSize (
-        const std::filesystem::path& filePath) const = 0;
+    virtual Result<std::uintmax_t, FileError>
+    getSize (const std::filesystem::path& filePath) const = 0;
   };
 
 } // namespace dotnamecpp::utils

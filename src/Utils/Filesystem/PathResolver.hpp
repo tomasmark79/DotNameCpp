@@ -14,16 +14,17 @@ namespace dotnamecpp::utils {
     ~PathResolver () override = default;
 
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getAbsolutePath (
-        const std::filesystem::path& path) const override;
+    Result<std::filesystem::path, FileError>
+    getAbsolutePath (const std::filesystem::path& path) const override;
 
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getCanonicalPath (
-        const std::filesystem::path& path) const override;
+    Result<std::filesystem::path, FileError>
+    getCanonicalPath (const std::filesystem::path& path) const override;
 
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getRelativePath (const std::filesystem::path& target,
-        const std::filesystem::path& base) const override;
+    Result<std::filesystem::path, FileError>
+    getRelativePath (const std::filesystem::path& target,
+                     const std::filesystem::path& base) const override;
 
     [[nodiscard]]
     bool isAbsolute (const std::filesystem::path& path) const override;

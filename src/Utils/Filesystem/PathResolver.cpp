@@ -4,8 +4,8 @@
 
 namespace dotnamecpp::utils {
 
-  Result<std::filesystem::path, FileError> PathResolver::getAbsolutePath (
-      const std::filesystem::path& path) const {
+  Result<std::filesystem::path, FileError>
+  PathResolver::getAbsolutePath (const std::filesystem::path& path) const {
     if (path.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -28,8 +28,8 @@ namespace dotnamecpp::utils {
     return absolute;
   }
 
-  Result<std::filesystem::path, FileError> PathResolver::getCanonicalPath (
-      const std::filesystem::path& path) const {
+  Result<std::filesystem::path, FileError>
+  PathResolver::getCanonicalPath (const std::filesystem::path& path) const {
     if (path.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -52,8 +52,9 @@ namespace dotnamecpp::utils {
     return canonical;
   }
 
-  Result<std::filesystem::path, FileError> PathResolver::getRelativePath (
-      const std::filesystem::path& target, const std::filesystem::path& base) const {
+  Result<std::filesystem::path, FileError>
+  PathResolver::getRelativePath (const std::filesystem::path& target,
+                                 const std::filesystem::path& base) const {
     if (target.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,

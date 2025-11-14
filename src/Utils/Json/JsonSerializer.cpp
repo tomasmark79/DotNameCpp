@@ -4,15 +4,16 @@
 namespace dotnamecpp::utils {
 
   JsonSerializer::JsonSerializer (std::shared_ptr<IFileReader> fileReader,
-      std::shared_ptr<IFileWriter> fileWriter)
-      : fileReader_ (std::move (fileReader)), fileWriter_ (std::move (fileWriter)) {
+                                  std::shared_ptr<IFileWriter> fileWriter)
+    : fileReader_ (std::move (fileReader))
+    , fileWriter_ (std::move (fileWriter)) {
     if (!fileReader_ || !fileWriter_) {
       throw std::invalid_argument ("JsonSerializer requires valid file reader and writer");
     }
   }
 
-  Result<nlohmann::json, JsonError> JsonSerializer::loadFromFile (
-      const std::filesystem::path& filePath) const {
+  Result<nlohmann::json, JsonError>
+  JsonSerializer::loadFromFile (const std::filesystem::path& filePath) const {
     // Read file content
     auto contentResult = fileReader_->read (filePath);
     if (!contentResult) {
@@ -28,7 +29,8 @@ namespace dotnamecpp::utils {
   }
 
   Result<void, JsonError> JsonSerializer::saveToFile (const std::filesystem::path& filePath,
-      const nlohmann::json& jsonData, int indent) const {
+                                                      const nlohmann::json& jsonData,
+                                                      int indent) const {
     // Convert to string
     auto stringResult = toString (jsonData, indent);
     if (!stringResult) {
@@ -67,7 +69,7 @@ namespace dotnamecpp::utils {
   }
 
   Result<std::string, JsonError> JsonSerializer::toString (const nlohmann::json& jsonData,
-      int indent) const {
+                                                           int indent) const {
     try {
       return jsonData.dump (indent);
     } catch (const std::exception& e) {

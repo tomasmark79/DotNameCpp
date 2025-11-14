@@ -43,16 +43,16 @@ namespace dotnamecpp::utils {
 
     // Assets factories
     [[nodiscard]]
-    static std::shared_ptr<IAssetManager> createAssetManager (
-        const std::filesystem::path& executablePath, const std::string& appName);
+    static std::shared_ptr<IAssetManager>
+    createAssetManager (const std::filesystem::path& executablePath, const std::string& appName);
 
     // JSON factories
     [[nodiscard]]
     static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
     [[nodiscard]]
-    static std::shared_ptr<ICustomStringsLoader> createCustomStringsLoader (
-        std::shared_ptr<IAssetManager> assetManager,
-        const std::string& filename = "customstrings.json");
+    static std::shared_ptr<ICustomStringsLoader>
+    createCustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
+                               const std::string& filename = "customstrings.json");
 
     // String factories
     [[nodiscard]]
@@ -79,7 +79,7 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     static AppComponents createAppComponents (const std::string& appName,
-        const LoggerConfig& loggerConfig);
+                                              const LoggerConfig& loggerConfig);
 
     // Convenience: Create complete utility set
     struct UtilsBundle {

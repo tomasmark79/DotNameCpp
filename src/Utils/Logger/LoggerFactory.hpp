@@ -27,7 +27,7 @@ namespace dotnamecpp::logging {
      * @return std::shared_ptr<ILogger> 
      */
     static std::shared_ptr<ILogger> create (LoggerType type = LoggerType::Console,
-        const LoggerConfig& config = LoggerConfig{});
+                                            const LoggerConfig& config = LoggerConfig{});
 
     /**
      * @brief Create a Console object logger

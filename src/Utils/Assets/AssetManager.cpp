@@ -4,11 +4,11 @@
 namespace dotnamecpp::assets {
 
   AssetManager::AssetManager (std::filesystem::path assetsPath)
-      : assetsPath_ (std::move (assetsPath)) {
+    : assetsPath_ (std::move (assetsPath)) {
   }
 
   std::unique_ptr<IAssetManager> AssetManager::create (const std::filesystem::path& executablePath,
-      const std::string& appName) {
+                                                       const std::string& appName) {
     auto path = findAssetsPath (executablePath, appName);
     return std::make_unique<AssetManager> (std::move (path));
   }
@@ -18,8 +18,8 @@ namespace dotnamecpp::assets {
     return assetsPath_;
   }
 
-  std::filesystem::path AssetManager::resolveAsset (
-      const std::filesystem::path& relativePath) const {
+  std::filesystem::path
+  AssetManager::resolveAsset (const std::filesystem::path& relativePath) const {
     std::lock_guard<std::mutex> lock (mutex_);
     return assetsPath_ / relativePath;
   }
@@ -36,7 +36,7 @@ namespace dotnamecpp::assets {
   }
 
   std::filesystem::path AssetManager::findAssetsPath (const std::filesystem::path& executablePath,
-      const std::string& appName) {
+                                                      const std::string& appName) {
     std::filesystem::path execDir = executablePath.parent_path ();
 
     // Priority list of asset locations to try

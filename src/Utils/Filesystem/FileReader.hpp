@@ -17,19 +17,19 @@ namespace dotnamecpp::utils {
     Result<std::string, FileError> read (const std::filesystem::path& filePath) const override;
 
     [[nodiscard]]
-    Result<std::vector<uint8_t>, FileError> readBytes (
-        const std::filesystem::path& filePath) const override;
+    Result<std::vector<uint8_t>, FileError>
+    readBytes (const std::filesystem::path& filePath) const override;
 
     [[nodiscard]]
-    Result<std::vector<std::string>, FileError> readLines (
-        const std::filesystem::path& filePath) const override;
+    Result<std::vector<std::string>, FileError>
+    readLines (const std::filesystem::path& filePath) const override;
 
     [[nodiscard]]
     bool exists (const std::filesystem::path& filePath) const override;
 
     [[nodiscard]]
-    Result<std::uintmax_t, FileError> getSize (
-        const std::filesystem::path& filePath) const override;
+    Result<std::uintmax_t, FileError>
+    getSize (const std::filesystem::path& filePath) const override;
 
   private:
     [[nodiscard]]

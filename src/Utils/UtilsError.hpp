@@ -108,12 +108,12 @@ namespace dotnamecpp::utils {
 
   // Helper functions to create errors
   inline FileError makeFileError (FileErrorCode code, const std::string& message,
-      const std::string& path = "") {
+                                  const std::string& path = "") {
     return FileError{ code, message, path };
   }
 
   inline JsonError makeJsonError (JsonErrorCode code, const std::string& message,
-      const std::string& details = "") {
+                                  const std::string& details = "") {
     return JsonError{ code, message, details };
   }
 

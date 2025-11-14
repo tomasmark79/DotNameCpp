@@ -4,8 +4,8 @@
 
 namespace dotnamecpp::utils {
 
-  Result<void, FileError> DirectoryManager::createDirectory (
-      const std::filesystem::path& dirPath) const {
+  Result<void, FileError>
+  DirectoryManager::createDirectory (const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -28,8 +28,8 @@ namespace dotnamecpp::utils {
     return {};
   }
 
-  Result<void, FileError> DirectoryManager::removeDirectory (
-      const std::filesystem::path& dirPath) const {
+  Result<void, FileError>
+  DirectoryManager::removeDirectory (const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -68,8 +68,8 @@ namespace dotnamecpp::utils {
     return {};
   }
 
-  Result<std::uintmax_t, FileError> DirectoryManager::removeDirectoryRecursive (
-      const std::filesystem::path& dirPath) const {
+  Result<std::uintmax_t, FileError>
+  DirectoryManager::removeDirectoryRecursive (const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -134,8 +134,8 @@ namespace dotnamecpp::utils {
     return std::filesystem::is_empty (dirPath, ec);
   }
 
-  Result<std::vector<std::filesystem::path>, FileError> DirectoryManager::listEntries (
-      const std::filesystem::path& dirPath) const {
+  Result<std::vector<std::filesystem::path>, FileError>
+  DirectoryManager::listEntries (const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,
@@ -177,8 +177,8 @@ namespace dotnamecpp::utils {
     return entries;
   }
 
-  Result<std::vector<std::filesystem::path>, FileError> DirectoryManager::listEntriesRecursive (
-      const std::filesystem::path& dirPath) const {
+  Result<std::vector<std::filesystem::path>, FileError>
+  DirectoryManager::listEntriesRecursive (const std::filesystem::path& dirPath) const {
     if (dirPath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,

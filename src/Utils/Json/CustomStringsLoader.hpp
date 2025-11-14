@@ -13,8 +13,8 @@ namespace dotnamecpp::utils {
   class CustomStringsLoader final : public ICustomStringsLoader {
   public:
     CustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
-        std::shared_ptr<IJsonSerializer> jsonSerializer,
-        std::string filename = "customstrings.json");
+                         std::shared_ptr<IJsonSerializer> jsonSerializer,
+                         std::string filename = "customstrings.json");
 
     CustomStringsLoader (const CustomStringsLoader&) = delete;
     CustomStringsLoader& operator= (const CustomStringsLoader&) = delete;
@@ -27,7 +27,7 @@ namespace dotnamecpp::utils {
 
     [[nodiscard]]
     std::optional<std::string> getLocalizedString (const std::string& id,
-        const std::string& locale = "en") const override;
+                                                   const std::string& locale = "en") const override;
 
     [[nodiscard]]
     std::optional<std::string> getEmail (const std::string& id) const override;

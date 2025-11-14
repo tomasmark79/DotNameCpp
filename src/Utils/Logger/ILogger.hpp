@@ -26,7 +26,9 @@ namespace dotnamecpp::logging {
   class LogStream {
   public:
     LogStream (std::shared_ptr<ILogger> logger, Level level, std::string caller)
-        : logger_ (std::move (logger)), level_ (level), caller_ (std::move (caller)) {
+      : logger_ (std::move (logger))
+      , level_ (level)
+      , caller_ (std::move (caller)) {
     }
 
     ~LogStream ();

@@ -16,8 +16,8 @@ namespace dotnamecpp::assets {
      * @param appName 
      * @return std::shared_ptr<IAssetManager> 
      */
-    static std::shared_ptr<IAssetManager> createDefault (
-        const std::filesystem::path& executablePath, const std::string& appName) {
+    static std::shared_ptr<IAssetManager>
+    createDefault (const std::filesystem::path& executablePath, const std::string& appName) {
       return AssetManager::create (executablePath, appName);
     }
 

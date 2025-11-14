@@ -22,7 +22,7 @@ namespace dotnamecpp::assets {
      * @return std::unique_ptr<IAssetManager> 
      */
     static std::unique_ptr<IAssetManager> create (const std::filesystem::path& executablePath,
-        const std::string& appName);
+                                                  const std::string& appName);
 
     [[nodiscard]]
     const std::filesystem::path& getAssetsPath () const override;
@@ -40,7 +40,7 @@ namespace dotnamecpp::assets {
     std::filesystem::path assetsPath_;
     mutable std::mutex mutex_;
     static std::filesystem::path findAssetsPath (const std::filesystem::path& executablePath,
-        const std::string& appName);
+                                                 const std::string& appName);
   };
 
 } // namespace dotnamecpp::assets

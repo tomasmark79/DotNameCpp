@@ -41,7 +41,7 @@ int main (int argc, char** argv) {
     cxxopts::Options options (app.getAppName (), "DotName C++ Standalone Application");
     options.add_options () ("h,help", "Print usage");
     options.add_options () ("w,write2file", "Write output to file",
-        cxxopts::value<bool> ()->default_value ("false"));
+                            cxxopts::value<bool> ()->default_value ("false"));
     auto result = options.parse (argc, argv);
     if (result.count ("help") > 0) {
       std::cout << options.help () << '\n';
@@ -49,9 +49,9 @@ int main (int argc, char** argv) {
     }
 
     LoggerConfig loggerConfig{ .level = Level::LOG_INFO,
-      .enableFileLogging = result["write2file"].as<bool> (),
-      .logFilePath = "standalone.log",
-      .colorOutput = true };
+                               .enableFileLogging = result["write2file"].as<bool> (),
+                               .logFilePath = "standalone.log",
+                               .colorOutput = true };
 
     if (!app.initializeComponents (loggerConfig, getStandalonePath ())) {
       std::cerr << "Failed to initialize application\n";

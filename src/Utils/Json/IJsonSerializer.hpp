@@ -22,8 +22,8 @@ namespace dotnamecpp::utils {
      * @return Result<nlohmann::json, JsonError> 
      */
     [[nodiscard]]
-    virtual Result<nlohmann::json, JsonError> loadFromFile (
-        const std::filesystem::path& filePath) const = 0;
+    virtual Result<nlohmann::json, JsonError>
+    loadFromFile (const std::filesystem::path& filePath) const = 0;
 
     /**
      * @brief Save JSON to file
@@ -35,7 +35,8 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<void, JsonError> saveToFile (const std::filesystem::path& filePath,
-        const nlohmann::json& jsonData, int indent = 2) const = 0;
+                                                const nlohmann::json& jsonData,
+                                                int indent = 2) const = 0;
 
     /**
      * @brief Parse JSON from string
@@ -55,7 +56,7 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<std::string, JsonError> toString (const nlohmann::json& jsonData,
-        int indent = 2) const = 0;
+                                                     int indent = 2) const = 0;
   };
 
 } // namespace dotnamecpp::utils

@@ -28,7 +28,8 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<void, FileError> write (const std::filesystem::path& filePath,
-        const std::string& content, bool append = false) const = 0;
+                                           const std::string& content,
+                                           bool append = false) const = 0;
 
     /**
      * @brief Write binary data to file
@@ -40,7 +41,8 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<void, FileError> writeBytes (const std::filesystem::path& filePath,
-        const std::vector<uint8_t>& data, bool append = false) const = 0;
+                                                const std::vector<uint8_t>& data,
+                                                bool append = false) const = 0;
 
     /**
      * @brief Write lines to file (each string becomes one line)
@@ -52,7 +54,8 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<void, FileError> writeLines (const std::filesystem::path& filePath,
-        const std::vector<std::string>& lines, bool append = false) const = 0;
+                                                const std::vector<std::string>& lines,
+                                                bool append = false) const = 0;
 
     /**
      * @brief Create empty file or update timestamp of existing file

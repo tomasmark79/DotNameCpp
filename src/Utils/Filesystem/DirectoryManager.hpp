@@ -24,8 +24,8 @@ namespace dotnamecpp::utils {
     Result<void, FileError> removeDirectory (const std::filesystem::path& dirPath) const override;
 
     [[nodiscard]]
-    Result<std::uintmax_t, FileError> removeDirectoryRecursive (
-        const std::filesystem::path& dirPath) const override;
+    Result<std::uintmax_t, FileError>
+    removeDirectoryRecursive (const std::filesystem::path& dirPath) const override;
 
     [[nodiscard]]
     bool exists (const std::filesystem::path& dirPath) const override;
@@ -34,12 +34,12 @@ namespace dotnamecpp::utils {
     Result<bool, FileError> isEmpty (const std::filesystem::path& dirPath) const override;
 
     [[nodiscard]]
-    Result<std::vector<std::filesystem::path>, FileError> listEntries (
-        const std::filesystem::path& dirPath) const override;
+    Result<std::vector<std::filesystem::path>, FileError>
+    listEntries (const std::filesystem::path& dirPath) const override;
 
     [[nodiscard]]
-    Result<std::vector<std::filesystem::path>, FileError> listEntriesRecursive (
-        const std::filesystem::path& dirPath) const override;
+    Result<std::vector<std::filesystem::path>, FileError>
+    listEntriesRecursive (const std::filesystem::path& dirPath) const override;
 
     [[nodiscard]]
     Result<std::filesystem::path, FileError> getCurrentDirectory () const override;

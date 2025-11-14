@@ -6,7 +6,7 @@
 namespace dotnamecpp::utils {
 
   Result<void, FileError> FileWriter::write (const std::filesystem::path& filePath,
-      const std::string& content, bool append) const {
+                                             const std::string& content, bool append) const {
     if (auto error = validatePath (filePath, false)) {
       return *error;
     }
@@ -40,7 +40,8 @@ namespace dotnamecpp::utils {
   }
 
   Result<void, FileError> FileWriter::writeBytes (const std::filesystem::path& filePath,
-      const std::vector<uint8_t>& data, bool append) const {
+                                                  const std::vector<uint8_t>& data,
+                                                  bool append) const {
     if (auto error = validatePath (filePath, false)) {
       return *error;
     }
@@ -74,7 +75,8 @@ namespace dotnamecpp::utils {
   }
 
   Result<void, FileError> FileWriter::writeLines (const std::filesystem::path& filePath,
-      const std::vector<std::string>& lines, bool append) const {
+                                                  const std::vector<std::string>& lines,
+                                                  bool append) const {
     if (auto error = validatePath (filePath, false)) {
       return *error;
     }
@@ -148,7 +150,7 @@ namespace dotnamecpp::utils {
   }
 
   std::optional<FileError> FileWriter::validatePath (const std::filesystem::path& filePath,
-      bool requireParent) {
+                                                     bool requireParent) {
     if (filePath.empty ()) {
       return FileError{
         .code = FileErrorCode::InvalidPath,

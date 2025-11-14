@@ -22,8 +22,8 @@ namespace dotnamecpp::utils {
      * @return Result<void, FileError> 
      */
     [[nodiscard]]
-    virtual Result<void, FileError> createDirectory (
-        const std::filesystem::path& dirPath) const = 0;
+    virtual Result<void, FileError>
+    createDirectory (const std::filesystem::path& dirPath) const = 0;
 
     /**
      * @brief Remove a Directory object
@@ -32,8 +32,8 @@ namespace dotnamecpp::utils {
      * @return Result<void, FileError> 
      */
     [[nodiscard]]
-    virtual Result<void, FileError> removeDirectory (
-        const std::filesystem::path& dirPath) const = 0;
+    virtual Result<void, FileError>
+    removeDirectory (const std::filesystem::path& dirPath) const = 0;
 
     /**
      * @brief Remove a Directory object recursively
@@ -42,8 +42,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::uintmax_t, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::uintmax_t, FileError> removeDirectoryRecursive (
-        const std::filesystem::path& dirPath) const = 0;
+    virtual Result<std::uintmax_t, FileError>
+    removeDirectoryRecursive (const std::filesystem::path& dirPath) const = 0;
 
     /**
      * @brief Check if a directory exists
@@ -71,8 +71,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::vector<std::filesystem::path>, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::vector<std::filesystem::path>, FileError> listEntries (
-        const std::filesystem::path& dirPath) const = 0;
+    virtual Result<std::vector<std::filesystem::path>, FileError>
+    listEntries (const std::filesystem::path& dirPath) const = 0;
 
     /**
      * @brief List entries in a directory recursively
@@ -81,8 +81,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::vector<std::filesystem::path>, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::vector<std::filesystem::path>, FileError> listEntriesRecursive (
-        const std::filesystem::path& dirPath) const = 0;
+    virtual Result<std::vector<std::filesystem::path>, FileError>
+    listEntriesRecursive (const std::filesystem::path& dirPath) const = 0;
 
     /**
      * @brief Get the Current Directory object  

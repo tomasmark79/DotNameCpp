@@ -34,8 +34,8 @@ namespace dotnamecpp::utils {
     return buffer.str ();
   }
 
-  Result<std::vector<uint8_t>, FileError> FileReader::readBytes (
-      const std::filesystem::path& filePath) const {
+  Result<std::vector<uint8_t>, FileError>
+  FileReader::readBytes (const std::filesystem::path& filePath) const {
     if (auto error = validatePath (filePath)) {
       return *error;
     }
@@ -71,8 +71,8 @@ namespace dotnamecpp::utils {
     return buffer;
   }
 
-  Result<std::vector<std::string>, FileError> FileReader::readLines (
-      const std::filesystem::path& filePath) const {
+  Result<std::vector<std::string>, FileError>
+  FileReader::readLines (const std::filesystem::path& filePath) const {
     if (auto error = validatePath (filePath)) {
       return *error;
     }
@@ -109,8 +109,8 @@ namespace dotnamecpp::utils {
     return std::filesystem::is_regular_file (filePath, ec) && !ec;
   }
 
-  Result<std::uintmax_t, FileError> FileReader::getSize (
-      const std::filesystem::path& filePath) const {
+  Result<std::uintmax_t, FileError>
+  FileReader::getSize (const std::filesystem::path& filePath) const {
     if (auto error = validatePath (filePath)) {
       return *error;
     }

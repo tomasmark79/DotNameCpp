@@ -23,8 +23,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::filesystem::path, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::filesystem::path, FileError> getAbsolutePath (
-        const std::filesystem::path& path) const = 0;
+    virtual Result<std::filesystem::path, FileError>
+    getAbsolutePath (const std::filesystem::path& path) const = 0;
 
     /**
      * @brief Get the Canonical Path object
@@ -33,8 +33,8 @@ namespace dotnamecpp::utils {
      * @return Result<std::filesystem::path, FileError> 
      */
     [[nodiscard]]
-    virtual Result<std::filesystem::path, FileError> getCanonicalPath (
-        const std::filesystem::path& path) const = 0;
+    virtual Result<std::filesystem::path, FileError>
+    getCanonicalPath (const std::filesystem::path& path) const = 0;
 
     /**
      * @brief Get the Relative Path object
@@ -45,8 +45,8 @@ namespace dotnamecpp::utils {
      */
     [[nodiscard]]
     virtual Result<std::filesystem::path, FileError> getRelativePath (
-        const std::filesystem::path& target,
-        const std::filesystem::path& base = std::filesystem::current_path ()) const = 0;
+      const std::filesystem::path& target,
+      const std::filesystem::path& base = std::filesystem::current_path ()) const = 0;
 
     /**
      * @brief Check if path is absolute

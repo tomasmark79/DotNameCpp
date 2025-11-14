@@ -4,12 +4,14 @@
 namespace dotnamecpp::utils {
 
   CustomStringsLoader::CustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
-      std::shared_ptr<IJsonSerializer> jsonSerializer, std::string filename)
-      : assetManager_ (std::move (assetManager)), jsonSerializer_ (std::move (jsonSerializer)),
-        filename_ (std::move (filename)) {
+                                            std::shared_ptr<IJsonSerializer> jsonSerializer,
+                                            std::string filename)
+    : assetManager_ (std::move (assetManager))
+    , jsonSerializer_ (std::move (jsonSerializer))
+    , filename_ (std::move (filename)) {
     if (!assetManager_ || !jsonSerializer_) {
       throw std::invalid_argument (
-          "CustomStringsLoader requires valid asset manager and JSON serializer");
+        "CustomStringsLoader requires valid asset manager and JSON serializer");
     }
   }
 
@@ -66,8 +68,8 @@ namespace dotnamecpp::utils {
     return std::nullopt;
   }
 
-  std::optional<std::string> CustomStringsLoader::getLocalizedString (const std::string& id,
-      const std::string& locale) const {
+  std::optional<std::string>
+  CustomStringsLoader::getLocalizedString (const std::string& id, const std::string& locale) const {
     auto item = findById (id);
     if (!item) {
       return std::nullopt;

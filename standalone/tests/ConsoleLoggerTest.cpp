@@ -61,7 +61,7 @@ TEST_F (ConsoleLoggerTest, StreamLogging) {
     logger->stream (Level::LOG_INFO, "StreamTest") << "Stream info: " << 42 << " value";
     logger->stream (Level::LOG_WARNING) << "Stream warning without caller";
     logger->stream (Level::LOG_ERROR, "StreamTest")
-        << "Stream error: " << "error with number " << 123;
+      << "Stream error: " << "error with number " << 123;
   });
 }
 

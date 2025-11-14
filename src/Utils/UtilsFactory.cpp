@@ -39,8 +39,9 @@ namespace dotnamecpp::utils {
   }
 
   // Assets factories
-  std::shared_ptr<IAssetManager> UtilsFactory::createAssetManager (
-      const std::filesystem::path& executablePath, const std::string& appName) {
+  std::shared_ptr<IAssetManager>
+  UtilsFactory::createAssetManager (const std::filesystem::path& executablePath,
+                                    const std::string& appName) {
     return dotnamecpp::assets::AssetManagerFactory::createDefault (executablePath, appName);
   }
 
@@ -51,11 +52,12 @@ namespace dotnamecpp::utils {
     return std::make_shared<JsonSerializer> (fileReader, fileWriter);
   }
 
-  std::shared_ptr<ICustomStringsLoader> UtilsFactory::createCustomStringsLoader (
-      std::shared_ptr<IAssetManager> assetManager, const std::string& filename) {
+  std::shared_ptr<ICustomStringsLoader>
+  UtilsFactory::createCustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
+                                           const std::string& filename) {
     if (!assetManager) {
       throw std::invalid_argument (
-          "UtilsFactory::createCustomStringsLoader requires valid asset manager");
+        "UtilsFactory::createCustomStringsLoader requires valid asset manager");
     }
     auto jsonSerializer = createJsonSerializer ();
     return std::make_shared<CustomStringsLoader> (assetManager, jsonSerializer, filename);
@@ -68,27 +70,27 @@ namespace dotnamecpp::utils {
 
   // Logger factories
   std::shared_ptr<ILogger> UtilsFactory::createLogger (LoggerType type,
-      const LoggerConfig& config) {
+                                                       const LoggerConfig& config) {
     return dotnamecpp::logging::LoggerFactory::create (type, config);
   }
 
   std::shared_ptr<ILogger> UtilsFactory::createDefaultLogger () {
     LoggerConfig config{ .level = dotnamecpp::logging::Level::LOG_INFO,
-      .enableFileLogging = false,
-      .logFilePath = "",
-      .colorOutput = true };
+                         .enableFileLogging = false,
+                         .logFilePath = "",
+                         .colorOutput = true };
     return createLogger (LoggerType::Console, config);
   }
 
   // Application initialization helper
   UtilsFactory::AppComponents UtilsFactory::createAppComponents (const std::string& appName,
-      const LoggerConfig& loggerConfig) {
+                                                                 const LoggerConfig& loggerConfig) {
     // Create platform info to get executable path
     auto platformInfo = createPlatformInfo ();
     auto execPathResult = platformInfo->getExecutablePath ();
     if (!execPathResult.hasValue ()) {
-      throw std::runtime_error (
-          "Failed to get executable path: " + execPathResult.error ().toString ());
+      throw std::runtime_error ("Failed to get executable path: " +
+                                execPathResult.error ().toString ());
     }
 
     // Create logger
@@ -98,20 +100,20 @@ namespace dotnamecpp::utils {
     auto assetManager = createAssetManager (execPathResult.value (), appName);
 
     return AppComponents{ .logger = std::move (logger),
-      .assetManager = std::move (assetManager),
-      .platformInfo = std::move (platformInfo) };
+                          .assetManager = std::move (assetManager),
+                          .platformInfo = std::move (platformInfo) };
   }
 
   // Convenience: Create complete utility set
   UtilsFactory::UtilsBundle UtilsFactory::createBundle () {
     return UtilsBundle{ .fileReader = createFileReader (),
-      .fileWriter = createFileWriter (),
-      .pathResolver = createPathResolver (),
-      .directoryManager = createDirectoryManager (),
-      .platformInfo = createPlatformInfo (),
-      .jsonSerializer = createJsonSerializer (),
-      .stringFormatter = createStringFormatter (),
-      .logger = createDefaultLogger () };
+                        .fileWriter = createFileWriter (),
+                        .pathResolver = createPathResolver (),
+                        .directoryManager = createDirectoryManager (),
+                        .platformInfo = createPlatformInfo (),
+                        .jsonSerializer = createJsonSerializer (),
+                        .stringFormatter = createStringFormatter (),
+                        .logger = createDefaultLogger () };
   }
 
 } // namespace dotnamecpp::utils

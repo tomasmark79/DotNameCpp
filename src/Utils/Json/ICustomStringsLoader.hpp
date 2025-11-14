@@ -31,8 +31,8 @@ namespace dotnamecpp::utils {
      * @return std::optional<std::string> 
      */
     [[nodiscard]]
-    virtual std::optional<std::string> getLocalizedString (const std::string& id,
-        const std::string& locale = "en") const = 0;
+    virtual std::optional<std::string>
+    getLocalizedString (const std::string& id, const std::string& locale = "en") const = 0;
 
     /**
      * @brief Get the Email object

@@ -83,7 +83,7 @@ namespace dotnamecpp::app {
      * @return false if any component fails to initialize.
      */
     bool initializeComponents (const logging::LoggerConfig& loggerConfig,
-        const std::filesystem::path& executablePath) {
+                               const std::filesystem::path& executablePath) {
       if (!initializeLogger (loggerConfig)) {
         return initialized_ = false;
       }

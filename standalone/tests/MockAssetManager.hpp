@@ -11,7 +11,9 @@
 class MockAssetManager : public dotnamecpp::assets::IAssetManager {
 public:
   explicit MockAssetManager (std::filesystem::path mockPath)
-      : mockPath_ (std::move (mockPath)), mockExists_ (true), mockValid_ (true) {
+    : mockPath_ (std::move (mockPath))
+    , mockExists_ (true)
+    , mockValid_ (true) {
   }
 
   [[nodiscard]]
