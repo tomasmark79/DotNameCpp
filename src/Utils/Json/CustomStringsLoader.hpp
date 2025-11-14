@@ -9,6 +9,10 @@
 namespace dotnamecpp::utils {
   using dotnamecpp::assets::IAssetManager;
 
+  /**
+   * @brief Loader for custom strings JSON data
+   * 
+   */
   class CustomStringsLoader final : public ICustomStringsLoader {
   public:
     /**
