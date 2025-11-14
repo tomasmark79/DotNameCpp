@@ -8,7 +8,6 @@
 #include <string>
 #include <filesystem>
 
-
 namespace dotnamecpp::app {
   class Standalone {
 
