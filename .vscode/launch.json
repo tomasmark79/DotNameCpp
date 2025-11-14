@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dbg Debug Standalone",
+            "name": "Dbg Debug Application",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameStandalone",
+            "program": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameApplication",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/standalone/default/debug/bin/",
@@ -23,10 +23,10 @@
             "preLaunchTask": "Direct Build"
         },
         {
-            "name": "Dbg Release Standalone",
+            "name": "Dbg Release Application",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/standalone/default/release/bin/DotNameStandalone",
+            "program": "${workspaceFolder}/build/standalone/default/release/bin/DotNameApplication",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/standalone/default/release/bin/",

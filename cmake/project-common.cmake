@@ -25,7 +25,7 @@ string(TOLOWER "${LIBRARY_NAME}" LIBRARY_NAME_LOWER)
 set(LIBRARY_NAMESPACE dotname)
 
 # Standalone names and attributes
-set(STANDALONE_NAME DotNameStandalone)
+set(STANDALONE_NAME DotNameApplication)
 string(TOLOWER "${STANDALONE_NAME}" STANDALONE_NAME_LOWER)
 set(STANDALONE_NAMESPACE dotname)
 

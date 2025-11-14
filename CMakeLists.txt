@@ -36,5 +36,5 @@ endif()
 
 if(BUILD_STANDALONE)
     include(cmake/project-standalone.cmake)
-    message(STATUS "Building DotNameStandalone")
+    message(STATUS "Building DotNameApplication")
 endif()

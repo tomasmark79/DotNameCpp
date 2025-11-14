@@ -13,7 +13,7 @@ int main (int argc, char** argv) {
 
   try {
     // Parse command-line options
-    cxxopts::Options options ("DotNameStandalone", "DotName C++ Standalone Application");
+    cxxopts::Options options ("DotNameApplication", "DotName C++ Application");
     options.add_options () ("h,help", "Print usage");
     options.add_options () ("w,write2file", "Write output to file",
                             cxxopts::value<bool> ()->default_value ("false"));
@@ -35,13 +35,13 @@ int main (int argc, char** argv) {
     // Initialize logger
     LoggerConfig loggerConfig{ .level = Level::LOG_INFO,
                                .enableFileLogging = result["write2file"].as<bool> (),
-                               .logFilePath = "standalone.log",
+                               .logFilePath = "application.log",
                                .colorOutput = true };
     auto logger = UtilsFactory::createLogger (LoggerType::Console, loggerConfig);
 
     // Initialize assets
     auto assetManager =
-      UtilsFactory::createAssetManager (execPathResult.value (), "DotNameStandalone");
+      UtilsFactory::createAssetManager (execPathResult.value (), "DotNameApplication");
 
     if (!assetManager->validate ()) {
       logger->errorStream () << "Failed to validate assets: " << assetManager->getAssetsPath ();
@@ -57,10 +57,10 @@ int main (int argc, char** argv) {
     // Run application logic
     logger->warningStream () << "... warning example ...";
     logger->errorStream () << "... error example ...";
-    logger->infoStream () << "DotNameStandalone running...";
+    logger->infoStream () << "DotNameApplication running...";
     logger->infoStream () << ".";
 
-    logger->infoStream () << "DotNameStandalone shutting down";
+    logger->infoStream () << "DotNameApplication shutting down";
     return EXIT_SUCCESS;
 
   } catch (const std::exception& e) {

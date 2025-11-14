@@ -40,7 +40,7 @@ CPMAddPackage(
 # Standalone source files
 # ==============================================================================
 gather_sources(sources ${CMAKE_CURRENT_SOURCE_DIR}/standalone/src)
-list(APPEND sources ${CMAKE_CURRENT_SOURCE_DIR}/standalone/src/Main.cpp)
+list(APPEND sources ${CMAKE_CURRENT_SOURCE_DIR}/standalone/src/Application.cpp)
 
 # ==============================================================================
 # Create standalone target

@@ -145,9 +145,9 @@
             "dependsOn": []
         },
         {
-            "label": "Launch Standalone binary",
+            "label": "Launch Application binary",
             "type": "shell",
-            "command": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameStandalone",
+            "command": "${workspaceFolder}/build/standalone/default/debug/bin/DotNameApplication",
             "args": [
                 ""
             ],
@@ -158,7 +158,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Launch Standalone binary",
+            "detail": "Launch Application binary",
             "problemMatcher": ["$gcc"],
             "presentation": {
                 "echo": true,
