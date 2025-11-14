@@ -1,63 +1,34 @@
-<img src="assets/DotNameCppLogo.svg" width="100%" alt="DotNameCpp Logo">
+<img src="assets/DotNameCppLogo.svg" width="100%" alt="DotNameCpp Logo">  
 
-# DotNameCpp
+<span id="linux-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('linux-badge').remove()" style="border:0;"></a></span> <span id="macos-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('macos-badge').remove()" style="border:0;"></a></span> <span id="windows-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('windows-badge').remove()" style="border:0;"></a></span> <span id="emscripten-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('emscripten-badge').remove()" style="border:0;"></a></span> [![discord](https://img.shields.io/discord/1220657359572172810?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/4vkSjvvqSW)
 
-## The Advanced `C++` Development Template
-
-~~Production-ready~~ (**now again  under heavy OOP refreshing development**)  
-
->todo remains: utils OOP rearchitecturing
-
-
-C++20 starter focused on fast iteration, keyboard‑driven workflows in VSCode, cross‑platform + WebAssembly targets, and automated, reproducible build tooling (CMake + Conan 2 + presets + scripted orchestration). Built to eliminate friction from ad‑hoc shell commands and fragile IDE integrations.
-
-<span id="linux-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/linux.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('linux-badge').remove()" style="border:0;"></a></span> <span id="macos-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/macos.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('macos-badge').remove()" style="border:0;"></a></span> <span id="windows-badge"><a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/windows.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('windows-badge').remove()" style="border:0;"></a></span><span id="emscripten-badge"> <a href="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml"><img src="https://github.com/tomasmark79/DotNameCpp/actions/workflows/emscripten.yml/badge.svg?branch=main" alt="" onerror="document.getElementById('emscripten-badge').remove()" style="border:0;"></a></span>
-
-> Quick start: `Shift+F7` → "🦸 Zero to Hero" (configure, build, test, package). Then use `F7` (rebuild) and `F5` (debug).
-
-[YouTube Video DotNameCpp QuickStart](https://www.youtube.com/watch?v=0WoN8i8f7-o)  
-
-[![discord](https://img.shields.io/discord/1220657359572172810?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/4vkSjvvqSW)
-
----
+# DotNameCpp — Advanced C++ Development Template
 
 ## 📚 Table of Contents
 
 - [🚀 Overview](#-overview)
-- [⌨️ VSCode Keyboard Workflow (Primary)](#️-vscode-keyboard-workflow-primary)
-- [✨ Key Features](#-key-features)
 - [⚡ Quick Start](#-quick-start)
-- [🔧 Build System & Configuration (Comprehensive Guide)](#-build-system--configuration-comprehensive-guide)
-- [🛠️ Prerequisites & Dependencies](#️-prerequisites--dependencies)
-- [🏗️ Project Structure](#️-project-structure)
-- [📦 Package Management](#-package-management)
+- [⌨️ VSCode Keyboard Workflow](#️-vscode-keyboard-workflow)
+- [🔧 Build Methods](#-build-methods)
+- [🛠️ Prerequisites](#️-prerequisites)
 - [🧰 Development Tools](#-development-tools)
-- [🌍 Cross-Platform Development](#-cross-platform-development)
-- [🌐 WebAssembly & Emscripten](#-webassembly--emscripten)
-- [🧪 Testing Framework](#-testing-framework)
-- [📚 Library Development](#-library-development)
-- [🔄 CI/CD Pipeline](#-cicd-pipeline)
-- [🛠️ Maintenance & Utilities](#️-maintenance--utilities)
-- [📖 Documentation](#-documentation)
+- [️ Maintenance Scripts](#️-maintenance-scripts)
 - [📄 License](#-license)
 
 ---
 
 ## 🚀 Overview
 
-DotNameCpp is an **opinionated template**: everything (configure, build, test, format, coverage, docs, package, wasm serve) is triggered by **VSCode keyboard shortcuts and task menus**—no dependency on the official CMake VSCode extensions. Btw, CMake extensions is still supported. This yields a deterministic experience across Linux / macOS / Windows / Emscripten and reduces cognitive load.
+**Keyboard-driven C++ template** for VSCode: configure, build, test, format, coverage, docs, and package—all via shortcuts. Works across Linux/macOS/Windows/Emscripten with deterministic automation via `SolutionController.py`.
 
-### Why this template?
+[QuickStart Video](https://www.youtube.com/watch?v=0WoN8i8f7-o)  
 
-- Keyboard‑first workflow (no remembering long commands)
-- Unified automation via `SolutionController.py` (CI mirrors local)
-- Modern CMake presets + Conan 2 + optional cross / wasm profiles
-- Built‑in quality: clang-format, clang-tidy, coverage, Doxygen
-- Dual target: reusable library + application app
-- Cross‑platform (native + wasm) with consistent task semantics
+### Why?
 
-### Philosophy
-Prefer **predictable scripted orchestration** over fragile IDE state. Keep the developer in flow: one shortcut → structured task chain. Advanced details (toolchain flags, dependency install, coverage setup) live in automation so day‑to‑day work stays simple.
+- **Keyboard-first**: One shortcut → structured task chain
+- **Modern stack**: CMake presets + Conan 2 + cross/wasm support
+- **Built-in quality**: clang-format, clang-tidy, coverage, Doxygen
+- **Dual target**: Reusable library + application
 
 ### 🎯 Primary Development Workflow (Essentials)
 
@@ -70,7 +41,43 @@ Copy `.vscode/keybindings.json` into your user settings once (if not already). T
 
 ---
 
-## ⌨️ VSCode Keyboard Workflow (Primary)
+## ⚡ Quick Start
+
+### 🎯 Recommended: VSCode Workflow
+
+Open in VSCode and use keyboard shortcuts:
+
+```text
+Shift+F7 → "🦸 Zero to Hero"    # Complete setup, build, test, package
+F7                              # Quick rebuild
+F5                              # Start debugging
+```
+
+### 🛠️ Clone Template
+
+```bash
+git clone git@github.com:tomasmark79/DotNameCpp.git
+```
+
+**Quick clone with auto-rename** - add to your `.bashrc` / `.zshrc`:
+
+```bash
+clonedotname() {
+    local PN="${1:-AppName}"
+    git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && rm -rf "$PN/.git" && cd "$PN"
+    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN"Application
+}
+```
+
+Then use: `clonedotname MyProject`
+
+### ☁️ GitHub Codespaces
+
+Click **Code** → **Codespaces** → **Create codespace** on GitHub for instant cloud environment.
+
+---
+
+## ⌨️ VSCode Keyboard Workflow
 
 Keyboard-first development: every major action = shortcut → menu → deterministic scripted sequence.
 
@@ -144,93 +151,114 @@ Secondary workflow for code quality and maintenance:
 
 ---
 
-## ✨ Key Features
+## 🔧 Build Methods
 
-### 🏗️ **Advanced Build System**
-- **CMake 3.31+** with modern preset system
-- **Conan 2.0** integration for dependency management
-- **Ninja** build system for fast compilation
-- **ccache** support for accelerated rebuilds
-- **Cross-compilation** ready with toolchain support
+## 🔧 Build Methods
 
-### 🌐 **Multi-Platform Support**
-- **Native Development**: Linux, macOS, Windows
-- **WebAssembly**: Emscripten integration for web deployment
-- **Cross-Compilation**: ARM, x86, x64 architectures, etc.
-
-### 🧰 **Development Tools Integration**
-- **Dual Language Servers**: clangd (IntelliSense) + ccls (CodeLens + semantic rainbow)
-- **Static Analysis**: clang-tidy with comprehensive rule sets
-- **Code Formatting**: clang-format and cmake-format
-- **Documentation**: Doxygen with automated generation
-- **Testing**: Google Test framework integration
-- **Debugging**: GDB/LLDB/CMake support with VSCode integration
-
-### 📦 **Project Flexibility**
-- **Dual Structure**: Library and application support
-- **Modular Architecture**: Reusable components and utilities
-- **Asset Management**: Integrated resource handling system
-- **Licensing**: Built-in license collection and management
-
-### 🚀 **Automation & CI/CD**
-- **GitHub Actions**: Multi-platform CI/CD pipelines
-- **Automated Testing**: Unit tests, integration tests, and benchmarks
-- **Release Management**: Automated packaging and distribution
-- **Quality Gates**: Static analysis and code coverage integration
-
----
-
-## ⚡ Quick Start
-
-### 🎯 Recommended: VSCode Keyboard Workflow
-
-**Open in VSCode and use keyboard shortcuts** for the best development experience:
+### 🎯 Method 1: VSCode Shortcuts (Recommended)
 
 ```text
-Shift+F7 → "🦸 Zero to Hero"    # Complete setup, build, test, and package
+Shift+F7 → "🦸 Zero to Hero"    # Complete setup, build, test, package
 F7                              # Quick rebuild
-F5                              # Start debugging
+F5                              # Debug mode
+Ctrl+Alt+R                      # Run application
 ```
 
-### 🛠️ Clone the Repository
+### 🎯 Method 2: CMake + Conan (System Commands)
 
 ```bash
-git clone git@github.com:tomasmark79/DotNameCpp.git
+# Complete workflow
+conan install . --output-folder=build --build=missing -s build_type=Debug
+cmake --preset generic-linux-x86_64-gcc-15-debug
+cmake --build build -j $(nproc)
+ctest --test-dir build
+
+# Cross-compilation (Emscripten)
+conan install . --output-folder=build --build=missing -s build_type=Debug \
+  -pr:h=profiles/emscripten -pr:b=default
+cmake --preset emscripten-debug
+cmake --build build
+
+# Cross-compilation (MinGW)
+conan install . --output-folder=build --build=missing -s build_type=Debug \
+  -pr:h=profiles/x86_64_w64_mingw32 -pr:b=default
+cmake --preset mingw-x86_64-debug
+cmake --build build
+
+# Code coverage (native only)
+conan install . --output-folder=build --build=missing -s build_type=Debug
+cmake --preset generic-linux-x86_64-gcc-15-debug -DENABLE_COVERAGE=ON
+cmake --build build
+ctest --test-dir build
+gcovr --html-details coverage.html
+
+# List available presets
+cmake --list-presets
 ```
 
-### 🛠️ Clone the Repository with removal of .git with simple command
-add this function to your `.bashrc` or `.zshrc`:
+### 🔧 Build Options
 
-```bash
-clonedotname() {
-    local PN="${1:-AppName}"
-    git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && rm -rf "$PN/.git" && cd "$PN"
-    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN"Application
-}
+```cmake
+option(ENABLE_GTESTS "Build and run unit tests" ON)
+option(ENABLE_CCACHE "Use ccache compiler cache" ON)
+option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
+option(ENABLE_IPO "Enable link-time optimization" OFF)
+option(ENABLE_HARDENING "Enable security hardening" OFF)
+option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 ```
 
-Then simply use:
-```bash
-clonedotname # Clone with default name "AppName"
-clonedotname MyCustomAppName # Clone with custom name
-```
-
-### ☁️ GitHub Codespaces
+> **⚠️ Note**: Coverage supported only for native `default` builds. Cross-compilation targets (Emscripten, MinGW, ARM) are build-only.
+### 🎯 Method 2: Python SolutionController
 
 ```bash
-pip install conan
-conan profile detect
-# Use the Python controller for advanced options - callable from VSCode tasks
-python SolutionController.py application "🗡️ Conan install" default Debug
+# Complete development cycle
+python SolutionController.py both "🦸 Zero to Hero" default Debug
+
+# Step-by-step build
+python SolutionController.py application "�️ Conan install" default Debug
 python SolutionController.py application "🔧 CMake configure" default Debug
 python SolutionController.py application "🔨 Build" default Debug
+
+# Cross-platform builds
+python SolutionController.py application "🔨 Build" emscripten Debug
+python SolutionController.py application "🔨 Build" x86_64_w64_mingw32 Debug
+
+# Code quality & coverage
+python SolutionController.py both "📐 Format Code" noNeedArch
+python SolutionController.py both "🔍 clang-tidy linting" default Debug
+python SolutionController.py application "📊 Coverage HTML Report" default Debug
 ```
 
-Click the **Code** button on GitHub → **Codespaces** → **Create codespace** for instant cloud development environment.
+### 🎯 Method 3: Pure CMake
+
+```bash
+# Quick start
+conan install . --output-folder="build/" --build=missing -s build_type=Debug
+cmake --preset generic-linux-x86_64-gcc-15-debug
+cmake --build build/ -j $(nproc)
+
+# Using presets
+cmake --list-presets
+cmake --preset debug-linux-x86_64-gcc-15
+cmake --build --preset debug-linux-x86_64-gcc-15
+```
+
+### 🔧 Build Options
+
+```cmake
+option(ENABLE_GTESTS "Build and run unit tests" ON)
+option(ENABLE_CCACHE "Use ccache compiler cache" ON)
+option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
+option(ENABLE_IPO "Enable link-time optimization" OFF)
+option(ENABLE_HARDENING "Enable security hardening" OFF)
+option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
+```
+
+> **⚠️ Note**: Coverage supported only for native `default` builds. Cross-compilation targets (Emscripten, MinGW, ARM) are build-only.
 
 ---
 
-## 🛠️ Prerequisites & Dependencies
+## 🛠️ Prerequisites
 
 ### 🔧 Essential Tools
 
@@ -265,172 +293,6 @@ Click the **Code** button on GitHub → **Codespaces** → **Create codespace** 
 | **macOS** | Clang, GCC | Xcode 14+, GCC 11+ |
 | **Windows** | MSVC, Clang, GCC | VS 2022, Clang 14+, MinGW 11+ |
 | **Emscripten** | emcc | 3.1.0+ |
-
----
-
-## 🏗️ Project Structure
-
-```
-📁 DotNameCpp/
-├── 📁 .github/                     # GitHub workflow files
-├── 📁 .vscode/                     # Visual Studio Code configuration
-├── 📁 assets/                      # Project resources
-│   ├── customstrings.json          # Localization strings
-│   ├── DotNameCppLogo.svg          # Project logo
-│   └── ems-mini.html               # Emscripten template
-├── 📁 build/                       # Build outputs (auto-generated)
-│   ├── 📁 installation/            # Installation artifacts
-│   ├── 📁 application/             # Application builds
-│   └── 📁 tarballs/                # Distribution packages
-├── 📁 cmake/                       # CMake modules and utilities
-│   ├── project-common.cmake        # Common project settings
-│   ├── project-library.cmake       # Library-specific configuration
-│   ├── project-application.cmake   # Application app configuration
-│   ├── tmplt-*.cmake               # Feature modules (sanitizers, hardening, etc.)
-│   └── 📁 modules/                 # Custom CMake modules
-├── 📁 doc/                         # Documentation (auto-generated)
-├── 📁 include/DotNameLib/          # Public library headers
-├── 📁 src/                         # Library source code
-│   ├── DotNameLib.cpp              # Main library implementation
-│   ├── 📁 Assets/                  # Asset management utilities
-│   ├── 📁 Logger/                  # Logging functionality
-│   └── 📁 Utils/                   # Utility classes
-├── 📁 application/                 # Application source
-│   ├── 📁 src/                     # Application source
-│   └── 📁 tests/                   # Application tests
-├── 📄 CMakeLists.txt               # Root CMake configuration
-├── 📄 CMakeUserPresets.json        # CMake presets for different configurations
-├── 📄 conantools.py                # Conan integration utilities  
-├── 📄 conanfile.py                 # Conan dependency specification
-├── 📄 SolutionController.py        # Main Template automation script
-├── 📄 SolutionRenamer.py           # Template renaming utility
-└── 📄 SolutionUpgrader.py          # Template update utility
-```
-
----
-
-## 🔧 Build System & Configuration (Comprehensive Guide)
-
-This section provides complete build configuration options for all development scenarios, from beginner-friendly VSCode workflow to advanced command-line usage.
-
-### 🎯 Method 1: VSCode Keyboard Workflow (Recommended)
-
-**Primary approach** using the keyboard shortcuts described above:
-
-```text
-Shift+F7 → "🦸 Zero to Hero"    # Complete setup, build, test, package
-F7                              # Quick rebuild
-F5                              # Debug mode
-Ctrl+Alt+R                      # Run application
-```
-
-### 🎯 Method 2: Python SolutionController
-
-**Automated workflow** using the Python controller script:
-
-> Normally, you won't need to run these commands manually, since all actions are available through keyboard shortcuts in VSCode.
-
-```bash
-# Complete development cycle
-python SolutionController.py both "🦸 Zero to Hero" default Debug
-
-# Step-by-step build process
-python SolutionController.py application "🗡️ Conan install" default Debug
-python SolutionController.py application "🔧 CMake configure" default Debug
-python SolutionController.py application "🔨 Build" default Debug
-python SolutionController.py application "🧪 Run CTest" default Debug
-
-# Cross-platform builds
-python SolutionController.py application "🔨 Build" emscripten Debug
-python SolutionController.py application "🔨 Build" x86_64_w64_mingw32 Debug
-
-# Code coverage workflow
-python SolutionController.py application "📊 Configure with Coverage" default Debug
-python SolutionController.py application "🔨 Build" default Debug
-python SolutionController.py application "🧪 Run Tests" default Debug
-python SolutionController.py application "📊 Coverage HTML Report" default Debug
-
-# Development tools
-python SolutionController.py both "🔍 clang-tidy linting" default Debug
-python SolutionController.py both "📐 Format Code" noNeedArch
-python SolutionController.py both "📏 Format CMake" noNeedArch
-python SolutionController.py both "📖 Generate Documentation" noNeedArch
-```
-
-### 🎯 Method 3: Pure CMake Workflow
-
-**Direct CMake** for integration with existing build systems:
-
-```bash
-# Quick start (recommended for simple cases)
-conan install . --output-folder="build/" --build=missing --deployer=full_deploy -s build_type=Debug
-cmake --preset generic-linux-x86_64-gcc-15-debug -DBUILD_LIBRARY=ON -DBUILD_application=ON
-cmake --build build/ -j $(nproc)
-
-# Advanced CMake with presets
-cmake --list-presets                                   # List available presets
-cmake --preset debug-linux-x86_64-gcc-15               # Configure with preset
-cmake --build --preset debug-linux-x86_64-gcc-15       # Build with preset
-ctest --preset debug-linux-x86_64-gcc-15               # Test with preset
-
-# Manual CMake configuration (not recommended)
-mkdir build && cd build
-conan install .. --build=missing
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_LIBRARY=ON -DBUILD_application=ON
-make -j $(nproc)
-```
-
-**Important:** Always specify the build type (`-s build_type=Debug` or `-s build_type=Release`) with Conan install, and prefer generated CMake presets over manual configuration.
-
-### 🔧 Build Configuration Options
-
-Configure your build with these CMake options:
-
-```cmake
-option(ENABLE_GTESTS "Build and run unit tests" ON)
-option(ENABLE_CCACHE "Use ccache compiler cache" ON)
-option(BUILD_SHARED_LIBS "Build shared (.so) libraries" OFF)
-option(USE_STATIC_RUNTIME "Link C++ runtime statically" OFF)
-option(ENABLE_IPO "Enable link-time optimization" OFF)
-option(ENABLE_HARDENING "Enable security hardening" OFF)
-option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
-option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
-option(SANITIZE_UNDEFINED "Enable undefined behavior sanitizer" OFF)
-option(SANITIZE_THREAD "Enable thread sanitizer" OFF)
-option(SANITIZE_MEMORY "Enable memory sanitizer" OFF)
-```
-
-> **⚠️ Coverage Limitation**: Coverage is supported **only for native `default` builds** (locally runnable). Cross targets (Emscripten, MinGW, ARM, etc.) are build‑only in this workflow; tests & coverage skipped.
-
-### 💡 Build System Tips
-
-- **Start with VSCode shortcuts** for the best development experience
-- **Use Python SolutionController** for automation and CI/CD
-- **Fall back to pure CMake** for integration with existing systems
-- **Always specify build types** with Conan to ensure proper linking
-- **Use presets** instead of manual CMake configuration
-- **Native builds only** for code coverage analysis
-
----
-
-## 📦 Package Management
-
-### 🔗 Conan 2.0 Integration
-
-This template uses Conan 2.0 for modern, efficient dependency management:
-
-```python
-# conanfile.py excerpt
-def requirements(self):
-    # Core dependencies
-    self.requires("fmt/[~11.2]")
-```
-
-### 📋 Dependency Management Commands
-
-> The only thing you need to do to use Conan in your environment is to install Conan and create a profile for your compiler.
-
-> The template automates everything you need. However, it's useful to know the basic commands for working with Conan. Find the official documentation at [Conan Documentation](https://docs.conan.io/en/latest/).
 
 ---
 
@@ -483,6 +345,7 @@ The template includes pre-configured `.clangd` and `.ccls` files:
 - Diagnostics disabled (handled by clangd)
 
 #### Troubleshooting
+
 ```bash
 # Clear ccls cache if CodeLens stops working
 rm -rf ~/.cache/ccls-cache
@@ -493,300 +356,68 @@ rm -rf .cache/clangd
 # In VS Code: Ctrl+Shift+P → "clangd: Restart language server"
 ```
 
-### 🔍 Static Analysis with clang-tidy
+### 🔍 Code Quality Tools
 
-> For clang-tidy linting must exist build artifacts due to the nature of the analysis.
-
-Keyboard shortcut: `Ctrl+Alt+L`
-
-### 🎨 Code Formatting
-
-> For clang-format and cmake-format, no build artifacts are needed.
-Keyboard shortcuts: `Ctrl+Alt+F` (C++), `Ctrl+Alt+M` (CMake)
+**Static Analysis**: `Ctrl+Alt+L` (clang-tidy - requires build artifacts)  
+**Code Formatting**: `Ctrl+Alt+F` (C++), `Ctrl+Alt+M` (CMake)  
+**Documentation**: `Ctrl+F7` → "� Generate Documentation" (Doxygen)  
+**Code Coverage**: `Ctrl+Alt+H` (native builds only)
 
 ---
 
-## 🌍 Cross-Platform Development
+## 🛠️ Maintenance Scripts
 
-### 🖥️ Platform Support Matrix
-
-| Feature | Linux | macOS | Windows | WebAssembly |
-|---------|-------|-------|---------|-------------|
-| **Native Build** | ✅ | ✅ | ✅ | N/A |
-| **Cross-Compilation** | ✅ | ✅ | ✅ | ✅ |
-| **Package Management** | ✅ | ✅ | ✅ | ✅ |
-| **IDE Integration** | ✅ | ✅ | ✅ | ✅ |
-| **CI/CD** | ✅ | ✅ | ✅ | ✅ |
-
-### 🔧 Cross-Compilation Setup
-
->Just like with native compilation, the best approach is to use VSCode keyboard shortcuts. However, if you need to use the command line, here are the basic commands:
-
-```bash
-# ARM64 Linux from x86_64
-conan install . -pr:h=profiles/arm64-linux -pr:b=default
-
-# Windows from Linux
-conan install . -pr:h=profiles/windows-x64 -pr:b=default
-
-# Configure cross-compilation
-cmake --preset cross-arm64-release
-```
-
----
-
-## 🌐 WebAssembly & Emscripten
-
-### 🚀 Emscripten Integration
-
-> This template provides seamless WebAssembly development with Emscripten. Simply use a Conan profile configured for your environment.
-
-### 🎯 Web Deployment
-
-Use the keyboard shortcut to build and serve the WebAssembly application locally:  
-Keyboard shortcut: `Ctrl+Alt+E`  
-
----
-
-## 🧪 Testing Framework
-
-### 🔬 Google Test Integration
-
-Comprehensive testing framework with Google Test:
-
-```cpp
-// Example test (application/tests/)
-#include <gtest/gtest.h>
-#include "DotNameLib/DotNameLib.hpp"
-
-TEST(DotNameLibTest, Initialization) {
-    dotname::DotNameLib lib("/path/to/assets");
-    EXPECT_TRUE(lib.isInitialized());
-    // Note: getVersion() method doesn't exist in current API
-    // Version info is embedded in DOTNAMELIB_VERSION macro
-}
-```
-
----
-
-## 📚 Library Development
-
-### 📦 Library Structure
-
-The template supports both header-only and compiled library development:
-
-```cpp
-// include/DotNameLib/DotNameLib.hpp
-#pragma once
-
-#include <DotNameLib/version.h>
-#include <filesystem>
-#include <string>
-
-namespace dotname {
-    inline namespace v1 {
-        class DotNameLib {
-        public:
-            DotNameLib();
-            explicit DotNameLib(const std::filesystem::path& assetsPath);
-            ~DotNameLib();
-            
-            // Public API
-            [[nodiscard]] bool isInitialized() const noexcept;
-            [[nodiscard]] const std::filesystem::path& getAssetsPath() const noexcept;
-        };
-    }
-}
-
-// src/DotNameLib.cpp
-#include "DotNameLib/DotNameLib.hpp"
-
-namespace dotname {
-    inline namespace v1 {
-        DotNameLib::DotNameLib() : isInitialized_(false) {
-            // Implementation
-        }
-    }
-}
-```
-
-### 🔗 Integration Methods Example
-
-1. project called **Wheels** *using DotNameCpp* and pushed to GitHub
-2. Then, in next project named **Car**, using the **Wheels** library as follows
-
-#### Method 1: CPM.cmake (Recommended)
-
-In project Car in file project-application.cmake:
-```cmake
-CPMAddPackage("gh:tomasmark79/Wheels#main")
-target_link_libraries(${application_NAME} PRIVATE WheelsLib)
-```
-
-In project Car in file project-tests.cmake:
-
-```cmake
-target_link_libraries(${TEST_NAME} PRIVATE WheelsLib)
-```
-
-In project Car in file AppCore.hpp create instance of the library:
-
-```cpp
-#include <WheelsLib/WheelsLib.hpp>
-
-std::unique_ptr<dotname::WheelsLib> uniqueWheelsLib;
-uniqueWheelsLib = std::make_unique<dotname::WheelsLib> (AppContext::assetsPath);
-LOG_I_STREAM << "Wheels count: " << uniqueWheelsLib->getWheelsCount() << std::endl;
-```
-
-#### Method 2: FetchContent similar to CPM.cmake
-
-```cmake
-include(FetchContent)
-FetchContent_Declare(
-    Wheels
-    GIT_REPOSITORY https://github.com/tomasmark79/Wheels.git
-    GIT_TAG v1.0.0
-)
-FetchContent_MakeAvailable(Wheels)
-
-target_link_libraries(your_target Wheels::Wheels)
-```
-
-#### Method 3: Conan Package (Planned)
-
-```python
-# In consumer project's conanfile.py
-def requirements(self):
-    self.requires("dotnamelib/1.0.0")
-```
-
-#### Method 4: find_package
-
-```cmake
-find_package(Wheels REQUIRED)
-target_link_libraries(your_target Wheels::Wheels)
-```
-
-#### Method 5: Subdirectory
-
-```cmake
-add_subdirectory(path/to/Wheels)
-target_link_libraries(your_target Wheels::Wheels)
-```
-
-### 🔄 Versioning Strategy
-
-The main versioning for libraries is maintained in the project definition file at `cmake/project-library.cmake`.
-
-```cmake
-project(
-    ${LIBRARY_NAME}
-    VERSION 0.0.1
-    LANGUAGES C CXX
-    DESCRIPTION "template Copyright (c) 2024 TomasMark [at] digitalspace.name"
-    HOMEPAGE_URL "https://github.com/tomasmark79/DotNameCpp")
-```
-
----
-
-## 🔄 CI/CD Pipeline
-
-### 🚀 GitHub Actions Workflows
-
-Comprehensive CI/CD with multi-platform support:
-
-**Implemented Workflows:**
-- **✅ Linux CI**: Ubuntu with GCC and Clang
-- **✅ macOS CI**: Latest macOS with Xcode
-- **✅ Windows CI**: Windows Server with MSVC
-- **✅ Emscripten CI**: WebAssembly builds and tests
-
-**Badge Status**: See repository badges at the top (linux.yml · macos.yml · windows.yml · emscripten.yml)
-
----
-
-## 🛠️ Maintenance & Utilities
-
-### 🔄 Project Maintenance Scripts
+### 🔄 Maintenance Scripts
 
 #### SolutionRenamer.py
-Rename your project from the template:
+Rename project from template defaults:
 
 ```bash
-python SolutionRenamer.py DotNameLib MyAwesomeLib DotNameapplication MyAwesomeApp
-python SolutionRenamer.py MyAwesomeLib DotNameLib MyAwesomeApp DotNameapplication
+python SolutionRenamer.py DotNameLib MyAwesomeLib DotNameApplication MyAwesomeApp
 ```
 
-Affected files: Check source code for the complete list.
-
 #### SolutionUpgrader.py
-Update template files from the upstream repository:
+Sync files from upstream template:
 
 ```bash
-python SolutionUpgrader.py
+python SolutionUpgrader.py -i    # Interactive mode
+python SolutionUpgrader.py -c    # Check for updates
+python SolutionUpgrader.py -u README.md  # Update specific file
 ```
 
 #### SolutionController.py
-Central automation hub for all build and development tasks:
+Central automation hub (normally accessed via VSCode shortcuts):
 
 ```bash
-# Interactive usage - Use VSCode tasks for full functionality
-python SolutionController.py
-
-# Command line usage
-python SolutionController.py <product> "<task>" <architecture> [build_type]
+python SolutionController.py <product> "<task>" <arch> [build_type]
 
 # Examples:
 python SolutionController.py application "🔨 Build" default Debug
 python SolutionController.py both "🦸 Zero to Hero" default Release
-python SolutionController.py emscripten "🚀 Launch Emscripten Server" noNeedArch
-
-# Note: Help system documentation is in development
 ```
 
 ---
 
-## 📖 Documentation
-
-### 📚 Doxygen Integration
-
-Automatic documentation generation with Doxygen:  
-Keyboard shortcut: `Ctrl+F7` → "📖 Generate Documentation"
-
----
-
-## 📄 License
+##  License
 
 **MIT License**  
 Copyright (c) 2024–2025 Tomáš Mark
 
 ---
 
-## ⚠️ Important Disclaimer
+## ⚠️ Important Notes
 
-This template is provided "as is" without warranties of any kind. While extensively tested across multiple platforms and continuously maintained, users must validate that the template meets their specific requirements before production use. The template undergoes regular updates to maintain compatibility with evolving toolchains and dependencies.
+- **Coverage**: Native `default` Debug builds only
+- **Emscripten**: Requires appropriate Conan profile (not auto-installed)
+- **Cross-compilation**: Conan profiles must be created manually
+- **CI/CD**: See badges at top for current build status
 
-**Key Considerations:**
-- Verify all dependencies and tools are compatible with your target environment
-- Test thoroughly in your specific development and deployment scenarios
-- Some features (marked as TODO) are planned but not yet implemented
-- Cross-platform builds may require additional configuration on certain systems
+For support: [Open an issue](https://github.com/tomasmark79/DotNameCpp/issues) · [Discussions](https://github.com/tomasmark79/DotNameCpp/discussions)
+
+Example project: [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexapplication.html)
 
 ---
 
 **Happy coding! 🚀**
-
-For support, questions, or suggestions, please [open an issue](https://github.com/tomasmark79/DotNameCpp/issues) or [start a discussion](https://github.com/tomasmark79/DotNameCpp/discussions).
-
-Exmaple born from DotNameCpp [DotNameIndex](https://digitalspace.name/dotnameindex/DotNameIndexapplication.html)
-
----
-
-## ⚠️ Limitations & Notes
-
-- Coverage tasks manages native `default` `Debug` only.
-- Emscripten requires an appropriate Conan profile (not auto-installed).
-- Cross-compilation Conan profiles aren't auto-generated; users must create them.
 
 [🔝 Back to top](#dotnamecpp---advanced-c-development-template)
