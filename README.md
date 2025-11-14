@@ -293,4 +293,4 @@ For support: [Open an issue](https://github.com/tomasmark79/DotNameCpp/issues) Â
 
 **Happy coding!**
 
-[Back to top](#dotnamecpp---advanced-c-development-template)
+[Back to top](#dotnamecpp--advanced-c-development-template)
