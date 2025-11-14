@@ -1,6 +1,5 @@
 import os
 import sys
-import codecs # For reading and writing files with utf-8 specific encoding (required for Windows)
 import re 
 
 # Renamer is respecting existing Uper and Lower letters and keep them in the new name
@@ -65,7 +64,6 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
         f"{application_dir}/{test_dir}/CMakeLists.txt",
         f"{application_dir}/{test_dir}/AssetManagerTest.cpp",
         f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp",
-        f"{source_dir}/{old_lib_name}.cpp",
         f"{source_dir}/Utils/UtilsFactory.hpp",
         f"{source_dir}/Utils/Logger/ConsoleLogger.hpp",
         ".vscode/launch.json",
@@ -83,7 +81,7 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
     print("=== Updating file contents ===")
     for file in files:
         if os.path.isfile(file):
-            with codecs.open(file, 'r', encoding='utf-8') as f:
+            with open(file, 'r', encoding='utf-8') as f:
                 content = f.read()
 
             # Replace all variants using regex with word boundaries for safer replacement
@@ -102,7 +100,7 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
             for pattern, replacement in patterns:
                 content = re.sub(pattern, replacement, content)
             
-            with codecs.open(file, 'w', encoding='utf-8') as f:
+            with open(file, 'w', encoding='utf-8') as f:
                 f.write(content)
             print(f"✓ Updated content in: {file}")
         else:
@@ -110,10 +108,8 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
 
     # 2. SECOND: Rename individual files (but NOT directories yet)
     print("\n=== Renaming files ===")
-    if os.path.isfile(f"{source_dir}/{old_lib_name}.cpp"):
-        os.rename(f"{source_dir}/{old_lib_name}.cpp", f"{source_dir}/{new_lib_name}.cpp")
-        print(f"✓ Renamed: {source_dir}/{old_lib_name}.cpp → {source_dir}/{new_lib_name}.cpp")
-
+    # Note: src/{old_lib_name}.cpp doesn't exist - this is a header-only library
+    
     if os.path.isfile(f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp"):
         os.rename(f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp", 
                   f"{include_dir}/{old_lib_name}/{new_lib_name}.hpp")
@@ -129,7 +125,7 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python3 SolutionRenamer.py <DotNameLib> <DotNameLib_New> <DotNameApplication> <DotNameApplication_New>")
+        print("Usage: python3 SolutionRenamer.py <DotNameLib> <NewAwesomeLib> <DotNameApplication> <NewAwesomeApplication>")
         sys.exit(1)
 
     old_lib_name = sys.argv[1]
