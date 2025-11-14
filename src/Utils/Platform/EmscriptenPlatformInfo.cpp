@@ -1,53 +1,48 @@
 #include "EmscriptenPlatformInfo.hpp"
 #include <fmt/core.h>
 
-namespace dotnamecpp {
-  namespace utils {
+namespace dotnamecpp::utils {
 
-    Platform EmscriptenPlatformInfo::getPlatform () const {
-      return Platform::Emscripten;
+  Platform EmscriptenPlatformInfo::getPlatform () const {
+    return Platform::Emscripten;
+  }
+
+  std::string EmscriptenPlatformInfo::getPlatformName () const {
+    return "Emscripten";
+  }
+
+  Result<std::filesystem::path, FileError> EmscriptenPlatformInfo::getExecutablePath () const {
+    // Emscripten doesn't have a traditional executable path
+    // Return current working directory as fallback
+    try {
+      return std::filesystem::current_path ();
+    } catch (const std::exception& e) {
+      return FileError{
+        .code = FileErrorCode::ReadError,
+        .message = fmt::format ("Failed to get current path in Emscripten: {}", e.what ()),
+        .path = "",
+      };
     }
+  }
 
-    std::string EmscriptenPlatformInfo::getPlatformName () const {
-      return "Emscripten";
-    }
+  Result<std::filesystem::path, FileError> EmscriptenPlatformInfo::getExecutableDirectory () const {
+    return getExecutablePath (); // Same as executable path for Emscripten
+  }
 
-    Result<std::filesystem::path, FileError> EmscriptenPlatformInfo::getExecutablePath () const {
-      // Emscripten doesn't have a traditional executable path
-      // Return current working directory as fallback
-      try {
-        return std::filesystem::current_path ();
-      } catch (const std::exception& e) {
-        return FileError{
-          .code = FileErrorCode::ReadError,
-          .message = fmt::format ("Failed to get current path in Emscripten: {}", e.what ()),
-          .path = "",
-        };
-      }
-    }
+  bool EmscriptenPlatformInfo::isWindows () const {
+    return false;
+  }
 
-    Result<std::filesystem::path, FileError>
-    EmscriptenPlatformInfo::getExecutableDirectory () const {
-      return getExecutablePath (); // Same as executable path for Emscripten
-    }
+  bool EmscriptenPlatformInfo::isLinux () const {
+    return false;
+  }
 
-    bool EmscriptenPlatformInfo::isWindows () const {
-      return false;
-    }
+  bool EmscriptenPlatformInfo::isMacOS () const {
+    return false;
+  }
 
-    bool EmscriptenPlatformInfo::isLinux () const {
-      return false;
-    }
+  bool EmscriptenPlatformInfo::isEmscripten () const {
+    return true;
+  }
 
-    bool EmscriptenPlatformInfo::isMacOS () const {
-      return false;
-    }
-
-    bool EmscriptenPlatformInfo::isEmscripten () const {
-      return true;
-    }
-
-  } // namespace utils
-} // namespace dotnamecpp
-
-// MIT License Copyright (c) 2024-2025 Tomáš Mark
+} // namespace dotnamecpp::utils
