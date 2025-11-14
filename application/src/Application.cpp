@@ -55,11 +55,7 @@ int main (int argc, char** argv) {
     logger->infoStream () << "Library initialized successfully";
 
     // Run application logic
-    logger->warningStream () << "... warning example ...";
-    logger->errorStream () << "... error example ...";
     logger->infoStream () << "DotNameApplication running...";
-    logger->infoStream () << ".";
-
     logger->infoStream () << "DotNameApplication shutting down";
     return EXIT_SUCCESS;
 

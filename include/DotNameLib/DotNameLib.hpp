@@ -17,8 +17,9 @@ namespace dotnamecpp::v1 {
                 std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
       : logger_ (logger ? std::move (logger) : std::make_shared<dotnamecpp::logging::NullLogger> ())
       , assetManager_ (std::move (assetManager)) {
+
       if (assetManager_ && assetManager_->validate ()) {
-        logger_->infoStream () << "DotNameLib initialized";
+        logger_->infoStream () << libName_ << " initialized ...";
         const auto logoPath = assetManager_->resolveAsset ("DotNameCppLogo.svg");
         if (assetManager_->assetExists ("DotNameCppLogo.svg")) {
           logger_->debugStream () << "Logo: " << logoPath << " found";
