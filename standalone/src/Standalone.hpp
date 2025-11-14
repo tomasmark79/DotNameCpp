@@ -1,10 +1,13 @@
 #pragma once
-#include "Assets/IAssetManager.hpp"
-#include "Logger/ILogger.hpp"
-#include "Logger/LoggerFactory.hpp"
 #include "DotNameLib/DotNameLib.hpp"
+#include <Logger/ILogger.hpp>
+#include <Logger/LoggerFactory.hpp>
+#include <Assets/IAssetManager.hpp>
+#include <Assets/AssetManagerFactory.hpp>
 #include <memory>
 #include <string>
+#include <filesystem>
+
 
 namespace dotnamecpp::app {
   class Standalone {
@@ -40,10 +43,6 @@ namespace dotnamecpp::app {
 
     bool initializeLibrary () {
       try {
-        if (!assetManager_) {
-          logger_->errorStream () << "Asset manager not initialized";
-          return initialized_ = false;
-        }
         library_ = std::make_unique<dotnamecpp::v1::DotNameLib> (logger_, assetManager_);
         logger_->infoStream () << "Library initialized successfully";
         return initialized_ = true;

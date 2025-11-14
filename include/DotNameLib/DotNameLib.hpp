@@ -1,6 +1,7 @@
 #pragma once
 
 #include <DotNameLib/version.h> // first configuration will create this file
+#include <Logger/LoggerFactory.hpp>
 #include <Logger/ILogger.hpp>
 #include <Logger/NullLogger.hpp>
 #include <Assets/IAssetManager.hpp>

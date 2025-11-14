@@ -15,7 +15,7 @@
 //   ├── app::             // Standalone application
 //   ├── logging::         // Logging subsystem
 //   ├── assets::          // Asset management
-//   └── utils::           // Utils (new OOP refactored)
+//   └── utils::           // Utils subsystem
 //       ├── IFileReader, IFileWriter, IPathResolver, IDirectoryManager
 //       ├── IPlatformInfo (Windows, Unix, Emscripten)
 //       ├── IJsonSerializer, ICustomStringsLoader
