@@ -16,7 +16,7 @@
 #include "fmt/core.h"
 
 #ifdef _WIN32
-  #include "../WindowsHeaders.hpp"
+  #include <Utils/Platform/WindowsHeaders.hpp>
 #endif
 
 class ConsoleLogger : public dotnamecpp::logging::ILogger {

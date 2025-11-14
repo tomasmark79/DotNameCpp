@@ -2,7 +2,7 @@
 #include <fmt/core.h>
 
 #ifdef _WIN32
-  #include "WindowsHeaders.hpp"
+  #include <Utils/Platform/WindowsHeaders.hpp>
 #endif
 
 namespace dotnamecpp {
@@ -14,7 +14,7 @@ namespace dotnamecpp {
 
     std::string WindowsPlatformInfo::getPlatformName () const {
       return "Windows";
-    }
+    }`
 
     Result<std::filesystem::path, FileError> WindowsPlatformInfo::getExecutablePath () const {
 #ifdef _WIN32
