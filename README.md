@@ -248,7 +248,7 @@ option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 Rename project from template defaults:
 
 ```bash
-python SolutionRenamer.py DotNameLib MyAwesomeLib DotNameApplication MyAwesomeApp
+python3 SolutionRenamer.py DotNameLib NewAwesomeLib DotNameApplication NewAwesomeApplication
 ```
 
 #### SolutionUpgrader.py
