@@ -1,69 +1,67 @@
-#include "Standalone.hpp"
+#include <DotNameLib/DotNameLib.hpp>
 #include <Utils/UtilsFactory.hpp>
 #include <cxxopts.hpp>
 #include <iostream>
 
-// Flow
-// Main.cpp ->
-// Standalone.hpp -> [Standalone.cpp (All implementations are inline)]
-// DotNameLib.hpp -> [DotNameLib.cpp (All implementations are inline)]
-
-// Namespace structure:
-// dotnamecpp::
-//   ├── v1::              // Main library
-//   ├── app::             // Standalone application
-//   ├── logging::         // Logging subsystem
-//   ├── assets::          // Asset management
-//   └── utils::           // Utils subsystem
-//       ├── IFileReader, IFileWriter, IPathResolver, IDirectoryManager
-//       ├── IPlatformInfo (Windows, Unix, Emscripten)
-//       ├── IJsonSerializer, ICustomStringsLoader
-//       └── IStringFormatter
-
-std::filesystem::path getStandalonePath () {
-  auto platformInfo = dotnamecpp::utils::UtilsFactory::createPlatformInfo ();
-  auto result = platformInfo->getExecutablePath ();
-  if (!result.hasValue ()) {
-    throw std::runtime_error ("Failed to get executable path: " + result.error ().toString ());
-  }
-  return result.value ();
-}
+// Standalone application using DotNameLib
+// All components initialized via UtilsFactory
 
 int main (int argc, char** argv) {
-  using namespace dotnamecpp::app;
+  using namespace dotnamecpp;
   using namespace dotnamecpp::logging;
+  using namespace dotnamecpp::utils;
 
   try {
-
-    Standalone app;
-
     // Parse command-line options
-    cxxopts::Options options (app.getAppName (), "DotName C++ Standalone Application");
+    cxxopts::Options options ("DotNameStandalone", "DotName C++ Standalone Application");
     options.add_options () ("h,help", "Print usage");
     options.add_options () ("w,write2file", "Write output to file",
                             cxxopts::value<bool> ()->default_value ("false"));
+
     auto result = options.parse (argc, argv);
     if (result.count ("help") > 0) {
       std::cout << options.help () << '\n';
       return EXIT_SUCCESS;
     }
 
+    // Get executable path
+    auto platformInfo = UtilsFactory::createPlatformInfo ();
+    auto execPathResult = platformInfo->getExecutablePath ();
+    if (!execPathResult.hasValue ()) {
+      std::cerr << "Failed to get executable path: " << execPathResult.error ().toString () << '\n';
+      return EXIT_FAILURE;
+    }
+
+    // Initialize logger
     LoggerConfig loggerConfig{ .level = Level::LOG_INFO,
                                .enableFileLogging = result["write2file"].as<bool> (),
                                .logFilePath = "standalone.log",
                                .colorOutput = true };
+    auto logger = UtilsFactory::createLogger (LoggerType::Console, loggerConfig);
 
-    if (!app.initializeComponents (loggerConfig, getStandalonePath ())) {
-      std::cerr << "Failed to initialize application\n";
+    // Initialize assets
+    auto assetManager = UtilsFactory::createAssetManager (execPathResult.value (), "DotNameStandalone");
+    if (!assetManager->validate ()) {
+      logger->errorStream () << "Failed to validate assets: " << assetManager->getAssetsPath ();
       return EXIT_FAILURE;
     }
+    logger->infoStream () << "Assets initialized: " << assetManager->getAssetsPath ();
 
-    return app.run ();
+    // Initialize library
+    auto library = std::make_unique<v1::DotNameLib> (logger, assetManager);
+    logger->infoStream () << "Library initialized successfully";
+
+    // Run application logic
+    logger->warningStream () << "... warning example ...";
+    logger->errorStream () << "... error example ...";
+    logger->infoStream () << "DotNameStandalone running...";
+    logger->infoStream () << ".";
+
+    logger->infoStream () << "DotNameStandalone shutting down";
+    return EXIT_SUCCESS;
 
   } catch (const std::exception& e) {
     std::cerr << "Fatal error: " << e.what () << '\n';
     return EXIT_FAILURE;
   }
-
-  //
 }
