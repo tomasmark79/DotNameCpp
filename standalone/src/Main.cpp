@@ -40,11 +40,14 @@ int main (int argc, char** argv) {
     auto logger = UtilsFactory::createLogger (LoggerType::Console, loggerConfig);
 
     // Initialize assets
-    auto assetManager = UtilsFactory::createAssetManager (execPathResult.value (), "DotNameStandalone");
+    auto assetManager =
+      UtilsFactory::createAssetManager (execPathResult.value (), "DotNameStandalone");
+
     if (!assetManager->validate ()) {
       logger->errorStream () << "Failed to validate assets: " << assetManager->getAssetsPath ();
       return EXIT_FAILURE;
     }
+
     logger->infoStream () << "Assets initialized: " << assetManager->getAssetsPath ();
 
     // Initialize library
