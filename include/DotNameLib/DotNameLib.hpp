@@ -17,29 +17,42 @@ namespace dotnamecpp::v1 {
     std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
 
-    [[nodiscard]]
-    std::shared_ptr<dotnamecpp::assets::IAssetManager> getAssetManager () const noexcept;
-
   public:
-    // Constructor with dependency injection
+    /**
+     * @brief Construct a new Dot Name Lib object by injection
+     * 
+     * @param logger 
+     * @param assetManager 
+     */
     DotNameLib (std::shared_ptr<logging::ILogger> logger,
         std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
-    // Destructor
     ~DotNameLib ();
-
-    // Non-copyable
     DotNameLib (const DotNameLib& other) = delete;
     DotNameLib& operator= (const DotNameLib& other) = delete;
 
-    // Moveable
+    /**
+     * @brief Construct a new Dot Name Lib object by moving
+     * 
+     * @param other 
+     */
     DotNameLib (DotNameLib&& other) noexcept;
     DotNameLib& operator= (DotNameLib&& other) noexcept;
 
-    // Public interface
+    /**
+     * @brief Check if the Dot Name Lib object is initialized
+     * 
+     * @return true 
+     * @return false 
+     */
     [[nodiscard]]
     bool isInitialized () const noexcept;
 
+    /**
+     * @brief Get the Assets Path object
+     * 
+     * @return const std::filesystem::path& 
+     */
     [[nodiscard]]
     const std::filesystem::path& getAssetsPath () const noexcept;
   };

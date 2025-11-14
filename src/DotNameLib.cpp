@@ -1,9 +1,8 @@
 #include <DotNameLib/DotNameLib.hpp>
-#include <Utils/Logger/NullLogger.hpp> // for fallback logger
+#include <Utils/Logger/NullLogger.hpp>
 
 namespace dotnamecpp::v1 {
 
-  // Constructor
   DotNameLib::DotNameLib (std::shared_ptr<logging::ILogger> logger,
       std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
       : logger_ (
@@ -24,7 +23,6 @@ namespace dotnamecpp::v1 {
     }
   }
 
-  // Destructor
   DotNameLib::~DotNameLib () {
     if (isInitialized_) {
       logger_->infoStream () << libName_ << " destructed";
@@ -33,7 +31,6 @@ namespace dotnamecpp::v1 {
     }
   }
 
-  // Move constructor
   DotNameLib::DotNameLib (DotNameLib&& other) noexcept
       : logger_ (std::move (other.logger_)),
         assetManager_ (std::move (other.assetManager_)),
@@ -45,7 +42,6 @@ namespace dotnamecpp::v1 {
     }
   }
 
-  // Move assignment operator
   DotNameLib& DotNameLib::operator= (DotNameLib&& other) noexcept {
     if (this != &other) {
       logger_ = std::move (other.logger_);
@@ -60,18 +56,12 @@ namespace dotnamecpp::v1 {
     return *this;
   }
 
-  // Public methods
   bool DotNameLib::isInitialized () const noexcept {
     return isInitialized_;
   }
 
   const std::filesystem::path& DotNameLib::getAssetsPath () const noexcept {
     return assetsPath_;
-  }
-
-  // Private methods
-  std::shared_ptr<dotnamecpp::assets::IAssetManager> DotNameLib::getAssetManager () const noexcept {
-    return assetManager_;
   }
 
 } // namespace dotnamecpp::v1
