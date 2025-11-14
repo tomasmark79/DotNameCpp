@@ -36,16 +36,7 @@ private:
 #endif
 
 public:
-  /**
-   * @brief Construct a new Console Logger object 
-   * 
-   */
   ConsoleLogger () = default;
-
-  /**
-   * @brief Destroy the Console Logger object
-   * 
-   */
   ~ConsoleLogger () {
     std::lock_guard<std::mutex> lock (logMutex_);
     if (logFile_.is_open ()) {
@@ -53,34 +44,12 @@ public:
     }
   }
 
-  /**
-   * @brief Copy constructor deleted to prevent copying
-   * 
-   */
   ConsoleLogger (const ConsoleLogger&) = delete;
-
-  /**
-   * @brief Copy assignment operator deleted to prevent copying
-   * 
-   * @return ConsoleLogger& 
-   */
   ConsoleLogger& operator= (const ConsoleLogger&) = delete;
-
-  /**
-   * @brief Move constructor
-   * 
-   * @param other 
-   */
   ConsoleLogger (ConsoleLogger&& other) noexcept : logFile_ (std::move (other.logFile_)),
                                                    addNewLine_ (other.addNewLine_) {
   }
 
-  /**
-   * @brief Move assignment operator
-   * 
-   * @param other 
-   * @return ConsoleLogger& 
-   */
   ConsoleLogger& operator= (ConsoleLogger&& other) noexcept {
     if (this != &other) {
       // Use std::lock to avoid deadlocks
@@ -165,33 +134,16 @@ public:
     }
   };
 
-  /**
-   * @brief Set the Level object  
-   * 
-   * @param level 
-   */
   void setLevel (dotnamecpp::logging::Level level) override {
     std::lock_guard<std::mutex> lock (logMutex_);
     currentLevel_ = level;
   };
 
-  /**
-   * @brief Get the Level object
-   * 
-   * @return dotnamecpp::logging::Level 
-   */
   [[nodiscard]]
   dotnamecpp::logging::Level getLevel () const override {
     return currentLevel_;
   };
 
-  /**
-   * @brief Enable logging to a file
-   * 
-   * @param filename 
-   * @return true 
-   * @return false 
-   */
   bool enableFileLogging (const std::string& filename) override {
     std::lock_guard<std::mutex> lock (logMutex_);
     try {
@@ -209,10 +161,6 @@ public:
     }
   };
 
-  /**
-   * @brief Disable logging to a file
-   * 
-   */
   void disableFileLogging () override {
     std::lock_guard<std::mutex> lock (logMutex_);
     if (logFile_.is_open ()) {

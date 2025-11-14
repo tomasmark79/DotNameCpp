@@ -9,6 +9,10 @@
 
 namespace dotnamecpp::logging {
 
+  /**
+   * @brief Logging levels 
+   * 
+   */
   enum class Level : std::uint8_t { LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR, LOG_CRITICAL };
 
   /**
@@ -62,15 +66,75 @@ namespace dotnamecpp::logging {
   public:
     ILogger () = default;
     virtual ~ILogger () = default;
+
+    /**
+     * @brief Log a debug message
+     * 
+     * @param message 
+     * @param caller 
+     */
     virtual void debug (const std::string& message, const std::string& caller = "") = 0;
+
+    /**
+     * @brief Log an info message
+     * 
+     * @param message 
+     * @param caller 
+     */
     virtual void info (const std::string& message, const std::string& caller = "") = 0;
+
+    /**
+     * @brief Log a warning message
+     * 
+     * @param message 
+     * @param caller 
+     */
     virtual void warning (const std::string& message, const std::string& caller = "") = 0;
+
+    /**
+     * @brief Log an error message
+     * 
+     * @param message 
+     * @param caller 
+     */
     virtual void error (const std::string& message, const std::string& caller = "") = 0;
+
+    /**
+     * @brief Log a critical message
+     * 
+     * @param message 
+     * @param caller 
+     */
     virtual void critical (const std::string& message, const std::string& caller = "") = 0;
+
+    /**
+     * @brief Set the Level object  
+     * 
+     * @param level 
+     */
     virtual void setLevel (Level level) = 0;
+
+    /**
+     * @brief Get the Level object  
+     * 
+     * @return Level 
+     */
     [[nodiscard]]
     virtual Level getLevel () const = 0;
+
+    /**
+     * @brief Enable logging to a file
+     * 
+     * @param filename 
+     * @return true 
+     * @return false 
+     */
     virtual bool enableFileLogging (const std::string& filename) = 0;
+
+    /**
+     * @brief Disable logging to a file
+     * 
+     */
     virtual void disableFileLogging () = 0;
 
     /**
@@ -85,36 +149,113 @@ namespace dotnamecpp::logging {
     }
 
     // Convenience methods for each log level
+
+    /**
+     * @brief Create a LogStream for streaming debug messages
+     * 
+     * @param caller 
+     * @return LogStream 
+     */
     LogStream debugStream (const std::string& caller = "") {
       return stream (Level::LOG_DEBUG, caller);
     }
+
+    /**
+     * @brief Create a LogStream for streaming info messages
+     * 
+     * @param caller 
+     * @return LogStream 
+     */
     LogStream infoStream (const std::string& caller = "") {
       return stream (Level::LOG_INFO, caller);
     }
+
+    /**
+     * @brief Create a LogStream for streaming warning messages
+     * 
+     * @param caller 
+     * @return LogStream 
+     */
     LogStream warningStream (const std::string& caller = "") {
       return stream (Level::LOG_WARNING, caller);
     }
+
+    /**
+     * @brief Create a LogStream for streaming error messages
+     * 
+     * @param caller 
+     * @return LogStream 
+     */
     LogStream errorStream (const std::string& caller = "") {
       return stream (Level::LOG_ERROR, caller);
     }
+
+    /**
+     * @brief Create a LogStream for streaming critical messages
+     * 
+     * @param caller 
+     * @return LogStream 
+     */
     LogStream criticalStream (const std::string& caller = "") {
       return stream (Level::LOG_CRITICAL, caller);
     }
 
     // Fmt convenience methods (non-virtual templates)
+    /**
+     * @brief Create a formatted debug message
+     * 
+     * @tparam Args 
+     * @param format 
+     * @param args 
+     */
     template <typename... Args>
     void debugFmt (const std::string& format, Args&&... args);
+
+    /**
+     * @brief Create a formatted info message
+     * 
+     * @tparam Args 
+     * @param format 
+     * @param args 
+     */
     template <typename... Args>
     void infoFmt (const std::string& format, Args&&... args);
+
+    /**
+     * @brief Create a formatted warning message
+     * 
+     * @tparam Args 
+     * @param format 
+     * @param args 
+     */
     template <typename... Args>
     void warningFmt (const std::string& format, Args&&... args);
+
+    /**
+     * @brief Create a formatted error message
+     * 
+     * @tparam Args 
+     * @param format 
+     * @param args 
+     */
     template <typename... Args>
     void errorFmt (const std::string& format, Args&&... args);
+
+    /**
+     * @brief Create a formatted critical message
+     * 
+     * @tparam Args 
+     * @param format 
+     * @param args 
+     */
     template <typename... Args>
     void criticalFmt (const std::string& format, Args&&... args);
   };
 
-  // LogStream destructor implementation - defined after ILogger
+  /**
+   * @brief Destroy the Log Stream:: Log Stream object  
+   * 
+   */
   inline LogStream::~LogStream () {
     const std::string message = oss_.str ();
     switch (level_) {
@@ -136,7 +277,7 @@ namespace dotnamecpp::logging {
     }
   }
 
-  // Fmt convenience method implementations
+  // Implementations of the fmt convenience methods
   template <typename... Args>
   inline void ILogger::debugFmt (const std::string& format, Args&&... args) {
     std::string message = fmt::vformat (format, fmt::make_format_args (args...));

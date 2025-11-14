@@ -24,39 +24,15 @@ namespace dotnamecpp::assets {
     static std::unique_ptr<IAssetManager> create (const std::filesystem::path& executablePath,
         const std::string& appName);
 
-    /**
-      * @brief Get the Assets Path object
-      * 
-      * @return const std::filesystem::path& 
-      */
     [[nodiscard]]
     const std::filesystem::path& getAssetsPath () const override;
 
-    /**
-     * @brief Resolve the full path of an asset given its relative path
-     * 
-     * @param relativePath  
-     * @return std::filesystem::path 
-     */
     [[nodiscard]]
     std::filesystem::path resolveAsset (const std::filesystem::path& relativePath) const override;
 
-    /**
-      * @brief Check if an asset exists at the given relative path
-      * 
-      * @param relativePath 
-      * @return true 
-      * @return false 
-      */
     [[nodiscard]]
     bool assetExists (const std::filesystem::path& relativePath) const override;
 
-    /**
-      * @brief Validate the Asset Manager configuration
-      * 
-      * @return true 
-      * @return false 
-      */
     [[nodiscard]]
     bool validate () const override;
 
