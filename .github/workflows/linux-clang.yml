@@ -1,4 +1,4 @@
-name: Windows MSVC
+name: Linux-clang
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
-      - '.github/workflows/windows.yml'
+      - '.github/workflows/linux-clang.yml'
   pull_request:
     branches: [ "main" ]
     paths:
@@ -20,40 +20,45 @@ on:
       - 'CMakeLists.txt'
       - 'conanfile.py'
       - 'cmake/**'
-      - '.github/workflows/windows.yml'
+      - '.github/workflows/linux-clang.yml'
 
 env:
   CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
   BUILD_TYPE: Release
+  CC: clang
+  CXX: clang++
 
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Clang
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang
 
       - name: create CPM cache
         id: cache-cpm
         uses: actions/cache@v3
         with:
           path: ${{env.CPM_SOURCE_CACHE}}
-          key: ${{ runner.os }}-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+          key: ${{ runner.os }}-clang-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
 
       - name: install conan to system
         run: |
-          # choco install python --version=3.9.2
-          # python -m pip install --upgrade pip
-          pip install conan
-          conan --version
+          sudo apt-get install -y python3-pip ccache
+          pip3 install conan
 
       - name: create Conan cache
         id: cache-conan
         uses: actions/cache@v3
         with:
-          path: C:\Users\runneradmin\.conan2
-          key: ${{ runner.os }}-conan-${{ hashFiles('**/conanfile.py') }}
+          path: /home/runner/.conan2
+          key: ${{ runner.os }}-clang-conan-${{ hashFiles('**/conanfile.py') }}
 
       - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
         name: Conan profile detect --force
@@ -63,10 +68,10 @@ jobs:
         run: conan profile show
 
       - name: install Conan dependencies
-        run: conan install . -s build_type=${{env.BUILD_TYPE}} -s compiler.cppstd=20 -of=${{github.workspace}}/build/application/default/debug -pr default -b=missing
+        run: conan install . -s build_type=${{env.BUILD_TYPE}} -s compiler.cppstd=20 -of=${{github.workspace}}/build/application/default/debug -pr default -b=missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=true
       
       - name: CMake configure
-        run: cmake -B ${{github.workspace}}/build/application/default/debug -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/build/application/default/debug/conan_toolchain.cmake -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_COMPILER=cl -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+        run: cmake -B ${{github.workspace}}/build/application/default/debug -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
       
       - name: CMake build
         run: cmake --build ${{github.workspace}}/build/application/default/debug --config ${{env.BUILD_TYPE}}
