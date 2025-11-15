@@ -11,7 +11,7 @@ import webbrowser
 
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
-controllerVersion = "v20250919"
+controllerVersion = "v20251115"
 
 systemPlatform = platform.system().lower()
 pythonVersion = sys.version.split()[0]
@@ -353,12 +353,27 @@ def cmake_build(bdir, target=None):
     else:
         target = f"--target {target}"
 
+    # For multi-configuration generators (like Visual Studio), specify the config
+    config_option = ""
+    if systemPlatform == "windows":
+        config_option = f"--config {buildType}"
+
     conan_build_sh_file = os.path.join(workSpaceDir, bdir, 'conanbuild.sh')
-    if os.path.exists(conan_build_sh_file):
+    conan_build_bat_file = os.path.join(workSpaceDir, bdir, 'conanbuild.bat')
+    
+    if systemPlatform == "windows" and os.path.exists(conan_build_bat_file):
+        winCmd = f'call "{conan_build_bat_file}" && cmake --build "{os.path.abspath(bdir)}" {config_option} {target} -j {os.cpu_count()}'
+        execute_subprocess(winCmd, "cmd.exe")
+    elif os.path.exists(conan_build_sh_file):
         bashCmd = f'source "{conan_build_sh_file}" && cmake --build "{os.path.abspath(bdir)}" {target} -j {os.cpu_count()}'
+        execute_subprocess(bashCmd, "/bin/bash")
     else:
-        bashCmd = f'cmake --build "{os.path.abspath(bdir)}" {target} -j {os.cpu_count()}'
-    execute_subprocess(bashCmd, "/bin/bash")
+        # Fallback without conan environment
+        if systemPlatform == "windows":
+            cmd = f'cmake --build "{os.path.abspath(bdir)}" {config_option} {target} -j {os.cpu_count()}'
+        else:
+            cmd = f'cmake --build "{os.path.abspath(bdir)}" {target} -j {os.cpu_count()}'
+        execute_command(cmd)
 
 
 def cmake_build_presets():
