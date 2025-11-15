@@ -102,7 +102,7 @@ jobs:
           EOF
       
       - name: Conan profile show
-        run: conan profile show ${{env.BUILD_ARCH}}
+        run: conan profile show --profile ${{env.BUILD_ARCH}}
 
       - name: install Conan dependencies
         run: conan install . --output-folder=${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release --deployer=full_deploy --build=missing --profile:host=${{env.BUILD_ARCH}} --profile:build=default --settings build_type=${{env.BUILD_TYPE}}
