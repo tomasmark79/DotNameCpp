@@ -1,0 +1,116 @@
+name: Linux-cross-aarch64
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'application/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/linux-cross-aarch64.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'application/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/linux-cross-aarch64.yml'
+
+env:
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
+  BUILD_TYPE: Release
+  BUILD_ARCH: rpi4_glibc2.36_gcc12.4
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM cross-compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+      - name: create CPM cache
+        id: cache-cpm
+        uses: actions/cache@v3
+        with:
+          path: ${{env.CPM_SOURCE_CACHE}}
+          key: ${{ runner.os }}-aarch64-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+
+      - name: install conan to system
+        run: |
+          sudo apt-get install -y python3-pip ccache
+          pip3 install conan
+
+      - name: create Conan cache
+        id: cache-conan
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.conan2
+          key: ${{ runner.os }}-aarch64-conan-${{ hashFiles('**/conanfile.py') }}
+
+      - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
+        name: Conan profile detect --force
+        run: conan profile detect --force
+      
+      - name: Create ARM64 Conan profile
+        run: |
+          conan profile detect --force
+          cat << EOF > ~/.conan2/profiles/${{env.BUILD_ARCH}}
+          [settings]
+          os=Linux
+          arch=armv8
+          compiler=gcc
+          compiler.version=12
+          compiler.libcxx=libstdc++11
+          build_type=${{env.BUILD_TYPE}}
+          
+          [buildenv]
+          CC=aarch64-linux-gnu-gcc
+          CXX=aarch64-linux-gnu-g++
+          AR=aarch64-linux-gnu-ar
+          RANLIB=aarch64-linux-gnu-ranlib
+          
+          [conf]
+          tools.cmake.cmaketoolchain:user_toolchain=["${{github.workspace}}/cmake/toolchain-aarch64.cmake"]
+          EOF
+      
+      - name: Create ARM64 CMake toolchain
+        run: |
+          mkdir -p ${{github.workspace}}/cmake
+          cat << EOF > ${{github.workspace}}/cmake/toolchain-aarch64.cmake
+          set(CMAKE_SYSTEM_NAME Linux)
+          set(CMAKE_SYSTEM_PROCESSOR aarch64)
+          
+          set(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+          set(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
+          
+          set(CMAKE_FIND_ROOT_PATH /usr/aarch64-linux-gnu)
+          set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+          set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+          set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+          EOF
+      
+      - name: Conan profile show
+        run: conan profile show ${{env.BUILD_ARCH}}
+
+      - name: install Conan dependencies
+        run: conan install . --output-folder=${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release --deployer=full_deploy --build=missing --profile:host=${{env.BUILD_ARCH}} --profile:build=default --settings build_type=${{env.BUILD_TYPE}}
+      
+      - name: CMake configure
+        run: |
+          source ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release/conanbuild.sh
+          cmake -S ${{github.workspace}} -B ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+      
+      - name: CMake build
+        run: cmake --build ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release --config ${{env.BUILD_TYPE}}
