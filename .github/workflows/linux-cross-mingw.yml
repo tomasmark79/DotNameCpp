@@ -1,0 +1,117 @@
+name: Linux-cross-mingw
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'application/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/linux-cross-mingw.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'include/**'
+      - 'application/**'
+      - 'CMakeLists.txt'
+      - 'conanfile.py'
+      - 'cmake/**'
+      - '.github/workflows/linux-cross-mingw.yml'
+
+env:
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
+  BUILD_TYPE: Release
+  BUILD_ARCH: x86_64_w64_mingw32
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MinGW cross-compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mingw-w64
+
+      - name: create CPM cache
+        id: cache-cpm
+        uses: actions/cache@v3
+        with:
+          path: ${{env.CPM_SOURCE_CACHE}}
+          key: ${{ runner.os }}-mingw-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+
+      - name: install conan to system
+        run: |
+          sudo apt-get install -y python3-pip ccache
+          pip3 install conan
+
+      - name: create Conan cache
+        id: cache-conan
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.conan2
+          key: ${{ runner.os }}-mingw-conan-${{ hashFiles('**/conanfile.py') }}
+
+      - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
+        name: Conan profile detect --force
+        run: conan profile detect --force
+      
+      - name: Create MinGW Conan profile
+        run: |
+          conan profile detect --force
+          cat << EOF > ~/.conan2/profiles/${{env.BUILD_ARCH}}
+          [settings]
+          os=Windows
+          arch=x86_64
+          compiler=gcc
+          compiler.version=11
+          compiler.libcxx=libstdc++11
+          build_type=${{env.BUILD_TYPE}}
+          
+          [buildenv]
+          CC=x86_64-w64-mingw32-gcc
+          CXX=x86_64-w64-mingw32-g++
+          AR=x86_64-w64-mingw32-ar
+          RANLIB=x86_64-w64-mingw32-ranlib
+          
+          [conf]
+          tools.cmake.cmaketoolchain:user_toolchain=["${{github.workspace}}/cmake/toolchain-mingw.cmake"]
+          EOF
+      
+      - name: Create MinGW CMake toolchain
+        run: |
+          mkdir -p ${{github.workspace}}/cmake
+          cat << EOF > ${{github.workspace}}/cmake/toolchain-mingw.cmake
+          set(CMAKE_SYSTEM_NAME Windows)
+          set(CMAKE_SYSTEM_PROCESSOR x86_64)
+          
+          set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
+          set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+          set(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
+          
+          set(CMAKE_FIND_ROOT_PATH /usr/x86_64-w64-mingw32)
+          set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+          set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+          set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+          EOF
+      
+      - name: Conan profile show
+        run: conan profile show ${{env.BUILD_ARCH}}
+
+      - name: install Conan dependencies
+        run: conan install . --output-folder=${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release --deployer=full_deploy --build=missing --profile:host=${{env.BUILD_ARCH}} --profile:build=default --settings build_type=${{env.BUILD_TYPE}}
+      
+      - name: CMake configure
+        run: |
+          source ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release/conanbuild.sh
+          cmake -S ${{github.workspace}} -B ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+      
+      - name: CMake build
+        run: cmake --build ${{github.workspace}}/build/application/${{env.BUILD_ARCH}}/release --config ${{env.BUILD_TYPE}}
