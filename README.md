@@ -153,7 +153,11 @@ Secondary workflow for code quality and maintenance:
 
 Use the keyboard shortcuts detailed in the [VSCode Keyboard Workflow](#vscode-keyboard-workflow) section for a seamless development experience.
 
-### Method 2: CMake + Conan (System Commands)
+> **💡 Note:** All build operations are orchestrated by `SolutionController.py`, which handles Conan dependencies, CMake configuration, and build execution automatically. The raw commands shown in Method 2 are provided for reference and advanced users only - in normal workflow, you simply use VSCode shortcuts and the controller manages everything for you.
+
+### Method 2: CMake + Conan (Raw Commands)
+
+> **⚠️ Advanced Users Only:** These raw commands are typically **not needed** - `SolutionController.py` (invoked via VSCode shortcuts) handles all of this automatically. Use these only for manual control, CI/CD pipelines, or understanding the build process internals.
 
 #### Native Builds
 
