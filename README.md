@@ -155,34 +155,193 @@ Use the keyboard shortcuts detailed in the [VSCode Keyboard Workflow](#vscode-ke
 
 ### Method 2: CMake + Conan (System Commands)
 
+#### Native Builds
+
 ```bash
-# Complete workflow
-conan install . --output-folder=build --build=missing -s build_type=Debug
-cmake --preset generic-linux-x86_64-gcc-15-debug
-cmake --build build -j $(nproc)
-ctest --test-dir build
+# Linux/macOS - Complete workflow
+conan install . --output-folder=build/application/default/debug \
+  -s build_type=Debug -s compiler.cppstd=20 -pr default -b=missing
 
-# Cross-compilation (Emscripten)
-conan install . --output-folder=build --build=missing -s build_type=Debug \
-  -pr:h=profiles/emscripten -pr:b=default
-cmake --preset emscripten-debug
-cmake --build build
+cmake -B build/application/default/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
 
-# Cross-compilation (MinGW)
-conan install . --output-folder=build --build=missing -s build_type=Debug \
-  -pr:h=profiles/x86_64_w64_mingw32 -pr:b=default
-cmake --preset mingw-x86_64-debug
-cmake --build build
+cmake --build build/application/default/debug --config Debug -j $(nproc)
+ctest --test-dir build/application/default/debug
+```
 
-# Code coverage (native only)
-conan install . --output-folder=build --build=missing -s build_type=Debug
-cmake --preset generic-linux-x86_64-gcc-15-debug -DENABLE_COVERAGE=ON
-cmake --build build
-ctest --test-dir build
-gcovr --html-details coverage.html
+```powershell
+# Windows (PowerShell)
+conan install . --output-folder=build/application/default/debug `
+  -s build_type=Debug -s compiler.cppstd=20 -pr default -b=missing
 
-# List available presets
+cmake -B build/application/default/debug `
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/debug/conan_toolchain.cmake `
+  -DCMAKE_BUILD_TYPE=Debug `
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/default/debug --config Debug
+ctest --test-dir build/application/default/debug
+```
+
+#### Cross-Compilation Examples
+
+```bash
+# Emscripten (WebAssembly)
+conan install . --output-folder=build/application/emscripten/debug \
+  -s build_type=Debug -s compiler.cppstd=20 \
+  -pr:host=emscripten -pr:build=default -b=missing
+
+source build/application/emscripten/debug/conanbuild.sh
+cmake -B build/application/emscripten/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/emscripten/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
+  -DPLATFORM=Web
+
+cmake --build build/application/emscripten/debug
+
+# MinGW (Windows cross-compile from Linux)
+conan install . --output-folder=build/application/x86_64_w64_mingw32/debug \
+  -s build_type=Debug -s compiler.cppstd=20 \
+  -pr:host=x86_64_w64_mingw32 -pr:build=default -b=missing
+
+source build/application/x86_64_w64_mingw32/debug/conanbuild.sh
+cmake -B build/application/x86_64_w64_mingw32/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/x86_64_w64_mingw32/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/x86_64_w64_mingw32/debug
+
+# ARM64/aarch64 (Raspberry Pi cross-compile from Linux)
+conan install . --output-folder=build/application/rpi4_glibc2.36_gcc12.4/debug \
+  -s build_type=Debug -s compiler.cppstd=20 \
+  -pr:host=rpi4_glibc2.36_gcc12.4 -pr:build=default -b=missing
+
+source build/application/rpi4_glibc2.36_gcc12.4/debug/conanbuild.sh
+cmake -B build/application/rpi4_glibc2.36_gcc12.4/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/rpi4_glibc2.36_gcc12.4/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/rpi4_glibc2.36_gcc12.4/debug
+```
+
+#### Build Type Variations
+
+```bash
+# Release build
+conan install . --output-folder=build/application/default/release \
+  -s build_type=Release -s compiler.cppstd=20 -pr default -b=missing
+
+cmake -B build/application/default/release \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/release/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/default/release --config Release
+
+# Release with Debug Info
+conan install . --output-folder=build/application/default/relwithdebinfo \
+  -s build_type=RelWithDebInfo -s compiler.cppstd=20 -pr default -b=missing
+
+cmake -B build/application/default/relwithdebinfo \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/relwithdebinfo/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/default/relwithdebinfo
+
+# Minimum Size Release
+conan install . --output-folder=build/application/default/minsizerel \
+  -s build_type=MinSizeRel -s compiler.cppstd=20 -pr default -b=missing
+
+cmake -B build/application/default/minsizerel \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/minsizerel/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=MinSizeRel \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON
+
+cmake --build build/application/default/minsizerel
+```
+
+#### Advanced Options
+
+```bash
+# Code coverage (native Debug builds only)
+conan install . --output-folder=build/application/default/debug \
+  -s build_type=Debug -s compiler.cppstd=20 -pr default -b=missing
+
+cmake -B build/application/default/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
+  -DENABLE_COVERAGE=ON
+
+cmake --build build/application/default/debug
+ctest --test-dir build/application/default/debug
+gcovr --html-details coverage.html --root .
+
+# With sanitizers (Debug only)
+cmake -B build/application/default/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
+  -DSANITIZE_ADDRESS=ON
+
+# With Link-Time Optimization (Release builds)
+cmake -B build/application/default/release \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/release/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
+  -DENABLE_IPO=ON
+
+# With hardening enabled
+cmake -B build/application/default/release \
+  -DCMAKE_TOOLCHAIN_FILE=build/application/default/release/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
+  -DENABLE_HARDENING=ON
+
+# Library only build
+conan install . --output-folder=build/library/default/debug \
+  -s build_type=Debug -s compiler.cppstd=20 -pr default -b=missing
+
+cmake -B build/library/default/debug \
+  -DCMAKE_TOOLCHAIN_FILE=build/library/default/debug/conan_toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=OFF
+
+cmake --build build/library/default/debug
+```
+
+#### Utility Commands
+
+```bash
+# List available CMake presets
 cmake --list-presets
+
+# Clean build
+rm -rf build/application/default/debug
+cmake --build build/application/default/debug --target clean
+
+# Install built artifacts
+cmake --install build/application/default/debug --prefix install
+
+# Create distribution package
+cd build/application/default/debug
+cpack -G TGZ
+
+# Run specific test
+ctest --test-dir build/application/default/debug -R TestName
+
+# Verbose build output
+cmake --build build/application/default/debug --verbose
+
+# Show Conan profile
+conan profile show --profile default
+conan profile show --profile x86_64_w64_mingw32
 ```
 
 ### Build Options
