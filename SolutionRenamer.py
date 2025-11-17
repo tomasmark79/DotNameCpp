@@ -12,8 +12,12 @@ cmake_dir = "cmake"
 
 # forbidden words that cannot be used in the project name
 FORBIDDEN_WORDS = [
-    'build', 'application', 'library', 'default', 'debug', 'release', 'relwithdebinfo',
-    'minsizerel', "appcontext", "index", "main", "test", "tests", "example", "examples"
+    'build', 'app', 'application', 'library', 'default', 'debug', 'release', 'relwithdebinfo',
+    'minsizerel', "appcontext", "index", "main", "test", "tests", "example", "examples",
+    'logger', 'asset', 'assets', 'utils', 'logging', 'factory', 'manager', 'loader',
+    'reader', 'writer', 'formatter', 'platform', 'filesystem', 'json', 'strings',
+    'serializer', 'resolver', 'console', 'windows', 'unix', 'emscripten', 'interface',
+    'mock', 'error', 'namespace', 'dotnamecpp', 'v1'
 ]
 
 def check_forbidden_words(name):
