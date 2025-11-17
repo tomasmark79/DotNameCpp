@@ -33,10 +33,14 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}/
 # Library dependencies
 # ==============================================================================
 # Try to find dependencies via find_package (Conan/system), fallback to CPM
+
+CPMAddPackage("gh:tomasmark79/PackageProject.cmake@1.13.0")
 find_package(fmt QUIET)
 if(NOT fmt_FOUND)
-    CPMAddPackage("gh:fmtlib/fmt#11.2.0")
-    install(TARGETS fmt EXPORT ${LIBRARY_NAME}Targets)
+    CPMAddPackage(
+        GITHUB_REPOSITORY fmtlib/fmt
+        GIT_TAG 12.1.0
+        OPTIONS "FMT_INSTALL YES" "FMT_TEST NO" "FMT_DOC NO")
 endif()
 
 find_package(nlohmann_json QUIET)
@@ -45,9 +49,7 @@ if(NOT nlohmann_json_FOUND)
     install(TARGETS nlohmann_json EXPORT ${LIBRARY_NAME}Targets)
 endif()
 
-# CPM packages specific to library
-CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.12.0")
-CPMAddPackage("gh:cpm-cmake/CPMLicenses.cmake@0.0.7")
+CPMAddPackage("gh:tomasmark79/CPMLicenses.cmake@0.0.7")
 cpm_licenses_create_disclaimer_target(
     write-licenses-${LIBRARY_NAME} "${CMAKE_CURRENT_BINARY_DIR}/${LIBRARY_NAME}_third_party.txt"
     "${CPM_PACKAGES}")
@@ -113,7 +115,7 @@ packageProject(
     INCLUDE_DIR "/include"
     INCLUDE_DESTINATION "include"
     INCLUDE_HEADER_PATTERN "*.h;*.hpp;*.hh;*.hxx"
-    DEPENDENCIES "fmt#11.2.0;nlohmann_json#3.12.0;CPMLicenses.cmake@0.0.7"
+    DEPENDENCIES "fmt#12.1.0;nlohmann_json#3.12.0;CPMLicenses.cmake@0.0.7"
     VERSION_HEADER "${LIBRARY_NAME}/version.h"
     EXPORT_HEADER "${LIBRARY_NAME}/export.h"
     NAMESPACE ${LIBRARY_NAMESPACE}

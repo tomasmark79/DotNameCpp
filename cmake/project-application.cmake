@@ -25,7 +25,7 @@ endif()
 # Application dependencies
 # ==============================================================================
 # Note: DotNameLib target should be available from orchestrator
-CPMAddPackage("gh:cpm-cmake/CPMLicenses.cmake@0.0.7")
+CPMAddPackage("gh:tomasmark79/CPMLicenses.cmake@0.0.7")
 cpm_licenses_create_disclaimer_target(
     write-licenses-${APPLICATION_NAME}
     "${CMAKE_CURRENT_BINARY_DIR}/${APPLICATION_NAME}_third_party.txt" "${CPM_PACKAGES}")
