@@ -57,10 +57,10 @@ class DotNameCppTemplate(ConanFile):
     def configure(self):
         self.options["*"].shared = False
 
-    def requirements(self):
-        self.requires("fmt/[~11.2]")                    # Formatting library
-        self.requires("nlohmann_json/[~3.12]")          # JSON library
-        self.requires("zlib/[~1.3]")                    # Compression library
+    #def requirements(self):
+        #self.requires("fmt/[~11.2]")                    # Formatting library
+        #self.requires("nlohmann_json/[~3.12]")          # JSON library
+        #self.requires("zlib/[~1.3]")                    # Compression library
 
     def build_requirements(self):
         # self.tool_requires("cmake/[>=3.15]")          # Minimum CMake version
