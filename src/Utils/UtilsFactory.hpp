@@ -8,6 +8,7 @@
 #include <Utils/Json/IJsonSerializer.hpp>
 #include <Utils/Logger/ILogger.hpp>
 #include <Utils/Logger/LoggerFactory.hpp>
+#include <Utils/Logger/NullLogger.hpp>
 #include <Utils/Platform/IPlatformInfo.hpp>
 #include <Utils/String/IStringFormatter.hpp>
 #include <Utils/Assets/IAssetManager.hpp>
