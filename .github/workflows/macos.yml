@@ -34,19 +34,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: create CPM cache
-        id: cache-cpm
-        uses: actions/cache@v3
-        with:
-          path: ${{env.CPM_SOURCE_CACHE}}
-          key: ${{ runner.os }}-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
-
       - name: install conan to system
         run: |
           brew update
           brew install ccache
           pipx install conan
           conan --version
+
+      - name: create CPM cache
+        id: cache-cpm
+        uses: actions/cache@v3
+        with:
+          path: ${{env.CPM_SOURCE_CACHE}}
+          key: ${{ runner.os }}-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
 
       - name: create Conan cache
         id: cache-conan

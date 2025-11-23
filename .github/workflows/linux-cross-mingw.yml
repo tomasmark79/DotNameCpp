@@ -40,17 +40,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mingw-w64
 
+      - name: install conan to system
+        run: |
+          sudo apt-get install -y python3-pip ccache
+          pip3 install conan
+
       - name: create CPM cache
         id: cache-cpm
         uses: actions/cache@v3
         with:
           path: ${{env.CPM_SOURCE_CACHE}}
           key: ${{ runner.os }}-mingw-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
-
-      - name: install conan to system
-        run: |
-          sudo apt-get install -y python3-pip ccache
-          pip3 install conan
 
       - name: create Conan cache
         id: cache-conan
