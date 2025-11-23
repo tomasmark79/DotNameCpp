@@ -59,14 +59,14 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{env.CPM_SOURCE_CACHE}}
-          key: ${{ runner.os }}-emscripten-cpm-${{ hashFiles('**/cmake/CPM.cmake') }}
+          key: ${{ runner.os }}-emscripten-cpm-${{ hashFiles('cmake/CPM.cmake') }}
 
       - name: create Conan cache
         id: cache-conan
         uses: actions/cache@v4
         with:
           path: /home/runner/.conan2
-          key: ${{ runner.os }}-emscripten-conan-${{ hashFiles('**/conanfile.py') }}
+          key: ${{ runner.os }}-emscripten-conan-${{ hashFiles('conanfile.py') }}
 
       - if: ${{ steps.cache-conan.outputs.cache-hit != 'true' }}
         name: Conan profile detect --force
