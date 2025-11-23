@@ -35,7 +35,7 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}/
 # Try to find dependencies via find_package (Conan/system), fallback to CPM
 
 CPMAddPackage("gh:tomasmark79/PackageProject.cmake@1.13.0")
-find_package(fmt QUIET)
+# find_package(fmt QUIET) # Disabled to always use CPM to avoid conflicts
 if(NOT fmt_FOUND)
     CPMAddPackage(
         GITHUB_REPOSITORY fmtlib/fmt
@@ -43,7 +43,7 @@ if(NOT fmt_FOUND)
         OPTIONS "FMT_INSTALL YES" "FMT_TEST NO" "FMT_DOC NO")
 endif()
 
-find_package(nlohmann_json QUIET)
+# find_package(nlohmann_json QUIET) # Disabled to always use CPM to avoid conflicts
 if(NOT nlohmann_json_FOUND)
     CPMAddPackage("gh:nlohmann/json@3.12.0")
     install(TARGETS nlohmann_json EXPORT ${LIBRARY_NAME}Targets)
