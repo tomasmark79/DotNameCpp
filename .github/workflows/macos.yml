@@ -25,6 +25,7 @@ on:
 env:
   CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_modules
   BUILD_TYPE: Release
+  CPM_VERSION: v0.42.0
 
 jobs:
   build:
@@ -46,7 +47,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{env.CPM_SOURCE_CACHE}}
-          key: ${{ runner.os }}-cpm-${{ hashFiles('**/CPM.cmake') }}
+          key: ${{ runner.os }}-cpm-${{ env.CPM_VERSION }}
 
       - name: create Conan cache
         id: cache-conan
