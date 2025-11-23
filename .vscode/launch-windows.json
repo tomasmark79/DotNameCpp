@@ -5,7 +5,7 @@
             "name": "Debug Default Application",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/application/default/debug/Debug/bin/DotNameApplication.exe",
+            "program": "${workspaceFolder}/build/application/default/debug/Debug/bin/DotNameBot.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/application/default/debug/bin/",

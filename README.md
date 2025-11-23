@@ -49,7 +49,7 @@ clonedotname() {
     git clone git@github.com:tomasmark79/DotNameCpp.git "$PN" && \
     rm -rf "$PN/.git" && \
     cd "$PN" && \
-    python SolutionRenamer.py DotNameLib "$PN"Lib DotNameApplication "$PN"App && \
+    python SolutionRenamer.py DotNameBotLib "$PN"Lib DotNameBot "$PN"App && \
     code .
 }
 ```
@@ -424,7 +424,7 @@ This project uses forked versions of key CMake utilities hosted on the maintaine
 Rename project from template defaults:
 
 ```bash
-python3 SolutionRenamer.py DotNameLib NewAwesomeLib DotNameApplication NewAwesomeApplication
+python3 SolutionRenamer.py DotNameBotLib NewAwesomeLib DotNameBot NewAwesomeApplication
 ```
 
 #### SolutionUpgrader.py

@@ -254,7 +254,7 @@ public:
   }
 
 private:
-  std::string headerName_ = "DotNameLib";
+  std::string headerName_ = "DotNameBotLib";
   bool includeName_ = true;
   bool includeTime_ = true;
   bool includeCaller_ = true;

@@ -24,7 +24,7 @@ endif()
 # ==============================================================================
 # Application dependencies
 # ==============================================================================
-# Note: DotNameLib target should be available from orchestrator
+# Note: DotNameBotLib target should be available from orchestrator
 CPMAddPackage("gh:tomasmark79/CPMLicenses.cmake@0.0.7")
 cpm_licenses_create_disclaimer_target(
     write-licenses-${APPLICATION_NAME}
@@ -52,7 +52,7 @@ target_sources(${APPLICATION_NAME} PRIVATE ${sources})
 apply_common_target_settings(${APPLICATION_NAME})
 
 # Link with library
-target_link_libraries(${APPLICATION_NAME} PRIVATE DotNameLib cxxopts::cxxopts)
+target_link_libraries(${APPLICATION_NAME} PRIVATE DotNameBotLib cxxopts::cxxopts)
 
 # ==============================================================================
 # Asset processing and Emscripten configuration

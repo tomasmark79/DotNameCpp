@@ -11,7 +11,7 @@
 #include <Utils/Platform/IPlatformInfo.hpp>
 #include <Utils/String/IStringFormatter.hpp>
 #include <Utils/Assets/IAssetManager.hpp>
-#include <DotNameLib/version.h>
+#include <DotNameBotLib/version.h>
 #include <memory>
 #include <filesystem>
 

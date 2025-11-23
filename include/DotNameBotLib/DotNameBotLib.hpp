@@ -1,6 +1,6 @@
 #pragma once
 
-#include <DotNameLib/version.h> // first configuration will create this file
+#include <DotNameBotLib/version.h> // first configuration will create this file
 #include <Utils/Logger/ILogger.hpp>
 #include <Utils/Logger/NullLogger.hpp>
 #include <Utils/Assets/IAssetManager.hpp>
@@ -9,11 +9,11 @@
 #include <memory>
 
 namespace dotnamecpp::v1 {
-  class DotNameLib {
+  class DotNameBotLib {
 
   public:
     // Constructor
-    DotNameLib (std::shared_ptr<logging::ILogger> logger,
+    DotNameBotLib (std::shared_ptr<logging::ILogger> logger,
                 std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
       : logger_ (logger ? std::move (logger) : std::make_shared<dotnamecpp::logging::NullLogger> ())
       , assetManager_ (std::move (assetManager)) {
@@ -32,7 +32,7 @@ namespace dotnamecpp::v1 {
     }
 
     // Destructor
-    ~DotNameLib () {
+    ~DotNameBotLib () {
       if (isInitialized_) {
         logger_->infoStream () << libName_ << " destructed";
       } else {
@@ -41,11 +41,11 @@ namespace dotnamecpp::v1 {
     }
 
     // Non-copyable
-    DotNameLib (const DotNameLib& other) = delete;
-    DotNameLib& operator= (const DotNameLib& other) = delete;
+    DotNameBotLib (const DotNameBotLib& other) = delete;
+    DotNameBotLib& operator= (const DotNameBotLib& other) = delete;
 
     // Move is allowed
-    DotNameLib (DotNameLib&& other) noexcept : logger_ (std::move (other.logger_)),
+    DotNameBotLib (DotNameBotLib&& other) noexcept : logger_ (std::move (other.logger_)),
                                                assetManager_ (std::move (other.assetManager_)),
                                                assetsPath_ (std::move (other.assetsPath_)),
                                                isInitialized_ (other.isInitialized_) {
@@ -56,7 +56,7 @@ namespace dotnamecpp::v1 {
     }
 
     // Move assignment allowed
-    DotNameLib& operator= (DotNameLib&& other) noexcept {
+    DotNameBotLib& operator= (DotNameBotLib&& other) noexcept {
       if (this != &other) {
         logger_ = std::move (other.logger_);
         assetManager_ = std::move (other.assetManager_);
@@ -71,7 +71,7 @@ namespace dotnamecpp::v1 {
     }
 
     /**
-     * @brief Check if the DotNameLib object is initialized
+     * @brief Check if the DotNameBotLib object is initialized
      * 
      * @return true 
      * @return false 
@@ -92,7 +92,7 @@ namespace dotnamecpp::v1 {
     }
 
   private:
-    const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
+    const std::string libName_ = "DotNameBotLib v." DOTNAMEBOTLIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
     std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
     std::filesystem::path assetsPath_;

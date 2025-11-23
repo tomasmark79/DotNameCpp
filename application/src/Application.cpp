@@ -1,9 +1,9 @@
-#include <DotNameLib/DotNameLib.hpp>
+#include <DotNameBotLib/DotNameBotLib.hpp>
 #include <Utils/UtilsFactory.hpp>
 #include <cxxopts.hpp>
 #include <iostream>
 
-// Application application using DotNameLib
+// Application application using DotNameBotLib
 // All components initialized via UtilsFactory
 
 int main (int argc, char** argv) {
@@ -13,7 +13,7 @@ int main (int argc, char** argv) {
 
   try {
     // Parse command-line options
-    cxxopts::Options options ("DotNameApplication", "DotName C++ Application");
+    cxxopts::Options options ("DotNameBot", "DotName C++ Application");
     options.add_options () ("h,help", "Print usage");
     options.add_options () ("w,write2file", "Write output to file",
                             cxxopts::value<bool> ()->default_value ("false"));
@@ -41,7 +41,7 @@ int main (int argc, char** argv) {
 
     // Initialize assets
     auto assetManager =
-      UtilsFactory::createAssetManager (execPathResult.value (), "DotNameApplication");
+      UtilsFactory::createAssetManager (execPathResult.value (), "DotNameBot");
 
     if (!assetManager->validate ()) {
       logger->errorStream () << "Failed to validate assets: " << assetManager->getAssetsPath ();
@@ -51,12 +51,12 @@ int main (int argc, char** argv) {
     logger->infoStream () << "Assets initialized: " << assetManager->getAssetsPath ();
 
     // Initialize library
-    auto library = std::make_unique<v1::DotNameLib> (logger, assetManager);
+    auto library = std::make_unique<v1::DotNameBotLib> (logger, assetManager);
     logger->infoStream () << "Library initialized successfully";
 
     // Run application logic
-    logger->infoStream () << "DotNameApplication running...";
-    logger->infoStream () << "DotNameApplication shutting down";
+    logger->infoStream () << "DotNameBot running...";
+    logger->infoStream () << "DotNameBot shutting down";
     return EXIT_SUCCESS;
 
   } catch (const std::exception& e) {
