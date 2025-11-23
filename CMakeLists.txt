@@ -31,10 +31,10 @@ include(cmake/project-common.cmake)
 # Library is needed by application, so include if either is requested
 if(BUILD_LIBRARY OR BUILD_APPLICATION)
     include(cmake/project-library.cmake)
-    message(STATUS "Building DotNameBotLib")
+    message(STATUS "Building DotNameLib")
 endif()
 
 if(BUILD_APPLICATION)
     include(cmake/project-application.cmake)
-    message(STATUS "Building DotNameBot")
+    message(STATUS "Building DotNameApplication")
 endif()

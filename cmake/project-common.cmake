@@ -20,12 +20,12 @@ endif()
 # ==============================================================================
 
 # Library names and attributes
-set(LIBRARY_NAME DotNameBotLib)
+set(LIBRARY_NAME DotNameLib)
 string(TOLOWER "${LIBRARY_NAME}" LIBRARY_NAME_LOWER)
 set(LIBRARY_NAMESPACE dotname)
 
 # Application names and attributes
-set(APPLICATION_NAME DotNameBot)
+set(APPLICATION_NAME DotNameApplication)
 string(TOLOWER "${APPLICATION_NAME}" APPLICATION_NAME_LOWER)
 set(APPLICATION_NAMESPACE dotname)
 

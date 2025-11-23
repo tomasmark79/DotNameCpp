@@ -178,7 +178,7 @@
         onRuntimeInitialized: function() {
           // Load SVG from Emscripten virtual filesystem
           try {
-            const svgData = FS.readFile('share/DotNameBot/assets/DotNameCppLogo.svg', { encoding: 'utf8' });
+            const svgData = FS.readFile('share/DotNameApplication/assets/DotNameCppLogo.svg', { encoding: 'utf8' });
             const dataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
             const logoImg = document.getElementById('logo-img');
             const logoContainer = document.getElementById('logo-container');

@@ -147,7 +147,7 @@
         {
             "label": "Launch Application binary",
             "type": "shell",
-            "command": "${workspaceFolder}/build/application/default/debug/bin/DotNameBot",
+            "command": "${workspaceFolder}/build/application/default/debug/bin/DotNameApplication",
             "args": [
                 ""
             ],
