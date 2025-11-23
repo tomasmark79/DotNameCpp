@@ -62,6 +62,15 @@ namespace dotnamecpp::utils {
     virtual std::optional<std::string> getTel (const std::string& id) const = 0;
 
     /**
+     * @brief Get the Path object
+     * 
+     * @param id 
+     * @return std::optional<std::string> 
+     */
+    [[nodiscard]]
+    virtual std::optional<std::string> getPath (const std::string& id) const = 0;
+
+    /**
      * @brief Get the Custom String Sign object
      * 
      * @return std::string 

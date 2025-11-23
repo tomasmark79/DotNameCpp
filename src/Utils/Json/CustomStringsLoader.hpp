@@ -39,6 +39,9 @@ namespace dotnamecpp::utils {
     std::optional<std::string> getTel (const std::string& id) const override;
 
     [[nodiscard]]
+    std::optional<std::string> getPath (const std::string& id) const override;
+
+    [[nodiscard]]
     std::string getCustomStringSign () const override;
 
   private:

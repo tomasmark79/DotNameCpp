@@ -147,6 +147,23 @@ namespace dotnamecpp::utils {
     return std::nullopt;
   }
 
+  std::optional<std::string> CustomStringsLoader::getPath (const std::string& id) const {
+    auto item = findById (id);
+    if (!item) {
+      return std::nullopt;
+    }
+
+    try {
+      if (item->contains ("data") && (*item)["data"].contains ("path")) {
+        return (*item)["data"]["path"].get<std::string> ();
+      }
+    } catch (const std::exception&) {
+      return std::nullopt;
+    }
+
+    return std::nullopt;
+  }
+
   std::string CustomStringsLoader::getCustomStringSign () const {
     std::string result;
 
