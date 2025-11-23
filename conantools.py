@@ -151,10 +151,11 @@ class ConanTools:
     
     def remove_stdcpp_from_system_libs(self):
         """
-        Remove stdc++ from SYSTEM_LIBS in generated Conan CMake files
+        Remove stdc++ and fs from SYSTEM_LIBS in generated Conan CMake files
         
-        This fixes linking issues that can occur when stdc++ is automatically
-        added to system libraries by Conan generators.
+        This fixes linking issues that can occur when stdc++ or fs (filesystem) 
+        is automatically added to system libraries by Conan generators.
+        Modern C++17/20 compilers include filesystem support without needing -lfs.
         """
         generators_path = Path(getattr(self.conan, 'generators_folder', None) or ".")
         
@@ -176,12 +177,25 @@ class ConanTools:
         return list(set(cmake_files))  # Remove duplicates
     
     def _patch_files(self, cmake_files):
-        """Patch the found CMake files to remove stdc++"""
-        # Compile regex pattern once for better performance
-        # This pattern matches SYSTEM_LIBS variables and removes stdc++ from them
-        system_libs_pattern = re.compile(
+        """
+        Patch the found CMake files to remove stdc++ and fs
+        
+        Modern C++17/20 compilers have std::filesystem support built directly 
+        into the standard library, so separate linking of -lfs or -lstdc++fs 
+        is no longer needed. This patch removes these unnecessary library 
+        dependencies to prevent linker errors.
+        """
+        # Compile regex patterns once for better performance
+        # Pattern to match and remove stdc++ from SYSTEM_LIBS
+        stdc_pattern = re.compile(
             r'(set\([^_]*_SYSTEM_LIBS(?:_[A-Z]+)?\s+[^)]*?)'
             r'stdc\+\+([^)]*\))', 
+            re.MULTILINE
+        )
+        # Pattern to match and remove fs (filesystem) from SYSTEM_LIBS
+        fs_pattern = re.compile(
+            r'(set\([^_]*_SYSTEM_LIBS(?:_[A-Z]+)?\s+[^)]*?)'
+            r'\bfs\b\s*([^)]*\))', 
             re.MULTILINE
         )
         
@@ -189,13 +203,17 @@ class ConanTools:
         for cmake_file in cmake_files:
             try:
                 content = cmake_file.read_text(encoding='utf-8')
+                original_content = content
                 
-                # Replace all occurrences of stdc++ in SYSTEM_LIBS
-                modified_content = system_libs_pattern.sub(r'\1\2', content)
+                # Remove stdc++ from SYSTEM_LIBS
+                content = stdc_pattern.sub(r'\1\2', content)
                 
-                if modified_content != content:
-                    cmake_file.write_text(modified_content, encoding='utf-8')
-                    self.conan.output.info(f"Patched {cmake_file.name} - removed stdc++ from SYSTEM_LIBS")
+                # Remove fs from SYSTEM_LIBS
+                content = fs_pattern.sub(r'\1\2', content)
+                
+                if content != original_content:
+                    cmake_file.write_text(content, encoding='utf-8')
+                    self.conan.output.info(f"Patched {cmake_file.name} - removed stdc++/fs from SYSTEM_LIBS")
                     patched_count += 1
                     
             except (IOError, OSError) as e:
