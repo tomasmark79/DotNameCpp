@@ -201,9 +201,37 @@ def get_all_files_from_repo():
     try:
         # GitHub API URL for repository contents
         api_url = "https://api.github.com/repos/tomasmark79/DotNameCpp/git/trees/main?recursive=1"
-        headers = {"Authorization": f"token {token}"} if token else {}
+        headers = {}
+        
+        if token:
+            headers["Authorization"] = f"token {token}"
+            logging.info("Using GitHub token for authentication")
+        else:
+            logging.warning("No GitHub token found. Rate limit: 60 requests/hour")
+            logging.warning("Set GITHUB_TOKEN environment variable to increase limit to 5000/hour")
         
         response = requests.get(api_url, timeout=30, verify=True, headers=headers)
+        
+        # Check for rate limit
+        if response.status_code == 403:
+            rate_limit_remaining = response.headers.get('X-RateLimit-Remaining', 'unknown')
+            rate_limit_reset = response.headers.get('X-RateLimit-Reset', 'unknown')
+            
+            if rate_limit_reset != 'unknown':
+                try:
+                    reset_time = datetime.fromtimestamp(int(rate_limit_reset))
+                    logging.error(f"GitHub API rate limit exceeded. Resets at: {reset_time}")
+                except ValueError:
+                    logging.error(f"GitHub API rate limit exceeded. Reset time: {rate_limit_reset}")
+            else:
+                logging.error("GitHub API rate limit exceeded")
+            
+            logging.error("Solutions:")
+            logging.error("1. Set GITHUB_TOKEN environment variable: export GITHUB_TOKEN='your_token'")
+            logging.error("2. Wait until rate limit resets")
+            logging.error("3. Create token at: https://github.com/settings/tokens")
+            return []
+        
         response.raise_for_status()
         
         data = response.json()
@@ -552,12 +580,25 @@ def interactive_update():
     # Get file status
     status = check_outdated_files(show_details=False)
     
-    # Create numbered list of updateable files
-    updateable_files = []
-    updateable_files.extend(status['outdated'])
-    updateable_files.extend(status['locally_modified'])
-    updateable_files.extend(status['differs'])
-    updateable_files.extend(status['missing'])
+    # Create numbered dictionary of updateable files with fixed indices
+    updateable_files = {}
+    file_index = 1
+    
+    for file_path in status['outdated']:
+        updateable_files[file_index] = {'path': file_path, 'status': 'outdated', 'updated': False}
+        file_index += 1
+    
+    for file_path in status['locally_modified']:
+        updateable_files[file_index] = {'path': file_path, 'status': 'locally_modified', 'updated': False}
+        file_index += 1
+    
+    for file_path in status['differs']:
+        updateable_files[file_index] = {'path': file_path, 'status': 'differs', 'updated': False}
+        file_index += 1
+    
+    for file_path in status['missing']:
+        updateable_files[file_index] = {'path': file_path, 'status': 'missing', 'updated': False}
+        file_index += 1
     
     if not updateable_files:
         print("\n✅ All files are up-to-date! Nothing to update.")
@@ -569,11 +610,29 @@ def interactive_update():
     
     while True:
         print("\n" + "="*70)
-        print("Select file to update (or 'q' to quit, 'r' to refresh):")
+        print("Available files to update:")
+        print("="*70)
+        
+        # Display files with status indicators
+        remaining_count = 0
+        for idx, file_info in updateable_files.items():
+            status_marker = "✅" if file_info['updated'] else "  "
+            print(f"{status_marker} {idx:3d}. {file_info['path']}")
+            if not file_info['updated']:
+                remaining_count += 1
+        
+        if remaining_count == 0:
+            print("\n🎉 All files updated!")
+            print(f"📦 Backup location: {backup_dir}")
+            print("="*70)
+            break
+        
+        print("="*70)
+        print("Commands: 'q' to quit, 'r' to refresh")
         print("="*70)
         
         try:
-            user_input = input("\nEnter number (1-{}) or command: ".format(len(updateable_files))).strip()
+            user_input = input(f"\nEnter number (1-{len(updateable_files)}) or command: ").strip()
             
             if user_input.lower() == 'q':
                 print("\n👋 Exiting interactive mode.")
@@ -583,11 +642,26 @@ def interactive_update():
             if user_input.lower() == 'r':
                 print("\n🔄 Refreshing file status...")
                 status = check_outdated_files(show_details=False)
-                updateable_files = []
-                updateable_files.extend(status['outdated'])
-                updateable_files.extend(status['locally_modified'])
-                updateable_files.extend(status['differs'])
-                updateable_files.extend(status['missing'])
+                
+                # Rebuild updateable_files dictionary
+                updateable_files = {}
+                file_index = 1
+                
+                for file_path in status['outdated']:
+                    updateable_files[file_index] = {'path': file_path, 'status': 'outdated', 'updated': False}
+                    file_index += 1
+                
+                for file_path in status['locally_modified']:
+                    updateable_files[file_index] = {'path': file_path, 'status': 'locally_modified', 'updated': False}
+                    file_index += 1
+                
+                for file_path in status['differs']:
+                    updateable_files[file_index] = {'path': file_path, 'status': 'differs', 'updated': False}
+                    file_index += 1
+                
+                for file_path in status['missing']:
+                    updateable_files[file_index] = {'path': file_path, 'status': 'missing', 'updated': False}
+                    file_index += 1
                 
                 if not updateable_files:
                     print("\n✅ All files are up-to-date! Nothing to update.")
@@ -598,12 +672,18 @@ def interactive_update():
             # Try to parse as number
             try:
                 file_num = int(user_input)
-                if file_num < 1 or file_num > len(updateable_files):
-                    print(f"\n❌ Invalid number! Please enter 1-{len(updateable_files)}")
+                if file_num not in updateable_files:
+                    print(f"\n❌ Invalid number! Please enter a valid file number")
                     continue
                 
-                # Get selected file
-                selected_file = updateable_files[file_num - 1]
+                # Get selected file info
+                file_info = updateable_files[file_num]
+                selected_file = file_info['path']
+                
+                # Check if already updated
+                if file_info['updated']:
+                    print(f"\n✅ File already updated: {selected_file}")
+                    continue
                 
                 # Check if file can be updated
                 if not can_update_file(selected_file):
@@ -620,14 +700,8 @@ def interactive_update():
                     if update_file(selected_file, backup_dir):
                         print(f"✅ Successfully updated: {selected_file}")
                         
-                        # Remove from list
-                        updateable_files.remove(selected_file)
-                        
-                        if not updateable_files:
-                            print("\n🎉 All selected files updated!")
-                            print(f"📦 Backup location: {backup_dir}")
-                            print("="*70)
-                            break
+                        # Mark as updated (keep same index number)
+                        file_info['updated'] = True
                     else:
                         print(f"❌ Failed to update: {selected_file}")
                 else:
