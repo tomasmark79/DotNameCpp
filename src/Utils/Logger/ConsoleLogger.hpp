@@ -24,6 +24,7 @@ private:
   std::mutex logMutex_;
   std::ofstream logFile_;
   bool addNewLine_ = true;
+  std::string appPrefix_;
 
 /**
   * @brief Current logging level for the console logger defined at compile time.
@@ -47,7 +48,9 @@ public:
   ConsoleLogger (const ConsoleLogger&) = delete;
   ConsoleLogger& operator= (const ConsoleLogger&) = delete;
   ConsoleLogger (ConsoleLogger&& other) noexcept : logFile_ (std::move (other.logFile_)),
-                                                   addNewLine_ (other.addNewLine_) {
+                                                   addNewLine_ (other.addNewLine_),
+                                                   appPrefix_ (std::move (other.appPrefix_)),
+                                                   currentLevel_ (other.currentLevel_) {
   }
 
   ConsoleLogger& operator= (ConsoleLogger&& other) noexcept {
@@ -59,6 +62,7 @@ public:
 
       logFile_ = std::move (other.logFile_);
       addNewLine_ = other.addNewLine_;
+      appPrefix_ = std::move (other.appPrefix_);
       currentLevel_ = other.currentLevel_;
     }
     return *this;
@@ -109,6 +113,9 @@ public:
 
     // Create log header
     std::ostringstream header;
+    if (!appPrefix_.empty ()) {
+      header << "[" << appPrefix_ << "]";
+    }
     header << "[" << std::put_time (&now_tm, "%Y-%m-%d %H:%M:%S") << "]";
     header << "[" << levelToString (level) << "]";
     if (!caller.empty ()) {
@@ -142,6 +149,16 @@ public:
   [[nodiscard]]
   dotnamecpp::logging::Level getLevel () const override {
     return currentLevel_;
+  };
+
+  void setAppPrefix (const std::string& prefix) override {
+    std::lock_guard<std::mutex> lock (logMutex_);
+    appPrefix_ = prefix;
+  };
+
+  [[nodiscard]]
+  std::string getAppPrefix () const override {
+    return appPrefix_;
   };
 
   bool enableFileLogging (const std::string& filename) override {
@@ -391,7 +408,6 @@ public:
     showHeaderCaller (incCaller);
     showHeaderLevel (incLevel);
   }
-
 }; // class ConsoleLogger
 
 #endif

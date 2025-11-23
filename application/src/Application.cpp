@@ -43,8 +43,7 @@ int main (int argc, char** argv) {
     auto logger = UtilsFactory::createLogger (LoggerType::Console, loggerConfig);
 
     // Initialize assets
-    auto assetManager =
-      UtilsFactory::createAssetManager (execPathResult.value (), appName);
+    auto assetManager = UtilsFactory::createAssetManager (execPathResult.value (), appName);
 
     if (!assetManager->validate ()) {
       logger->errorStream () << "Failed to validate assets: " << assetManager->getAssetsPath ();

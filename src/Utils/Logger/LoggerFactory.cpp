@@ -20,6 +20,10 @@ namespace dotnamecpp::logging {
     auto logger = std::make_shared<ConsoleLogger> ();
     logger->setLevel (config.level);
 
+    if (!config.appPrefix.empty ()) {
+      logger->setAppPrefix (config.appPrefix);
+    }
+
     if (config.enableFileLogging && !config.logFilePath.empty ()) {
       logger->enableFileLogging (config.logFilePath);
     }

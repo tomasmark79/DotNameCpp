@@ -78,7 +78,8 @@ namespace dotnamecpp::utils {
     LoggerConfig config{ .level = dotnamecpp::logging::Level::LOG_INFO,
                          .enableFileLogging = false,
                          .logFilePath = "",
-                         .colorOutput = true };
+                         .colorOutput = true,
+                         .appPrefix = "" };
     return createLogger (LoggerType::Console, config);
   }
 

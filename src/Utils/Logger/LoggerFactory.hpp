@@ -15,6 +15,7 @@ namespace dotnamecpp::logging {
     bool enableFileLogging = false;
     std::string logFilePath;
     bool colorOutput = true;
+    std::string appPrefix;
   };
 
   class LoggerFactory {

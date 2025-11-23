@@ -125,6 +125,20 @@ namespace dotnamecpp::logging {
     virtual Level getLevel () const = 0;
 
     /**
+     * @brief Set the application prefix for log messages
+     * 
+     * @param prefix 
+     */
+    virtual void setAppPrefix (const std::string& prefix) = 0;
+
+    /**
+     * @brief Get the App Prefix object 
+     * 
+     * @return std::string 
+     */
+    virtual std::string getAppPrefix () const = 0;
+
+    /**
      * @brief Enable logging to a file
      * 
      * @param filename 

@@ -25,10 +25,17 @@ namespace dotnamecpp::logging {
     Level getLevel () const override {
       return Level::LOG_INFO;
     }
+    void setAppPrefix (const std::string& /*prefix*/) override {
+    }
+
+    std::string getAppPrefix () const override {
+      return "";
+    }
 
     bool enableFileLogging (const std::string& /*filename*/) override {
       return true;
     }
+
     void disableFileLogging () override {
     }
   };
