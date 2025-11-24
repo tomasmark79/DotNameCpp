@@ -8,10 +8,10 @@ namespace dotnamecpp::utils {
   class PlatformInfoFactory {
   public:
     [[nodiscard]]
-    static std::unique_ptr<IPlatformInfo> createForCurrentPlatform ();
+    static std::unique_ptr<IPlatformInfo> createForCurrentPlatform();
 
     [[nodiscard]]
-    static std::unique_ptr<IPlatformInfo> create (Platform platform);
+    static std::unique_ptr<IPlatformInfo> create(Platform platform);
   };
 
 } // namespace dotnamecpp::utils

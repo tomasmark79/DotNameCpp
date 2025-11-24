@@ -1,5 +1,7 @@
 #pragma once
 
+#include <DotNameLib/version.h>
+#include <Utils/Assets/IAssetManager.hpp>
 #include <Utils/Filesystem/IDirectoryManager.hpp>
 #include <Utils/Filesystem/IFileReader.hpp>
 #include <Utils/Filesystem/IFileWriter.hpp>
@@ -11,10 +13,8 @@
 #include <Utils/Logger/NullLogger.hpp>
 #include <Utils/Platform/IPlatformInfo.hpp>
 #include <Utils/String/IStringFormatter.hpp>
-#include <Utils/Assets/IAssetManager.hpp>
-#include <DotNameLib/version.h>
-#include <memory>
 #include <filesystem>
+#include <memory>
 
 namespace dotnamecpp::utils {
 
@@ -28,42 +28,42 @@ namespace dotnamecpp::utils {
   public:
     // Filesystem factories
     [[nodiscard]]
-    static std::shared_ptr<IFileReader> createFileReader ();
+    static std::shared_ptr<IFileReader> createFileReader();
     [[nodiscard]]
-    static std::shared_ptr<IFileWriter> createFileWriter ();
+    static std::shared_ptr<IFileWriter> createFileWriter();
     [[nodiscard]]
-    static std::shared_ptr<IPathResolver> createPathResolver ();
+    static std::shared_ptr<IPathResolver> createPathResolver();
     [[nodiscard]]
-    static std::shared_ptr<IDirectoryManager> createDirectoryManager ();
+    static std::shared_ptr<IDirectoryManager> createDirectoryManager();
 
     // Platform factories
     [[nodiscard]]
-    static std::unique_ptr<IPlatformInfo> createPlatformInfo ();
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo();
     [[nodiscard]]
-    static std::unique_ptr<IPlatformInfo> createPlatformInfo (Platform platform);
+    static std::unique_ptr<IPlatformInfo> createPlatformInfo(Platform platform);
 
     // Assets factories
     [[nodiscard]]
     static std::shared_ptr<IAssetManager>
-    createAssetManager (const std::filesystem::path& executablePath, const std::string& appName);
+        createAssetManager(const std::filesystem::path &executablePath, const std::string &appName);
 
     // JSON factories
     [[nodiscard]]
-    static std::shared_ptr<IJsonSerializer> createJsonSerializer ();
+    static std::shared_ptr<IJsonSerializer> createJsonSerializer();
     [[nodiscard]]
     static std::shared_ptr<ICustomStringsLoader>
-    createCustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
-                               const std::string& filename = "customstrings.json");
+        createCustomStringsLoader(std::shared_ptr<IAssetManager> assetManager,
+                                  const std::string &filename = "customstrings.json");
 
     // String factories
     [[nodiscard]]
-    static std::shared_ptr<IStringFormatter> createStringFormatter ();
+    static std::shared_ptr<IStringFormatter> createStringFormatter();
 
     // Logger factories
     [[nodiscard]]
-    static std::shared_ptr<ILogger> createLogger (LoggerType type, const LoggerConfig& config);
+    static std::shared_ptr<ILogger> createLogger(LoggerType type, const LoggerConfig &config);
     [[nodiscard]]
-    static std::shared_ptr<ILogger> createDefaultLogger ();
+    static std::shared_ptr<ILogger> createDefaultLogger();
 
     // Application initialization helper
     struct AppComponents {
@@ -79,8 +79,8 @@ namespace dotnamecpp::utils {
      * @return AppComponents with logger, assetManager, and platformInfo
      */
     [[nodiscard]]
-    static AppComponents createAppComponents (const std::string& appName,
-                                              const LoggerConfig& loggerConfig);
+    static AppComponents createAppComponents(const std::string &appName,
+                                             const LoggerConfig &loggerConfig);
 
     // Convenience: Create complete utility set
     struct UtilsBundle {
@@ -95,7 +95,7 @@ namespace dotnamecpp::utils {
     };
 
     [[nodiscard]]
-    static UtilsBundle createBundle ();
+    static UtilsBundle createBundle();
   };
 
 } // namespace dotnamecpp::utils

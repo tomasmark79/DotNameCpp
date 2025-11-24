@@ -1,8 +1,8 @@
 #pragma once
 
+#include <Utils/Assets/IAssetManager.hpp>
 #include <Utils/Json/ICustomStringsLoader.hpp>
 #include <Utils/Json/IJsonSerializer.hpp>
-#include <Utils/Assets/IAssetManager.hpp>
 #include <memory>
 #include <mutex>
 
@@ -12,37 +12,37 @@ namespace dotnamecpp::utils {
 
   class CustomStringsLoader final : public ICustomStringsLoader {
   public:
-    CustomStringsLoader (std::shared_ptr<IAssetManager> assetManager,
-                         std::shared_ptr<IJsonSerializer> jsonSerializer,
-                         std::string filename = "customstrings.json");
+    CustomStringsLoader(std::shared_ptr<IAssetManager> assetManager,
+                        std::shared_ptr<IJsonSerializer> jsonSerializer,
+                        std::string filename = "customstrings.json");
 
-    CustomStringsLoader (const CustomStringsLoader&) = delete;
-    CustomStringsLoader& operator= (const CustomStringsLoader&) = delete;
-    CustomStringsLoader (CustomStringsLoader&&) = delete;
-    CustomStringsLoader& operator= (CustomStringsLoader&&) = delete;
-    ~CustomStringsLoader () override = default;
-
-    [[nodiscard]]
-    Result<nlohmann::json, JsonError> load () const override;
+    CustomStringsLoader(const CustomStringsLoader &) = delete;
+    CustomStringsLoader &operator=(const CustomStringsLoader &) = delete;
+    CustomStringsLoader(CustomStringsLoader &&) = delete;
+    CustomStringsLoader &operator=(CustomStringsLoader &&) = delete;
+    ~CustomStringsLoader() override = default;
 
     [[nodiscard]]
-    std::optional<std::string> getLocalizedString (const std::string& id,
-                                                   const std::string& locale = "en") const override;
+    Result<nlohmann::json, JsonError> load() const override;
 
     [[nodiscard]]
-    std::optional<std::string> getEmail (const std::string& id) const override;
+    std::optional<std::string> getLocalizedString(const std::string &id,
+                                                  const std::string &locale = "en") const override;
 
     [[nodiscard]]
-    std::optional<std::string> getUrl (const std::string& id) const override;
+    std::optional<std::string> getEmail(const std::string &id) const override;
 
     [[nodiscard]]
-    std::optional<std::string> getTel (const std::string& id) const override;
+    std::optional<std::string> getUrl(const std::string &id) const override;
 
     [[nodiscard]]
-    std::optional<std::string> getPath (const std::string& id) const override;
+    std::optional<std::string> getTel(const std::string &id) const override;
 
     [[nodiscard]]
-    std::string getCustomStringSign () const override;
+    std::optional<std::string> getPath(const std::string &id) const override;
+
+    [[nodiscard]]
+    std::string getCustomStringSign() const override;
 
   private:
     std::shared_ptr<IAssetManager> assetManager_;
@@ -54,10 +54,10 @@ namespace dotnamecpp::utils {
     mutable std::optional<nlohmann::json> cachedData_;
 
     [[nodiscard]]
-    Result<nlohmann::json, JsonError> ensureLoaded () const;
+    Result<nlohmann::json, JsonError> ensureLoaded() const;
 
     [[nodiscard]]
-    std::optional<nlohmann::json> findById (const std::string& id) const;
+    std::optional<nlohmann::json> findById(const std::string &id) const;
   };
 
 } // namespace dotnamecpp::utils

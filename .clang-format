@@ -172,7 +172,7 @@ IndentGotoLabels: true
 IndentPPDirectives: None
 IndentRequiresClause: true
 IndentWidth: 2
-IndentWrappedFunctionNames: false
+IndentWrappedFunctionNames: true
 InsertBraces: false
 InsertNewlineAtEOF: false
 InsertTrailingCommas: None
@@ -196,7 +196,7 @@ MacroBlockBegin: ""
 MacroBlockEnd: ""
 MainIncludeChar: Quote
 MaxEmptyLinesToKeep: 1
-NamespaceIndentation: None
+NamespaceIndentation: All
 ObjCBinPackProtocolList: Auto
 ObjCBlockIndentWidth: 2
 ObjCBreakBeforeNestedBlockParam: true

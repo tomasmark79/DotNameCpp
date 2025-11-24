@@ -6,34 +6,34 @@ namespace dotnamecpp::utils {
 
   /**
    * @brief Emscripten-specific platform information implementation
-   * 
+   *
    */
   class EmscriptenPlatformInfo final : public IPlatformInfo {
   public:
-    EmscriptenPlatformInfo () = default;
+    EmscriptenPlatformInfo() = default;
 
-    EmscriptenPlatformInfo (const EmscriptenPlatformInfo&) = delete;
-    EmscriptenPlatformInfo& operator= (const EmscriptenPlatformInfo&) = delete;
-    EmscriptenPlatformInfo (EmscriptenPlatformInfo&&) = delete;
-    EmscriptenPlatformInfo& operator= (EmscriptenPlatformInfo&&) = delete;
-    ~EmscriptenPlatformInfo () override = default;
+    EmscriptenPlatformInfo(const EmscriptenPlatformInfo &) = delete;
+    EmscriptenPlatformInfo &operator=(const EmscriptenPlatformInfo &) = delete;
+    EmscriptenPlatformInfo(EmscriptenPlatformInfo &&) = delete;
+    EmscriptenPlatformInfo &operator=(EmscriptenPlatformInfo &&) = delete;
+    ~EmscriptenPlatformInfo() override = default;
 
     [[nodiscard]]
-    Platform getPlatform () const override;
+    Platform getPlatform() const override;
     [[nodiscard]]
-    std::string getPlatformName () const override;
+    std::string getPlatformName() const override;
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getExecutablePath () const override;
+    Result<std::filesystem::path, FileError> getExecutablePath() const override;
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getExecutableDirectory () const override;
+    Result<std::filesystem::path, FileError> getExecutableDirectory() const override;
     [[nodiscard]]
-    bool isWindows () const override;
+    bool isWindows() const override;
     [[nodiscard]]
-    bool isLinux () const override;
+    bool isLinux() const override;
     [[nodiscard]]
-    bool isMacOS () const override;
+    bool isMacOS() const override;
     [[nodiscard]]
-    bool isEmscripten () const override;
+    bool isEmscripten() const override;
   };
 
 } // namespace dotnamecpp::utils

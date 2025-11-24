@@ -38,7 +38,7 @@ namespace dotnamecpp::utils {
     std::string path;
 
     [[nodiscard]]
-    std::string toString () const {
+    std::string toString() const {
       std::string codeStr;
       switch (code) {
       case FileErrorCode::NotFound:
@@ -69,7 +69,7 @@ namespace dotnamecpp::utils {
         codeStr = "Unknown";
         break;
       }
-      return codeStr + ": " + message + (path.empty () ? "" : " (path: " + path + ")");
+      return codeStr + ": " + message + (path.empty() ? "" : " (path: " + path + ")");
     }
   };
 
@@ -80,7 +80,7 @@ namespace dotnamecpp::utils {
     std::string details;
 
     [[nodiscard]]
-    std::string toString () const {
+    std::string toString() const {
       std::string codeStr;
       switch (code) {
       case JsonErrorCode::ParseError:
@@ -102,19 +102,19 @@ namespace dotnamecpp::utils {
         codeStr = "Unknown";
         break;
       }
-      return codeStr + ": " + message + (details.empty () ? "" : " (details: " + details + ")");
+      return codeStr + ": " + message + (details.empty() ? "" : " (details: " + details + ")");
     }
   };
 
   // Helper functions to create errors
-  inline FileError makeFileError (FileErrorCode code, const std::string& message,
-                                  const std::string& path = "") {
-    return FileError{ code, message, path };
+  inline FileError makeFileError(FileErrorCode code, const std::string &message,
+                                 const std::string &path = "") {
+    return FileError{code, message, path};
   }
 
-  inline JsonError makeJsonError (JsonErrorCode code, const std::string& message,
-                                  const std::string& details = "") {
-    return JsonError{ code, message, details };
+  inline JsonError makeJsonError(JsonErrorCode code, const std::string &message,
+                                 const std::string &details = "") {
+    return JsonError{code, message, details};
   }
 
   // Custom Result<T, E> implementation (similar to std::expected from C++23)
@@ -123,118 +123,114 @@ namespace dotnamecpp::utils {
   class Result {
   public:
     // Constructors for success case
-    Result (const T& value) : data_ (value), hasValue_ (true) {
-    }
+    Result(const T &value) : data_(value), hasValue_(true) {}
 
-    Result (T&& value) : data_ (std::move (value)), hasValue_ (true) {
-    }
+    Result(T &&value) : data_(std::move(value)), hasValue_(true) {}
 
     // Constructor for error case
-    Result (const E& error) : data_ (error), hasValue_ (false) {
-    }
+    Result(const E &error) : data_(error), hasValue_(false) {}
 
-    Result (E&& error) : data_ (std::move (error)), hasValue_ (false) {
-    }
+    Result(E &&error) : data_(std::move(error)), hasValue_(false) {}
 
     // Check if result contains value
     [[nodiscard]]
-    bool hasValue () const noexcept {
+    bool hasValue() const noexcept {
       return hasValue_;
     }
 
     [[nodiscard]]
-    explicit operator bool () const noexcept {
+    explicit operator bool() const noexcept {
       return hasValue_;
     }
 
     // Get value (throws if error)
     [[nodiscard]]
-    T& value () & {
+    T &value() & {
       if (!hasValue_) {
-        throw std::logic_error ("Accessing value of Result with error");
+        throw std::logic_error("Accessing value of Result with error");
       }
-      return std::get<T> (data_);
+      return std::get<T>(data_);
     }
 
     [[nodiscard]]
-    const T& value () const& {
+    const T &value() const & {
       if (!hasValue_) {
-        throw std::logic_error ("Accessing value of Result with error");
+        throw std::logic_error("Accessing value of Result with error");
       }
-      return std::get<T> (data_);
+      return std::get<T>(data_);
     }
 
     [[nodiscard]]
-    T&& value () && {
+    T &&value() && {
       if (!hasValue_) {
-        throw std::logic_error ("Accessing value of Result with error");
+        throw std::logic_error("Accessing value of Result with error");
       }
-      return std::get<T> (std::move (data_));
+      return std::get<T>(std::move(data_));
     }
 
     // Get error (throws if value)
     [[nodiscard]]
-    E& error () & {
+    E &error() & {
       if (hasValue_) {
-        throw std::logic_error ("Accessing error of Result with value");
+        throw std::logic_error("Accessing error of Result with value");
       }
-      return std::get<E> (data_);
+      return std::get<E>(data_);
     }
 
     [[nodiscard]]
-    const E& error () const& {
+    const E &error() const & {
       if (hasValue_) {
-        throw std::logic_error ("Accessing error of Result with value");
+        throw std::logic_error("Accessing error of Result with value");
       }
-      return std::get<E> (data_);
+      return std::get<E>(data_);
     }
 
     [[nodiscard]]
-    E&& error () && {
+    E &&error() && {
       if (hasValue_) {
-        throw std::logic_error ("Accessing error of Result with value");
+        throw std::logic_error("Accessing error of Result with value");
       }
-      return std::get<E> (std::move (data_));
+      return std::get<E>(std::move(data_));
     }
 
     // Dereference operators (for value)
     [[nodiscard]]
-    T* operator->() {
-      return &value ();
+    T *operator->() {
+      return &value();
     }
 
     [[nodiscard]]
-    const T* operator->() const {
-      return &value ();
+    const T *operator->() const {
+      return &value();
     }
 
     [[nodiscard]]
-    T& operator* () & {
-      return value ();
+    T &operator*() & {
+      return value();
     }
 
     [[nodiscard]]
-    const T& operator* () const& {
-      return value ();
+    const T &operator*() const & {
+      return value();
     }
 
     [[nodiscard]]
-    T&& operator* () && {
-      return std::move (value ());
+    T &&operator*() && {
+      return std::move(value());
     }
 
     // Get value or default
     template <typename U>
     [[nodiscard]]
-    T valueOr (U&& defaultValue) const& {
-      return hasValue_ ? std::get<T> (data_) : static_cast<T> (std::forward<U> (defaultValue));
+    T valueOr(U &&defaultValue) const & {
+      return hasValue_ ? std::get<T>(data_) : static_cast<T>(std::forward<U>(defaultValue));
     }
 
     template <typename U>
     [[nodiscard]]
-    T valueOr (U&& defaultValue) && {
-      return hasValue_ ? std::get<T> (std::move (data_))
-                       : static_cast<T> (std::forward<U> (defaultValue));
+    T valueOr(U &&defaultValue) && {
+      return hasValue_ ? std::get<T>(std::move(data_))
+                       : static_cast<T>(std::forward<U>(defaultValue));
     }
 
   private:
@@ -247,38 +243,35 @@ namespace dotnamecpp::utils {
   class Result<void, E> {
   public:
     // Constructor for success case
-    Result () : error_ (std::nullopt), hasValue_ (true) {
-    }
+    Result() : error_(std::nullopt), hasValue_(true) {}
 
     // Constructor for error case
-    Result (const E& error) : error_ (error), hasValue_ (false) {
-    }
+    Result(const E &error) : error_(error), hasValue_(false) {}
 
-    Result (E&& error) : error_ (std::move (error)), hasValue_ (false) {
-    }
+    Result(E &&error) : error_(std::move(error)), hasValue_(false) {}
 
     [[nodiscard]]
-    bool hasValue () const noexcept {
+    bool hasValue() const noexcept {
       return hasValue_;
     }
 
     [[nodiscard]]
-    explicit operator bool () const noexcept {
+    explicit operator bool() const noexcept {
       return hasValue_;
     }
 
     [[nodiscard]]
-    E& error () & {
+    E &error() & {
       if (hasValue_) {
-        throw std::logic_error ("Accessing error of successful Result");
+        throw std::logic_error("Accessing error of successful Result");
       }
       return *error_;
     }
 
     [[nodiscard]]
-    const E& error () const& {
+    const E &error() const & {
       if (hasValue_) {
-        throw std::logic_error ("Accessing error of successful Result");
+        throw std::logic_error("Accessing error of successful Result");
       }
       return *error_;
     }

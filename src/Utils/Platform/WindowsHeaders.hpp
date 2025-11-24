@@ -5,30 +5,30 @@
 // Include this instead of <windows.h> directly to avoid conflicts
 
 #ifdef _WIN32
-  #ifndef NOMINMAX
-    #define NOMINMAX
-  // Disable min/max macros in windows.h to avoid conflicts with std::min/max
-  #endif
+#ifndef NOMINMAX
+#define NOMINMAX
+// Disable min/max macros in windows.h to avoid conflicts with std::min/max
+#endif
 
-  // Protect Raylib functions from Windows.h macro conflicts
-  #define Rectangle WindowsRectangle
-  #define CloseWindow WindowsCloseWindow
-  #define ShowCursor WindowsShowCursor
-  #define DrawText WindowsDrawText
-  #define PlaySound WindowsPlaySound
-  #define LoadImage WindowsLoadImage
-  #define DrawTextEx WindowsDrawTextEx
+// Protect Raylib functions from Windows.h macro conflicts
+#define Rectangle WindowsRectangle
+#define CloseWindow WindowsCloseWindow
+#define ShowCursor WindowsShowCursor
+#define DrawText WindowsDrawText
+#define PlaySound WindowsPlaySound
+#define LoadImage WindowsLoadImage
+#define DrawTextEx WindowsDrawTextEx
 
-  #include <windows.h>
+#include <windows.h>
 
-  // Restore Raylib function names
-  #undef Rectangle
-  #undef CloseWindow
-  #undef ShowCursor
-  #undef DrawText
-  #undef PlaySound
-  #undef LoadImage
-  #undef DrawTextEx
+// Restore Raylib function names
+#undef Rectangle
+#undef CloseWindow
+#undef ShowCursor
+#undef DrawText
+#undef PlaySound
+#undef LoadImage
+#undef DrawTextEx
 
 #endif // _WIN32
 

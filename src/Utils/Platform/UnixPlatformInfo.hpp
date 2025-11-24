@@ -6,34 +6,34 @@ namespace dotnamecpp::utils {
 
   /**
    * @brief Unix-like platform information implementation (Linux/macOS)
-   * 
+   *
    */
   class UnixPlatformInfo final : public IPlatformInfo {
   public:
-    UnixPlatformInfo () = default;
+    UnixPlatformInfo() = default;
 
-    UnixPlatformInfo (const UnixPlatformInfo&) = delete;
-    UnixPlatformInfo& operator= (const UnixPlatformInfo&) = delete;
-    UnixPlatformInfo (UnixPlatformInfo&&) = delete;
-    UnixPlatformInfo& operator= (UnixPlatformInfo&&) = delete;
-    ~UnixPlatformInfo () override = default;
+    UnixPlatformInfo(const UnixPlatformInfo &) = delete;
+    UnixPlatformInfo &operator=(const UnixPlatformInfo &) = delete;
+    UnixPlatformInfo(UnixPlatformInfo &&) = delete;
+    UnixPlatformInfo &operator=(UnixPlatformInfo &&) = delete;
+    ~UnixPlatformInfo() override = default;
 
     [[nodiscard]]
-    Platform getPlatform () const override;
+    Platform getPlatform() const override;
     [[nodiscard]]
-    std::string getPlatformName () const override;
+    std::string getPlatformName() const override;
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getExecutablePath () const override;
+    Result<std::filesystem::path, FileError> getExecutablePath() const override;
     [[nodiscard]]
-    Result<std::filesystem::path, FileError> getExecutableDirectory () const override;
+    Result<std::filesystem::path, FileError> getExecutableDirectory() const override;
     [[nodiscard]]
-    bool isWindows () const override;
+    bool isWindows() const override;
     [[nodiscard]]
-    bool isLinux () const override;
+    bool isLinux() const override;
     [[nodiscard]]
-    bool isMacOS () const override;
+    bool isMacOS() const override;
     [[nodiscard]]
-    bool isEmscripten () const override;
+    bool isEmscripten() const override;
   };
 
 } // namespace dotnamecpp::utils
