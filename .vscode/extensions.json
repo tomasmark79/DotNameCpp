@@ -34,6 +34,7 @@
         "redhat.vscode-yaml",
         "ms-vscode.cmake-tools",
         "llvm-vs-code-extensions.vscode-clangd",
-        "xaver.clang-format"
+        "xaver.clang-format",
+        "rogalmic.bash-debug"
     ]
 }
