@@ -17,6 +17,11 @@
 
 #ifdef _WIN32
 #include <Utils/Platform/WindowsHeaders.hpp>
+#include <io.h>
+#define isatty _isatty
+#define fileno _fileno
+#else
+#include <unistd.h>
 #endif
 
 class ConsoleLogger : public dotnamecpp::logging::ILogger {
@@ -36,6 +41,9 @@ private:
   dotnamecpp::logging::Level currentLevel_ = dotnamecpp::logging::Level::LOG_INFO;
 #endif
 
+  bool colorEnabled_ = true;    // User can override
+  bool autoDetectColor_ = true; // Auto-detect TTY support
+
 public:
   ConsoleLogger() = default;
   ~ConsoleLogger() {
@@ -49,7 +57,8 @@ public:
   ConsoleLogger &operator=(const ConsoleLogger &) = delete;
   ConsoleLogger(ConsoleLogger &&other) noexcept
       : logFile_(std::move(other.logFile_)), addNewLine_(other.addNewLine_),
-        appPrefix_(std::move(other.appPrefix_)), currentLevel_(other.currentLevel_) {}
+        appPrefix_(std::move(other.appPrefix_)), currentLevel_(other.currentLevel_),
+        colorEnabled_(other.colorEnabled_), autoDetectColor_(other.autoDetectColor_) {}
 
   ConsoleLogger &operator=(ConsoleLogger &&other) noexcept {
     if (this != &other) {
@@ -62,6 +71,8 @@ public:
       addNewLine_ = other.addNewLine_;
       appPrefix_ = std::move(other.appPrefix_);
       currentLevel_ = other.currentLevel_;
+      colorEnabled_ = other.colorEnabled_;
+      autoDetectColor_ = other.autoDetectColor_;
     }
     return *this;
   }
@@ -122,13 +133,17 @@ public:
     header << " ";
 
     // Log to console
-    setConsoleColor(level);
+    if (shouldUseColors()) {
+      setConsoleColor(level);
+    }
     std::cout << header.str() << message;
     if (addNewLine_) {
       std::cout << "\n";
     }
 
-    resetConsoleColor();
+    if (shouldUseColors()) {
+      resetConsoleColor();
+    }
 
     // Log to file if enabled
     if (logFile_.is_open()) {
@@ -403,6 +418,45 @@ public:
     showHeaderTime(incTime);
     showHeaderCaller(incCaller);
     showHeaderLevel(incLevel);
+  }
+
+  /**
+   * @brief Enable or disable colored output
+   *
+   * @param enabled Whether to use colored output (overrides auto-detection)
+   */
+  void setColorEnabled(bool enabled) {
+    std::lock_guard<std::mutex> lock(logMutex_);
+    colorEnabled_ = enabled;
+    autoDetectColor_ = false; // Manual override disables auto-detection
+  }
+
+  /**
+   * @brief Enable automatic color detection based on TTY
+   *
+   * @param autoDetect Whether to auto-detect color support
+   */
+  void setAutoDetectColor(bool autoDetect) {
+    std::lock_guard<std::mutex> lock(logMutex_);
+    autoDetectColor_ = autoDetect;
+  }
+
+private:
+  /**
+   * @brief Check if colors should be used for console output
+   *
+   * @return true if colors should be used, false otherwise
+   */
+  bool shouldUseColors() const {
+    if (!autoDetectColor_) {
+      return colorEnabled_;
+    }
+    // Auto-detect: check if stdout is a TTY
+#ifdef __EMSCRIPTEN__
+    return false; // No color support in Emscripten
+#else
+    return colorEnabled_ && (isatty(fileno(stdout)) != 0);
+#endif
   }
 }; // class ConsoleLogger
 
