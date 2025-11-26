@@ -381,7 +381,7 @@ option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 |------|---------|--------------|
 | **ccache** | Compilation cache | [Download](https://ccache.dev/download.html) |
 | **clang-tidy** | Static analysis | Part of LLVM |
-| **clang-format** | Code formatting | Part of LLVM |
+| **clang-format** | Code formatting | Part of LLVM (base config: `clang-format -style=llvm -dump-config > .clang-format` + small individual adjustments) |
 | **cmake-format** | CMake formatting | `pip install cmake-format` |
 | **Doxygen** | Documentation | [Download](https://www.doxygen.nl/download.html) |
 | **gcovr** | Code coverage | `pip install gcovr` |
