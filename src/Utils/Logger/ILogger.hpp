@@ -7,6 +7,11 @@
 #include <sstream>
 #include <string>
 
+// Include source_location for C++20 and later
+#if __cplusplus >= 202002L
+#include <source_location>
+#endif
+
 namespace dotnamecpp::logging {
 
   /**
@@ -261,6 +266,80 @@ namespace dotnamecpp::logging {
      */
     template <typename... Args>
     void criticalFmt(const std::string &format, Args &&...args);
+
+#if __cplusplus >= 202002L
+    // C++20 source_location support
+
+    /**
+     * @brief Log a debug message with source location information
+     *
+     * @param message The message to log
+     * @param location Source location (automatically captured)
+     */
+    void debugWithLocation(const std::string &message,
+                           const std::source_location &location = std::source_location::current()) {
+      debugStream() << "Log: " << message << "\n"
+                    << "File: " << location.file_name() << "\n"
+                    << "Function: " << location.function_name() << "\n"
+                    << "Line: " << location.line() << "\n";
+    }
+
+    /**
+     * @brief Log an info message with source location information
+     *
+     * @param message The message to log
+     * @param location Source location (automatically captured)
+     */
+    void infoWithLocation(const std::string &message,
+                          const std::source_location &location = std::source_location::current()) {
+      infoStream() << "Log: " << message << "\n"
+                   << "File: " << location.file_name() << "\n"
+                   << "Function: " << location.function_name() << "\n"
+                   << "Line: " << location.line() << "\n";
+    }
+
+    /**
+     * @brief Log a warning message with source location information
+     *
+     * @param message The message to log
+     * @param location Source location (automatically captured)
+     */
+    void warningWithLocation(const std::string &message, const std::source_location &location =
+                                                             std::source_location::current()) {
+      warningStream() << "Log: " << message << "\n"
+                      << "File: " << location.file_name() << "\n"
+                      << "Function: " << location.function_name() << "\n"
+                      << "Line: " << location.line() << "\n";
+    }
+
+    /**
+     * @brief Log an error message with source location information
+     *
+     * @param message The message to log
+     * @param location Source location (automatically captured)
+     */
+    void errorWithLocation(const std::string &message,
+                           const std::source_location &location = std::source_location::current()) {
+      errorStream() << "Log: " << message << "\n"
+                    << "File: " << location.file_name() << "\n"
+                    << "Function: " << location.function_name() << "\n"
+                    << "Line: " << location.line() << "\n";
+    }
+
+    /**
+     * @brief Log a critical message with source location information
+     *
+     * @param message The message to log
+     * @param location Source location (automatically captured)
+     */
+    void criticalWithLocation(const std::string &message, const std::source_location &location =
+                                                              std::source_location::current()) {
+      criticalStream() << "Log: " << message << "\n"
+                       << "File: " << location.file_name() << "\n"
+                       << "Function: " << location.function_name() << "\n"
+                       << "Line: " << location.line() << "\n";
+    }
+#endif
   };
 
   /**
