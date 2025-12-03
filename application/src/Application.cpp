@@ -54,7 +54,13 @@ int main(int argc, char **argv) {
 
     // Initialize library
     auto library = std::make_unique<v1::DotNameLib>(logger, assetManager);
+
+#if __cplusplus >= 202002L
+    // Available in C++20 and later
+    logger->infoWithLocation("Library initialized successfully");
+#else
     logger->infoStream() << "Library initialized successfully";
+#endif
 
     // Run application logic
     logger->infoStream() << appName << " running...";
