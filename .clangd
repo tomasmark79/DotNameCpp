@@ -21,7 +21,7 @@ InlayHints:
   TypeNameLimit: 0
 
 CompileFlags:
-  Add: [-Wall, -Wextra, -std=c++17]
+  Add: [-Wall, -Wextra, -std=c++20]
   Remove: [-W*]
   CompilationDatabase: build/application/default/debug/
 
