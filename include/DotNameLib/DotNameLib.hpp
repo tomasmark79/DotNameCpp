@@ -2,10 +2,11 @@
 
 #include <DotNameLib/version.h> // first configuration will create this file
 #include <Utils/UtilsFactory.hpp>
+#include <atomic>
 #include <filesystem>
 #include <memory>
-
 #include <string>
+#include <thread>
 
 namespace dotnamecpp::v1 {
   class DotNameLib {
@@ -73,12 +74,35 @@ namespace dotnamecpp::v1 {
     [[nodiscard]]
     const std::filesystem::path &getAssetsPath() const noexcept;
 
+    /**
+     * @brief Run your business logic
+     *
+     * This is the main entry point for your library's functionality.
+     *
+     * @param durationSeconds Duration to run in seconds (0 = run indefinitely)
+     * @return true if successful
+     * @return false if an error occurred
+     */
+    bool run(int durationSeconds = 0);
+
+    /**
+     * @brief Stop all running processes
+     */
+    void stop();
+
   private:
+    /**
+     * @brief Internal worker thread stop helper (no logging, no checks)
+     */
+    void stopWorker();
+
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
     std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
     std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
+    std::atomic<bool> shouldStop_{false};
+    std::thread workerThread_;
   };
 
 } // namespace dotnamecpp::v1

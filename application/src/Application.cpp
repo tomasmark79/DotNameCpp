@@ -42,6 +42,9 @@ int main(int argc, char **argv) {
                               .appPrefix = appName};
     auto logger = UtilsFactory::createLogger(LoggerType::Console, loggerConfig);
 
+    // Log application start
+    logger->infoStream() << appName << " running...";
+
     // Initialize assets
     auto assetManager = UtilsFactory::createAssetManager(execPathResult.value(), appName);
 
@@ -62,8 +65,11 @@ int main(int argc, char **argv) {
     logger->infoStream() << "Library initialized successfully";
 #endif
 
-    // Run application logic
-    logger->infoStream() << appName << " running...";
+    if (!library->run(5)) {
+      logger->errorStream() << "Failed to run library";
+      return EXIT_FAILURE;
+    }
+
     logger->infoStream() << appName << " shutting down";
     return EXIT_SUCCESS;
 
