@@ -12,83 +12,94 @@ namespace dotnamecpp::v1 {
   class DotNameLib {
 
   public:
+    // ============================================================================
+    // Constructors & Destructor
+    // ============================================================================
+    
     /**
-     * @brief Construct a new object
+     * @brief Construct a new DotNameLib object
      *
-     * @param logger
-     * @param assetManager
+     * @param logger Logger instance for diagnostic output
+     * @param assetManager Asset manager for resource handling
      */
     DotNameLib(std::shared_ptr<logging::ILogger> logger,
                std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
     /**
-     * @brief Destroy the object
+     * @brief Destroy the DotNameLib object
      *
+     * Automatically stops any running worker threads
      */
     ~DotNameLib();
 
     /**
-     * @brief Don't allow copy construction
-     *
-     * @param other
+     * @brief Copy construction is deleted
      */
     DotNameLib(const DotNameLib &other) = delete;
 
     /**
-     * @brief Don't allow copy assignment
-     *
-     * @param other
-     * @return DotNameLib&
+     * @brief Copy assignment is deleted
      */
     DotNameLib &operator=(const DotNameLib &other) = delete;
 
     /**
-     * @brief Construct a new object by moving
+     * @brief Move constructor
      *
-     * @param other
+     * @param other Object to move from
      */
     DotNameLib(DotNameLib &&other) noexcept;
 
     /**
-     * @brief Move assignment operator - default
+     * @brief Move assignment operator
      *
-     * @param other
-     * @return DotNameLib&
+     * @param other Object to move from
+     * @return Reference to this object
      */
     DotNameLib &operator=(DotNameLib &&other) noexcept;
 
-    /**
-     * @brief Check if the object is initialized
-     *
-     * @return true
-     * @return false
-     */
-    [[nodiscard]]
-    bool isInitialized() const noexcept;
-
-    /**
-     * @brief Get the Assets Path object
-     *
-     * @return const std::filesystem::path&
-     */
-    [[nodiscard]]
-    const std::filesystem::path &getAssetsPath() const noexcept;
+    // ============================================================================
+    // Main API
+    // ============================================================================
 
     /**
      * @brief Run your business logic
      *
      * This is the main entry point for your library's functionality.
+     * Starts a worker thread and runs for the specified duration.
      *
      * @param durationSeconds Duration to run in seconds (0 = run indefinitely)
      * @return true if successful
-     * @return false if an error occurred
+     * @return false if an error occurred or not initialized
      */
     bool run(int durationSeconds = 0);
 
     /**
      * @brief Stop all running processes
+     *
+     * Signals the worker thread to stop. Thread will be joined by run() or destructor.
      */
     void stop();
+
+    // ============================================================================
+    // Query Methods
+    // ============================================================================
+
+    /**
+     * @brief Check if the library is properly initialized
+     *
+     * @return true if initialized and ready to use
+     * @return false if initialization failed
+     */
+    [[nodiscard]]
+    bool isInitialized() const noexcept;
+
+    /**
+     * @brief Get the assets directory path
+     *
+     * @return const std::filesystem::path& Path to assets
+     */
+    [[nodiscard]]
+    const std::filesystem::path &getAssetsPath() const noexcept;
 
   private:
     /**

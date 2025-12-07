@@ -64,10 +64,6 @@ namespace dotnamecpp::v1 {
     return *this;
   }
 
-  bool DotNameLib::isInitialized() const noexcept { return isInitialized_; }
-
-  const std::filesystem::path &DotNameLib::getAssetsPath() const noexcept { return assetsPath_; }
-
   bool DotNameLib::run(int durationSeconds) {
     if (!isInitialized_) {
       logger_->errorStream() << "Cannot run: " << libName_ << " is not initialized";
@@ -135,6 +131,9 @@ namespace dotnamecpp::v1 {
     logger_->infoStream() << "Stopping " << libName_ << "...";
     stopWorker();
   }
+
+  bool DotNameLib::isInitialized() const noexcept { return isInitialized_; }
+  const std::filesystem::path &DotNameLib::getAssetsPath() const noexcept { return assetsPath_; }
 
   void DotNameLib::stopWorker() {
     shouldStop_.store(true);
