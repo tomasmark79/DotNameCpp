@@ -7,13 +7,9 @@
 
 namespace dotnamecpp::utils {
 
-  Platform WindowsPlatformInfo::getPlatform() const {
-    return Platform::Windows;
-  }
+  Platform WindowsPlatformInfo::getPlatform() const { return Platform::Windows; }
 
-  std::string WindowsPlatformInfo::getPlatformName() const {
-    return "Windows";
-  }
+  std::string WindowsPlatformInfo::getPlatformName() const { return "Windows"; }
 
   Result<std::filesystem::path, FileError> WindowsPlatformInfo::getExecutablePath() const {
 #ifdef _WIN32
@@ -47,20 +43,12 @@ namespace dotnamecpp::utils {
     return exePathResult.value().parent_path();
   }
 
-  bool WindowsPlatformInfo::isWindows() const {
-    return true;
-  }
+  bool WindowsPlatformInfo::isWindows() const { return true; }
 
-  bool WindowsPlatformInfo::isLinux() const {
-    return false;
-  }
+  bool WindowsPlatformInfo::isLinux() const { return false; }
 
-  bool WindowsPlatformInfo::isMacOS() const {
-    return false;
-  }
+  bool WindowsPlatformInfo::isMacOS() const { return false; }
 
-  bool WindowsPlatformInfo::isEmscripten() const {
-    return false;
-  }
+  bool WindowsPlatformInfo::isEmscripten() const { return false; }
 
 } // namespace dotnamecpp::utils

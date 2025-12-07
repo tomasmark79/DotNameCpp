@@ -41,33 +41,15 @@ namespace dotnamecpp::utils {
     std::string toString() const {
       std::string codeStr;
       switch (code) {
-      case FileErrorCode::NotFound:
-        codeStr = "NotFound";
-        break;
-      case FileErrorCode::AccessDenied:
-        codeStr = "AccessDenied";
-        break;
-      case FileErrorCode::AlreadyExists:
-        codeStr = "AlreadyExists";
-        break;
-      case FileErrorCode::ReadError:
-        codeStr = "ReadError";
-        break;
-      case FileErrorCode::WriteError:
-        codeStr = "WriteError";
-        break;
-      case FileErrorCode::InvalidPath:
-        codeStr = "InvalidPath";
-        break;
-      case FileErrorCode::IsDirectory:
-        codeStr = "IsDirectory";
-        break;
-      case FileErrorCode::NotDirectory:
-        codeStr = "NotDirectory";
-        break;
-      case FileErrorCode::Unknown:
-        codeStr = "Unknown";
-        break;
+      case FileErrorCode::NotFound: codeStr = "NotFound"; break;
+      case FileErrorCode::AccessDenied: codeStr = "AccessDenied"; break;
+      case FileErrorCode::AlreadyExists: codeStr = "AlreadyExists"; break;
+      case FileErrorCode::ReadError: codeStr = "ReadError"; break;
+      case FileErrorCode::WriteError: codeStr = "WriteError"; break;
+      case FileErrorCode::InvalidPath: codeStr = "InvalidPath"; break;
+      case FileErrorCode::IsDirectory: codeStr = "IsDirectory"; break;
+      case FileErrorCode::NotDirectory: codeStr = "NotDirectory"; break;
+      case FileErrorCode::Unknown: codeStr = "Unknown"; break;
       }
       return codeStr + ": " + message + (path.empty() ? "" : " (path: " + path + ")");
     }
@@ -83,24 +65,12 @@ namespace dotnamecpp::utils {
     std::string toString() const {
       std::string codeStr;
       switch (code) {
-      case JsonErrorCode::ParseError:
-        codeStr = "ParseError";
-        break;
-      case JsonErrorCode::InvalidStructure:
-        codeStr = "InvalidStructure";
-        break;
-      case JsonErrorCode::FileNotFound:
-        codeStr = "FileNotFound";
-        break;
-      case JsonErrorCode::InvalidType:
-        codeStr = "InvalidType";
-        break;
-      case JsonErrorCode::MissingKey:
-        codeStr = "MissingKey";
-        break;
-      case JsonErrorCode::Unknown:
-        codeStr = "Unknown";
-        break;
+      case JsonErrorCode::ParseError: codeStr = "ParseError"; break;
+      case JsonErrorCode::InvalidStructure: codeStr = "InvalidStructure"; break;
+      case JsonErrorCode::FileNotFound: codeStr = "FileNotFound"; break;
+      case JsonErrorCode::InvalidType: codeStr = "InvalidType"; break;
+      case JsonErrorCode::MissingKey: codeStr = "MissingKey"; break;
+      case JsonErrorCode::Unknown: codeStr = "Unknown"; break;
       }
       return codeStr + ": " + message + (details.empty() ? "" : " (details: " + details + ")");
     }

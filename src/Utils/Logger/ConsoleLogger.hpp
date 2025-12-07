@@ -206,18 +206,12 @@ public:
    */
   static std::string levelToString(dotnamecpp::logging::Level level) {
     switch (level) {
-    case dotnamecpp::logging::Level::LOG_DEBUG:
-      return "DBG";
-    case dotnamecpp::logging::Level::LOG_INFO:
-      return "INF";
-    case dotnamecpp::logging::Level::LOG_WARNING:
-      return "WRN";
-    case dotnamecpp::logging::Level::LOG_ERROR:
-      return "ERR";
-    case dotnamecpp::logging::Level::LOG_CRITICAL:
-      return "CRI";
-    default:
-      return "INF";
+    case dotnamecpp::logging::Level::LOG_DEBUG: return "DBG";
+    case dotnamecpp::logging::Level::LOG_INFO: return "INF";
+    case dotnamecpp::logging::Level::LOG_WARNING: return "WRN";
+    case dotnamecpp::logging::Level::LOG_ERROR: return "ERR";
+    case dotnamecpp::logging::Level::LOG_CRITICAL: return "CRI";
+    default: return "INF";
     }
   }
 

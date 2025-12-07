@@ -349,21 +349,11 @@ namespace dotnamecpp::logging {
   inline LogStream::~LogStream() {
     const std::string message = oss_.str();
     switch (level_) {
-    case Level::LOG_DEBUG:
-      logger_->debug(message, caller_);
-      break;
-    case Level::LOG_INFO:
-      logger_->info(message, caller_);
-      break;
-    case Level::LOG_WARNING:
-      logger_->warning(message, caller_);
-      break;
-    case Level::LOG_ERROR:
-      logger_->error(message, caller_);
-      break;
-    case Level::LOG_CRITICAL:
-      logger_->critical(message, caller_);
-      break;
+    case Level::LOG_DEBUG: logger_->debug(message, caller_); break;
+    case Level::LOG_INFO: logger_->info(message, caller_); break;
+    case Level::LOG_WARNING: logger_->warning(message, caller_); break;
+    case Level::LOG_ERROR: logger_->error(message, caller_); break;
+    case Level::LOG_CRITICAL: logger_->critical(message, caller_); break;
     }
   }
 

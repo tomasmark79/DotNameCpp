@@ -7,12 +7,9 @@ namespace dotnamecpp::logging {
   std::shared_ptr<ILogger> LoggerFactory::create(LoggerType type, const LoggerConfig &config) {
 
     switch (type) {
-    case LoggerType::Console:
-      return createConsole(config);
-    case LoggerType::Null:
-      return createNull();
-    default:
-      return createConsole(config);
+    case LoggerType::Console: return createConsole(config);
+    case LoggerType::Null: return createNull();
+    default: return createConsole(config);
     }
   }
 
@@ -31,8 +28,6 @@ namespace dotnamecpp::logging {
     return logger;
   }
 
-  std::shared_ptr<ILogger> LoggerFactory::createNull() {
-    return std::make_shared<NullLogger>();
-  }
+  std::shared_ptr<ILogger> LoggerFactory::createNull() { return std::make_shared<NullLogger>(); }
 
 } // namespace dotnamecpp::logging

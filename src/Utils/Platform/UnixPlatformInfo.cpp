@@ -79,9 +79,7 @@ namespace dotnamecpp::utils {
     return exePathResult.value().parent_path();
   }
 
-  bool UnixPlatformInfo::isWindows() const {
-    return false;
-  }
+  bool UnixPlatformInfo::isWindows() const { return false; }
 
   bool UnixPlatformInfo::isLinux() const {
 #ifdef __linux__
@@ -99,8 +97,6 @@ namespace dotnamecpp::utils {
 #endif
   }
 
-  bool UnixPlatformInfo::isEmscripten() const {
-    return false;
-  }
+  bool UnixPlatformInfo::isEmscripten() const { return false; }
 
 } // namespace dotnamecpp::utils

@@ -3,13 +3,9 @@
 
 namespace dotnamecpp::utils {
 
-  Platform EmscriptenPlatformInfo::getPlatform() const {
-    return Platform::Emscripten;
-  }
+  Platform EmscriptenPlatformInfo::getPlatform() const { return Platform::Emscripten; }
 
-  std::string EmscriptenPlatformInfo::getPlatformName() const {
-    return "Emscripten";
-  }
+  std::string EmscriptenPlatformInfo::getPlatformName() const { return "Emscripten"; }
 
   Result<std::filesystem::path, FileError> EmscriptenPlatformInfo::getExecutablePath() const {
     // Emscripten doesn't have a traditional executable path
@@ -29,20 +25,12 @@ namespace dotnamecpp::utils {
     return getExecutablePath(); // Same as executable path for Emscripten
   }
 
-  bool EmscriptenPlatformInfo::isWindows() const {
-    return false;
-  }
+  bool EmscriptenPlatformInfo::isWindows() const { return false; }
 
-  bool EmscriptenPlatformInfo::isLinux() const {
-    return false;
-  }
+  bool EmscriptenPlatformInfo::isLinux() const { return false; }
 
-  bool EmscriptenPlatformInfo::isMacOS() const {
-    return false;
-  }
+  bool EmscriptenPlatformInfo::isMacOS() const { return false; }
 
-  bool EmscriptenPlatformInfo::isEmscripten() const {
-    return true;
-  }
+  bool EmscriptenPlatformInfo::isEmscripten() const { return true; }
 
 } // namespace dotnamecpp::utils
