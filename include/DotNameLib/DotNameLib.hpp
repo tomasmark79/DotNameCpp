@@ -6,7 +6,6 @@
 #include <filesystem>
 #include <memory>
 #include <string>
-#include <thread>
 
 namespace dotnamecpp::v1 {
   class DotNameLib {
@@ -24,7 +23,7 @@ namespace dotnamecpp::v1 {
     /**
      * @brief Destroy the object
      *
-     * Automatically stops any running worker threads
+     * Automatically ensures graceful shutdown
      */
     ~DotNameLib();
 
@@ -61,7 +60,7 @@ namespace dotnamecpp::v1 {
      * @brief Run your business logic
      *
      * This is the main entry point for your library's functionality.
-     * Starts a worker thread and runs for the specified duration.
+     * Runs synchronously in the calling thread.
      *
      * @param durationSeconds Duration to run in seconds (0 = run indefinitely)
      * @return true if successful
@@ -72,7 +71,7 @@ namespace dotnamecpp::v1 {
     /**
      * @brief Stop all running processes
      *
-     * Signals the worker thread to stop. Thread will be joined by run() or destructor.
+     * Signals to stop running processes. Safe to call from another thread.
      */
     void stop();
 
@@ -98,18 +97,12 @@ namespace dotnamecpp::v1 {
     const std::filesystem::path &getAssetsPath() const noexcept;
 
   private:
-    /**
-     * @brief Internal worker thread stop helper
-     */
-    void stopWorker();
-
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
     std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
     std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
     std::atomic<bool> shouldStop_{false};
-    std::thread workerThread_;
   };
 
 } // namespace dotnamecpp::v1

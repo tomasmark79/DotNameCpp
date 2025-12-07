@@ -1,4 +1,5 @@
 #include <DotNameLib/DotNameLib.hpp>
+#include <thread>
 
 namespace dotnamecpp::v1 {
 
@@ -7,25 +8,34 @@ namespace dotnamecpp::v1 {
       : logger_(logger ? std::move(logger) : std::make_shared<dotnamecpp::logging::NullLogger>()),
         assetManager_(std::move(assetManager)) {
 
-    if (assetManager_ && assetManager_->validate()) {
-      logger_->infoStream() << libName_ << " initialized ...";
-      const auto logoPath = assetManager_->resolveAsset("DotNameCppLogo.svg");
-      if (assetManager_->assetExists("DotNameCppLogo.svg")) {
-        logger_->debugStream() << "Logo: " << logoPath << " found";
-      } else {
-        logger_->warningStream() << "Logo not found: " << logoPath;
-      }
-      isInitialized_ = true;
-    } else {
+    if (!assetManager_ || !assetManager_->validate()) {
       logger_->errorStream() << "Invalid or missing asset manager";
       isInitialized_ = false;
+      return;
     }
+
+    logger_->infoStream() << libName_ << " initialized ...";
+    const auto logoPath = assetManager_->resolveAsset("DotNameCppLogo.svg");
+    if (assetManager_->assetExists("DotNameCppLogo.svg")) {
+      logger_->debugStream() << "Logo: " << logoPath << " found";
+    } else {
+      logger_->warningStream() << "Logo not found: " << logoPath;
+    }
+
+    // ┌──────────────────────────────────────────────────────────────────┐
+    // │ PLACE YOUR INITIALIZATION LOGIC HERE                             │
+    // ├──────────────────────────────────────────────────────────────────┤
+    // │ Example: Load configurations, initialize resources, etc.         │
+    // └──────────────────────────────────────────────────────────────────┘
+
+    isInitialized_ = true;
+    logger_->infoStream() << libName_ << " initialized successfully.";
   }
 
   DotNameLib::~DotNameLib() {
-    stopWorker();
-
     if (isInitialized_) {
+      // Ensure graceful shutdown
+      stop();
       logger_->infoStream() << libName_ << " destructed";
     } else {
       logger_->infoStream() << libName_ << " (not initialized) destructed";
@@ -35,7 +45,7 @@ namespace dotnamecpp::v1 {
   DotNameLib::DotNameLib(DotNameLib &&other) noexcept
       : logger_(std::move(other.logger_)), assetManager_(std::move(other.assetManager_)),
         assetsPath_(std::move(other.assetsPath_)), isInitialized_(other.isInitialized_),
-        shouldStop_(other.shouldStop_.load()), workerThread_(std::move(other.workerThread_)) {
+        shouldStop_(other.shouldStop_.load()) {
     other.isInitialized_ = false;
     other.shouldStop_.store(false);
     if (logger_) {
@@ -45,7 +55,10 @@ namespace dotnamecpp::v1 {
 
   DotNameLib &DotNameLib::operator=(DotNameLib &&other) noexcept {
     if (this != &other) {
-      stopWorker();
+      // Stop current instance
+      if (isInitialized_) {
+        stop();
+      }
 
       // Move all members
       logger_ = std::move(other.logger_);
@@ -53,7 +66,6 @@ namespace dotnamecpp::v1 {
       assetsPath_ = std::move(other.assetsPath_);
       isInitialized_ = other.isInitialized_;
       shouldStop_.store(other.shouldStop_.load());
-      workerThread_ = std::move(other.workerThread_);
 
       other.isInitialized_ = false;
       other.shouldStop_.store(false);
@@ -74,23 +86,13 @@ namespace dotnamecpp::v1 {
     shouldStop_.store(false);
 
     try {
-      logger_->infoStream() << libName_ << " started successfully";
-
       // ┌──────────────────────────────────────────────────────────────────┐
-      // │ PLACE YOUR WORKER THREAD LOGIC HERE                              │
+      // │ PLACE YOUR BUSINESS LOGIC HERE                                   │
       // ├──────────────────────────────────────────────────────────────────┤
-      // │ Example: Launch a worker thread that performs periodic tasks     │
+      // │ Example: Start services, process data, etc.                      │
       // └──────────────────────────────────────────────────────────────────┘
 
-      workerThread_ = std::thread([this]() {
-        while (!shouldStop_.load()) {
-
-          // Simulate work
-          logger_->debugStream() << "Worker thread doing work...";
-
-          std::this_thread::sleep_for(std::chrono::seconds(1));
-        }
-      });
+      logger_->infoStream() << libName_ << " started successfully";
 
       // Run for specified duration
       if (durationSeconds > 0) {
@@ -104,8 +106,8 @@ namespace dotnamecpp::v1 {
         } else {
           logger_->infoStream() << libName_ << " finished after " << durationSeconds << " seconds";
         }
+        stop();
       } else {
-
         logger_->infoStream() << "Running indefinitely. Call stop() to terminate.";
         constexpr int pollIntervalMs = 100;
         while (!shouldStop_.load()) {
@@ -114,7 +116,6 @@ namespace dotnamecpp::v1 {
         logger_->infoStream() << libName_ << " stopped";
       }
 
-      stopWorker();
       return true;
     } catch (const std::exception &e) {
       logger_->errorStream() << "Error running " << libName_ << ": " << e.what();
@@ -129,17 +130,16 @@ namespace dotnamecpp::v1 {
     }
 
     logger_->infoStream() << "Stopping " << libName_ << "...";
-    stopWorker();
+    shouldStop_.store(true);
+
+    // ┌──────────────────────────────────────────────────────────────────┐
+    // │ PLACE YOUR CLEANUP LOGIC HERE                                    │
+    // ├──────────────────────────────────────────────────────────────────┤
+    // │ Example: Shutdown services, release resources, etc.              │
+    // └──────────────────────────────────────────────────────────────────┘
   }
 
   bool DotNameLib::isInitialized() const noexcept { return isInitialized_; }
   const std::filesystem::path &DotNameLib::getAssetsPath() const noexcept { return assetsPath_; }
-
-  void DotNameLib::stopWorker() {
-    shouldStop_.store(true);
-    if (workerThread_.joinable()) {
-      workerThread_.join();
-    }
-  }
 
 } // namespace dotnamecpp::v1
