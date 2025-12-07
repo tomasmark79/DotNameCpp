@@ -17,7 +17,7 @@ FORBIDDEN_WORDS = [
     'logger', 'asset', 'assets', 'utils', 'logging', 'factory', 'manager', 'loader',
     'reader', 'writer', 'formatter', 'platform', 'filesystem', 'json', 'strings',
     'serializer', 'resolver', 'console', 'windows', 'unix', 'emscripten', 'interface',
-    'mock', 'error', 'namespace', 'dotnamecpp', 'v1'
+    'mock', 'error', 'namespace', 'dotnamecpp', 'v1', 'TestApp'
 ]
 
 def check_forbidden_words(name):
@@ -68,6 +68,7 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
         f"{application_dir}/{test_dir}/CMakeLists.txt",
         f"{application_dir}/{test_dir}/AssetManagerTest.cpp",
         f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp",
+        f"{source_dir}/{old_lib_name}.cpp",
         f"{source_dir}/Utils/UtilsFactory.hpp",
         f"{source_dir}/Utils/Logger/ConsoleLogger.hpp",
         ".vscode/launch.json",
@@ -112,12 +113,18 @@ def rename_project(old_lib_name, new_lib_name, old_application_name, new_applica
 
     # 2. SECOND: Rename individual files (but NOT directories yet)
     print("\n=== Renaming files ===")
-    # Note: src/{old_lib_name}.cpp doesn't exist - this is a header-only library
     
+    # Rename header file
     if os.path.isfile(f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp"):
         os.rename(f"{include_dir}/{old_lib_name}/{old_lib_name}.hpp", 
                   f"{include_dir}/{old_lib_name}/{new_lib_name}.hpp")
         print(f"✓ Renamed: {include_dir}/{old_lib_name}/{old_lib_name}.hpp → {include_dir}/{old_lib_name}/{new_lib_name}.hpp")
+    
+    # Rename implementation file
+    if os.path.isfile(f"{source_dir}/{old_lib_name}.cpp"):
+        os.rename(f"{source_dir}/{old_lib_name}.cpp", 
+                  f"{source_dir}/{new_lib_name}.cpp")
+        print(f"✓ Renamed: {source_dir}/{old_lib_name}.cpp → {source_dir}/{new_lib_name}.cpp")
 
     # 3. LAST: Rename directories
     print("\n=== Renaming directories ===")
