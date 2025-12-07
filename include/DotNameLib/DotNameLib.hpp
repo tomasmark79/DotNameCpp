@@ -13,10 +13,10 @@ namespace dotnamecpp::v1 {
 
   public:
     /**
-     * @brief Construct a new object 
-     * 
-     * @param logger  
-     * @param assetManager 
+     * @brief Construct a new object
+     *
+     * @param logger
+     * @param assetManager
      */
     DotNameLib(std::shared_ptr<logging::ILogger> logger,
                std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
