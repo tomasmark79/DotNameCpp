@@ -1,84 +1,69 @@
 #pragma once
 
 #include <DotNameLib/version.h> // first configuration will create this file
-
 #include <Utils/UtilsFactory.hpp>
-
 #include <filesystem>
 #include <memory>
+
 #include <string>
 
 namespace dotnamecpp::v1 {
   class DotNameLib {
 
   public:
-    // Constructor
+    /**
+     * @brief Construct a new object
+     *
+     * @param logger
+     * @param assetManager
+     */
     DotNameLib(std::shared_ptr<logging::ILogger> logger,
-               std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager)
-        : logger_(logger ? std::move(logger) : std::make_shared<dotnamecpp::logging::NullLogger>()),
-          assetManager_(std::move(assetManager)) {
-
-      if (assetManager_ && assetManager_->validate()) {
-        logger_->infoStream() << libName_ << " initialized ...";
-        const auto logoPath = assetManager_->resolveAsset("DotNameCppLogo.svg");
-        if (assetManager_->assetExists("DotNameCppLogo.svg")) {
-          logger_->debugStream() << "Logo: " << logoPath << " found";
-        } else {
-          logger_->warningStream() << "Logo not found: " << logoPath;
-        }
-      } else {
-        logger_->errorStream() << "Invalid or missing asset manager";
-      }
-    }
-
-    // Destructor
-    ~DotNameLib() {
-      if (isInitialized_) {
-        logger_->infoStream() << libName_ << " destructed";
-      } else {
-        logger_->infoStream() << libName_ << " (not initialized) destructed";
-      }
-    }
-
-    // Non-copyable
-    DotNameLib(const DotNameLib &other) = delete;
-    DotNameLib &operator=(const DotNameLib &other) = delete;
-
-    // Move is allowed
-    DotNameLib(DotNameLib &&other) noexcept
-        : logger_(std::move(other.logger_)), assetManager_(std::move(other.assetManager_)),
-          assetsPath_(std::move(other.assetsPath_)), isInitialized_(other.isInitialized_) {
-      other.isInitialized_ = false;
-      if (logger_) {
-        logger_->infoStream() << libName_ << " move constructed";
-      }
-    }
-
-    // Move assignment allowed
-    DotNameLib &operator=(DotNameLib &&other) noexcept {
-      if (this != &other) {
-        logger_ = std::move(other.logger_);
-        assetManager_ = std::move(other.assetManager_);
-        assetsPath_ = std::move(other.assetsPath_);
-        isInitialized_ = other.isInitialized_;
-        other.isInitialized_ = false;
-        if (logger_) {
-          logger_->infoStream() << libName_ << " move assigned";
-        }
-      }
-      return *this;
-    }
+               std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
     /**
-     * @brief Check if the DotNameLib object is initialized
+     * @brief Destroy the object
+     *
+     */
+    ~DotNameLib();
+
+    /**
+     * @brief Don't allow copy construction
+     *
+     * @param other
+     */
+    DotNameLib(const DotNameLib &other) = delete;
+
+    /**
+     * @brief Don't allow copy assignment
+     *
+     * @param other
+     * @return DotNameLib&
+     */
+    DotNameLib &operator=(const DotNameLib &other) = delete;
+
+    /**
+     * @brief Construct a new object by moving
+     *
+     * @param other
+     */
+    DotNameLib(DotNameLib &&other) noexcept;
+
+    /**
+     * @brief Move assignment operator - default
+     *
+     * @param other
+     * @return DotNameLib&
+     */
+    DotNameLib &operator=(DotNameLib &&other) noexcept;
+
+    /**
+     * @brief Check if the object is initialized
      *
      * @return true
      * @return false
      */
     [[nodiscard]]
-    bool isInitialized() const noexcept {
-      return isInitialized_;
-    }
+    bool isInitialized() const noexcept;
 
     /**
      * @brief Get the Assets Path object
@@ -86,9 +71,7 @@ namespace dotnamecpp::v1 {
      * @return const std::filesystem::path&
      */
     [[nodiscard]]
-    const std::filesystem::path &getAssetsPath() const noexcept {
-      return assetsPath_;
-    }
+    const std::filesystem::path &getAssetsPath() const noexcept;
 
   private:
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
