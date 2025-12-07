@@ -12,21 +12,17 @@ namespace dotnamecpp::v1 {
   class DotNameLib {
 
   public:
-    // ============================================================================
-    // Constructors & Destructor
-    // ============================================================================
-    
     /**
-     * @brief Construct a new DotNameLib object
-     *
-     * @param logger Logger instance for diagnostic output
-     * @param assetManager Asset manager for resource handling
+     * @brief Construct a new object 
+     * 
+     * @param logger  
+     * @param assetManager 
      */
     DotNameLib(std::shared_ptr<logging::ILogger> logger,
                std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
 
     /**
-     * @brief Destroy the DotNameLib object
+     * @brief Destroy the object
      *
      * Automatically stops any running worker threads
      */
@@ -103,7 +99,7 @@ namespace dotnamecpp::v1 {
 
   private:
     /**
-     * @brief Internal worker thread stop helper (no logging, no checks)
+     * @brief Internal worker thread stop helper
      */
     void stopWorker();
 
