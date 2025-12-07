@@ -75,11 +75,11 @@ AllowAllParametersOfDeclarationOnNextLine: true
 AllowBreakBeforeNoexceptSpecifier: Never
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseExpressionOnASingleLine: true
-AllowShortCaseLabelsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
 AllowShortCompoundRequirementOnASingleLine: true
 AllowShortEnumsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: true
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
 AllowShortNamespacesOnASingleLine: false
@@ -294,4 +294,3 @@ WhitespaceSensitiveMacros:
   - STRINGIZE
 WrapNamespaceBodyWithEmptyLines: Leave
 ---
-
