@@ -1,9 +1,9 @@
 #pragma once
 
-#include <DotNameLib/version.h> // first configuration will create this file
+#include <DotNameLib/version.h> // cmake configuration will generate this file
 #include <Utils/UtilsFactory.hpp>
+
 #include <atomic>
-#include <filesystem>
 #include <memory>
 #include <string>
 
@@ -28,29 +28,15 @@ namespace dotnamecpp::v1 {
     ~DotNameLib();
 
     /**
-     * @brief Copy construction is deleted
+     * @brief Copy and move operations are deleted
+     *
+     * This class manages unique resources
+     * and should not be copied or moved.
      */
     DotNameLib(const DotNameLib &other) = delete;
-
-    /**
-     * @brief Copy assignment is deleted
-     */
     DotNameLib &operator=(const DotNameLib &other) = delete;
-
-    /**
-     * @brief Move constructor
-     *
-     * @param other Object to move from
-     */
-    DotNameLib(DotNameLib &&other) noexcept;
-
-    /**
-     * @brief Move assignment operator
-     *
-     * @param other Object to move from
-     * @return Reference to this object
-     */
-    DotNameLib &operator=(DotNameLib &&other) noexcept;
+    DotNameLib(DotNameLib &&other) = delete;
+    DotNameLib &operator=(DotNameLib &&other) = delete;
 
     // ============================================================================
     // Main API
@@ -80,27 +66,26 @@ namespace dotnamecpp::v1 {
     // ============================================================================
 
     /**
-     * @brief Check if the library is properly initialized
+     * @brief Check if the library is initialized
      *
-     * @return true if initialized and ready to use
-     * @return false if initialization failed
+     * @return true
+     * @return false
      */
     [[nodiscard]]
     bool isInitialized() const noexcept;
 
     /**
-     * @brief Get the assets directory path
+     * @brief Get the Asset Manager object
      *
-     * @return const std::filesystem::path& Path to assets
+     * @return const std::shared_ptr<dotnamecpp::assets::IAssetManager>&
      */
     [[nodiscard]]
-    const std::filesystem::path &getAssetsPath() const noexcept;
+    const std::shared_ptr<dotnamecpp::assets::IAssetManager> &getAssetManager() const noexcept;
 
   private:
     const std::string libName_ = "DotNameLib v." DOTNAMELIB_VERSION;
     std::shared_ptr<dotnamecpp::logging::ILogger> logger_;
     std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager_;
-    std::filesystem::path assetsPath_;
     bool isInitialized_ = false;
     std::atomic<bool> shouldStop_{false};
   };

@@ -13,6 +13,8 @@ int main(int argc, char **argv) {
   using namespace dotnamecpp::logging;
   using namespace dotnamecpp::utils;
 
+  constexpr int runDurationSeconds = 5;
+
   try {
     // Parse command-line options
     cxxopts::Options options(appName, "DotName C++ Application");
@@ -42,35 +44,32 @@ int main(int argc, char **argv) {
                               .appPrefix = appName};
     auto logger = UtilsFactory::createLogger(LoggerType::Console, loggerConfig);
 
-    // Log application start
-    logger->infoStream() << appName << " running...";
+#if __cplusplus >= 202002L
+    // Available in C++20 and later
+    logger->infoWithLocation(appName + " started ...");
+#else
+    logger->infoStream() << appName << " started ...";
+#endif
 
-    // Initialize assets
     auto assetManager = UtilsFactory::createAssetManager(execPathResult.value(), appName);
-
     if (!assetManager->validate()) {
       logger->errorStream() << "Failed to validate assets: " << assetManager->getAssetsPath();
       return EXIT_FAILURE;
     }
 
-    logger->infoStream() << "Assets initialized: " << assetManager->getAssetsPath();
-
     // Initialize library
     auto library = std::make_unique<v1::DotNameLib>(logger, assetManager);
+    if (!library->isInitialized()) {
+      logger->errorStream() << "Library initialization failed";
+      return EXIT_FAILURE;
+    }
 
-#if __cplusplus >= 202002L
-    // Available in C++20 and later
-    logger->infoWithLocation("Library initialized successfully");
-#else
-    logger->infoStream() << "Library initialized successfully";
-#endif
-
-    if (!library->run(5)) {
+    if (!library->run(runDurationSeconds)) {
       logger->errorStream() << "Failed to run library";
       return EXIT_FAILURE;
     }
 
-    logger->infoStream() << appName << " shutting down";
+    logger->infoStream() << appName << " ... shutting down";
     return EXIT_SUCCESS;
 
   } catch (const std::exception &e) {

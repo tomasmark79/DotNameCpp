@@ -14,11 +14,9 @@ namespace dotnamecpp::v1 {
       return;
     }
 
-    logger_->infoStream() << libName_ << " initialized ...";
+    // just an example of asset usage
     const auto logoPath = assetManager_->resolveAsset("DotNameCppLogo.svg");
-    if (assetManager_->assetExists("DotNameCppLogo.svg")) {
-      logger_->debugStream() << "Logo: " << logoPath << " found";
-    } else {
+    if (!assetManager_->assetExists("DotNameCppLogo.svg")) {
       logger_->warningStream() << "Logo not found: " << logoPath;
     }
 
@@ -29,51 +27,16 @@ namespace dotnamecpp::v1 {
     // └──────────────────────────────────────────────────────────────────┘
 
     isInitialized_ = true;
-    logger_->infoStream() << libName_ << " initialized successfully.";
+    logger_->infoStream() << libName_ << " initialized ...";
   }
 
   DotNameLib::~DotNameLib() {
     if (isInitialized_) {
-      // Ensure graceful shutdown
       stop();
-      logger_->infoStream() << libName_ << " destructed";
+      logger_->infoStream() << libName_ << " ... destructed";
     } else {
-      logger_->infoStream() << libName_ << " (not initialized) destructed";
+      logger_->infoStream() << libName_ << " ... (not initialized) destructed";
     }
-  }
-
-  DotNameLib::DotNameLib(DotNameLib &&other) noexcept
-      : logger_(std::move(other.logger_)), assetManager_(std::move(other.assetManager_)),
-        assetsPath_(std::move(other.assetsPath_)), isInitialized_(other.isInitialized_),
-        shouldStop_(other.shouldStop_.load()) {
-    other.isInitialized_ = false;
-    other.shouldStop_.store(false);
-    if (logger_) {
-      logger_->infoStream() << libName_ << " move constructed";
-    }
-  }
-
-  DotNameLib &DotNameLib::operator=(DotNameLib &&other) noexcept {
-    if (this != &other) {
-      // Stop current instance
-      if (isInitialized_) {
-        stop();
-      }
-
-      // Move all members
-      logger_ = std::move(other.logger_);
-      assetManager_ = std::move(other.assetManager_);
-      assetsPath_ = std::move(other.assetsPath_);
-      isInitialized_ = other.isInitialized_;
-      shouldStop_.store(other.shouldStop_.load());
-
-      other.isInitialized_ = false;
-      other.shouldStop_.store(false);
-      if (logger_) {
-        logger_->infoStream() << libName_ << " move assigned";
-      }
-    }
-    return *this;
   }
 
   bool DotNameLib::run(int durationSeconds) {
@@ -92,11 +55,9 @@ namespace dotnamecpp::v1 {
       // │ Example: Start services, process data, etc.                      │
       // └──────────────────────────────────────────────────────────────────┘
 
-      logger_->infoStream() << libName_ << " started successfully";
-
       // Run for specified duration
       if (durationSeconds > 0) {
-        logger_->infoStream() << "Running for " << durationSeconds << " seconds...";
+        logger_->infoStream() << "MOCK BUSINESS LOGIC running for " << durationSeconds << " seconds ...";
         for (int i = 0; i < durationSeconds && !shouldStop_.load(); ++i) {
           std::this_thread::sleep_for(std::chrono::seconds(1));
         }
@@ -106,7 +67,6 @@ namespace dotnamecpp::v1 {
         } else {
           logger_->infoStream() << libName_ << " finished after " << durationSeconds << " seconds";
         }
-        stop();
       } else {
         logger_->infoStream() << "Running indefinitely. Call stop() to terminate.";
         constexpr int pollIntervalMs = 100;
@@ -129,7 +89,7 @@ namespace dotnamecpp::v1 {
       return;
     }
 
-    logger_->infoStream() << "Stopping " << libName_ << "...";
+    logger_->infoStream() << "Stopping " << libName_ << " ...";
     shouldStop_.store(true);
 
     // ┌──────────────────────────────────────────────────────────────────┐
@@ -140,6 +100,9 @@ namespace dotnamecpp::v1 {
   }
 
   bool DotNameLib::isInitialized() const noexcept { return isInitialized_; }
-  const std::filesystem::path &DotNameLib::getAssetsPath() const noexcept { return assetsPath_; }
+  const std::shared_ptr<dotnamecpp::assets::IAssetManager> &
+      DotNameLib::getAssetManager() const noexcept {
+    return assetManager_;
+  }
 
 } // namespace dotnamecpp::v1
