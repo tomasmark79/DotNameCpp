@@ -1,0 +1,31 @@
+<map id="dotnamecpp::utils::UtilsFactory::createBundle" name="dotnamecpp::utils::UtilsFactory::createBundle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,276,182,319"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a85aa2ef9b8d0cec5f67e3953f0d1937b" title=" " alt="" coords="250,31,428,89"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,275,121,237,148,191,184,142,228,99,234,94,238,99,231,103,188,145,153,194,125,240,107,277"/>
+<area shape="rect" id="Node000007" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a6071a4ce383be760fd0f5f278871fc78" title=" " alt="" coords="244,113,434,172"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="117,274,166,232,228,188,249,177,251,182,231,193,170,236,120,278"/>
+<area shape="rect" id="Node000008" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#ad559863ad0bfa1fe1805f82089cfe948" title=" " alt="" coords="496,213,695,256"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="129,273,176,250,229,232,293,222,359,217,480,219,480,225,359,222,294,227,230,237,178,255,132,278"/>
+<area shape="rect" id="Node000009" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa935a454b1b16e1f69ee05949cf37701" title=" " alt="" coords="500,292,691,335"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="182,297,485,307,484,312,182,303"/>
+<area shape="rect" id="Node000010" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a9fcea5e7ff94872b54a8c01eb2d9c965" title=" " alt="" coords="230,247,448,289"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="182,284,214,280,214,286,182,289"/>
+<area shape="rect" id="Node000011" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a0c936eaf300e6f9b9014659d4ce6801c" title=" " alt="" coords="231,364,446,407"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="156,317,264,356,262,361,155,322"/>
+<area shape="rect" id="Node000012" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a5dd47e86b64ad3d8efb881d5b6db1f9d" title=" " alt="" coords="235,431,442,473"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="116,317,165,367,197,394,231,416,241,422,239,426,228,421,193,398,161,371,112,321"/>
+<area shape="rect" id="Node000014" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#af91cb262af886be48e1ec821f2f9e8db" title=" " alt="" coords="254,497,424,556"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="107,318,126,353,154,398,189,443,231,483,241,490,238,495,228,487,185,447,150,401,122,356,103,320"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#accf95777b78081e29cd677b633ab9461" title=" " alt="" coords="508,39,683,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,57,492,57,492,63,428,63"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a2811f86fe84698397f09f3ae18959511" title="Create a logger instance based on the specified type and configuration." alt="" coords="743,39,900,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="684,57,728,57,728,63,684,63"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65" title="Create a Console object logger." alt="" coords="948,5,1152,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="899,46,932,41,933,46,900,51"/>
+<area shape="rect" id="Node000006" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a1cf52c1ddb57eae93a5aab46b593d021" title="Create a Null object logger." alt="" coords="960,72,1140,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="900,69,945,75,944,81,899,74"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="448,251,480,247,481,252,449,256"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="449,285,485,291,484,296,448,290"/>
+<area shape="rect" id="Node000013" href="$classdotnamecpp_1_1utils_1_1PlatformInfoFactory.html#ab7dafcf5ba115a99f7d80fa045639f84" title=" " alt="" coords="508,423,684,481"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="443,449,492,449,492,455,443,455"/>
+</map>

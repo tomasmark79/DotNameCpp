@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['filereader_0',['FileReader',['../classdotnamecpp_1_1utils_1_1FileReader.html#a3f1e9680928a982874412154112750f5',1,'dotnamecpp::utils::FileReader::FileReader()=default'],['../classdotnamecpp_1_1utils_1_1FileReader.html#a8e975d65c88933e65b8a3e8253f06f0e',1,'dotnamecpp::utils::FileReader::FileReader(const FileReader &amp;)=delete'],['../classdotnamecpp_1_1utils_1_1FileReader.html#a0c421632b2bed0703fb5d2712637a830',1,'dotnamecpp::utils::FileReader::FileReader(FileReader &amp;&amp;)=delete']]],
+  ['filewriter_1',['FileWriter',['../classdotnamecpp_1_1utils_1_1FileWriter.html#a5c694825ee5e7bf11e2f34c3b0a97a95',1,'dotnamecpp::utils::FileWriter::FileWriter()=default'],['../classdotnamecpp_1_1utils_1_1FileWriter.html#a6578a49e857789feff5a61ed8a115146',1,'dotnamecpp::utils::FileWriter::FileWriter(const FileWriter &amp;)=delete'],['../classdotnamecpp_1_1utils_1_1FileWriter.html#ac883f4c0c300ca4bcee879d0d28f6cea',1,'dotnamecpp::utils::FileWriter::FileWriter(FileWriter &amp;&amp;)=delete']]]
+];

@@ -1,0 +1,270 @@
+\doxysection{dotnamecpp\+::utils\+::IDirectory\+Manager Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager}{}\label{classdotnamecpp_1_1utils_1_1IDirectoryManager}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+
+
+Interface for directory operations.  
+
+
+
+
+{\ttfamily \#include $<$IDirectory\+Manager.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::IDirectory\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IDirectoryManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::IDirectory\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IDirectoryManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a30816aa35c9076d65670594dafd709c8}{\texorpdfstring{$\sim$}{\string~}\+IDirectory\+Manager}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_adef9d88657de199c5cdefa03c03c6a6f}{create\+Directory}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Create a Directory object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a924d5369ba120fd595e4725dc4efd61b}{remove\+Directory}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Remove a Directory object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::uintmax\+\_\+t, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a0b8c3a1b53f062f4970fdb55804da654}{remove\+Directory\+Recursive}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Remove a Directory object recursively. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a458d7b88cbfc9dd39ddfab4c81f21d8f}{exists}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Check if a directory exists. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ bool, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a2ed4f0ab00845f8fda8c3982585429b0}{is\+Empty}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Check if a directory is empty. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::vector$<$ std\+::filesystem\+::path $>$, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_ab317f2b5b5569989ae94aee11d338ec6}{list\+Entries}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em List entries in a directory. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::vector$<$ std\+::filesystem\+::path $>$, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a80fed01f87033220f4b67f02137beb9f}{list\+Entries\+Recursive}} (const std\+::filesystem\+::path \&dir\+Path) const =0
+\begin{DoxyCompactList}\small\item\em List entries in a directory recursively. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_aed585752d5f85f9802fb5bcc6269c305}{get\+Current\+Directory}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Current Directory object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a89b5eefde819345434f5d4b87f02aba6}{get\+Temp\+Directory}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Temp Directory object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for directory operations. 
+
+Provides abstraction for directory creation, removal, and listing. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a30816aa35c9076d65670594dafd709c8}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!````~IDirectoryManager@{\texorpdfstring{$\sim$}{\string~}IDirectoryManager}}
+\index{````~IDirectoryManager@{\texorpdfstring{$\sim$}{\string~}IDirectoryManager}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IDirectoryManager()}{\string~IDirectoryManager()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a30816aa35c9076d65670594dafd709c8} 
+virtual dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+IDirectory\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_adef9d88657de199c5cdefa03c03c6a6f}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!createDirectory@{createDirectory}}
+\index{createDirectory@{createDirectory}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{createDirectory()}{createDirectory()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_adef9d88657de199c5cdefa03c03c6a6f} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::create\+Directory (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Create a Directory object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_a39e243bd000b60289dcd420e3c43746f}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a458d7b88cbfc9dd39ddfab4c81f21d8f}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!exists@{exists}}
+\index{exists@{exists}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a458d7b88cbfc9dd39ddfab4c81f21d8f} 
+virtual bool dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::exists (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if a directory exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_aa641ee6efd2034562d3b9d5ba5069252}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_aed585752d5f85f9802fb5bcc6269c305}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!getCurrentDirectory@{getCurrentDirectory}}
+\index{getCurrentDirectory@{getCurrentDirectory}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentDirectory()}{getCurrentDirectory()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_aed585752d5f85f9802fb5bcc6269c305} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::get\+Current\+Directory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Current Directory object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_a3dbdd32f5deb1fb88df91a1097659a28}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a89b5eefde819345434f5d4b87f02aba6}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!getTempDirectory@{getTempDirectory}}
+\index{getTempDirectory@{getTempDirectory}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{getTempDirectory()}{getTempDirectory()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a89b5eefde819345434f5d4b87f02aba6} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::get\+Temp\+Directory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Temp Directory object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_aa3e2547a977f135ee8fe9fa81c1cb75f}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a2ed4f0ab00845f8fda8c3982585429b0}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a2ed4f0ab00845f8fda8c3982585429b0} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ bool, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::is\+Empty (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if a directory is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$bool, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_afe007eb6000e45de0fdfac92cfe34be1}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_ab317f2b5b5569989ae94aee11d338ec6}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!listEntries@{listEntries}}
+\index{listEntries@{listEntries}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{listEntries()}{listEntries()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_ab317f2b5b5569989ae94aee11d338ec6} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::vector$<$ std\+::filesystem\+::path $>$, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::list\+Entries (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+List entries in a directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result}\texorpdfstring{$<$}{<}std\+::vector$<$std\+::filesystem\+::path$>$, \doxylink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}\texorpdfstring{$>$}{>} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_a4cfc42962af0c27a5a12c2cfaad99cf8}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a80fed01f87033220f4b67f02137beb9f}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!listEntriesRecursive@{listEntriesRecursive}}
+\index{listEntriesRecursive@{listEntriesRecursive}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{listEntriesRecursive()}{listEntriesRecursive()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a80fed01f87033220f4b67f02137beb9f} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::vector$<$ std\+::filesystem\+::path $>$, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::list\+Entries\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+List entries in a directory recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result}\texorpdfstring{$<$}{<}std\+::vector$<$std\+::filesystem\+::path$>$, \doxylink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}\texorpdfstring{$>$}{>} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_a8670bfd345ffcc06ba9e2725154629a6}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a924d5369ba120fd595e4725dc4efd61b}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!removeDirectory@{removeDirectory}}
+\index{removeDirectory@{removeDirectory}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{removeDirectory()}{removeDirectory()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a924d5369ba120fd595e4725dc4efd61b} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::remove\+Directory (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Remove a Directory object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_a30cee3f507efa880223e4021671b58d7}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IDirectoryManager_a0b8c3a1b53f062f4970fdb55804da654}\index{dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}!removeDirectoryRecursive@{removeDirectoryRecursive}}
+\index{removeDirectoryRecursive@{removeDirectoryRecursive}!dotnamecpp::utils::IDirectoryManager@{dotnamecpp::utils::IDirectoryManager}}
+\doxysubsubsection{\texorpdfstring{removeDirectoryRecursive()}{removeDirectoryRecursive()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IDirectoryManager_a0b8c3a1b53f062f4970fdb55804da654} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::uintmax\+\_\+t, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IDirectory\+Manager\+::remove\+Directory\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{dir\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Remove a Directory object recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::uintmax\+\_\+t, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1DirectoryManager_aa3d2b194c699c05e7a2bfbcf69d502af}{dotnamecpp\+::utils\+::\+Directory\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Filesystem/\mbox{\hyperlink{IDirectoryManager_8hpp}{IDirectory\+Manager.\+hpp}}\end{DoxyCompactItemize}

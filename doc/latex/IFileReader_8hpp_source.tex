@@ -1,0 +1,40 @@
+\doxysection{IFile\+Reader.\+hpp}
+\hypertarget{IFileReader_8hpp_source}{}\label{IFileReader_8hpp_source}\index{src/Utils/Filesystem/IFileReader.hpp@{src/Utils/Filesystem/IFileReader.hpp}}
+\mbox{\hyperlink{IFileReader_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{UtilsError_8hpp}{Utils/UtilsError.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader}{IFileReader}}\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_ab9b38e4b02487360ff45ed47dfd3c6f1}{\string~IFileReader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::string,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_a66e30610a0e74e2e02855f4fadf5f703}{read}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::vector<uint8\_t>}},\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{FileError}}>}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_a2ffc86003d347e08e5557557f92a80b5}{readBytes}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::vector<std::string>}},\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{FileError}}>}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_a5864b320a63334e9118c85e686ecf94b}{readLines}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00057\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_a339f506d8d4d2c5c56f656ba4f0fee29}{exists}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::uintmax\_t,\ FileError>}}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader_a4103e9177ee91547bd3eb911ad4de5a6}{getSize}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

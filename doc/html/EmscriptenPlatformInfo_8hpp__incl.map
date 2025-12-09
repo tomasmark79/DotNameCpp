@@ -1,0 +1,21 @@
+<map id="src/Utils/Platform/EmscriptenPlatformInfo.hpp" name="src/Utils/Platform/EmscriptenPlatformInfo.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="178,5,365,48"/>
+<area shape="rect" id="Node000002" href="$IPlatformInfo_8hpp.html" title=" " alt="" coords="192,96,351,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,48,274,81,269,81,269,48"/>
+<area shape="rect" id="Node000003" href="$UtilsError_8hpp.html" title=" " alt="" coords="153,187,286,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,141,238,175,234,172,256,138"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,261,66,288"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="228,141,142,189,98,222,61,253,58,249,95,217,139,184,225,137"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="368,261,421,288"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="290,137,377,247,373,250,285,141"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="362,187,443,213"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="307,137,370,176,368,181,304,142"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="188,216,81,258,79,253,186,211"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="90,261,157,288"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="204,216,154,254,151,250,201,212"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="180,261,259,288"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="222,214,222,246,217,246,217,214"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="251,211,354,254,352,259,249,216"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="283,261,343,288"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="237,212,286,250,283,254,234,216"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="dotnamecpp::utils::UtilsFactory::createLogger" name="dotnamecpp::utils::UtilsFactory::createLogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,181,81"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a2811f86fe84698397f09f3ae18959511" title="Create a logger instance based on the specified type and configuration." alt="" coords="229,39,385,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,57,213,57,213,63,181,63"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65" title="Create a Console object logger." alt="" coords="433,5,637,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,46,417,41,418,46,386,51"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a1cf52c1ddb57eae93a5aab46b593d021" title="Create a Null object logger." alt="" coords="446,72,625,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="386,69,430,75,430,81,385,74"/>
+</map>

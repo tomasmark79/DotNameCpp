@@ -1,0 +1,164 @@
+\doxysection{dotnamecpp\+::utils\+::IJson\+Serializer Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer}{}\label{classdotnamecpp_1_1utils_1_1IJsonSerializer}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+
+
+Interface for JSON serialization and parsing.  
+
+
+
+
+{\ttfamily \#include $<$IJson\+Serializer.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::IJson\+Serializer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IJsonSerializer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::IJson\+Serializer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classdotnamecpp_1_1utils_1_1IJsonSerializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a35ee64459754fed9a21325685951ff3c}{\texorpdfstring{$\sim$}{\string~}\+IJson\+Serializer}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a248888dfa0773ca750ff54085b7779bf}{load\+From\+File}} (const std\+::filesystem\+::path \&file\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Load JSON from file. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_abde8b094a7e720d810d987e92b32b7d9}{save\+To\+File}} (const std\+::filesystem\+::path \&file\+Path, const nlohmann\+::json \&json\+Data, int indent=2) const =0
+\begin{DoxyCompactList}\small\item\em Save JSON to file. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a9130247ddfbc94828647881a51c90b01}{parse}} (const std\+::string \&json\+String) const =0
+\begin{DoxyCompactList}\small\item\em Parse JSON from string. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::string, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_afcc8615e85cb2cf6b65f591ad6e0cb70}{to\+String}} (const nlohmann\+::json \&json\+Data, int indent=2) const =0
+\begin{DoxyCompactList}\small\item\em Convert JSON to string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for JSON serialization and parsing. 
+
+Provides safe JSON operations with \doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$\+T,\+E$>$} error handling. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_a35ee64459754fed9a21325685951ff3c}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}!````~IJsonSerializer@{\texorpdfstring{$\sim$}{\string~}IJsonSerializer}}
+\index{````~IJsonSerializer@{\texorpdfstring{$\sim$}{\string~}IJsonSerializer}!dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IJsonSerializer()}{\string~IJsonSerializer()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IJsonSerializer_a35ee64459754fed9a21325685951ff3c} 
+virtual dotnamecpp\+::utils\+::\+IJson\+Serializer\+::\texorpdfstring{$\sim$}{\string~}\+IJson\+Serializer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_a248888dfa0773ca750ff54085b7779bf}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IJsonSerializer_a248888dfa0773ca750ff54085b7779bf} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ dotnamecpp\+::utils\+::\+IJson\+Serializer\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Load JSON from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$nlohmann\+::json, Json\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_aefee417a9a58a3757208a9e450ec2c1c}{dotnamecpp\+::utils\+::\+Json\+Serializer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_a9130247ddfbc94828647881a51c90b01}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}!parse@{parse}}
+\index{parse@{parse}!dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IJsonSerializer_a9130247ddfbc94828647881a51c90b01} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ dotnamecpp\+::utils\+::\+IJson\+Serializer\+::parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{json\+String}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Parse JSON from string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$nlohmann\+::json, Json\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a963bf18e889200ab9f5e1fa0645e0e35}{dotnamecpp\+::utils\+::\+Json\+Serializer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_abde8b094a7e720d810d987e92b32b7d9}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}!saveToFile@{saveToFile}}
+\index{saveToFile@{saveToFile}!dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+\doxysubsubsection{\texorpdfstring{saveToFile()}{saveToFile()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IJsonSerializer_abde8b094a7e720d810d987e92b32b7d9} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ dotnamecpp\+::utils\+::\+IJson\+Serializer\+::save\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{, }\item[{const nlohmann\+::json \&}]{json\+Data}{, }\item[{int}]{indent}{ = {\ttfamily 2}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Save JSON to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+{\em json\+Data} & \\
+\hline
+{\em indent} & Indentation level (default\+: 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, Json\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_aae1986bb0b05fb1a2080b67b31dcee14}{dotnamecpp\+::utils\+::\+Json\+Serializer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IJsonSerializer_afcc8615e85cb2cf6b65f591ad6e0cb70}\index{dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}!toString@{toString}}
+\index{toString@{toString}!dotnamecpp::utils::IJsonSerializer@{dotnamecpp::utils::IJsonSerializer}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IJsonSerializer_afcc8615e85cb2cf6b65f591ad6e0cb70} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::string, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ dotnamecpp\+::utils\+::\+IJson\+Serializer\+::to\+String (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{json\+Data}{, }\item[{int}]{indent}{ = {\ttfamily 2}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Convert JSON to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Data} & \\
+\hline
+{\em indent} & Indentation level (default\+: 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::string, Json\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_ac5ebb7ef9d6324357ca260cf2360d151}{dotnamecpp\+::utils\+::\+Json\+Serializer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Json/\mbox{\hyperlink{IJsonSerializer_8hpp}{IJson\+Serializer.\+hpp}}\end{DoxyCompactItemize}

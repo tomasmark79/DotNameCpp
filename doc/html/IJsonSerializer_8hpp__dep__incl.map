@@ -1,0 +1,24 @@
+<map id="src/Utils/Json/IJsonSerializer.hpp" name="src/Utils/Json/IJsonSerializer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="400,5,617,32"/>
+<area shape="rect" id="Node000002" href="$CustomStringsLoader_8hpp.html" title=" " alt="" coords="184,80,377,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,40,340,82,339,77,458,35"/>
+<area shape="rect" id="Node000005" href="$JsonSerializer_8hpp.html" title=" " alt="" coords="402,88,615,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="511,48,511,88,506,88,506,48"/>
+<area shape="rect" id="Node000007" href="$UtilsFactory_8hpp.html" title=" " alt="" coords="640,88,809,115"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="558,35,692,85,690,90,556,40"/>
+<area shape="rect" id="Node000003" href="$CustomStringsLoader_8cpp.html" title=" " alt="" coords="5,171,199,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,132,145,173,142,168,224,128"/>
+<area shape="rect" id="Node000004" href="$UtilsFactory_8cpp.html" title=" " alt="" coords="461,179,631,205"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="358,125,509,176,507,181,356,131"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="522,128,543,177,538,179,518,130"/>
+<area shape="rect" id="Node000006" href="$JsonSerializer_8cpp.html" title=" " alt="" coords="223,179,437,205"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="471,124,357,180,354,176,469,119"/>
+<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="687,124,573,180,570,176,685,119"/>
+<area shape="rect" id="Node000008" href="$Application_8cpp.html" title=" " alt="" coords="732,261,930,288"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="761,122,786,143,808,169,820,193,827,219,833,261,828,261,822,220,815,195,804,172,782,146,757,126"/>
+<area shape="rect" id="Node000009" href="$DotNameLib_8hpp.html" title=" " alt="" coords="655,171,794,213"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="727,131,727,170,722,170,722,131"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="766,221,816,259,813,263,763,225"/>
+<area shape="rect" id="Node000010" href="$DotNameLib_8cpp.html" title=" " alt="" coords="567,261,709,288"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="693,226,653,263,650,259,689,222"/>
+</map>

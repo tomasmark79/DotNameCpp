@@ -1,0 +1,89 @@
+\doxysection{dotnamecpp\+::logging Namespace Reference}
+\hypertarget{namespacedotnamecpp_1_1logging}{}\label{namespacedotnamecpp_1_1logging}\index{dotnamecpp::logging@{dotnamecpp::logging}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}}
+\item 
+struct \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}
+\begin{DoxyCompactList}\small\item\em Configuration options for creating a logger. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory}{Logger\+Factory}}
+\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}}
+\begin{DoxyCompactList}\small\item\em Helper class for streaming log messages. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger}{Null\+Logger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{LOG\+\_\+\+DEBUG}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{LOG\+\_\+\+INFO}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{LOG\+\_\+\+WARNING}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{LOG\+\_\+\+ERROR}}
+, \newline
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{LOG\+\_\+\+CRITICAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Logging levels. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{Logger\+Type}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}{Console}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaa0b27918290ff5323bea1e3b78a9cf04e}{File}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabbb93ef26e3c101ff11cdd21cab08a94}{Null}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespacedotnamecpp_1_1logging_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}\index{dotnamecpp::logging@{dotnamecpp::logging}!Level@{Level}}
+\index{Level@{Level}!dotnamecpp::logging@{dotnamecpp::logging}}
+\doxysubsubsection{\texorpdfstring{Level}{Level}}
+{\footnotesize\ttfamily \label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8} 
+enum class \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} \+: std\+::uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Logging levels. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_DEBUG@{LOG\_DEBUG}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!LOG\_DEBUG@{LOG\_DEBUG}}}\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}\label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f} 
+LOG\+\_\+\+DEBUG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_INFO@{LOG\_INFO}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!LOG\_INFO@{LOG\_INFO}}}\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}\label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6} 
+LOG\+\_\+\+INFO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_WARNING@{LOG\_WARNING}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!LOG\_WARNING@{LOG\_WARNING}}}\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}\label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f} 
+LOG\+\_\+\+WARNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_ERROR@{LOG\_ERROR}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!LOG\_ERROR@{LOG\_ERROR}}}\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}\label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032} 
+LOG\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_CRITICAL@{LOG\_CRITICAL}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!LOG\_CRITICAL@{LOG\_CRITICAL}}}\Hypertarget{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}\label{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0} 
+LOG\+\_\+\+CRITICAL&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}\index{dotnamecpp::logging@{dotnamecpp::logging}!LoggerType@{LoggerType}}
+\index{LoggerType@{LoggerType}!dotnamecpp::logging@{dotnamecpp::logging}}
+\doxysubsubsection{\texorpdfstring{LoggerType}{LoggerType}}
+{\footnotesize\ttfamily \label{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa} 
+enum class \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{dotnamecpp\+::logging\+::\+Logger\+Type}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Console@{Console}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!Console@{Console}}}\Hypertarget{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}\label{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f} 
+Console&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{File@{File}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!File@{File}}}\Hypertarget{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaa0b27918290ff5323bea1e3b78a9cf04e}\label{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaa0b27918290ff5323bea1e3b78a9cf04e} 
+File&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null@{Null}!dotnamecpp::logging@{dotnamecpp::logging}}\index{dotnamecpp::logging@{dotnamecpp::logging}!Null@{Null}}}\Hypertarget{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabbb93ef26e3c101ff11cdd21cab08a94}\label{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabbb93ef26e3c101ff11cdd21cab08a94} 
+Null&\\
+\hline
+
+\end{DoxyEnumFields}

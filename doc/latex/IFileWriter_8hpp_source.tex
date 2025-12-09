@@ -1,0 +1,40 @@
+\doxysection{IFile\+Writer.\+hpp}
+\hypertarget{IFileWriter_8hpp_source}{}\label{IFileWriter_8hpp_source}\index{src/Utils/Filesystem/IFileWriter.hpp@{src/Utils/Filesystem/IFileWriter.hpp}}
+\mbox{\hyperlink{IFileWriter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{UtilsError_8hpp}{Utils/UtilsError.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter}{IFileWriter}}\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a6ac1575e2ea4bbd65bae38ea59d017d5}{\string~IFileWriter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_acd2dc1bb1ca29d91f2da536ad6877feb}{write}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&content,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a682651bc78a2f237e03d26246b6abc8a}{writeBytes}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint8\_t>\ \&data,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a428f9ffed633059515e827b47a45547c}{writeLines}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \&lines,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_ae064ba973c614bce9ffe074dffc98590}{touch}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

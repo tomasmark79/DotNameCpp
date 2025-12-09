@@ -1,0 +1,7 @@
+<map id="TEST_F" name="TEST_F">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,76,48"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9" title="Create a Default object." alt="" coords="124,5,281,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,32,108,32,108,37,76,37"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1assets_1_1AssetManager.html#af6846c31c10bcf4a5e937f1627aa0f48" title="Create a new Asset Manager instance." alt="" coords="329,13,486,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="281,32,313,32,313,37,281,37"/>
+</map>

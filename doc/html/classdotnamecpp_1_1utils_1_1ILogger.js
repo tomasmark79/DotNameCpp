@@ -1,0 +1,27 @@
+var classdotnamecpp_1_1utils_1_1ILogger =
+[
+    [ "ILogger", "classdotnamecpp_1_1utils_1_1ILogger.html#a5affc0ca64769619c14625e12995c583", null ],
+    [ "~ILogger", "classdotnamecpp_1_1utils_1_1ILogger.html#afa704c9656943db5ff4def4c0da29aec", null ],
+    [ "critical", "classdotnamecpp_1_1utils_1_1ILogger.html#a3bf006d13b3b8b48b008e6d51250da4a", null ],
+    [ "criticalFmt", "classdotnamecpp_1_1utils_1_1ILogger.html#acefba8bf09fe905714797903bca19016", null ],
+    [ "criticalStream", "classdotnamecpp_1_1utils_1_1ILogger.html#a8076aa2b9e0b0181adfc0a35f5ac7010", null ],
+    [ "debug", "classdotnamecpp_1_1utils_1_1ILogger.html#a4b0f18c315e8c67afa8389179fbd1dee", null ],
+    [ "debugFmt", "classdotnamecpp_1_1utils_1_1ILogger.html#a70d0fc01e492aa2367659bee2c7a0999", null ],
+    [ "debugStream", "classdotnamecpp_1_1utils_1_1ILogger.html#a1a22bc7e764530eb1deed791d3488762", null ],
+    [ "disableFileLogging", "classdotnamecpp_1_1utils_1_1ILogger.html#a37d915eab48db9aef11e1802350682fc", null ],
+    [ "enableFileLogging", "classdotnamecpp_1_1utils_1_1ILogger.html#a0d698e669010163b218409092aafc7a4", null ],
+    [ "error", "classdotnamecpp_1_1utils_1_1ILogger.html#aa516cf87b71e6dfc6077e9513518c8dd", null ],
+    [ "errorFmt", "classdotnamecpp_1_1utils_1_1ILogger.html#aec598ad8a9e681a21b3e34c2f7a2971e", null ],
+    [ "errorStream", "classdotnamecpp_1_1utils_1_1ILogger.html#a0dde47df5a8424b84495dba5504c7468", null ],
+    [ "getAppPrefix", "classdotnamecpp_1_1utils_1_1ILogger.html#abbbbeb74051eb7a92db0dd229348ed2a", null ],
+    [ "getLevel", "classdotnamecpp_1_1utils_1_1ILogger.html#a086c4d3378dbb5a405c512816071f9ef", null ],
+    [ "info", "classdotnamecpp_1_1utils_1_1ILogger.html#a0a47edf0f3302d47058654151e4f130d", null ],
+    [ "infoFmt", "classdotnamecpp_1_1utils_1_1ILogger.html#a3aa7b8a20576832023048f01699bf3a7", null ],
+    [ "infoStream", "classdotnamecpp_1_1utils_1_1ILogger.html#a6b0f385f554b6d861df34183fb4021f9", null ],
+    [ "setAppPrefix", "classdotnamecpp_1_1utils_1_1ILogger.html#af80b6ee119f58b4932673513c85befec", null ],
+    [ "setLevel", "classdotnamecpp_1_1utils_1_1ILogger.html#a67cf54d85e7f1eb03ad9047927ef1020", null ],
+    [ "stream", "classdotnamecpp_1_1utils_1_1ILogger.html#ae44262c4573acbe810297c38c9842a16", null ],
+    [ "warning", "classdotnamecpp_1_1utils_1_1ILogger.html#a1b326e0856db785f525e25d60e4bf79a", null ],
+    [ "warningFmt", "classdotnamecpp_1_1utils_1_1ILogger.html#af933c55be9eace47c3aba7dfb603e6bc", null ],
+    [ "warningStream", "classdotnamecpp_1_1utils_1_1ILogger.html#a11c93bacb4d21079454d2752d1fea88c", null ]
+];

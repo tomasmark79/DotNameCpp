@@ -1,0 +1,36 @@
+\doxysection{Logger\+Factory.\+hpp}
+\hypertarget{LoggerFactory_8hpp_source}{}\label{LoggerFactory_8hpp_source}\index{src/Utils/Logger/LoggerFactory.hpp@{src/Utils/Logger/LoggerFactory.hpp}}
+\mbox{\hyperlink{LoggerFactory_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ILogger_8hpp}{Utils/Logger/ILogger.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1logging}{dotnamecpp::logging}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{LoggerType}}\ :\ uint8\_t\ \{\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}{Console}},\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaa0b27918290ff5323bea1e3b78a9cf04e}{File}},\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabbb93ef26e3c101ff11cdd21cab08a94}{Null}}\ \};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig_a1da7f0554ab68cc4a0be2619ed38126a}{level}}\ =\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{Level::LOG\_INFO}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig_a0de0885b509ac4c34c848f27d8756c7c}{enableFileLogging}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig_a3cef8aa2af8d1dd71df57fb749dbb248}{logFilePath}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig_a354cb8c4867e12444758d22a37a54220}{colorOutput}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig_a7fbdf9d79a5e9333ee82b989fc7ad55f}{appPrefix}};}
+\DoxyCodeLine{00019\ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory}{LoggerFactory}}\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511}{create}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{LoggerType}}\ type\ =\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}{LoggerType::Console}},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \&config\ =\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\{\});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a66665981d61ca1baae6f1801a597bb65}{createConsole}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \&config\ =\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\{\});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a336d87d8fe6aa72ce1656de20f6f41fe}{createFile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \&config\ =\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\{\});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a1cf52c1ddb57eae93a5aab46b593d021}{createNull}}();}
+\DoxyCodeLine{00055\ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::logging}}
+
+\end{DoxyCode}

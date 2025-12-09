@@ -1,0 +1,142 @@
+\doxysection{dotnamecpp\+::assets\+::IAsset\+Manager Class Reference}
+\hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager}{}\label{classdotnamecpp_1_1assets_1_1IAssetManager}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+
+
+{\ttfamily \#include $<$IAsset\+Manager.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::assets\+::IAsset\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1assets_1_1IAssetManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::assets\+::IAsset\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classdotnamecpp_1_1assets_1_1IAssetManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_ad769907b995768b13d5a144ce785676d}{\texorpdfstring{$\sim$}{\string~}\+IAsset\+Manager}} ()=default
+\item 
+virtual const std\+::filesystem\+::path \& \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_aa575217206c1bed471c24ef8270751f6}{get\+Assets\+Path}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Assets Path object. \end{DoxyCompactList}\item 
+virtual std\+::filesystem\+::path \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_acb9f303fa38e6d8596e92c0ee217e846}{resolve\+Asset}} (const std\+::filesystem\+::path \&relative\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Resolve the full path of an asset given its relative path. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_ada10f7039db9a69cb68a8728eb537c17}{asset\+Exists}} (const std\+::filesystem\+::path \&relative\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Check if an asset exists given its relative path. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_a0c7d06d748dfcaf9742f0daccf9ce534}{validate}} () const =0
+\begin{DoxyCompactList}\small\item\em Validate the asset manager configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_ad769907b995768b13d5a144ce785676d}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}!````~IAssetManager@{\texorpdfstring{$\sim$}{\string~}IAssetManager}}
+\index{````~IAssetManager@{\texorpdfstring{$\sim$}{\string~}IAssetManager}!dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IAssetManager()}{\string~IAssetManager()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1IAssetManager_ad769907b995768b13d5a144ce785676d} 
+virtual dotnamecpp\+::assets\+::\+IAsset\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+IAsset\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_ada10f7039db9a69cb68a8728eb537c17}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}!assetExists@{assetExists}}
+\index{assetExists@{assetExists}!dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+\doxysubsubsection{\texorpdfstring{assetExists()}{assetExists()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1IAssetManager_ada10f7039db9a69cb68a8728eb537c17} 
+virtual bool dotnamecpp\+::assets\+::\+IAsset\+Manager\+::asset\+Exists (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{relative\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if an asset exists given its relative path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relative\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a3ee89e1d5825272326ad38a69282affd}{dotnamecpp\+::assets\+::\+Asset\+Manager}}, and \mbox{\hyperlink{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931}{Mock\+Asset\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_aa575217206c1bed471c24ef8270751f6}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}!getAssetsPath@{getAssetsPath}}
+\index{getAssetsPath@{getAssetsPath}!dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+\doxysubsubsection{\texorpdfstring{getAssetsPath()}{getAssetsPath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1IAssetManager_aa575217206c1bed471c24ef8270751f6} 
+virtual const std\+::filesystem\+::path \& dotnamecpp\+::assets\+::\+IAsset\+Manager\+::get\+Assets\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Assets Path object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::filesystem\+::path\& 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_ac0a871606b61574ac0db2009b7ec6016}{dotnamecpp\+::assets\+::\+Asset\+Manager}}, and \mbox{\hyperlink{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8}{Mock\+Asset\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_acb9f303fa38e6d8596e92c0ee217e846}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}!resolveAsset@{resolveAsset}}
+\index{resolveAsset@{resolveAsset}!dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+\doxysubsubsection{\texorpdfstring{resolveAsset()}{resolveAsset()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1IAssetManager_acb9f303fa38e6d8596e92c0ee217e846} 
+virtual std\+::filesystem\+::path dotnamecpp\+::assets\+::\+IAsset\+Manager\+::resolve\+Asset (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{relative\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Resolve the full path of an asset given its relative path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relative\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::filesystem\+::path 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a6ebc37678f8d99eccd03d3b7b1644ca7}{dotnamecpp\+::assets\+::\+Asset\+Manager}}, and \mbox{\hyperlink{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1}{Mock\+Asset\+Manager}}.
+
+\Hypertarget{classdotnamecpp_1_1assets_1_1IAssetManager_a0c7d06d748dfcaf9742f0daccf9ce534}\index{dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}!validate@{validate}}
+\index{validate@{validate}!dotnamecpp::assets::IAssetManager@{dotnamecpp::assets::IAssetManager}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1IAssetManager_a0c7d06d748dfcaf9742f0daccf9ce534} 
+virtual bool dotnamecpp\+::assets\+::\+IAsset\+Manager\+::validate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Validate the asset manager configuration. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a6a393b838310e006ba0bd62928b87aca}{dotnamecpp\+::assets\+::\+Asset\+Manager}}, and \mbox{\hyperlink{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8}{Mock\+Asset\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Assets/\mbox{\hyperlink{IAssetManager_8hpp}{IAsset\+Manager.\+hpp}}\end{DoxyCompactItemize}

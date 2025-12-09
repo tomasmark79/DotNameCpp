@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['_7econsolelogger_0',['~ConsoleLogger',['../classConsoleLogger.html#a242e88aa9495249d5a7fbdfc4f8886ee',1,'ConsoleLogger']]],
+  ['_7ecustomstringsloader_1',['~CustomStringsLoader',['../classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#adfe45cd74c5c746250e3c9b758580c39',1,'dotnamecpp::utils::CustomStringsLoader']]],
+  ['_7edirectorymanager_2',['~DirectoryManager',['../classdotnamecpp_1_1utils_1_1DirectoryManager.html#a6cae276df622cfc93b52f14759a032b4',1,'dotnamecpp::utils::DirectoryManager']]],
+  ['_7edotnamelib_3',['~DotNameLib',['../classdotnamecpp_1_1v1_1_1DotNameLib.html#a674cffc7cedc2687940cdb23daed9237',1,'dotnamecpp::v1::DotNameLib']]],
+  ['_7eemscriptenplatforminfo_4',['~EmscriptenPlatformInfo',['../classdotnamecpp_1_1utils_1_1EmscriptenPlatformInfo.html#a8538a885c30d459d879ae527c64af302',1,'dotnamecpp::utils::EmscriptenPlatformInfo']]],
+  ['_7efilereader_5',['~FileReader',['../classdotnamecpp_1_1utils_1_1FileReader.html#af7d0e910c57605ca1b487867c903cca5',1,'dotnamecpp::utils::FileReader']]],
+  ['_7efilewriter_6',['~FileWriter',['../classdotnamecpp_1_1utils_1_1FileWriter.html#ab5302c564013623e4f120caabc108add',1,'dotnamecpp::utils::FileWriter']]],
+  ['_7eiassetmanager_7',['~IAssetManager',['../classdotnamecpp_1_1assets_1_1IAssetManager.html#ad769907b995768b13d5a144ce785676d',1,'dotnamecpp::assets::IAssetManager::~IAssetManager()'],['../classdotnamecpp_1_1utils_1_1IAssetManager.html#ad769907b995768b13d5a144ce785676d',1,'dotnamecpp::utils::IAssetManager::~IAssetManager()']]],
+  ['_7eicustomstringsloader_8',['~ICustomStringsLoader',['../classdotnamecpp_1_1utils_1_1ICustomStringsLoader.html#a039d6d45bceec3a4aded092d3679675f',1,'dotnamecpp::utils::ICustomStringsLoader']]],
+  ['_7eidirectorymanager_9',['~IDirectoryManager',['../classdotnamecpp_1_1utils_1_1IDirectoryManager.html#a30816aa35c9076d65670594dafd709c8',1,'dotnamecpp::utils::IDirectoryManager']]],
+  ['_7eifilereader_10',['~IFileReader',['../classdotnamecpp_1_1utils_1_1IFileReader.html#ab9b38e4b02487360ff45ed47dfd3c6f1',1,'dotnamecpp::utils::IFileReader']]],
+  ['_7eifilewriter_11',['~IFileWriter',['../classdotnamecpp_1_1utils_1_1IFileWriter.html#a6ac1575e2ea4bbd65bae38ea59d017d5',1,'dotnamecpp::utils::IFileWriter']]],
+  ['_7eijsonserializer_12',['~IJsonSerializer',['../classdotnamecpp_1_1utils_1_1IJsonSerializer.html#a35ee64459754fed9a21325685951ff3c',1,'dotnamecpp::utils::IJsonSerializer']]],
+  ['_7eilogger_13',['~ILogger',['../classdotnamecpp_1_1logging_1_1ILogger.html#afa704c9656943db5ff4def4c0da29aec',1,'dotnamecpp::logging::ILogger::~ILogger()'],['../classdotnamecpp_1_1utils_1_1ILogger.html#afa704c9656943db5ff4def4c0da29aec',1,'dotnamecpp::utils::ILogger::~ILogger()']]],
+  ['_7eipathresolver_14',['~IPathResolver',['../classdotnamecpp_1_1utils_1_1IPathResolver.html#aa4a9e9a435a00249e7ff9125f303bcd0',1,'dotnamecpp::utils::IPathResolver']]],
+  ['_7eiplatforminfo_15',['~IPlatformInfo',['../classdotnamecpp_1_1utils_1_1IPlatformInfo.html#a7b595b0cb50afac87f892243656d4e56',1,'dotnamecpp::utils::IPlatformInfo']]],
+  ['_7eistringformatter_16',['~IStringFormatter',['../classdotnamecpp_1_1utils_1_1IStringFormatter.html#aaa7eba0cd735a3afa3e780336640c757',1,'dotnamecpp::utils::IStringFormatter']]],
+  ['_7ejsonserializer_17',['~JsonSerializer',['../classdotnamecpp_1_1utils_1_1JsonSerializer.html#a71fcb4c5a3c6fe53222c6df0c6553e02',1,'dotnamecpp::utils::JsonSerializer']]],
+  ['_7elogstream_18',['~LogStream',['../classdotnamecpp_1_1logging_1_1LogStream.html#aa526c78dd845217ceec4b5e5d26b908c',1,'dotnamecpp::logging::LogStream']]],
+  ['_7epathresolver_19',['~PathResolver',['../classdotnamecpp_1_1utils_1_1PathResolver.html#aa46f33603730dac35c50085e7e93227e',1,'dotnamecpp::utils::PathResolver']]],
+  ['_7estringformatter_20',['~StringFormatter',['../classdotnamecpp_1_1utils_1_1StringFormatter.html#afe266e14747d3b208dd077acde4c4317',1,'dotnamecpp::utils::StringFormatter']]],
+  ['_7eunixplatforminfo_21',['~UnixPlatformInfo',['../classdotnamecpp_1_1utils_1_1UnixPlatformInfo.html#ad024e7d47810e76b4f166c1a51f4c798',1,'dotnamecpp::utils::UnixPlatformInfo']]],
+  ['_7ewindowsplatforminfo_22',['~WindowsPlatformInfo',['../classdotnamecpp_1_1utils_1_1WindowsPlatformInfo.html#a4c7789cf7d935c69c94c103a3f9119e6',1,'dotnamecpp::utils::WindowsPlatformInfo']]]
+];

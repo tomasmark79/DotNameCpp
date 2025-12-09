@@ -1,0 +1,8 @@
+<map id="ConsoleLogger::showHeaderTime" name="ConsoleLogger::showHeaderTime">
+<area shape="rect" id="Node000001" title="Show or hide the header time in the log output." alt="" coords="256,55,474,81"/>
+<area shape="rect" id="Node000002" href="$classConsoleLogger.html#a777c72f8f45463233b5e29231b2cd659" title="Show or hide all headers in the log output." alt="" coords="20,29,193,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,58,193,54,193,48,240,53"/>
+<area shape="rect" id="Node000003" href="$classConsoleLogger.html#ae56e4044605f57c9253807c7e10db745" title="Show or hide specific headers in the log output." alt="" coords="5,80,208,107"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="240,83,209,86,208,81,240,78"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="152,17,136,10,106,8,79,10,64,15,61,20,67,27,63,31,55,21,61,11,78,5,107,3,138,5,154,12"/>
+</map>

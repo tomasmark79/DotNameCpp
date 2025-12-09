@@ -1,0 +1,20 @@
+<map id="src/Utils/Filesystem/IPathResolver.hpp" name="src/Utils/Filesystem/IPathResolver.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="345,5,483,48"/>
+<area shape="rect" id="Node000002" href="$UtilsError_8hpp.html" title=" " alt="" coords="188,96,320,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,51,294,91,292,86,372,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="368,171,421,197"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="413,49,405,96,399,156,393,155,400,96,408,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="414,96,495,123"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="427,47,444,81,439,83,422,50"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="519,96,576,123"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="450,46,515,85,512,90,447,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,66,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,126,81,170,80,165,215,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,171,157,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,126,161,165,159,160,230,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="180,171,259,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,124,234,158,230,155,246,122"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="280,121,357,161,355,165,277,126"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="283,171,343,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="266,122,295,157,291,160,262,125"/>
+</map>

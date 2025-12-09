@@ -1,0 +1,672 @@
+\doxysection{dotnamecpp\+::logging\+::ILogger Class Reference}
+\hypertarget{classdotnamecpp_1_1logging_1_1ILogger}{}\label{classdotnamecpp_1_1logging_1_1ILogger}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+
+
+{\ttfamily \#include $<$ILogger.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::logging\+::ILogger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1logging_1_1ILogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::logging\+::ILogger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1logging_1_1ILogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a5affc0ca64769619c14625e12995c583}{ILogger}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_afa704c9656943db5ff4def4c0da29aec}{\texorpdfstring{$\sim$}{\string~}\+ILogger}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a4b0f18c315e8c67afa8389179fbd1dee}{debug}} (const std\+::string \&message, const std\+::string \&caller="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Log a debug message. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0a47edf0f3302d47058654151e4f130d}{info}} (const std\+::string \&message, const std\+::string \&caller="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Log an info message. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a1b326e0856db785f525e25d60e4bf79a}{warning}} (const std\+::string \&message, const std\+::string \&caller="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Log a warning message. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_aa516cf87b71e6dfc6077e9513518c8dd}{error}} (const std\+::string \&message, const std\+::string \&caller="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Log an error message. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a3bf006d13b3b8b48b008e6d51250da4a}{critical}} (const std\+::string \&message, const std\+::string \&caller="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Log a critical message. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a67cf54d85e7f1eb03ad9047927ef1020}{set\+Level}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} level)=0
+\begin{DoxyCompactList}\small\item\em Set the \doxylink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a805e89c6b80232207eb38b7b58195315}{get\+Level}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_af80b6ee119f58b4932673513c85befec}{set\+App\+Prefix}} (const std\+::string \&prefix)=0
+\begin{DoxyCompactList}\small\item\em Set the application prefix for log messages. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a39f4de43fae67a3a13b1840b8781ec52}{get\+App\+Prefix}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the App Prefix object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0d698e669010163b218409092aafc7a4}{enable\+File\+Logging}} (const std\+::string \&filename)=0
+\begin{DoxyCompactList}\small\item\em Enable logging to a file. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a37d915eab48db9aef11e1802350682fc}{disable\+File\+Logging}} ()=0
+\begin{DoxyCompactList}\small\item\em Disable logging to a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} level, const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming log messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a1a22bc7e764530eb1deed791d3488762}{debug\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming debug messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a6b0f385f554b6d861df34183fb4021f9}{info\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming info messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a11c93bacb4d21079454d2752d1fea88c}{warning\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming warning messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0dde47df5a8424b84495dba5504c7468}{error\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming error messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a8076aa2b9e0b0181adfc0a35f5ac7010}{critical\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming critical messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a70d0fc01e492aa2367659bee2c7a0999}{debug\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted debug message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a3aa7b8a20576832023048f01699bf3a7}{info\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted info message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_af933c55be9eace47c3aba7dfb603e6bc}{warning\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted warning message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_aec598ad8a9e681a21b3e34c2f7a2971e}{error\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted error message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_acefba8bf09fe905714797903bca19016}{critical\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted critical message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a5affc0ca64769619c14625e12995c583}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!ILogger@{ILogger}}
+\index{ILogger@{ILogger}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{ILogger()}{ILogger()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a5affc0ca64769619c14625e12995c583} 
+dotnamecpp\+::logging\+::\+ILogger\+::\+ILogger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_afa704c9656943db5ff4def4c0da29aec}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!````~ILogger@{\texorpdfstring{$\sim$}{\string~}ILogger}}
+\index{````~ILogger@{\texorpdfstring{$\sim$}{\string~}ILogger}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ILogger()}{\string~ILogger()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_afa704c9656943db5ff4def4c0da29aec} 
+virtual dotnamecpp\+::logging\+::\+ILogger\+::\texorpdfstring{$\sim$}{\string~}\+ILogger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a3bf006d13b3b8b48b008e6d51250da4a}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!critical@{critical}}
+\index{critical@{critical}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a3bf006d13b3b8b48b008e6d51250da4a} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::critical (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Log a critical message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a48076597061e482a0b37c050a649de84}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_a3bf006d13b3b8b48b008e6d51250da4a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_acefba8bf09fe905714797903bca19016}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!criticalFmt@{criticalFmt}}
+\index{criticalFmt@{criticalFmt}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{criticalFmt()}{criticalFmt()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_acefba8bf09fe905714797903bca19016} 
+template$<$typename... Args$>$ \\
+void dotnamecpp\+::logging\+::\+ILogger\+::critical\+Fmt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{format}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a formatted critical message. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_acefba8bf09fe905714797903bca19016_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a8076aa2b9e0b0181adfc0a35f5ac7010}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!criticalStream@{criticalStream}}
+\index{criticalStream@{criticalStream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{criticalStream()}{criticalStream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a8076aa2b9e0b0181adfc0a35f5ac7010} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::critical\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming critical messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classdotnamecpp_1_1logging_1_1ILogger_a8076aa2b9e0b0181adfc0a35f5ac7010_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a4b0f18c315e8c67afa8389179fbd1dee}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!debug@{debug}}
+\index{debug@{debug}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a4b0f18c315e8c67afa8389179fbd1dee} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::debug (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Log a debug message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_ae1e42fb2f45eb79a24e912966c0dfc73}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_a4b0f18c315e8c67afa8389179fbd1dee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a70d0fc01e492aa2367659bee2c7a0999}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!debugFmt@{debugFmt}}
+\index{debugFmt@{debugFmt}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{debugFmt()}{debugFmt()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a70d0fc01e492aa2367659bee2c7a0999} 
+template$<$typename... Args$>$ \\
+void dotnamecpp\+::logging\+::\+ILogger\+::debug\+Fmt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{format}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a formatted debug message. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_a70d0fc01e492aa2367659bee2c7a0999_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a1a22bc7e764530eb1deed791d3488762}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!debugStream@{debugStream}}
+\index{debugStream@{debugStream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{debugStream()}{debugStream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a1a22bc7e764530eb1deed791d3488762} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::debug\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming debug messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classdotnamecpp_1_1logging_1_1ILogger_a1a22bc7e764530eb1deed791d3488762_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a37d915eab48db9aef11e1802350682fc}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!disableFileLogging@{disableFileLogging}}
+\index{disableFileLogging@{disableFileLogging}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{disableFileLogging()}{disableFileLogging()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a37d915eab48db9aef11e1802350682fc} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::disable\+File\+Logging (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Disable logging to a file. 
+
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a8eb50c929f145bc2d613058292ceb86b}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a3fef9a94dcad75bdaed749b010dda89f}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a0d698e669010163b218409092aafc7a4}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!enableFileLogging@{enableFileLogging}}
+\index{enableFileLogging@{enableFileLogging}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{enableFileLogging()}{enableFileLogging()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a0d698e669010163b218409092aafc7a4} 
+virtual bool dotnamecpp\+::logging\+::\+ILogger\+::enable\+File\+Logging (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Enable logging to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_ad7ce78dcb764bd7bc2023237f6a58663}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a97251c3d036e91faaca8dcff5ee5e6ce}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_aa516cf87b71e6dfc6077e9513518c8dd}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!error@{error}}
+\index{error@{error}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_aa516cf87b71e6dfc6077e9513518c8dd} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Log an error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a8993b5640a2503aace085d166c418ad0}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_aa516cf87b71e6dfc6077e9513518c8dd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_aec598ad8a9e681a21b3e34c2f7a2971e}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!errorFmt@{errorFmt}}
+\index{errorFmt@{errorFmt}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{errorFmt()}{errorFmt()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_aec598ad8a9e681a21b3e34c2f7a2971e} 
+template$<$typename... Args$>$ \\
+void dotnamecpp\+::logging\+::\+ILogger\+::error\+Fmt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{format}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a formatted error message. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_aec598ad8a9e681a21b3e34c2f7a2971e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a0dde47df5a8424b84495dba5504c7468}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!errorStream@{errorStream}}
+\index{errorStream@{errorStream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{errorStream()}{errorStream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a0dde47df5a8424b84495dba5504c7468} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::error\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming error messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classdotnamecpp_1_1logging_1_1ILogger_a0dde47df5a8424b84495dba5504c7468_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a39f4de43fae67a3a13b1840b8781ec52}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!getAppPrefix@{getAppPrefix}}
+\index{getAppPrefix@{getAppPrefix}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{getAppPrefix()}{getAppPrefix()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a39f4de43fae67a3a13b1840b8781ec52} 
+virtual std\+::string dotnamecpp\+::logging\+::\+ILogger\+::get\+App\+Prefix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the App Prefix object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a9445a8dec0b3bbd2d29ff2af410b8494}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a448759c575607815f53f2a0ebc10608f}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a805e89c6b80232207eb38b7b58195315}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!getLevel@{getLevel}}
+\index{getLevel@{getLevel}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{getLevel()}{getLevel()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a805e89c6b80232207eb38b7b58195315} 
+virtual \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} dotnamecpp\+::logging\+::\+ILogger\+::get\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the \doxylink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level} object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a240bb9e9a187812fd9ee00d7c959dee8}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a929506464a3bf1d68fc3717b7211ceb4}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a0a47edf0f3302d47058654151e4f130d}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!info@{info}}
+\index{info@{info}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a0a47edf0f3302d47058654151e4f130d} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Log an info message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a94a4510e656600baa3d4ccd6f648a267}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_a0a47edf0f3302d47058654151e4f130d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a3aa7b8a20576832023048f01699bf3a7}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!infoFmt@{infoFmt}}
+\index{infoFmt@{infoFmt}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{infoFmt()}{infoFmt()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a3aa7b8a20576832023048f01699bf3a7} 
+template$<$typename... Args$>$ \\
+void dotnamecpp\+::logging\+::\+ILogger\+::info\+Fmt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{format}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a formatted info message. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classdotnamecpp_1_1logging_1_1ILogger_a3aa7b8a20576832023048f01699bf3a7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a6b0f385f554b6d861df34183fb4021f9}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!infoStream@{infoStream}}
+\index{infoStream@{infoStream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{infoStream()}{infoStream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a6b0f385f554b6d861df34183fb4021f9} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::info\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming info messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{classdotnamecpp_1_1logging_1_1ILogger_a6b0f385f554b6d861df34183fb4021f9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_af80b6ee119f58b4932673513c85befec}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!setAppPrefix@{setAppPrefix}}
+\index{setAppPrefix@{setAppPrefix}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{setAppPrefix()}{setAppPrefix()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_af80b6ee119f58b4932673513c85befec} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::set\+App\+Prefix (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the application prefix for log messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a3e636a955ec8fdf513050894560f9c41}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a4b0d853386ec1348ea0de61d43d56ab3}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a67cf54d85e7f1eb03ad9047927ef1020}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!setLevel@{setLevel}}
+\index{setLevel@{setLevel}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{setLevel()}{setLevel()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a67cf54d85e7f1eb03ad9047927ef1020} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::set\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the \doxylink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a256818f00bb0e2a062f8c11b2b46f329}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_a70d859923b2d22e890d3c8ea9494225c}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!stream@{stream}}
+\index{stream@{stream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{stream()}{stream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}}}]{level}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming log messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a1b326e0856db785f525e25d60e4bf79a}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!warning@{warning}}
+\index{warning@{warning}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a1b326e0856db785f525e25d60e4bf79a} 
+virtual void dotnamecpp\+::logging\+::\+ILogger\+::warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Log a warning message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConsoleLogger_a7c16af28ba75ff33649181778e73c070}{Console\+Logger}}, and \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1NullLogger_af80f127677ee11ad42781172e5af9a20}{dotnamecpp\+::logging\+::\+Null\+Logger}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classdotnamecpp_1_1logging_1_1ILogger_a1b326e0856db785f525e25d60e4bf79a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_af933c55be9eace47c3aba7dfb603e6bc}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!warningFmt@{warningFmt}}
+\index{warningFmt@{warningFmt}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{warningFmt()}{warningFmt()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_af933c55be9eace47c3aba7dfb603e6bc} 
+template$<$typename... Args$>$ \\
+void dotnamecpp\+::logging\+::\+ILogger\+::warning\+Fmt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{format}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a formatted warning message. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classdotnamecpp_1_1logging_1_1ILogger_af933c55be9eace47c3aba7dfb603e6bc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1ILogger_a11c93bacb4d21079454d2752d1fea88c}\index{dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}!warningStream@{warningStream}}
+\index{warningStream@{warningStream}!dotnamecpp::logging::ILogger@{dotnamecpp::logging::ILogger}}
+\doxysubsubsection{\texorpdfstring{warningStream()}{warningStream()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1ILogger_a11c93bacb4d21079454d2752d1fea88c} 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} dotnamecpp\+::logging\+::\+ILogger\+::warning\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming warning messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classdotnamecpp_1_1logging_1_1ILogger_a11c93bacb4d21079454d2752d1fea88c_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Logger/\mbox{\hyperlink{ILogger_8hpp}{ILogger.\+hpp}}\end{DoxyCompactItemize}

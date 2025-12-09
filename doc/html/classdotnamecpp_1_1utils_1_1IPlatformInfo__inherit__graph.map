@@ -1,0 +1,9 @@
+<map id="dotnamecpp::utils::IPlatformInfo" name="dotnamecpp::utils::IPlatformInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="237,5,466,469"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1EmscriptenPlatformInfo.html" title="Emscripten&#45;specific platform information implementation." alt="" coords="5,517,220,1200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,484,235,518,223,551,218,549,230,516,244,482"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UnixPlatformInfo.html" title="Unix&#45;like platform information implementation (Linux/macOS)" alt="" coords="245,533,458,1184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="354,484,354,534,349,534,349,484"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1WindowsPlatformInfo.html" title="Windows&#45;specific platform information implementation." alt="" coords="482,517,695,1200"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="459,482,473,516,485,548,480,550,468,518,454,484"/>
+</map>

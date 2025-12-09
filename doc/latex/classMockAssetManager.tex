@@ -1,0 +1,221 @@
+\doxysection{Mock\+Asset\+Manager Class Reference}
+\hypertarget{classMockAssetManager}{}\label{classMockAssetManager}\index{MockAssetManager@{MockAssetManager}}
+
+
+Mock implementation of IAsset\+Manager for testing.  
+
+
+
+
+{\ttfamily \#include $<$Mock\+Asset\+Manager.\+hpp$>$}
+
+
+
+Inheritance diagram for Mock\+Asset\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMockAssetManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mock\+Asset\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMockAssetManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMockAssetManager_a4b5097234b3a46fa928c8612bbbf9537}{Mock\+Asset\+Manager}} (std\+::filesystem\+::path mock\+Path)
+\item 
+const std\+::filesystem\+::path \& \mbox{\hyperlink{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8}{get\+Assets\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Get the Assets Path object. \end{DoxyCompactList}\item 
+std\+::filesystem\+::path \mbox{\hyperlink{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1}{resolve\+Asset}} (const std\+::filesystem\+::path \&relative\+Path) const override
+\begin{DoxyCompactList}\small\item\em Resolve the full path of an asset given its relative path. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931}{asset\+Exists}} (const std\+::filesystem\+::path \&) const override
+\begin{DoxyCompactList}\small\item\em Check if an asset exists given its relative path. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8}{validate}} () const override
+\begin{DoxyCompactList}\small\item\em Validate the asset manager configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMockAssetManager_aabd03768f97ee703033211a2deb86c65}{set\+Mock\+Exists}} (bool exists)
+\item 
+void \mbox{\hyperlink{classMockAssetManager_a67f93b4a0f11a87eb463062d689df854}{set\+Mock\+Valid}} (bool valid)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp\+::assets\+::\+IAsset\+Manager}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_ad769907b995768b13d5a144ce785676d}{\texorpdfstring{$\sim$}{\string~}\+IAsset\+Manager}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mock implementation of IAsset\+Manager for testing. 
+
+Allows controlling behavior for test scenarios without filesystem dependencies. 
+
+\label{doc-constructors}
+\Hypertarget{classMockAssetManager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMockAssetManager_a4b5097234b3a46fa928c8612bbbf9537}\index{MockAssetManager@{MockAssetManager}!MockAssetManager@{MockAssetManager}}
+\index{MockAssetManager@{MockAssetManager}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{MockAssetManager()}{MockAssetManager()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_a4b5097234b3a46fa928c8612bbbf9537} 
+Mock\+Asset\+Manager\+::\+Mock\+Asset\+Manager (\begin{DoxyParamCaption}\item[{std\+::filesystem\+::path}]{mock\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classMockAssetManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931}\index{MockAssetManager@{MockAssetManager}!assetExists@{assetExists}}
+\index{assetExists@{assetExists}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{assetExists()}{assetExists()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931} 
+bool Mock\+Asset\+Manager\+::asset\+Exists (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{relative\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if an asset exists given its relative path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relative\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_ada10f7039db9a69cb68a8728eb537c17}{dotnamecpp\+::assets\+::\+IAsset\+Manager}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8}\index{MockAssetManager@{MockAssetManager}!getAssetsPath@{getAssetsPath}}
+\index{getAssetsPath@{getAssetsPath}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{getAssetsPath()}{getAssetsPath()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8} 
+const std\+::filesystem\+::path \& Mock\+Asset\+Manager\+::get\+Assets\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Assets Path object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::filesystem\+::path\& 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_aa575217206c1bed471c24ef8270751f6}{dotnamecpp\+::assets\+::\+IAsset\+Manager}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1}\index{MockAssetManager@{MockAssetManager}!resolveAsset@{resolveAsset}}
+\index{resolveAsset@{resolveAsset}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{resolveAsset()}{resolveAsset()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1} 
+std\+::filesystem\+::path Mock\+Asset\+Manager\+::resolve\+Asset (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{relative\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resolve the full path of an asset given its relative path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relative\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::filesystem\+::path 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_acb9f303fa38e6d8596e92c0ee217e846}{dotnamecpp\+::assets\+::\+IAsset\+Manager}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMockAssetManager_aabd03768f97ee703033211a2deb86c65}\index{MockAssetManager@{MockAssetManager}!setMockExists@{setMockExists}}
+\index{setMockExists@{setMockExists}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{setMockExists()}{setMockExists()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_aabd03768f97ee703033211a2deb86c65} 
+void Mock\+Asset\+Manager\+::set\+Mock\+Exists (\begin{DoxyParamCaption}\item[{bool}]{exists}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classMockAssetManager_aabd03768f97ee703033211a2deb86c65_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMockAssetManager_a67f93b4a0f11a87eb463062d689df854}\index{MockAssetManager@{MockAssetManager}!setMockValid@{setMockValid}}
+\index{setMockValid@{setMockValid}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{setMockValid()}{setMockValid()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_a67f93b4a0f11a87eb463062d689df854} 
+void Mock\+Asset\+Manager\+::set\+Mock\+Valid (\begin{DoxyParamCaption}\item[{bool}]{valid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classMockAssetManager_a67f93b4a0f11a87eb463062d689df854_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8}\index{MockAssetManager@{MockAssetManager}!validate@{validate}}
+\index{validate@{validate}!MockAssetManager@{MockAssetManager}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8} 
+bool Mock\+Asset\+Manager\+::validate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Validate the asset manager configuration. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager_a0c7d06d748dfcaf9742f0daccf9ce534}{dotnamecpp\+::assets\+::\+IAsset\+Manager}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+application/tests/\mbox{\hyperlink{MockAssetManager_8hpp}{Mock\+Asset\+Manager.\+hpp}}\end{DoxyCompactItemize}

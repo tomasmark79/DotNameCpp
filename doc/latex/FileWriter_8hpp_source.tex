@@ -1,0 +1,48 @@
+\doxysection{File\+Writer.\+hpp}
+\hypertarget{FileWriter_8hpp_source}{}\label{FileWriter_8hpp_source}\index{src/Utils/Filesystem/FileWriter.hpp@{src/Utils/Filesystem/FileWriter.hpp}}
+\mbox{\hyperlink{FileWriter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IFileWriter_8hpp}{Utils/Filesystem/IFileWriter.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter}{IFileWriter}}\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a6578a49e857789feff5a61ed8a115146}{FileWriter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_afe71b9f4e34123472d4cbe9dc4ec1305}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_ac883f4c0c300ca4bcee879d0d28f6cea}{FileWriter}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a2ebe2780adbd603fd37da6e77bed78c3}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a5c694825ee5e7bf11e2f34c3b0a97a95}{FileWriter}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_ab5302c564013623e4f120caabc108add}{\string~FileWriter}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a3b974709154743326c9e2aee96f9afcc}{write}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,\ \textcolor{keyword}{const}\ std::string\ \&content,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_aaff9e87cb1d4a78aa441b05cb53358f9}{writeBytes}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint8\_t>\ \&data,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_aa3a332acde8291ff65ec540cf7901cf3}{writeLines}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \&lines,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ append\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a39b3c826b0457c34105235e0d89f1726}{touch}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ std::optional<FileError>\ validatePath(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ requireParent);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ std::optional<FileError>\ ensureParentExists(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath);}
+\DoxyCodeLine{00040\ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

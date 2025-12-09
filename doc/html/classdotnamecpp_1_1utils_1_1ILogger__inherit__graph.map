@@ -1,0 +1,9 @@
+<map id="dotnamecpp::utils::ILogger" name="dotnamecpp::utils::ILogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="124,139,327,661"/>
+<area shape="rect" id="Node000003" href="$classConsoleLogger.html" title=" " alt="" coords="5,709,227,1461"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,676,179,710,174,709,179,676"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1logging_1_1NullLogger.html" title=" " alt="" coords="251,800,422,1371"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,675,293,800,288,801,268,676"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="156,5,295,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,106,228,139,223,139,223,106"/>
+</map>

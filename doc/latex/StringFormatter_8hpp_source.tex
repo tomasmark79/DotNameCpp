@@ -1,0 +1,29 @@
+\doxysection{String\+Formatter.\+hpp}
+\hypertarget{StringFormatter_8hpp_source}{}\label{StringFormatter_8hpp_source}\index{src/Utils/String/StringFormatter.hpp@{src/Utils/String/StringFormatter.hpp}}
+\mbox{\hyperlink{StringFormatter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IStringFormatter_8hpp}{Utils/String/IStringFormatter.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IStringFormatter}{IStringFormatter}}\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_afe266e14747d3b208dd077acde4c4317}{\string~StringFormatter}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_a9248b007a7c80b0c8677fd12122a4cc1}{StringFormatter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_a02849e618ab41a8cf8e52695a0a2ec22}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_a7c279457678987318d7acb33a1c99c5d}{StringFormatter}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_a033f88774ba71e1c6d4beb913d2f6175}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_ac168acd454a993b15efe0ad9970eb78c}{StringFormatter}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_a165ebea88f563469e0eadca3702f3d80}{addDots}}(\textcolor{keyword}{const}\ std::string\ \&str)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1StringFormatter_aa4e0ff4786fb5ffb4d7e1849744d7a36}{removeDots}}(\textcolor{keyword}{const}\ std::string\ \&str)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00021\ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

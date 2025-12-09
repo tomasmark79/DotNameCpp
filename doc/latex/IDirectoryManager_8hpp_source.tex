@@ -1,0 +1,50 @@
+\doxysection{IDirectory\+Manager.\+hpp}
+\hypertarget{IDirectoryManager_8hpp_source}{}\label{IDirectoryManager_8hpp_source}\index{src/Utils/Filesystem/IDirectoryManager.hpp@{src/Utils/Filesystem/IDirectoryManager.hpp}}
+\mbox{\hyperlink{IDirectoryManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{UtilsError_8hpp}{Utils/UtilsError.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager}{IDirectoryManager}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a30816aa35c9076d65670594dafd709c8}{\string~IDirectoryManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_adef9d88657de199c5cdefa03c03c6a6f}{createDirectory}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a924d5369ba120fd595e4725dc4efd61b}{removeDirectory}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::uintmax\_t,\ FileError>}}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a0b8c3a1b53f062f4970fdb55804da654}{removeDirectoryRecursive}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00053\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a458d7b88cbfc9dd39ddfab4c81f21d8f}{exists}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<bool,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a2ed4f0ab00845f8fda8c3982585429b0}{isEmpty}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::vector<std::filesystem::path>}},\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{FileError}}>}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_ab317f2b5b5569989ae94aee11d338ec6}{listEntries}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::vector<std::filesystem::path>}},\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{FileError}}>}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a80fed01f87033220f4b67f02137beb9f}{listEntriesRecursive}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&dirPath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_aed585752d5f85f9802fb5bcc6269c305}{getCurrentDirectory}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager_a89b5eefde819345434f5d4b87f02aba6}{getTempDirectory}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00100\ \ \ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

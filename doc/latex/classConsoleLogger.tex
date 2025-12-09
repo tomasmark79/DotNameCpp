@@ -1,0 +1,805 @@
+\doxysection{Console\+Logger Class Reference}
+\hypertarget{classConsoleLogger}{}\label{classConsoleLogger}\index{ConsoleLogger@{ConsoleLogger}}
+
+
+{\ttfamily \#include $<$Console\+Logger.\+hpp$>$}
+
+
+
+Inheritance diagram for Console\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classConsoleLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Console\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classConsoleLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{Console\+Logger}} ()=default
+\item 
+\mbox{\hyperlink{classConsoleLogger_a242e88aa9495249d5a7fbdfc4f8886ee}{\texorpdfstring{$\sim$}{\string~}\+Console\+Logger}} ()
+\item 
+\mbox{\hyperlink{classConsoleLogger_aef5adf04fa11cfb6f1c8df808c4f9734}{Console\+Logger}} (const \mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&)=delete
+\item 
+\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \& \mbox{\hyperlink{classConsoleLogger_a8c773a671915651392234e88eebcd159}{operator=}} (const \mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&)=delete
+\item 
+\mbox{\hyperlink{classConsoleLogger_a861ef16d038d599c9ce3a22d2d0644ac}{Console\+Logger}} (\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \& \mbox{\hyperlink{classConsoleLogger_a1139c6c8d32dafaf463e68c1e3ab1554}{operator=}} (\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&\&other) noexcept
+\item 
+void \mbox{\hyperlink{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9}{debug}} (const std\+::string \&message, const std\+::string \&caller="{}"{}) override
+\begin{DoxyCompactList}\small\item\em Log a debug message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f}{info}} (const std\+::string \&message, const std\+::string \&caller="{}"{}) override
+\begin{DoxyCompactList}\small\item\em Log an info message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a7c16af28ba75ff33649181778e73c070}{warning}} (const std\+::string \&message, const std\+::string \&caller="{}"{}) override
+\begin{DoxyCompactList}\small\item\em Log a warning message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe}{error}} (const std\+::string \&message, const std\+::string \&caller="{}"{}) override
+\begin{DoxyCompactList}\small\item\em Log an error message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331}{critical}} (const std\+::string \&message, const std\+::string \&caller="{}"{}) override
+\begin{DoxyCompactList}\small\item\em Log a critical message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} level, const std\+::string \&message, const std\+::string \&caller)
+\begin{DoxyCompactList}\small\item\em Logs a message with a specified level to the console and optionally to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a256818f00bb0e2a062f8c11b2b46f329}{set\+Level}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} level) override
+\begin{DoxyCompactList}\small\item\em Set the Level object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} \mbox{\hyperlink{classConsoleLogger_a240bb9e9a187812fd9ee00d7c959dee8}{get\+Level}} () const override
+\begin{DoxyCompactList}\small\item\em Get the Level object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a3e636a955ec8fdf513050894560f9c41}{set\+App\+Prefix}} (const std\+::string \&prefix) override
+\begin{DoxyCompactList}\small\item\em Set the application prefix for log messages. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classConsoleLogger_a9445a8dec0b3bbd2d29ff2af410b8494}{get\+App\+Prefix}} () const override
+\begin{DoxyCompactList}\small\item\em Get the App Prefix object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConsoleLogger_ad7ce78dcb764bd7bc2023237f6a58663}{enable\+File\+Logging}} (const std\+::string \&filename) override
+\begin{DoxyCompactList}\small\item\em Enable logging to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a8eb50c929f145bc2d613058292ceb86b}{disable\+File\+Logging}} () override
+\begin{DoxyCompactList}\small\item\em Disable logging to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_add4cfcb48e31fc7223fefc343ce324b1}{set\+Header\+Name}} (const std\+::string \&header\+Name)
+\begin{DoxyCompactList}\small\item\em Set the Header Name object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}{show\+Header\+Name}} (bool include\+Name)
+\begin{DoxyCompactList}\small\item\em Show or hide the header name in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}{show\+Header\+Time}} (bool include\+Time)
+\begin{DoxyCompactList}\small\item\em Show or hide the header time in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}{show\+Header\+Caller}} (bool include\+Caller)
+\begin{DoxyCompactList}\small\item\em Show or hide the header caller in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}{show\+Header\+Level}} (bool include\+Level)
+\begin{DoxyCompactList}\small\item\em Show or hide the header level in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659}{no\+Header}} (bool no\+Header)
+\begin{DoxyCompactList}\small\item\em Show or hide all headers in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_ae56e4044605f57c9253807c7e10db745}{visible\+Headers}} (bool inc\+Name, bool inc\+Time, bool inc\+Caller, bool inc\+Level)
+\begin{DoxyCompactList}\small\item\em Show or hide specific headers in the log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_ae74070159597a83668b83dd5f84d3ac2}{set\+Color\+Enabled}} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Enable or disable colored output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConsoleLogger_ae32b77fe1349bf784bac5c6f86b43ff3}{set\+Auto\+Detect\+Color}} (bool auto\+Detect)
+\begin{DoxyCompactList}\small\item\em Enable automatic color detection based on TTY. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{dotnamecpp\+::logging\+::\+ILogger}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a5affc0ca64769619c14625e12995c583}{ILogger}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_afa704c9656943db5ff4def4c0da29aec}{\texorpdfstring{$\sim$}{\string~}\+ILogger}} ()=default
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{Level}} level, const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming log messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a1a22bc7e764530eb1deed791d3488762}{debug\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming debug messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a6b0f385f554b6d861df34183fb4021f9}{info\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming info messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a11c93bacb4d21079454d2752d1fea88c}{warning\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming warning messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0dde47df5a8424b84495dba5504c7468}{error\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming error messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream}} \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a8076aa2b9e0b0181adfc0a35f5ac7010}{critical\+Stream}} (const std\+::string \&caller="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classdotnamecpp_1_1logging_1_1LogStream}{Log\+Stream} for streaming critical messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a70d0fc01e492aa2367659bee2c7a0999}{debug\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted debug message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a3aa7b8a20576832023048f01699bf3a7}{info\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted info message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_af933c55be9eace47c3aba7dfb603e6bc}{warning\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted warning message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_aec598ad8a9e681a21b3e34c2f7a2971e}{error\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted error message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_acefba8bf09fe905714797903bca19016}{critical\+Fmt}} (const std\+::string \&format, Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Create a formatted critical message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a}{level\+To\+String}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} level)
+\begin{DoxyCompactList}\small\item\em Convert a logging level to its string representation. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{reset\+Console\+Color}} ()
+\begin{DoxyCompactList}\small\item\em Reset the console color to default. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190}{set\+Console\+Color\+Unix}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} level)
+\item 
+static void \mbox{\hyperlink{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541}{set\+Console\+Color}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} level)
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classConsoleLogger_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{ConsoleLogger()}{ConsoleLogger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6} 
+Console\+Logger\+::\+Console\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a242e88aa9495249d5a7fbdfc4f8886ee}\index{ConsoleLogger@{ConsoleLogger}!````~ConsoleLogger@{\texorpdfstring{$\sim$}{\string~}ConsoleLogger}}
+\index{````~ConsoleLogger@{\texorpdfstring{$\sim$}{\string~}ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ConsoleLogger()}{\string~ConsoleLogger()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a242e88aa9495249d5a7fbdfc4f8886ee} 
+Console\+Logger\+::\texorpdfstring{$\sim$}{\string~}\+Console\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classConsoleLogger_aef5adf04fa11cfb6f1c8df808c4f9734}\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{ConsoleLogger()}{ConsoleLogger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classConsoleLogger_aef5adf04fa11cfb6f1c8df808c4f9734} 
+Console\+Logger\+::\+Console\+Logger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_aef5adf04fa11cfb6f1c8df808c4f9734_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a861ef16d038d599c9ce3a22d2d0644ac}\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\index{ConsoleLogger@{ConsoleLogger}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{ConsoleLogger()}{ConsoleLogger()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a861ef16d038d599c9ce3a22d2d0644ac} 
+Console\+Logger\+::\+Console\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a861ef16d038d599c9ce3a22d2d0644ac_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classConsoleLogger_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331}\index{ConsoleLogger@{ConsoleLogger}!critical@{critical}}
+\index{critical@{critical}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331} 
+void Console\+Logger\+::critical (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log a critical message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a3bf006d13b3b8b48b008e6d51250da4a}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9}\index{ConsoleLogger@{ConsoleLogger}!debug@{debug}}
+\index{debug@{debug}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9} 
+void Console\+Logger\+::debug (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log a debug message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a4b0f18c315e8c67afa8389179fbd1dee}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a8eb50c929f145bc2d613058292ceb86b}\index{ConsoleLogger@{ConsoleLogger}!disableFileLogging@{disableFileLogging}}
+\index{disableFileLogging@{disableFileLogging}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{disableFileLogging()}{disableFileLogging()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a8eb50c929f145bc2d613058292ceb86b} 
+void Console\+Logger\+::disable\+File\+Logging (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Disable logging to a file. 
+
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a37d915eab48db9aef11e1802350682fc}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_ad7ce78dcb764bd7bc2023237f6a58663}\index{ConsoleLogger@{ConsoleLogger}!enableFileLogging@{enableFileLogging}}
+\index{enableFileLogging@{enableFileLogging}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{enableFileLogging()}{enableFileLogging()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ad7ce78dcb764bd7bc2023237f6a58663} 
+bool Console\+Logger\+::enable\+File\+Logging (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Enable logging to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0d698e669010163b218409092aafc7a4}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe}\index{ConsoleLogger@{ConsoleLogger}!error@{error}}
+\index{error@{error}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe} 
+void Console\+Logger\+::error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log an error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_aa516cf87b71e6dfc6077e9513518c8dd}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a9445a8dec0b3bbd2d29ff2af410b8494}\index{ConsoleLogger@{ConsoleLogger}!getAppPrefix@{getAppPrefix}}
+\index{getAppPrefix@{getAppPrefix}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{getAppPrefix()}{getAppPrefix()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a9445a8dec0b3bbd2d29ff2af410b8494} 
+std\+::string Console\+Logger\+::get\+App\+Prefix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the App Prefix object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a39f4de43fae67a3a13b1840b8781ec52}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_a240bb9e9a187812fd9ee00d7c959dee8}\index{ConsoleLogger@{ConsoleLogger}!getLevel@{getLevel}}
+\index{getLevel@{getLevel}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{getLevel()}{getLevel()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a240bb9e9a187812fd9ee00d7c959dee8} 
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} Console\+Logger\+::get\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Level object. 
+
+\begin{DoxyReturn}{Returns}
+Level 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a805e89c6b80232207eb38b7b58195315}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f}\index{ConsoleLogger@{ConsoleLogger}!info@{info}}
+\index{info@{info}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f} 
+void Console\+Logger\+::info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log an info message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a0a47edf0f3302d47058654151e4f130d}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a}\index{ConsoleLogger@{ConsoleLogger}!levelToString@{levelToString}}
+\index{levelToString@{levelToString}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{levelToString()}{levelToString()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a} 
+std\+::string Console\+Logger\+::level\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convert a logging level to its string representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}\index{ConsoleLogger@{ConsoleLogger}!log@{log}}
+\index{log@{log}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26} 
+void Console\+Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}}}]{level}{, }\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs a message with a specified level to the console and optionally to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659}\index{ConsoleLogger@{ConsoleLogger}!noHeader@{noHeader}}
+\index{noHeader@{noHeader}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{noHeader()}{noHeader()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659} 
+void Console\+Logger\+::no\+Header (\begin{DoxyParamCaption}\item[{bool}]{no\+Header}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide all headers in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no\+Header} & Whether to hide all headers \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a1139c6c8d32dafaf463e68c1e3ab1554}\index{ConsoleLogger@{ConsoleLogger}!operator=@{operator=}}
+\index{operator=@{operator=}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a1139c6c8d32dafaf463e68c1e3ab1554} 
+\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \& Console\+Logger\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a1139c6c8d32dafaf463e68c1e3ab1554_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a8c773a671915651392234e88eebcd159}\index{ConsoleLogger@{ConsoleLogger}!operator=@{operator=}}
+\index{operator=@{operator=}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a8c773a671915651392234e88eebcd159} 
+\mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \& Console\+Logger\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classConsoleLogger}{Console\+Logger}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a8c773a671915651392234e88eebcd159_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}\index{ConsoleLogger@{ConsoleLogger}!resetConsoleColor@{resetConsoleColor}}
+\index{resetConsoleColor@{resetConsoleColor}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{resetConsoleColor()}{resetConsoleColor()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a787b42f6e197b60908113326b9a048fa} 
+void Console\+Logger\+::reset\+Console\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reset the console color to default. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a787b42f6e197b60908113326b9a048fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a3e636a955ec8fdf513050894560f9c41}\index{ConsoleLogger@{ConsoleLogger}!setAppPrefix@{setAppPrefix}}
+\index{setAppPrefix@{setAppPrefix}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setAppPrefix()}{setAppPrefix()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a3e636a955ec8fdf513050894560f9c41} 
+void Console\+Logger\+::set\+App\+Prefix (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the application prefix for log messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_af80b6ee119f58b4932673513c85befec}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_ae32b77fe1349bf784bac5c6f86b43ff3}\index{ConsoleLogger@{ConsoleLogger}!setAutoDetectColor@{setAutoDetectColor}}
+\index{setAutoDetectColor@{setAutoDetectColor}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setAutoDetectColor()}{setAutoDetectColor()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ae32b77fe1349bf784bac5c6f86b43ff3} 
+void Console\+Logger\+::set\+Auto\+Detect\+Color (\begin{DoxyParamCaption}\item[{bool}]{auto\+Detect}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable automatic color detection based on TTY. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em auto\+Detect} & Whether to auto-\/detect color support \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classConsoleLogger_ae74070159597a83668b83dd5f84d3ac2}\index{ConsoleLogger@{ConsoleLogger}!setColorEnabled@{setColorEnabled}}
+\index{setColorEnabled@{setColorEnabled}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setColorEnabled()}{setColorEnabled()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ae74070159597a83668b83dd5f84d3ac2} 
+void Console\+Logger\+::set\+Color\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable or disable colored output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & Whether to use colored output (overrides auto-\/detection) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541}\index{ConsoleLogger@{ConsoleLogger}!setConsoleColor@{setConsoleColor}}
+\index{setConsoleColor@{setConsoleColor}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setConsoleColor()}{setConsoleColor()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541} 
+void Console\+Logger\+::set\+Console\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190}\index{ConsoleLogger@{ConsoleLogger}!setConsoleColorUnix@{setConsoleColorUnix}}
+\index{setConsoleColorUnix@{setConsoleColorUnix}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setConsoleColorUnix()}{setConsoleColorUnix()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190} 
+void Console\+Logger\+::set\+Console\+Color\+Unix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_add4cfcb48e31fc7223fefc343ce324b1}\index{ConsoleLogger@{ConsoleLogger}!setHeaderName@{setHeaderName}}
+\index{setHeaderName@{setHeaderName}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setHeaderName()}{setHeaderName()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_add4cfcb48e31fc7223fefc343ce324b1} 
+void Console\+Logger\+::set\+Header\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{header\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Header Name object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em header\+Name} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{classConsoleLogger_add4cfcb48e31fc7223fefc343ce324b1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a256818f00bb0e2a062f8c11b2b46f329}\index{ConsoleLogger@{ConsoleLogger}!setLevel@{setLevel}}
+\index{setLevel@{setLevel}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{setLevel()}{setLevel()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a256818f00bb0e2a062f8c11b2b46f329} 
+void Console\+Logger\+::set\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the Level object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a67cf54d85e7f1eb03ad9047927ef1020}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+\Hypertarget{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}\index{ConsoleLogger@{ConsoleLogger}!showHeaderCaller@{showHeaderCaller}}
+\index{showHeaderCaller@{showHeaderCaller}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{showHeaderCaller()}{showHeaderCaller()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52} 
+void Console\+Logger\+::show\+Header\+Caller (\begin{DoxyParamCaption}\item[{bool}]{include\+Caller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide the header caller in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\+Caller} & Whether to include the header caller \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}\index{ConsoleLogger@{ConsoleLogger}!showHeaderLevel@{showHeaderLevel}}
+\index{showHeaderLevel@{showHeaderLevel}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{showHeaderLevel()}{showHeaderLevel()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8} 
+void Console\+Logger\+::show\+Header\+Level (\begin{DoxyParamCaption}\item[{bool}]{include\+Level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide the header level in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\+Level} & Whether to include the header level \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}\index{ConsoleLogger@{ConsoleLogger}!showHeaderName@{showHeaderName}}
+\index{showHeaderName@{showHeaderName}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{showHeaderName()}{showHeaderName()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a76a289d0d0a58842e365885437644fe0} 
+void Console\+Logger\+::show\+Header\+Name (\begin{DoxyParamCaption}\item[{bool}]{include\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide the header name in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\+Name} & Whether to include the header name \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a76a289d0d0a58842e365885437644fe0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}\index{ConsoleLogger@{ConsoleLogger}!showHeaderTime@{showHeaderTime}}
+\index{showHeaderTime@{showHeaderTime}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{showHeaderTime()}{showHeaderTime()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc} 
+void Console\+Logger\+::show\+Header\+Time (\begin{DoxyParamCaption}\item[{bool}]{include\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide the header time in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\+Time} & Whether to include the header time \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_ae56e4044605f57c9253807c7e10db745}\index{ConsoleLogger@{ConsoleLogger}!visibleHeaders@{visibleHeaders}}
+\index{visibleHeaders@{visibleHeaders}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{visibleHeaders()}{visibleHeaders()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_ae56e4044605f57c9253807c7e10db745} 
+void Console\+Logger\+::visible\+Headers (\begin{DoxyParamCaption}\item[{bool}]{inc\+Name}{, }\item[{bool}]{inc\+Time}{, }\item[{bool}]{inc\+Caller}{, }\item[{bool}]{inc\+Level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show or hide specific headers in the log output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inc\+Name} & \\
+\hline
+{\em inc\+Time} & \\
+\hline
+{\em inc\+Caller} & \\
+\hline
+{\em inc\+Level} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_ae56e4044605f57c9253807c7e10db745_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classConsoleLogger_a7c16af28ba75ff33649181778e73c070}\index{ConsoleLogger@{ConsoleLogger}!warning@{warning}}
+\index{warning@{warning}!ConsoleLogger@{ConsoleLogger}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily \label{classConsoleLogger_a7c16af28ba75ff33649181778e73c070} 
+void Console\+Logger\+::warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{caller}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log a warning message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_a1b326e0856db785f525e25d60e4bf79a}{dotnamecpp\+::logging\+::\+ILogger}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classConsoleLogger_a7c16af28ba75ff33649181778e73c070_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Logger/\mbox{\hyperlink{ConsoleLogger_8hpp}{Console\+Logger.\+hpp}}\end{DoxyCompactItemize}

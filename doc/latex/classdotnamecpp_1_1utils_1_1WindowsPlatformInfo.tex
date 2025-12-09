@@ -1,0 +1,322 @@
+\doxysection{dotnamecpp\+::utils\+::Windows\+Platform\+Info Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{}\label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+
+
+Windows-\/specific platform information implementation.  
+
+
+
+
+{\ttfamily \#include $<$Windows\+Platform\+Info.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::Windows\+Platform\+Info\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::Windows\+Platform\+Info\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{Windows\+Platform\+Info}} ()=default
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a3cc7dd8f3ce6b6092cb24d0c14f5f62e}{Windows\+Platform\+Info}} (const \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \& \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a05e596e4f96dceb806f3f375dddf7327}{operator=}} (const \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a55346b1c0a773e6887df37f3c7e57e24}{Windows\+Platform\+Info}} (\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \& \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ada7903f56caf01b6bfb2a3d8096b9e24}{operator=}} (\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a4c7789cf7d935c69c94c103a3f9119e6}{\texorpdfstring{$\sim$}{\string~}\+Windows\+Platform\+Info}} () override=default
+\item 
+\mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ae7a27e34088d7b85b805d94c122b7d15}{get\+Platform}} () const override
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_abc598251bb62f86a8560c2f56e4ee2c3}{get\+Platform\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform} Name object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a9ff133a6bf6b0deba21a5df9416f88e3}{get\+Executable\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Get the Executable Path object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_aa42ac1f115393d8eab53d2d3319eedc0}{get\+Executable\+Directory}} () const override
+\begin{DoxyCompactList}\small\item\em Get the Executable Directory object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a0bef8541662192bc7bd01437cb536fa3}{is\+Windows}} () const override
+\begin{DoxyCompactList}\small\item\em Check if the platform is Windows. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a01d3e67c86cb94a42edc85242bc8e352}{is\+Linux}} () const override
+\begin{DoxyCompactList}\small\item\em Check if the platform is Linux. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a5701b6c7df347e042a603946fa3e5262}{is\+Mac\+OS}} () const override
+\begin{DoxyCompactList}\small\item\em Check if the platform is mac\+OS. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a25301a77b22e74f5bb874d5e5a9a188a}{is\+Emscripten}} () const override
+\begin{DoxyCompactList}\small\item\em Check if the platform is Emscripten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_a7b595b0cb50afac87f892243656d4e56}{\texorpdfstring{$\sim$}{\string~}\+IPlatform\+Info}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Windows-\/specific platform information implementation. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!WindowsPlatformInfo@{WindowsPlatformInfo}}
+\index{WindowsPlatformInfo@{WindowsPlatformInfo}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{WindowsPlatformInfo()}{WindowsPlatformInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8} 
+dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::\+Windows\+Platform\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a3cc7dd8f3ce6b6092cb24d0c14f5f62e}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!WindowsPlatformInfo@{WindowsPlatformInfo}}
+\index{WindowsPlatformInfo@{WindowsPlatformInfo}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{WindowsPlatformInfo()}{WindowsPlatformInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a3cc7dd8f3ce6b6092cb24d0c14f5f62e} 
+dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::\+Windows\+Platform\+Info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a3cc7dd8f3ce6b6092cb24d0c14f5f62e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a55346b1c0a773e6887df37f3c7e57e24}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!WindowsPlatformInfo@{WindowsPlatformInfo}}
+\index{WindowsPlatformInfo@{WindowsPlatformInfo}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{WindowsPlatformInfo()}{WindowsPlatformInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a55346b1c0a773e6887df37f3c7e57e24} 
+dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::\+Windows\+Platform\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a55346b1c0a773e6887df37f3c7e57e24_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a4c7789cf7d935c69c94c103a3f9119e6}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!````~WindowsPlatformInfo@{\texorpdfstring{$\sim$}{\string~}WindowsPlatformInfo}}
+\index{````~WindowsPlatformInfo@{\texorpdfstring{$\sim$}{\string~}WindowsPlatformInfo}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WindowsPlatformInfo()}{\string~WindowsPlatformInfo()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a4c7789cf7d935c69c94c103a3f9119e6} 
+dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::\texorpdfstring{$\sim$}{\string~}\+Windows\+Platform\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_aa42ac1f115393d8eab53d2d3319eedc0}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!getExecutableDirectory@{getExecutableDirectory}}
+\index{getExecutableDirectory@{getExecutableDirectory}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{getExecutableDirectory()}{getExecutableDirectory()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_aa42ac1f115393d8eab53d2d3319eedc0} 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::get\+Executable\+Directory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Executable Directory object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_a5789d1febaa4e56564bf06adc60ef7b7}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_aa42ac1f115393d8eab53d2d3319eedc0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a9ff133a6bf6b0deba21a5df9416f88e3}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!getExecutablePath@{getExecutablePath}}
+\index{getExecutablePath@{getExecutablePath}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{getExecutablePath()}{getExecutablePath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a9ff133a6bf6b0deba21a5df9416f88e3} 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::get\+Executable\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Executable Path object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_ab2a0d7babebb1c95e0b0e23ffb36ab7b}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a9ff133a6bf6b0deba21a5df9416f88e3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ae7a27e34088d7b85b805d94c122b7d15}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!getPlatform@{getPlatform}}
+\index{getPlatform@{getPlatform}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{getPlatform()}{getPlatform()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ae7a27e34088d7b85b805d94c122b7d15} 
+\mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}} dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::get\+Platform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the \doxylink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform} object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_a43160cbc1a000aec98a58c00310ff165}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_abc598251bb62f86a8560c2f56e4ee2c3}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!getPlatformName@{getPlatformName}}
+\index{getPlatformName@{getPlatformName}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{getPlatformName()}{getPlatformName()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_abc598251bb62f86a8560c2f56e4ee2c3} 
+std\+::string dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::get\+Platform\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the \doxylink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform} Name object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_a5ff3eae6736100ee78eea2b2f2934330}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a25301a77b22e74f5bb874d5e5a9a188a}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!isEmscripten@{isEmscripten}}
+\index{isEmscripten@{isEmscripten}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{isEmscripten()}{isEmscripten()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a25301a77b22e74f5bb874d5e5a9a188a} 
+bool dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::is\+Emscripten (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if the platform is Emscripten. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_aa02fe797d5c413a114f8dba3a3c1a2e0}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a01d3e67c86cb94a42edc85242bc8e352}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!isLinux@{isLinux}}
+\index{isLinux@{isLinux}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{isLinux()}{isLinux()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a01d3e67c86cb94a42edc85242bc8e352} 
+bool dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::is\+Linux (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if the platform is Linux. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_ad4425bfdc46819b8cb6bf120a1b0e476}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a5701b6c7df347e042a603946fa3e5262}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!isMacOS@{isMacOS}}
+\index{isMacOS@{isMacOS}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{isMacOS()}{isMacOS()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a5701b6c7df347e042a603946fa3e5262} 
+bool dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::is\+Mac\+OS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if the platform is mac\+OS. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_a58dbede2b7d3110af0d74270e8f92ac1}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a0bef8541662192bc7bd01437cb536fa3}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!isWindows@{isWindows}}
+\index{isWindows@{isWindows}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{isWindows()}{isWindows()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a0bef8541662192bc7bd01437cb536fa3} 
+bool dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::is\+Windows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if the platform is Windows. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo_ac3fac9e6090ca6c824820f39fb88205a}{dotnamecpp\+::utils\+::\+IPlatform\+Info}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a05e596e4f96dceb806f3f375dddf7327}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!operator=@{operator=}}
+\index{operator=@{operator=}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a05e596e4f96dceb806f3f375dddf7327} 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \& dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a05e596e4f96dceb806f3f375dddf7327_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ada7903f56caf01b6bfb2a3d8096b9e24}\index{dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}!operator=@{operator=}}
+\index{operator=@{operator=}!dotnamecpp::utils::WindowsPlatformInfo@{dotnamecpp::utils::WindowsPlatformInfo}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ada7903f56caf01b6bfb2a3d8096b9e24} 
+\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \& dotnamecpp\+::utils\+::\+Windows\+Platform\+Info\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo}{Windows\+Platform\+Info}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ada7903f56caf01b6bfb2a3d8096b9e24_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Platform/\mbox{\hyperlink{WindowsPlatformInfo_8hpp}{Windows\+Platform\+Info.\+hpp}}\item 
+src/\+Utils/\+Platform/\mbox{\hyperlink{WindowsPlatformInfo_8cpp}{Windows\+Platform\+Info.\+cpp}}\end{DoxyCompactItemize}

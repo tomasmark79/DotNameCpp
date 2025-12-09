@@ -1,0 +1,40 @@
+\doxysection{Asset\+Manager.\+hpp}
+\hypertarget{AssetManager_8hpp_source}{}\label{AssetManager_8hpp_source}\index{src/Utils/Assets/AssetManager.hpp@{src/Utils/Assets/AssetManager.hpp}}
+\mbox{\hyperlink{AssetManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IAssetManager_8hpp}{Utils/Assets/IAssetManager.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1assets}{dotnamecpp::assets}}\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_acd4b9d47d4f4fe95d7a27cbe9d1fb05d}{AssetManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAssetManager}}\ \{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_acd4b9d47d4f4fe95d7a27cbe9d1fb05d}{AssetManager}}(std::filesystem::path\ assetsPath);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<IAssetManager>\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_af6846c31c10bcf4a5e937f1627aa0f48}{create}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&executablePath,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&appName);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ std::filesystem::path\ \&\mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_ac0a871606b61574ac0db2009b7ec6016}{getAssetsPath}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00031\ \ \ \ \ std::filesystem::path\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a6ebc37678f8d99eccd03d3b7b1644ca7}{resolveAsset}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&relativePath)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a3ee89e1d5825272326ad38a69282affd}{assetExists}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&relativePath)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManager_a6a393b838310e006ba0bd62928b87aca}{validate}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ std::filesystem::path\ assetsPath\_;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ mutex\_;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ std::filesystem::path\ findAssetsPath(\textcolor{keyword}{const}\ std::filesystem::path\ \&executablePath,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&appName);}
+\DoxyCodeLine{00044\ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::assets}}
+
+\end{DoxyCode}

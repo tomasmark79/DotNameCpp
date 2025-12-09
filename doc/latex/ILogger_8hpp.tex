@@ -1,0 +1,49 @@
+\doxysection{src/\+Utils/\+Logger/\+ILogger.hpp File Reference}
+\hypertarget{ILogger_8hpp}{}\label{ILogger_8hpp}\index{src/Utils/Logger/ILogger.hpp@{src/Utils/Logger/ILogger.hpp}}
+{\ttfamily \#include "{}fmt/core.\+h"{}}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for ILogger.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ILogger_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ILogger_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LogStream}{dotnamecpp\+::logging\+::\+Log\+Stream}}
+\begin{DoxyCompactList}\small\item\em Helper class for streaming log messages. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{dotnamecpp\+::logging\+::\+ILogger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedotnamecpp}{dotnamecpp}}
+\item 
+namespace \mbox{\hyperlink{namespacedotnamecpp_1_1logging}{dotnamecpp\+::logging}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp\+::logging\+::\+Level}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp\+::logging\+::\+LOG\+\_\+\+DEBUG}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp\+::logging\+::\+LOG\+\_\+\+INFO}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{dotnamecpp\+::logging\+::\+LOG\+\_\+\+WARNING}}
+, \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{dotnamecpp\+::logging\+::\+LOG\+\_\+\+ERROR}}
+, \newline
+\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{dotnamecpp\+::logging\+::\+LOG\+\_\+\+CRITICAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Logging levels. \end{DoxyCompactList}\end{DoxyCompactItemize}

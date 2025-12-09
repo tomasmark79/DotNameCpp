@@ -1,0 +1,41 @@
+\doxysection{Windows\+Platform\+Info.\+hpp}
+\hypertarget{WindowsPlatformInfo_8hpp_source}{}\label{WindowsPlatformInfo_8hpp_source}\index{src/Utils/Platform/WindowsPlatformInfo.hpp@{src/Utils/Platform/WindowsPlatformInfo.hpp}}
+\mbox{\hyperlink{WindowsPlatformInfo_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IPlatformInfo_8hpp}{Utils/Platform/IPlatformInfo.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatformInfo}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a3cc7dd8f3ce6b6092cb24d0c14f5f62e}{WindowsPlatformInfo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a05e596e4f96dceb806f3f375dddf7327}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a55346b1c0a773e6887df37f3c7e57e24}{WindowsPlatformInfo}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ada7903f56caf01b6bfb2a3d8096b9e24}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_adf677cda0a95e559e6c1c0662a1fb7f8}{WindowsPlatformInfo}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a4c7789cf7d935c69c94c103a3f9119e6}{\string~WindowsPlatformInfo}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_ae7a27e34088d7b85b805d94c122b7d15}{getPlatform}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00023\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_abc598251bb62f86a8560c2f56e4ee2c3}{getPlatformName}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a9ff133a6bf6b0deba21a5df9416f88e3}{getExecutablePath}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_aa42ac1f115393d8eab53d2d3319eedc0}{getExecutableDirectory}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a0bef8541662192bc7bd01437cb536fa3}{isWindows}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a01d3e67c86cb94a42edc85242bc8e352}{isLinux}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a5701b6c7df347e042a603946fa3e5262}{isMacOS}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1WindowsPlatformInfo_a25301a77b22e74f5bb874d5e5a9a188a}{isEmscripten}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00037\ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

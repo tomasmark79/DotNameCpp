@@ -1,0 +1,95 @@
+\doxysection{dotnamecpp\+::assets\+::Asset\+Manager\+Factory Class Reference}
+\hypertarget{classdotnamecpp_1_1assets_1_1AssetManagerFactory}{}\label{classdotnamecpp_1_1assets_1_1AssetManagerFactory}\index{dotnamecpp::assets::AssetManagerFactory@{dotnamecpp::assets::AssetManagerFactory}}
+
+
+{\ttfamily \#include $<$Asset\+Manager\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for dotnamecpp\+::assets\+::Asset\+Manager\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classdotnamecpp_1_1assets_1_1AssetManagerFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManagerFactory_ac8586007318eb5a7692241afdaed9ba9}{create\+Default}} (const std\+::filesystem\+::path \&executable\+Path, const std\+::string \&app\+Name)
+\begin{DoxyCompactList}\small\item\em Create a Default object. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1AssetManagerFactory_a6020648d8aadc660d8c06b20b2982140}{create}} (std\+::filesystem\+::path assets\+Path)
+\begin{DoxyCompactList}\small\item\em Create an Asset Manager object with a specified assets path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1assets_1_1AssetManagerFactory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1assets_1_1AssetManagerFactory_a6020648d8aadc660d8c06b20b2982140}\index{dotnamecpp::assets::AssetManagerFactory@{dotnamecpp::assets::AssetManagerFactory}!create@{create}}
+\index{create@{create}!dotnamecpp::assets::AssetManagerFactory@{dotnamecpp::assets::AssetManagerFactory}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1AssetManagerFactory_a6020648d8aadc660d8c06b20b2982140} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ dotnamecpp\+::assets\+::\+Asset\+Manager\+Factory\+::create (\begin{DoxyParamCaption}\item[{std\+::filesystem\+::path}]{assets\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Create an Asset Manager object with a specified assets path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em assets\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+IAsset\+Manager$>$ 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{classdotnamecpp_1_1assets_1_1AssetManagerFactory_a6020648d8aadc660d8c06b20b2982140_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1assets_1_1AssetManagerFactory_ac8586007318eb5a7692241afdaed9ba9}\index{dotnamecpp::assets::AssetManagerFactory@{dotnamecpp::assets::AssetManagerFactory}!createDefault@{createDefault}}
+\index{createDefault@{createDefault}!dotnamecpp::assets::AssetManagerFactory@{dotnamecpp::assets::AssetManagerFactory}}
+\doxysubsubsection{\texorpdfstring{createDefault()}{createDefault()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1assets_1_1AssetManagerFactory_ac8586007318eb5a7692241afdaed9ba9} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ dotnamecpp\+::assets\+::\+Asset\+Manager\+Factory\+::create\+Default (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{executable\+Path}{, }\item[{const std\+::string \&}]{app\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Create a Default object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em executable\+Path} & \\
+\hline
+{\em app\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+IAsset\+Manager$>$ 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1assets_1_1AssetManagerFactory_ac8586007318eb5a7692241afdaed9ba9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1assets_1_1AssetManagerFactory_ac8586007318eb5a7692241afdaed9ba9_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Assets/\mbox{\hyperlink{AssetManagerFactory_8hpp}{Asset\+Manager\+Factory.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,365 @@
+\doxysection{application/tests/\+Asset\+Manager\+Test.cpp File Reference}
+\hypertarget{AssetManagerTest_8cpp}{}\label{AssetManagerTest_8cpp}\index{application/tests/AssetManagerTest.cpp@{application/tests/AssetManagerTest.cpp}}
+{\ttfamily \#include "{}../../src/\+Utils/\+Assets/\+Asset\+Manager.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../src/\+Utils/\+Assets/\+Asset\+Manager\+Factory.\+hpp"{}}\newline
+{\ttfamily \#include "{}Mock\+Asset\+Manager.\+hpp"{}}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+Include dependency graph for Asset\+Manager\+Test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AssetManagerTest_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_aac63443e19485c0a868b6262adda0707}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Constructor\+Sets\+Path)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a63e0468dad34f3af1a66e5a77ac9d29b}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Validate\+Returns\+True\+For\+Existing\+Directory)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_af93464a1881ac52a77cce1cee91dbc58}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Validate\+Returns\+False\+For\+Nonexistent\+Path)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a0b3d8f45924e169b41efc8e21cf54de7}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Validate\+Returns\+False\+For\+Empty\+Path)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_afb120c396aab6c89a8f4d65454b3056b}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Resolve\+Asset\+Combines\+Paths)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a72e7299bcf134bbe700f73ac083b9994}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Resolve\+Asset\+With\+Subdirectory)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a08f42620f8e54d3a2e0804f9f064bd94}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Asset\+Exists\+Returns\+True\+For\+Existing\+File)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a68afa704c1ff22c9610fae4172d24bc4}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Asset\+Exists\+Returns\+False\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a4a19ea38d9becf48d8a59679ba370fbb}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Asset\+Exists\+Works\+With\+Subdirectories)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_ac253b7e3f2ed7be4c8d97c4dfac98440}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Factory\+Create\+Returns\+Valid\+Manager)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a351b0b825a033c19c191b803ef3ed412}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Factory\+Create\+Default\+Finds\+Assets\+Path)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a2101e2c74d1ca5ddb1868403a1cde944}{TEST}} (Mock\+Asset\+Manager\+Test, Basic\+Functionality)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a3417e38970ad90cc6758a918e14be41e}{TEST}} (Mock\+Asset\+Manager\+Test, Resolve\+Asset\+Combines\+Paths)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a3aa74e2606d541a5e1427239d1ff2552}{TEST}} (Mock\+Asset\+Manager\+Test, Can\+Control\+Validation)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_aba63d46b0b8d94a9532f022fc82f5051}{TEST}} (Mock\+Asset\+Manager\+Test, Can\+Control\+Asset\+Existence)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a3452583dbde3e86c2d0c9fe707abb217}{TEST}} (Mock\+Asset\+Manager\+Test, Useful\+For\+Testing\+Dependent\+Code)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a164d13741975afb5bcc7c1850a6bf0b6}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Handles\+Paths\+With\+Spaces)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_abe136243ace10c032013eac345788425}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Handles\+Unicode\+In\+Paths)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a5d60a42a81908ce29588078c1ecb96c2}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Resolve\+Asset\+With\+Empty\+Relative\+Path)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a54a1c8e328d04db768b927359b1242d6}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Multiple\+Managers\+With\+Different\+Paths)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a92ac611b6f9fc929c36f669aa11158f9}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Works\+Through\+Interface\+Pointer)
+\item 
+\mbox{\hyperlink{AssetManagerTest_8cpp_a250e4f887c3e513f207005b77d41225b}{TEST\+\_\+F}} (\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}, Shared\+Pointer\+Lifetime\+Management)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{AssetManagerTest_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{AssetManagerTest_8cpp_a2101e2c74d1ca5ddb1868403a1cde944}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a2101e2c74d1ca5ddb1868403a1cde944} 
+TEST (\begin{DoxyParamCaption}\item[{Mock\+Asset\+Manager\+Test}]{}{, }\item[{Basic\+Functionality}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{AssetManagerTest_8cpp_a2101e2c74d1ca5ddb1868403a1cde944_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_aba63d46b0b8d94a9532f022fc82f5051}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_aba63d46b0b8d94a9532f022fc82f5051} 
+TEST (\begin{DoxyParamCaption}\item[{Mock\+Asset\+Manager\+Test}]{}{, }\item[{Can\+Control\+Asset\+Existence}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{AssetManagerTest_8cpp_aba63d46b0b8d94a9532f022fc82f5051_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a3aa74e2606d541a5e1427239d1ff2552}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a3aa74e2606d541a5e1427239d1ff2552} 
+TEST (\begin{DoxyParamCaption}\item[{Mock\+Asset\+Manager\+Test}]{}{, }\item[{Can\+Control\+Validation}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{AssetManagerTest_8cpp_a3aa74e2606d541a5e1427239d1ff2552_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a3417e38970ad90cc6758a918e14be41e}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a3417e38970ad90cc6758a918e14be41e} 
+TEST (\begin{DoxyParamCaption}\item[{Mock\+Asset\+Manager\+Test}]{}{, }\item[{Resolve\+Asset\+Combines\+Paths}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{AssetManagerTest_8cpp_a3417e38970ad90cc6758a918e14be41e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a3452583dbde3e86c2d0c9fe707abb217}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a3452583dbde3e86c2d0c9fe707abb217} 
+TEST (\begin{DoxyParamCaption}\item[{Mock\+Asset\+Manager\+Test}]{}{, }\item[{Useful\+For\+Testing\+Dependent\+Code}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{AssetManagerTest_8cpp_a68afa704c1ff22c9610fae4172d24bc4}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [1/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a68afa704c1ff22c9610fae4172d24bc4} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Asset\+Exists\+Returns\+False\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AssetManagerTest_8cpp_a68afa704c1ff22c9610fae4172d24bc4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a08f42620f8e54d3a2e0804f9f064bd94}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [2/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a08f42620f8e54d3a2e0804f9f064bd94} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Asset\+Exists\+Returns\+True\+For\+Existing\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AssetManagerTest_8cpp_a08f42620f8e54d3a2e0804f9f064bd94_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a4a19ea38d9becf48d8a59679ba370fbb}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [3/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a4a19ea38d9becf48d8a59679ba370fbb} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Asset\+Exists\+Works\+With\+Subdirectories}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AssetManagerTest_8cpp_a4a19ea38d9becf48d8a59679ba370fbb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_aac63443e19485c0a868b6262adda0707}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [4/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_aac63443e19485c0a868b6262adda0707} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Constructor\+Sets\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{AssetManagerTest_8cpp_aac63443e19485c0a868b6262adda0707_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a351b0b825a033c19c191b803ef3ed412}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [5/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a351b0b825a033c19c191b803ef3ed412} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Factory\+Create\+Default\+Finds\+Assets\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AssetManagerTest_8cpp_a351b0b825a033c19c191b803ef3ed412_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_ac253b7e3f2ed7be4c8d97c4dfac98440}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [6/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_ac253b7e3f2ed7be4c8d97c4dfac98440} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Factory\+Create\+Returns\+Valid\+Manager}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{AssetManagerTest_8cpp_ac253b7e3f2ed7be4c8d97c4dfac98440_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a164d13741975afb5bcc7c1850a6bf0b6}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [7/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a164d13741975afb5bcc7c1850a6bf0b6} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Handles\+Paths\+With\+Spaces}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{AssetManagerTest_8cpp_a164d13741975afb5bcc7c1850a6bf0b6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_abe136243ace10c032013eac345788425}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [8/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_abe136243ace10c032013eac345788425} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Handles\+Unicode\+In\+Paths}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{AssetManagerTest_8cpp_abe136243ace10c032013eac345788425_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a54a1c8e328d04db768b927359b1242d6}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [9/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a54a1c8e328d04db768b927359b1242d6} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Multiple\+Managers\+With\+Different\+Paths}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{AssetManagerTest_8cpp_a54a1c8e328d04db768b927359b1242d6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_afb120c396aab6c89a8f4d65454b3056b}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [10/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_afb120c396aab6c89a8f4d65454b3056b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Resolve\+Asset\+Combines\+Paths}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{AssetManagerTest_8cpp_afb120c396aab6c89a8f4d65454b3056b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a5d60a42a81908ce29588078c1ecb96c2}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [11/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a5d60a42a81908ce29588078c1ecb96c2} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Resolve\+Asset\+With\+Empty\+Relative\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{AssetManagerTest_8cpp_a5d60a42a81908ce29588078c1ecb96c2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a72e7299bcf134bbe700f73ac083b9994}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [12/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a72e7299bcf134bbe700f73ac083b9994} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Resolve\+Asset\+With\+Subdirectory}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{AssetManagerTest_8cpp_a72e7299bcf134bbe700f73ac083b9994_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a250e4f887c3e513f207005b77d41225b}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [13/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a250e4f887c3e513f207005b77d41225b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Shared\+Pointer\+Lifetime\+Management}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{AssetManagerTest_8cpp_a250e4f887c3e513f207005b77d41225b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a0b3d8f45924e169b41efc8e21cf54de7}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [14/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a0b3d8f45924e169b41efc8e21cf54de7} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Validate\+Returns\+False\+For\+Empty\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{AssetManagerTest_8cpp_a0b3d8f45924e169b41efc8e21cf54de7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_af93464a1881ac52a77cce1cee91dbc58}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [15/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_af93464a1881ac52a77cce1cee91dbc58} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Validate\+Returns\+False\+For\+Nonexistent\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{AssetManagerTest_8cpp_af93464a1881ac52a77cce1cee91dbc58_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a63e0468dad34f3af1a66e5a77ac9d29b}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [16/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a63e0468dad34f3af1a66e5a77ac9d29b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Validate\+Returns\+True\+For\+Existing\+Directory}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{AssetManagerTest_8cpp_a63e0468dad34f3af1a66e5a77ac9d29b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{AssetManagerTest_8cpp_a92ac611b6f9fc929c36f669aa11158f9}\index{AssetManagerTest.cpp@{AssetManagerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AssetManagerTest.cpp@{AssetManagerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [17/17]}}
+{\footnotesize\ttfamily \label{AssetManagerTest_8cpp_a92ac611b6f9fc929c36f669aa11158f9} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAssetManagerTest}{Asset\+Manager\+Test}}}]{}{, }\item[{Works\+Through\+Interface\+Pointer}]{}{}\end{DoxyParamCaption})}
+

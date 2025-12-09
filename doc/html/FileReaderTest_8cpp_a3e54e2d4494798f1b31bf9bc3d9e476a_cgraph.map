@@ -1,0 +1,7 @@
+<map id="TEST_F" name="TEST_F">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,76,40"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1FileReader.html#aaf51818070d178f7700e956410b4305d" title="Read the entire content of a file as a vector of bytes." alt="" coords="124,5,275,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,24,108,24,108,29,76,29"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1FileReader.html#abd24b27b5a6587dbb27591abafdefd26" title="Get the Size object." alt="" coords="323,5,459,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,24,307,24,307,29,275,29"/>
+</map>

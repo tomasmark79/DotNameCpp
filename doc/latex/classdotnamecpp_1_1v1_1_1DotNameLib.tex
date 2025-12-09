@@ -1,0 +1,234 @@
+\doxysection{dotnamecpp\+::v1\+::Dot\+Name\+Lib Class Reference}
+\hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib}{}\label{classdotnamecpp_1_1v1_1_1DotNameLib}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+
+
+{\ttfamily \#include $<$Dot\+Name\+Lib.\+hpp$>$}
+
+
+
+Collaboration diagram for dotnamecpp\+::v1\+::Dot\+Name\+Lib\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classdotnamecpp_1_1v1_1_1DotNameLib__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{Dot\+Name\+Lib}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{logging\+::\+ILogger}} $>$ logger, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp\+::assets\+::\+IAsset\+Manager}} $>$ asset\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237}{\texorpdfstring{$\sim$}{\string~}\+Dot\+Name\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba}{Dot\+Name\+Lib}} (const \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em Copy and move operations are deleted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \& \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313}{operator=}} (const \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&other)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32}{Dot\+Name\+Lib}} (\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&\&other)=delete
+\item 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \& \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009}{operator=}} (\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&\&other)=delete
+\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a2617ff9a52b10dab56da15d3d404852e}{run}} (int duration\+Seconds=0)
+\begin{DoxyCompactList}\small\item\em Run your business logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a3a4ba1058249391680660f16202113af}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stop all running processes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a900a5ae10f78283ed8c4c9af0949f889}{is\+Initialized}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Check if the library is initialized. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp\+::assets\+::\+IAsset\+Manager}} $>$ \& \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f}{get\+Asset\+Manager}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the Asset Manager object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!DotNameLib@{DotNameLib}}
+\index{DotNameLib@{DotNameLib}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{DotNameLib()}{DotNameLib()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4} 
+dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::\+Dot\+Name\+Lib (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{logging\+::\+ILogger}} $>$}]{logger}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp\+::assets\+::\+IAsset\+Manager}} $>$}]{asset\+Manager}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & \\
+\hline
+{\em asset\+Manager} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!````~DotNameLib@{\texorpdfstring{$\sim$}{\string~}DotNameLib}}
+\index{````~DotNameLib@{\texorpdfstring{$\sim$}{\string~}DotNameLib}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DotNameLib()}{\string~DotNameLib()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237} 
+dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::\texorpdfstring{$\sim$}{\string~}\+Dot\+Name\+Lib (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroy the object. 
+
+Automatically ensures graceful shutdown Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!DotNameLib@{DotNameLib}}
+\index{DotNameLib@{DotNameLib}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{DotNameLib()}{DotNameLib()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba} 
+dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::\+Dot\+Name\+Lib (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy and move operations are deleted. 
+
+This class manages unique resources and should not be copied or moved. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!DotNameLib@{DotNameLib}}
+\index{DotNameLib@{DotNameLib}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{DotNameLib()}{DotNameLib()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32} 
+dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::\+Dot\+Name\+Lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!getAssetManager@{getAssetManager}}
+\index{getAssetManager@{getAssetManager}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{getAssetManager()}{getAssetManager()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp\+::assets\+::\+IAsset\+Manager}} $>$ \& dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::get\+Asset\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Get the Asset Manager object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::shared\+\_\+ptr$<$dotnamecpp\+::assets\+::\+IAsset\+Manager$>$\& 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a900a5ae10f78283ed8c4c9af0949f889}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{isInitialized()}{isInitialized()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a900a5ae10f78283ed8c4c9af0949f889} 
+bool dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::is\+Initialized (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Check if the library is initialized. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!operator=@{operator=}}
+\index{operator=@{operator=}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313} 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \& dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!operator=@{operator=}}
+\index{operator=@{operator=}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009} 
+\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \& dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib}{Dot\+Name\+Lib}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a2617ff9a52b10dab56da15d3d404852e}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!run@{run}}
+\index{run@{run}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a2617ff9a52b10dab56da15d3d404852e} 
+bool dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::run (\begin{DoxyParamCaption}\item[{int}]{duration\+Seconds}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Run your business logic. 
+
+This is the main entry point for your library\textquotesingle{}s functionality. Runs synchronously in the calling thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration\+Seconds} & Duration to run in seconds (0 = run indefinitely) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+
+false if an error occurred or not initialized 
+\end{DoxyReturn}
+\Hypertarget{classdotnamecpp_1_1v1_1_1DotNameLib_a3a4ba1058249391680660f16202113af}\index{dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}!stop@{stop}}
+\index{stop@{stop}!dotnamecpp::v1::DotNameLib@{dotnamecpp::v1::DotNameLib}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1v1_1_1DotNameLib_a3a4ba1058249391680660f16202113af} 
+void dotnamecpp\+::v1\+::\+Dot\+Name\+Lib\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Stop all running processes. 
+
+Signals to stop running processes. Safe to call from another thread. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1v1_1_1DotNameLib_a3a4ba1058249391680660f16202113af_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Dot\+Name\+Lib/\mbox{\hyperlink{DotNameLib_8hpp}{Dot\+Name\+Lib.\+hpp}}\item 
+src/\mbox{\hyperlink{DotNameLib_8cpp}{Dot\+Name\+Lib.\+cpp}}\end{DoxyCompactItemize}

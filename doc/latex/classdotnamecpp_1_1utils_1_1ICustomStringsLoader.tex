@@ -1,0 +1,220 @@
+\doxysection{dotnamecpp\+::utils\+::ICustom\+Strings\+Loader Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}{}\label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+
+
+Interface for loading custom strings from JSON.  
+
+
+
+
+{\ttfamily \#include $<$ICustom\+Strings\+Loader.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::ICustom\+Strings\+Loader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1ICustomStringsLoader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::ICustom\+Strings\+Loader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classdotnamecpp_1_1utils_1_1ICustomStringsLoader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a039d6d45bceec3a4aded092d3679675f}{\texorpdfstring{$\sim$}{\string~}\+ICustom\+Strings\+Loader}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a5e712405c5636d242e9565ac33e3a35f}{load}} () const =0
+\begin{DoxyCompactList}\small\item\em Load the custom strings JSON data. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a230f1e1ebf8227782bbe262a2fdb9188}{get\+Localized\+String}} (const std\+::string \&id, const std\+::string \&locale="{}en"{}) const =0
+\begin{DoxyCompactList}\small\item\em Get the Localized String object. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_aa6c9182b4c55695969a3ab7640666201}{get\+Email}} (const std\+::string \&id) const =0
+\begin{DoxyCompactList}\small\item\em Get the Email object. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a70e277ec6efe33ee348c3804af32ecf3}{get\+Url}} (const std\+::string \&id) const =0
+\begin{DoxyCompactList}\small\item\em Get the Url object. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_ac170fb7f6eec4b7035a828524a7cc12c}{get\+Tel}} (const std\+::string \&id) const =0
+\begin{DoxyCompactList}\small\item\em Get the Tel object. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a105cd77fe75606a21551d6bf7a0e5f67}{get\+Path}} (const std\+::string \&id) const =0
+\begin{DoxyCompactList}\small\item\em Get the Path object. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a65cf53eba61363cd380acc8d87ad0b77}{get\+Custom\+String\+Sign}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Custom String Sign object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for loading custom strings from JSON. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a039d6d45bceec3a4aded092d3679675f}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!````~ICustomStringsLoader@{\texorpdfstring{$\sim$}{\string~}ICustomStringsLoader}}
+\index{````~ICustomStringsLoader@{\texorpdfstring{$\sim$}{\string~}ICustomStringsLoader}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ICustomStringsLoader()}{\string~ICustomStringsLoader()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a039d6d45bceec3a4aded092d3679675f} 
+virtual dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::\texorpdfstring{$\sim$}{\string~}\+ICustom\+Strings\+Loader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a65cf53eba61363cd380acc8d87ad0b77}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getCustomStringSign@{getCustomStringSign}}
+\index{getCustomStringSign@{getCustomStringSign}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getCustomStringSign()}{getCustomStringSign()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a65cf53eba61363cd380acc8d87ad0b77} 
+virtual std\+::string dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Custom\+String\+Sign (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Custom String Sign object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a966326ef7ffc00798f274779492e80b4}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_aa6c9182b4c55695969a3ab7640666201}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_aa6c9182b4c55695969a3ab7640666201} 
+virtual std\+::optional$<$ std\+::string $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Email (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Email object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a8b1ccb81005b501b9271d30267efad4e}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a230f1e1ebf8227782bbe262a2fdb9188}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getLocalizedString@{getLocalizedString}}
+\index{getLocalizedString@{getLocalizedString}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getLocalizedString()}{getLocalizedString()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a230f1e1ebf8227782bbe262a2fdb9188} 
+virtual std\+::optional$<$ std\+::string $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Localized\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{, }\item[{const std\+::string \&}]{locale}{ = {\ttfamily "{}en"{}}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Localized String object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5c05e0646fd9022644f099b863722482}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a105cd77fe75606a21551d6bf7a0e5f67}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getPath@{getPath}}
+\index{getPath@{getPath}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a105cd77fe75606a21551d6bf7a0e5f67} 
+virtual std\+::optional$<$ std\+::string $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Path object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_aa1674f55c47eeab9546bab8fc074ebcc}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_ac170fb7f6eec4b7035a828524a7cc12c}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getTel@{getTel}}
+\index{getTel@{getTel}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getTel()}{getTel()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_ac170fb7f6eec4b7035a828524a7cc12c} 
+virtual std\+::optional$<$ std\+::string $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Tel (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Tel object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a50a5cd35ce870354ab655609ff4abab1}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a70e277ec6efe33ee348c3804af32ecf3}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!getUrl@{getUrl}}
+\index{getUrl@{getUrl}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{getUrl()}{getUrl()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a70e277ec6efe33ee348c3804af32ecf3} 
+virtual std\+::optional$<$ std\+::string $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::get\+Url (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Url object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a3991730a9a7a3c2e7419b6eead1414b4}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a5e712405c5636d242e9565ac33e3a35f}\index{dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}!load@{load}}
+\index{load@{load}!dotnamecpp::utils::ICustomStringsLoader@{dotnamecpp::utils::ICustomStringsLoader}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a5e712405c5636d242e9565ac33e3a35f} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ nlohmann\+::json, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1JsonError}{Json\+Error}} $>$ dotnamecpp\+::utils\+::\+ICustom\+Strings\+Loader\+::load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Load the custom strings JSON data. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$nlohmann\+::json, Json\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5d2006b1d591214fb66ce12caef210c5}{dotnamecpp\+::utils\+::\+Custom\+Strings\+Loader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Json/\mbox{\hyperlink{ICustomStringsLoader_8hpp}{ICustom\+Strings\+Loader.\+hpp}}\end{DoxyCompactItemize}

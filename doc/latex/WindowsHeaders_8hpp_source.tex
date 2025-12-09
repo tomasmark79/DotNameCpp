@@ -1,0 +1,41 @@
+\doxysection{Windows\+Headers.\+hpp}
+\hypertarget{WindowsHeaders_8hpp_source}{}\label{WindowsHeaders_8hpp_source}\index{src/Utils/Platform/WindowsHeaders.hpp@{src/Utils/Platform/WindowsHeaders.hpp}}
+\mbox{\hyperlink{WindowsHeaders_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WINDOWS\_HEADERS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WINDOWS\_HEADERS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Universal\ Windows.h\ wrapper\ with\ Raylib\ compatibility}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Include\ this\ instead\ of\ <windows.h>\ directly\ to\ avoid\ conflicts}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ NOMINMAX}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ NOMINMAX}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Disable\ min/max\ macros\ in\ windows.h\ to\ avoid\ conflicts\ with\ std::min/max}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Protect\ Raylib\ functions\ from\ Windows.h\ macro\ conflicts}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ Rectangle\ WindowsRectangle}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ CloseWindow\ WindowsCloseWindow}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ShowCursor\ WindowsShowCursor}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ DrawText\ WindowsDrawText}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ PlaySound\ WindowsPlaySound}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ LoadImage\ WindowsLoadImage}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DrawTextEx\ WindowsDrawTextEx}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Restore\ Raylib\ function\ names}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#undef\ Rectangle}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#undef\ CloseWindow}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#undef\ ShowCursor}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#undef\ DrawText}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#undef\ PlaySound}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#undef\ LoadImage}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#undef\ DrawTextEx}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_WIN32}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WINDOWS\_HEADERS\_HPP}}
+
+\end{DoxyCode}

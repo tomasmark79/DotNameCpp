@@ -1,0 +1,36 @@
+\doxysection{IJson\+Serializer.\+hpp}
+\hypertarget{IJsonSerializer_8hpp_source}{}\label{IJsonSerializer_8hpp_source}\index{src/Utils/Json/IJsonSerializer.hpp@{src/Utils/Json/IJsonSerializer.hpp}}
+\mbox{\hyperlink{IJsonSerializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{UtilsError_8hpp}{Utils/UtilsError.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer}{IJsonSerializer}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a35ee64459754fed9a21325685951ff3c}{\string~IJsonSerializer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a248888dfa0773ca750ff54085b7779bf}{loadFromFile}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00036\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_abde8b094a7e720d810d987e92b32b7d9}{saveToFile}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ nlohmann::json\ \&jsonData,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indent\ =\ 2)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_a9130247ddfbc94828647881a51c90b01}{parse}}(\textcolor{keyword}{const}\ std::string\ \&jsonString)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00057\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::string,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer_afcc8615e85cb2cf6b65f591ad6e0cb70}{toString}}(\textcolor{keyword}{const}\ nlohmann::json\ \&jsonData,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indent\ =\ 2)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

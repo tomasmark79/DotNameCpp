@@ -1,0 +1,43 @@
+\doxysection{ICustom\+Strings\+Loader.\+hpp}
+\hypertarget{ICustomStringsLoader_8hpp_source}{}\label{ICustomStringsLoader_8hpp_source}\index{src/Utils/Json/ICustomStringsLoader.hpp@{src/Utils/Json/ICustomStringsLoader.hpp}}
+\mbox{\hyperlink{ICustomStringsLoader_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{UtilsError_8hpp}{Utils/UtilsError.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}{ICustomStringsLoader}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a039d6d45bceec3a4aded092d3679675f}{\string~ICustomStringsLoader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a5e712405c5636d242e9565ac33e3a35f}{load}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a230f1e1ebf8227782bbe262a2fdb9188}{getLocalizedString}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&locale\ =\ \textcolor{stringliteral}{"{}en"{}})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_aa6c9182b4c55695969a3ab7640666201}{getEmail}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a70e277ec6efe33ee348c3804af32ecf3}{getUrl}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_ac170fb7f6eec4b7035a828524a7cc12c}{getTel}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a105cd77fe75606a21551d6bf7a0e5f67}{getPath}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader_a65cf53eba61363cd380acc8d87ad0b77}{getCustomStringSign}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00080\ \ \ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

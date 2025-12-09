@@ -1,0 +1,170 @@
+\doxysection{dotnamecpp\+::utils\+::IFile\+Writer Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter}{}\label{classdotnamecpp_1_1utils_1_1IFileWriter}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+
+
+Interface for writing file content.  
+
+
+
+
+{\ttfamily \#include $<$IFile\+Writer.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::IFile\+Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IFileWriter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::IFile\+Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classdotnamecpp_1_1utils_1_1IFileWriter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a6ac1575e2ea4bbd65bae38ea59d017d5}{\texorpdfstring{$\sim$}{\string~}\+IFile\+Writer}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_acd2dc1bb1ca29d91f2da536ad6877feb}{write}} (const std\+::filesystem\+::path \&file\+Path, const std\+::string \&content, bool append=false) const =0
+\begin{DoxyCompactList}\small\item\em Write string content to file. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a682651bc78a2f237e03d26246b6abc8a}{write\+Bytes}} (const std\+::filesystem\+::path \&file\+Path, const std\+::vector$<$ uint8\+\_\+t $>$ \&data, bool append=false) const =0
+\begin{DoxyCompactList}\small\item\em Write binary data to file. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_a428f9ffed633059515e827b47a45547c}{write\+Lines}} (const std\+::filesystem\+::path \&file\+Path, const std\+::vector$<$ std\+::string $>$ \&lines, bool append=false) const =0
+\begin{DoxyCompactList}\small\item\em Write lines to file (each string becomes one line) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter_ae064ba973c614bce9ffe074dffc98590}{touch}} (const std\+::filesystem\+::path \&file\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Create empty file or update timestamp of existing file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for writing file content. 
+
+Provides abstraction for file writing operations with explicit error handling. All methods return \doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} for safe error handling. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_a6ac1575e2ea4bbd65bae38ea59d017d5}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}!````~IFileWriter@{\texorpdfstring{$\sim$}{\string~}IFileWriter}}
+\index{````~IFileWriter@{\texorpdfstring{$\sim$}{\string~}IFileWriter}!dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IFileWriter()}{\string~IFileWriter()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IFileWriter_a6ac1575e2ea4bbd65bae38ea59d017d5} 
+virtual dotnamecpp\+::utils\+::\+IFile\+Writer\+::\texorpdfstring{$\sim$}{\string~}\+IFile\+Writer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_ae064ba973c614bce9ffe074dffc98590}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}!touch@{touch}}
+\index{touch@{touch}!dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+\doxysubsubsection{\texorpdfstring{touch()}{touch()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IFileWriter_ae064ba973c614bce9ffe074dffc98590} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IFile\+Writer\+::touch (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Create empty file or update timestamp of existing file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a39b3c826b0457c34105235e0d89f1726}{dotnamecpp\+::utils\+::\+File\+Writer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_acd2dc1bb1ca29d91f2da536ad6877feb}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}!write@{write}}
+\index{write@{write}!dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IFileWriter_acd2dc1bb1ca29d91f2da536ad6877feb} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IFile\+Writer\+::write (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{, }\item[{const std\+::string \&}]{content}{, }\item[{bool}]{append}{ = {\ttfamily false}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Write string content to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+{\em content} & \\
+\hline
+{\em append} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_a3b974709154743326c9e2aee96f9afcc}{dotnamecpp\+::utils\+::\+File\+Writer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_a682651bc78a2f237e03d26246b6abc8a}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}!writeBytes@{writeBytes}}
+\index{writeBytes@{writeBytes}!dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+\doxysubsubsection{\texorpdfstring{writeBytes()}{writeBytes()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IFileWriter_a682651bc78a2f237e03d26246b6abc8a} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IFile\+Writer\+::write\+Bytes (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{, }\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{data}{, }\item[{bool}]{append}{ = {\ttfamily false}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Write binary data to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+{\em data} & \\
+\hline
+{\em append} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_aaff9e87cb1d4a78aa441b05cb53358f9}{dotnamecpp\+::utils\+::\+File\+Writer}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IFileWriter_a428f9ffed633059515e827b47a45547c}\index{dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}!writeLines@{writeLines}}
+\index{writeLines@{writeLines}!dotnamecpp::utils::IFileWriter@{dotnamecpp::utils::IFileWriter}}
+\doxysubsubsection{\texorpdfstring{writeLines()}{writeLines()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IFileWriter_a428f9ffed633059515e827b47a45547c} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ void, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IFile\+Writer\+::write\+Lines (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{file\+Path}{, }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{lines}{, }\item[{bool}]{append}{ = {\ttfamily false}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Write lines to file (each string becomes one line) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+{\em lines} & \\
+\hline
+{\em append} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$void, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1FileWriter_aa3a332acde8291ff65ec540cf7901cf3}{dotnamecpp\+::utils\+::\+File\+Writer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Filesystem/\mbox{\hyperlink{IFileWriter_8hpp}{IFile\+Writer.\+hpp}}\end{DoxyCompactItemize}

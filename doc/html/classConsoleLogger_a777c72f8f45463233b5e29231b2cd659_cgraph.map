@@ -1,0 +1,12 @@
+<map id="ConsoleLogger::noHeader" name="ConsoleLogger::noHeader">
+<area shape="rect" id="Node000001" title="Show or hide all headers in the log output." alt="" coords="5,109,178,136"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="50,111,43,101,48,91,64,85,92,83,121,85,137,92,134,97,120,90,91,88,66,90,51,95,48,100,54,107"/>
+<area shape="rect" id="Node000002" href="$classConsoleLogger.html#ad992cf9846433c9d08171e0da7a27d52" title="Show or hide the header caller in the log output." alt="" coords="243,5,432,48"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="118,106,225,58,244,51,245,56,227,62,120,111"/>
+<area shape="rect" id="Node000003" href="$classConsoleLogger.html#a93931df43572ddc3ca9246e793fa9ae8" title="Show or hide the header level in the log output." alt="" coords="243,72,432,115"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="178,110,227,104,228,109,178,115"/>
+<area shape="rect" id="Node000004" href="$classConsoleLogger.html#a76a289d0d0a58842e365885437644fe0" title="Show or hide the header name in the log output." alt="" coords="226,139,450,165"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="178,130,211,134,210,139,178,136"/>
+<area shape="rect" id="Node000005" href="$classConsoleLogger.html#a09c84bad7201e76b0b8c31e25ec46efc" title="Show or hide the header time in the log output." alt="" coords="229,189,447,216"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="123,134,227,175,254,183,252,188,225,180,121,139"/>
+</map>

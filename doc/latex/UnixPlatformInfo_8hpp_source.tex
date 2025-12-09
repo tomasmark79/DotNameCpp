@@ -1,0 +1,41 @@
+\doxysection{Unix\+Platform\+Info.\+hpp}
+\hypertarget{UnixPlatformInfo_8hpp_source}{}\label{UnixPlatformInfo_8hpp_source}\index{src/Utils/Platform/UnixPlatformInfo.hpp@{src/Utils/Platform/UnixPlatformInfo.hpp}}
+\mbox{\hyperlink{UnixPlatformInfo_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IPlatformInfo_8hpp}{Utils/Platform/IPlatformInfo.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatformInfo}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_aac415767626b6f4c60096afc30956463}{UnixPlatformInfo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_ae25ce8a95803de12f8492882fe5def2a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a9fcc8a4a986798bb2760b29298d7bb28}{UnixPlatformInfo}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a9cc8aa71bae0f9ca2cbcacc3a759b625}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a3c0fd6c99a5ae2f1bc424fbb93604f66}{UnixPlatformInfo}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_ad024e7d47810e76b4f166c1a51f4c798}{\string~UnixPlatformInfo}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a64fec7ffd76d63bac664eb2bce031968}{getPlatform}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00023\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_aa8ac2c6ee9d817abec9841e3251e127e}{getPlatformName}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a2b11f6330fb5abe7bc5429c190314bc4}{getExecutablePath}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::filesystem::path,\ FileError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a21bfcfbcc3ef044de60638295eb54fc8}{getExecutableDirectory}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_ab61344c83dc9952a4f87af6e68c494ac}{isWindows}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a4478e7c99560740b54c929f807b2cc00}{isLinux}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_ac3d4a50d0635fa3ed26612e51bf4037a}{isMacOS}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UnixPlatformInfo_a6287a2a6f722bf8191db980106219dd1}{isEmscripten}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00037\ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

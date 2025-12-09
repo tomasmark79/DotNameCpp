@@ -1,0 +1,7 @@
+<map id="dotnamecpp::logging::LogStream::LogStream" name="dotnamecpp::logging::LogStream::LogStream">
+<area shape="rect" id="Node000001" title=" " alt="" coords="217,39,380,81"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1logging_1_1LogStream.html#aaabb672a3e630f0b78c62cbe3c1dbf46" title="Stream a value into the log message." alt="" coords="5,5,169,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,47,169,42,170,37,202,42"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1logging_1_1LogStream.html#abed18987dc00618e4edf513f38fb3f2d" title="Stream a manipulator into the log message (e.g., std::endl)" alt="" coords="5,72,169,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,78,170,83,169,78,201,73"/>
+</map>

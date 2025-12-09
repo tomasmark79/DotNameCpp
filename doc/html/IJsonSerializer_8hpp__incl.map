@@ -1,0 +1,20 @@
+<map id="src/Utils/Json/IJsonSerializer.hpp" name="src/Utils/Json/IJsonSerializer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="306,5,523,32"/>
+<area shape="rect" id="Node000002" href="$UtilsError_8hpp.html" title=" " alt="" coords="188,80,320,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="387,35,297,76,295,71,385,30"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="368,155,421,181"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="414,33,405,80,399,140,393,139,400,80,409,32"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="414,80,495,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="423,31,442,65,438,68,419,34"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="518,80,649,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="445,30,541,71,539,76,443,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,66,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,110,81,154,80,149,215,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,155,157,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,110,161,149,159,144,230,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="180,155,259,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,108,234,142,230,139,246,106"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="280,105,357,145,355,149,277,110"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="283,155,343,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="266,106,295,141,291,144,262,109"/>
+</map>

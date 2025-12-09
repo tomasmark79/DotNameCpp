@@ -1,0 +1,11 @@
+<map id="dotnamecpp::utils::CustomStringsLoader::getCustomStringSign" name="dotnamecpp::utils::CustomStringsLoader::getCustomStringSign">
+<area shape="rect" id="Node000001" title="Get the Custom String Sign object." alt="" coords="5,129,159,188"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#a8b1ccb81005b501b9271d30267efad4e" title="Get the Email object." alt="" coords="207,5,354,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,127,205,74,212,70,215,74,208,78,128,131"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#a5c05e0646fd9022644f099b863722482" title="Get the Localized String object." alt="" coords="207,88,354,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,140,191,133,192,139,160,145"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#a50a5cd35ce870354ab655609ff4abab1" title="Get the Tel object." alt="" coords="207,171,354,229"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,172,192,179,191,184,158,177"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#a3991730a9a7a3c2e7419b6eead1414b4" title="Get the Url object." alt="" coords="207,253,354,312"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="128,186,208,239,215,243,212,248,205,244,125,191"/>
+</map>

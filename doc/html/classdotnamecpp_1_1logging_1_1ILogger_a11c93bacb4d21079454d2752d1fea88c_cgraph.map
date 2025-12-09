@@ -1,0 +1,5 @@
+<map id="dotnamecpp::logging::ILogger::warningStream" name="dotnamecpp::logging::ILogger::warningStream">
+<area shape="rect" id="Node000001" title="Create a LogStream for streaming warning messages." alt="" coords="5,5,173,48"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1logging_1_1ILogger.html#ae44262c4573acbe810297c38c9842a16" title="Create a LogStream for streaming log messages." alt="" coords="221,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,24,205,24,205,29,173,29"/>
+</map>

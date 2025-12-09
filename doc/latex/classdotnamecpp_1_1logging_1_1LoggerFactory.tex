@@ -1,0 +1,139 @@
+\doxysection{dotnamecpp\+::logging\+::Logger\+Factory Class Reference}
+\hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory}{}\label{classdotnamecpp_1_1logging_1_1LoggerFactory}\index{dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}}
+
+
+{\ttfamily \#include $<$Logger\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for dotnamecpp\+::logging\+::Logger\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classdotnamecpp_1_1logging_1_1LoggerFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511}{create}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{Logger\+Type}} type=\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}{Logger\+Type\+::\+Console}}, const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&config=\mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\})
+\begin{DoxyCompactList}\small\item\em Create a logger instance based on the specified type and configuration. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a66665981d61ca1baae6f1801a597bb65}{create\+Console}} (const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&config=\mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\})
+\begin{DoxyCompactList}\small\item\em Create a Console object logger. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a336d87d8fe6aa72ce1656de20f6f41fe}{create\+File}} (const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&config=\mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\})
+\begin{DoxyCompactList}\small\item\em Create a File object logger. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1LoggerFactory_a1cf52c1ddb57eae93a5aab46b593d021}{create\+Null}} ()
+\begin{DoxyCompactList}\small\item\em Create a Null object logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511}\index{dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}!create@{create}}
+\index{create@{create}!dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::logging\+::\+Logger\+Factory\+::create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{Logger\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efaabccaa4aa80831b76c11240a16447975f}{Logger\+Type\+::\+Console}}}, }\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{config}{ = {\ttfamily \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a logger instance based on the specified type and configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of logger to create (Console, File, Null) \\
+\hline
+{\em config} & Configuration options for the logger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+ILogger$>$ 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1logging_1_1LoggerFactory_a2811f86fe84698397f09f3ae18959511_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory_a66665981d61ca1baae6f1801a597bb65}\index{dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}!createConsole@{createConsole}}
+\index{createConsole@{createConsole}!dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}}
+\doxysubsubsection{\texorpdfstring{createConsole()}{createConsole()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1LoggerFactory_a66665981d61ca1baae6f1801a597bb65} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::logging\+::\+Logger\+Factory\+::create\+Console (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{config}{ = {\ttfamily \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a Console object logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+ILogger$>$ 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1logging_1_1LoggerFactory_a66665981d61ca1baae6f1801a597bb65_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory_a336d87d8fe6aa72ce1656de20f6f41fe}\index{dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}!createFile@{createFile}}
+\index{createFile@{createFile}!dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}}
+\doxysubsubsection{\texorpdfstring{createFile()}{createFile()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1LoggerFactory_a336d87d8fe6aa72ce1656de20f6f41fe} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::logging\+::\+Logger\+Factory\+::create\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{config}{ = {\ttfamily \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}}\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a File object logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+ILogger$>$ 
+\end{DoxyReturn}
+\Hypertarget{classdotnamecpp_1_1logging_1_1LoggerFactory_a1cf52c1ddb57eae93a5aab46b593d021}\index{dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}!createNull@{createNull}}
+\index{createNull@{createNull}!dotnamecpp::logging::LoggerFactory@{dotnamecpp::logging::LoggerFactory}}
+\doxysubsubsection{\texorpdfstring{createNull()}{createNull()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1logging_1_1LoggerFactory_a1cf52c1ddb57eae93a5aab46b593d021} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::logging\+::\+Logger\+Factory\+::create\+Null (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a Null object logger. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+ILogger$>$ 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1logging_1_1LoggerFactory_a1cf52c1ddb57eae93a5aab46b593d021_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Logger/\mbox{\hyperlink{LoggerFactory_8hpp}{Logger\+Factory.\+hpp}}\item 
+src/\+Utils/\+Logger/\mbox{\hyperlink{LoggerFactory_8cpp}{Logger\+Factory.\+cpp}}\end{DoxyCompactItemize}

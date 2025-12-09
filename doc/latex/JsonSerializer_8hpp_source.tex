@@ -1,0 +1,48 @@
+\doxysection{Json\+Serializer.\+hpp}
+\hypertarget{JsonSerializer_8hpp_source}{}\label{JsonSerializer_8hpp_source}\index{src/Utils/Json/JsonSerializer.hpp@{src/Utils/Json/JsonSerializer.hpp}}
+\mbox{\hyperlink{JsonSerializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IFileReader_8hpp}{Utils/Filesystem/IFileReader.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IFileWriter_8hpp}{Utils/Filesystem/IFileWriter.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IJsonSerializer_8hpp}{Utils/Json/IJsonSerializer.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer}{IJsonSerializer}}\ \{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}(std::shared\_ptr<IFileReader>\ fileReader,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<IFileWriter>\ fileWriter);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a9b02ff409609c095755de5b74ff9ee43}{JsonSerializer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_ae0307d1037d6ed05b9d3d188a7da6670}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a25dfe64868831fb8aa53d037d7b70f58}{JsonSerializer}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_ac7aec627ead7996259f2839ed3fd1f26}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a0eb7468be61ac739d16d4df2219c2075}{JsonSerializer}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a71fcb4c5a3c6fe53222c6df0c6553e02}{\string~JsonSerializer}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_aefee417a9a58a3757208a9e450ec2c1c}{loadFromFile}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<void,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_aae1986bb0b05fb1a2080b67b31dcee14}{saveToFile}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&filePath,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ nlohmann::json\ \&jsonData,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indent\ =\ 2)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_a963bf18e889200ab9f5e1fa0645e0e35}{parse}}(\textcolor{keyword}{const}\ std::string\ \&jsonString)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<std::string,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1JsonSerializer_ac5ebb7ef9d6324357ca260cf2360d151}{toString}}(\textcolor{keyword}{const}\ nlohmann::json\ \&jsonData,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indent\ =\ 2)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ std::shared\_ptr<IFileReader>\ fileReader\_;}
+\DoxyCodeLine{00039\ \ \ \ \ std::shared\_ptr<IFileWriter>\ fileWriter\_;}
+\DoxyCodeLine{00040\ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

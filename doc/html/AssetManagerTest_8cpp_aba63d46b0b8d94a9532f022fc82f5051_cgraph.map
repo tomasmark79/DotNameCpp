@@ -1,0 +1,7 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,61,61"/>
+<area shape="rect" id="Node000002" href="$classMockAssetManager.html#af7bd4703685f7e58e055bed20dab6931" title="Check if an asset exists given its relative path." alt="" coords="109,5,323,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,41,113,32,114,38,62,46"/>
+<area shape="rect" id="Node000003" href="$classMockAssetManager.html#aabd03768f97ee703033211a2deb86c65" title=" " alt="" coords="118,56,314,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="62,50,103,56,102,62,61,55"/>
+</map>

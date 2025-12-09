@@ -1,0 +1,21 @@
+<map id="src/Utils/Filesystem/IFileReader.hpp" name="src/Utils/Filesystem/IFileReader.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="254,5,393,48"/>
+<area shape="rect" id="Node000002" href="$UtilsError_8hpp.html" title=" " alt="" coords="153,96,286,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,51,249,88,246,84,295,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,66,197"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="255,50,198,71,142,98,97,130,60,162,56,158,94,126,139,94,196,66,253,45"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="368,171,421,197"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="330,48,338,83,353,121,375,157,371,160,348,124,333,85,324,49"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="362,96,443,123"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="346,47,381,83,377,86,342,50"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="467,96,524,123"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="369,46,456,87,454,92,367,51"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="188,126,81,168,79,163,186,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,171,157,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="204,125,154,163,151,159,201,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="180,171,259,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="222,123,222,155,217,155,217,123"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="251,121,354,163,352,168,249,126"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="283,171,343,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="237,121,286,159,283,163,234,125"/>
+</map>

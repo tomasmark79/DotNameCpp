@@ -1,0 +1,308 @@
+\doxysection{dotnamecpp\+::utils\+::IPath\+Resolver Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver}{}\label{classdotnamecpp_1_1utils_1_1IPathResolver}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+
+
+Interface for path resolution and manipulation.  
+
+
+
+
+{\ttfamily \#include $<$IPath\+Resolver.\+hpp$>$}
+
+
+
+Inheritance diagram for dotnamecpp\+::utils\+::IPath\+Resolver\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IPathResolver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::IPath\+Resolver\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1IPathResolver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_aa4a9e9a435a00249e7ff9125f303bcd0}{\texorpdfstring{$\sim$}{\string~}\+IPath\+Resolver}} ()=default
+\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_a4fafa683b291ee6d2d469a98404ea7e2}{get\+Absolute\+Path}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Absolute Path object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_ac0e0aff2c94ecab24ad35dbeb11872e9}{get\+Canonical\+Path}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Canonical Path object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_abdd440f2871d84298fd2d919330a346f}{get\+Relative\+Path}} (const std\+::filesystem\+::path \&target, const std\+::filesystem\+::path \&base=std\+::filesystem\+::current\+\_\+path()) const =0
+\begin{DoxyCompactList}\small\item\em Get the Relative Path object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_adbdfd49f0663b2a17692e10668094caf}{is\+Absolute}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Check if path is absolute. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_a097d76c1199b5db92f867fb64084b7d3}{is\+Relative}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Check if path is relative. \end{DoxyCompactList}\item 
+virtual std\+::filesystem\+::path \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_afecd6b4a6b1f0efce6b42d8b317c2911}{get\+Parent}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Parent object. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_a53394a496986575d5e8276fc1d6578cd}{get\+Filename}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Filename object. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_a5236993a86e1949e0a8c5bb1a25040bf}{get\+Extension}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Extension object. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_aa7ef20d6d41feba72c353012a4eb790f}{get\+Stem}} (const std\+::filesystem\+::path \&path) const =0
+\begin{DoxyCompactList}\small\item\em Get the Stem object. \end{DoxyCompactList}\item 
+virtual std\+::filesystem\+::path \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver_abc29531252bca837835c0dcc6c445b96}{join}} (const std\+::vector$<$ std\+::string $>$ \&parts) const =0
+\begin{DoxyCompactList}\small\item\em Join multiple path components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for path resolution and manipulation. 
+
+Provides abstraction for filesystem path operations. 
+
+\label{doc-constructors}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_aa4a9e9a435a00249e7ff9125f303bcd0}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!````~IPathResolver@{\texorpdfstring{$\sim$}{\string~}IPathResolver}}
+\index{````~IPathResolver@{\texorpdfstring{$\sim$}{\string~}IPathResolver}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IPathResolver()}{\string~IPathResolver()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_aa4a9e9a435a00249e7ff9125f303bcd0} 
+virtual dotnamecpp\+::utils\+::\+IPath\+Resolver\+::\texorpdfstring{$\sim$}{\string~}\+IPath\+Resolver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_a4fafa683b291ee6d2d469a98404ea7e2}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getAbsolutePath@{getAbsolutePath}}
+\index{getAbsolutePath@{getAbsolutePath}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getAbsolutePath()}{getAbsolutePath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_a4fafa683b291ee6d2d469a98404ea7e2} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Absolute\+Path (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Absolute Path object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a9d86f0c1c0e6abd4d91112ca208db2c3}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_ac0e0aff2c94ecab24ad35dbeb11872e9}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getCanonicalPath@{getCanonicalPath}}
+\index{getCanonicalPath@{getCanonicalPath}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getCanonicalPath()}{getCanonicalPath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_ac0e0aff2c94ecab24ad35dbeb11872e9} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Canonical\+Path (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Canonical Path object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a7d021fd749f61ffe5559a1c4eb843a9e}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_a5236993a86e1949e0a8c5bb1a25040bf}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getExtension@{getExtension}}
+\index{getExtension@{getExtension}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getExtension()}{getExtension()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_a5236993a86e1949e0a8c5bb1a25040bf} 
+virtual std\+::string dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Extension (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Extension object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a45ea1094f201680084424fdcbd417d32}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_a53394a496986575d5e8276fc1d6578cd}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getFilename@{getFilename}}
+\index{getFilename@{getFilename}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getFilename()}{getFilename()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_a53394a496986575d5e8276fc1d6578cd} 
+virtual std\+::string dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Filename (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Filename object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_aa37e98dfee15310a7cb338fb74bb9d03}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_afecd6b4a6b1f0efce6b42d8b317c2911}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getParent@{getParent}}
+\index{getParent@{getParent}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_afecd6b4a6b1f0efce6b42d8b317c2911} 
+virtual std\+::filesystem\+::path dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Parent (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Parent object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::filesystem\+::path 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a3024bd72754e1a42fe3972f39a9a6499}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_abdd440f2871d84298fd2d919330a346f}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getRelativePath@{getRelativePath}}
+\index{getRelativePath@{getRelativePath}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getRelativePath()}{getRelativePath()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_abdd440f2871d84298fd2d919330a346f} 
+virtual \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result}}$<$ std\+::filesystem\+::path, \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1FileError}{File\+Error}} $>$ dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Relative\+Path (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{target}{, }\item[{const std\+::filesystem\+::path \&}]{base}{ = {\ttfamily std\+:\+:filesystem\+:\+:current\+\_\+path()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Relative Path object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+{\em base} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classdotnamecpp_1_1utils_1_1Result}{Result$<$std\+::filesystem\+::path, File\+Error$>$} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a8c6a29b43e2ad43694ad1a12de0ffabd}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_aa7ef20d6d41feba72c353012a4eb790f}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!getStem@{getStem}}
+\index{getStem@{getStem}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{getStem()}{getStem()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_aa7ef20d6d41feba72c353012a4eb790f} 
+virtual std\+::string dotnamecpp\+::utils\+::\+IPath\+Resolver\+::get\+Stem (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Get the Stem object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_abc28b97de7759170b2de3535f21ad01e}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_adbdfd49f0663b2a17692e10668094caf}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!isAbsolute@{isAbsolute}}
+\index{isAbsolute@{isAbsolute}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{isAbsolute()}{isAbsolute()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_adbdfd49f0663b2a17692e10668094caf} 
+virtual bool dotnamecpp\+::utils\+::\+IPath\+Resolver\+::is\+Absolute (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if path is absolute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a6e77119ecc27a82a5aac39734f3c61dd}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_a097d76c1199b5db92f867fb64084b7d3}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!isRelative@{isRelative}}
+\index{isRelative@{isRelative}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{isRelative()}{isRelative()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_a097d76c1199b5db92f867fb64084b7d3} 
+virtual bool dotnamecpp\+::utils\+::\+IPath\+Resolver\+::is\+Relative (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if path is relative. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a0154146681afb55016ff43115327ccfb}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+\Hypertarget{classdotnamecpp_1_1utils_1_1IPathResolver_abc29531252bca837835c0dcc6c445b96}\index{dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}!join@{join}}
+\index{join@{join}!dotnamecpp::utils::IPathResolver@{dotnamecpp::utils::IPathResolver}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1IPathResolver_abc29531252bca837835c0dcc6c445b96} 
+virtual std\+::filesystem\+::path dotnamecpp\+::utils\+::\+IPath\+Resolver\+::join (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{parts}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Join multiple path components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::filesystem\+::path 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1PathResolver_a313a48aa73786143b279160b9e4b263e}{dotnamecpp\+::utils\+::\+Path\+Resolver}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\+Filesystem/\mbox{\hyperlink{IPathResolver_8hpp}{IPath\+Resolver.\+hpp}}\end{DoxyCompactItemize}

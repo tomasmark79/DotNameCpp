@@ -1,0 +1,197 @@
+\doxysection{application/tests/\+Console\+Logger\+Test.cpp File Reference}
+\hypertarget{ConsoleLoggerTest_8cpp}{}\label{ConsoleLoggerTest_8cpp}\index{application/tests/ConsoleLoggerTest.cpp@{application/tests/ConsoleLoggerTest.cpp}}
+{\ttfamily \#include "{}../../src/\+Utils/\+Logger/\+Console\+Logger.\+hpp"{}}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+Include dependency graph for Console\+Logger\+Test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ConsoleLoggerTest_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a58b5c84f05815fd615bb6dc256cc7549}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Basic\+Logging)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_ad5e68f28cc54c79271435cd67577a375}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Logging\+Without\+Caller)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a1e9c04b8354b74e63dddd72ec08a4d6c}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Log\+Level\+Filtering)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a9aea72514b37f63cd9d0cc70e40d22f7}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Stream\+Logging)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a704322b6bcdf3799e8b1aa780f4566f2}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Convenience\+Stream\+Methods)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a91a0b79ec0e1eefe95807867b0661e5f}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Formatted\+Logging)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a6732220fb858fd7dc1abb416953508fe}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Header\+Configuration)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_aa2979f58a6e7fb74f88c6fcc13aac8c0}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Visible\+Headers)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_ac1463004a9f0003658e883fec43fb74b}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, File\+Logging)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_afa1b00b7ae2600348901b30525ba8e54}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Thread\+Safety)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a8e9d84d3a553e26e5f81b69d7ca9cecd}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Level\+To\+String)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a1a488e15957fde4f49e4a0dfc8ee25cc}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Color\+Methods)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_ac6503fc793cb1a2e9a8a509ece963b66}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Polymorphic\+Usage)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a95304690d22441680519f532f1815427}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Multiple\+Instances)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_ab35834df4087e6a0d58b5dbefb02da96}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Move\+Semantics)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a35f4079df2d6235d8fbf9f495a681bdf}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Stream\+With\+Multiple\+Values)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_aa8163c63dc8df9b1b1262d8c7405e2a0}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Empty\+Messages)
+\item 
+\mbox{\hyperlink{ConsoleLoggerTest_8cpp_a426218b694896b8cb28d6e6ba92be87b}{TEST\+\_\+F}} (\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}, Long\+Messages)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{ConsoleLoggerTest_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ConsoleLoggerTest_8cpp_a58b5c84f05815fd615bb6dc256cc7549}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [1/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a58b5c84f05815fd615bb6dc256cc7549} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Basic\+Logging}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a1a488e15957fde4f49e4a0dfc8ee25cc}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [2/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a1a488e15957fde4f49e4a0dfc8ee25cc} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Color\+Methods}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ConsoleLoggerTest_8cpp_a1a488e15957fde4f49e4a0dfc8ee25cc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ConsoleLoggerTest_8cpp_a704322b6bcdf3799e8b1aa780f4566f2}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [3/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a704322b6bcdf3799e8b1aa780f4566f2} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Convenience\+Stream\+Methods}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_aa8163c63dc8df9b1b1262d8c7405e2a0}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [4/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_aa8163c63dc8df9b1b1262d8c7405e2a0} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Empty\+Messages}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_ac1463004a9f0003658e883fec43fb74b}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [5/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_ac1463004a9f0003658e883fec43fb74b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{File\+Logging}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a91a0b79ec0e1eefe95807867b0661e5f}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [6/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a91a0b79ec0e1eefe95807867b0661e5f} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Formatted\+Logging}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a6732220fb858fd7dc1abb416953508fe}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [7/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a6732220fb858fd7dc1abb416953508fe} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Header\+Configuration}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a8e9d84d3a553e26e5f81b69d7ca9cecd}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [8/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a8e9d84d3a553e26e5f81b69d7ca9cecd} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Level\+To\+String}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{ConsoleLoggerTest_8cpp_a8e9d84d3a553e26e5f81b69d7ca9cecd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ConsoleLoggerTest_8cpp_ad5e68f28cc54c79271435cd67577a375}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [9/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_ad5e68f28cc54c79271435cd67577a375} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Logging\+Without\+Caller}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a1e9c04b8354b74e63dddd72ec08a4d6c}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [10/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a1e9c04b8354b74e63dddd72ec08a4d6c} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Log\+Level\+Filtering}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a426218b694896b8cb28d6e6ba92be87b}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [11/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a426218b694896b8cb28d6e6ba92be87b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Long\+Messages}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_ab35834df4087e6a0d58b5dbefb02da96}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [12/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_ab35834df4087e6a0d58b5dbefb02da96} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Move\+Semantics}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ConsoleLoggerTest_8cpp_ab35834df4087e6a0d58b5dbefb02da96_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ConsoleLoggerTest_8cpp_a95304690d22441680519f532f1815427}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [13/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a95304690d22441680519f532f1815427} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Multiple\+Instances}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_ac6503fc793cb1a2e9a8a509ece963b66}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [14/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_ac6503fc793cb1a2e9a8a509ece963b66} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Polymorphic\+Usage}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a9aea72514b37f63cd9d0cc70e40d22f7}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [15/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a9aea72514b37f63cd9d0cc70e40d22f7} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Stream\+Logging}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_a35f4079df2d6235d8fbf9f495a681bdf}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [16/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_a35f4079df2d6235d8fbf9f495a681bdf} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Stream\+With\+Multiple\+Values}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_afa1b00b7ae2600348901b30525ba8e54}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [17/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_afa1b00b7ae2600348901b30525ba8e54} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Thread\+Safety}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ConsoleLoggerTest_8cpp_aa2979f58a6e7fb74f88c6fcc13aac8c0}\index{ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!ConsoleLoggerTest.cpp@{ConsoleLoggerTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [18/18]}}
+{\footnotesize\ttfamily \label{ConsoleLoggerTest_8cpp_aa2979f58a6e7fb74f88c6fcc13aac8c0} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classConsoleLoggerTest}{Console\+Logger\+Test}}}]{}{, }\item[{Visible\+Headers}]{}{}\end{DoxyParamCaption})}
+

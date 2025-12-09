@@ -1,0 +1,8 @@
+<map id="application/tests/MockAssetManager.hpp" name="application/tests/MockAssetManager.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="88,5,274,48"/>
+<area shape="rect" id="Node000002" href="$IAssetManager_8hpp.html" title=" " alt="" coords="5,96,216,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,50,134,86,130,82,161,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="140,171,222,197"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="202,47,218,69,230,95,233,109,230,124,220,144,207,161,203,158,216,141,225,122,228,109,225,97,213,72,198,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,121,160,158,157,161,121,125"/>
+</map>

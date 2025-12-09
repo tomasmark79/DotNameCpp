@@ -1,0 +1,315 @@
+\doxysection{dotnamecpp\+::utils\+::Utils\+Factory Class Reference}
+\hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory}{}\label{classdotnamecpp_1_1utils_1_1UtilsFactory}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+
+
+{\ttfamily \#include $<$Utils\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for dotnamecpp\+::utils\+::Utils\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdotnamecpp_1_1utils_1_1UtilsFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components}}
+\item 
+struct \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Bundle}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader}{IFile\+Reader}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948}{create\+File\+Reader}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter}{IFile\+Writer}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701}{create\+File\+Writer}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver}{IPath\+Resolver}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c}{create\+Path\+Resolver}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager}{IDirectory\+Manager}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78}{create\+Directory\+Manager}} ()
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatform\+Info}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d}{create\+Platform\+Info}} ()
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatform\+Info}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a6a52e83a5ff6a9ec77c9dc79f8b82308}{create\+Platform\+Info}} (\mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}} platform)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f}{create\+Asset\+Manager}} (const std\+::filesystem\+::path \&executable\+Path, const std\+::string \&app\+Name)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer}{IJson\+Serializer}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965}{create\+Json\+Serializer}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}{ICustom\+Strings\+Loader}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_aff59f9352b744e132ab2bbf5371eb52a}{create\+Custom\+Strings\+Loader}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ asset\+Manager, const std\+::string \&filename="{}customstrings.\+json"{})
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IStringFormatter}{IString\+Formatter}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db}{create\+String\+Formatter}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461}{create\+Logger}} (\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{Logger\+Type}} type, const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&config)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b}{create\+Default\+Logger}} ()
+\item 
+static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567}{create\+App\+Components}} (const std\+::string \&app\+Name, const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&logger\+Config)
+\begin{DoxyCompactList}\small\item\em Create complete application components. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Bundle}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049}{create\+Bundle}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createAppComponents@{createAppComponents}}
+\index{createAppComponents@{createAppComponents}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createAppComponents()}{createAppComponents()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567} 
+\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{Utils\+Factory\+::\+App\+Components}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+App\+Components (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{app\+Name}{, }\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{logger\+Config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+
+
+Create complete application components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+Name} & Application name for asset resolution \\
+\hline
+{\em logger\+Config} & Logger configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components} with logger, asset\+Manager, and platform\+Info 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createAssetManager@{createAssetManager}}
+\index{createAssetManager@{createAssetManager}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createAssetManager()}{createAssetManager()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Asset\+Manager (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{executable\+Path}{, }\item[{const std\+::string \&}]{app\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createBundle@{createBundle}}
+\index{createBundle@{createBundle}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createBundle()}{createBundle()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049} 
+\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Factory\+::\+Utils\+Bundle}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Bundle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_aff59f9352b744e132ab2bbf5371eb52a}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createCustomStringsLoader@{createCustomStringsLoader}}
+\index{createCustomStringsLoader@{createCustomStringsLoader}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createCustomStringsLoader()}{createCustomStringsLoader()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_aff59f9352b744e132ab2bbf5371eb52a} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}{ICustom\+Strings\+Loader}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Custom\+Strings\+Loader (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAsset\+Manager}} $>$}]{asset\+Manager}{, }\item[{const std\+::string \&}]{filename}{ = {\ttfamily "{}customstrings.json"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_aff59f9352b744e132ab2bbf5371eb52a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createDefaultLogger@{createDefaultLogger}}
+\index{createDefaultLogger@{createDefaultLogger}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createDefaultLogger()}{createDefaultLogger()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Default\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createDirectoryManager@{createDirectoryManager}}
+\index{createDirectoryManager@{createDirectoryManager}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createDirectoryManager()}{createDirectoryManager()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager}{IDirectory\+Manager}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Directory\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createFileReader@{createFileReader}}
+\index{createFileReader@{createFileReader}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createFileReader()}{createFileReader()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileReader}{IFile\+Reader}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+File\+Reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createFileWriter@{createFileWriter}}
+\index{createFileWriter@{createFileWriter}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createFileWriter()}{createFileWriter()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IFileWriter}{IFile\+Writer}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+File\+Writer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createJsonSerializer@{createJsonSerializer}}
+\index{createJsonSerializer@{createJsonSerializer}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createJsonSerializer()}{createJsonSerializer()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IJsonSerializer}{IJson\+Serializer}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Json\+Serializer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createLogger@{createLogger}}
+\index{createLogger@{createLogger}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createLogger()}{createLogger()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{Logger\+Type}}}]{type}{, }\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createPathResolver@{createPathResolver}}
+\index{createPathResolver@{createPathResolver}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createPathResolver()}{createPathResolver()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver}{IPath\+Resolver}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Path\+Resolver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createPlatformInfo@{createPlatformInfo}}
+\index{createPlatformInfo@{createPlatformInfo}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatformInfo()}{createPlatformInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatform\+Info}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Platform\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a6a52e83a5ff6a9ec77c9dc79f8b82308}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createPlatformInfo@{createPlatformInfo}}
+\index{createPlatformInfo@{createPlatformInfo}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatformInfo()}{createPlatformInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a6a52e83a5ff6a9ec77c9dc79f8b82308} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPlatformInfo}{IPlatform\+Info}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Platform\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}}}]{platform}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a6a52e83a5ff6a9ec77c9dc79f8b82308_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createStringFormatter@{createStringFormatter}}
+\index{createStringFormatter@{createStringFormatter}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createStringFormatter()}{createStringFormatter()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IStringFormatter}{IString\+Formatter}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+String\+Formatter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utils/\mbox{\hyperlink{UtilsFactory_8hpp}{Utils\+Factory.\+hpp}}\item 
+src/\+Utils/\mbox{\hyperlink{UtilsFactory_8cpp}{Utils\+Factory.\+cpp}}\end{DoxyCompactItemize}

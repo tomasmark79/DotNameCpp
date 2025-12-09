@@ -1,0 +1,101 @@
+\doxysection{Utils\+Factory.\+hpp}
+\hypertarget{UtilsFactory_8hpp_source}{}\label{UtilsFactory_8hpp_source}\index{src/Utils/UtilsFactory.hpp@{src/Utils/UtilsFactory.hpp}}
+\mbox{\hyperlink{UtilsFactory_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <DotNameLib/version.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IAssetManager_8hpp}{Utils/Assets/IAssetManager.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IDirectoryManager_8hpp}{Utils/Filesystem/IDirectoryManager.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IFileReader_8hpp}{Utils/Filesystem/IFileReader.hpp}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IFileWriter_8hpp}{Utils/Filesystem/IFileWriter.hpp}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IPathResolver_8hpp}{Utils/Filesystem/IPathResolver.hpp}}>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{ICustomStringsLoader_8hpp}{Utils/Json/ICustomStringsLoader.hpp}}>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IJsonSerializer_8hpp}{Utils/Json/IJsonSerializer.hpp}}>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{ILogger_8hpp}{Utils/Logger/ILogger.hpp}}>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{LoggerFactory_8hpp}{Utils/Logger/LoggerFactory.hpp}}>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{NullLogger_8hpp}{Utils/Logger/NullLogger.hpp}}>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IPlatformInfo_8hpp}{Utils/Platform/IPlatformInfo.hpp}}>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IStringFormatter_8hpp}{Utils/String/IStringFormatter.hpp}}>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}}\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//\ Import\ types\ from\ other\ namespaces}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{using\ }dotnamecpp::assets::IAssetManager;}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{using\ }dotnamecpp::logging::ILogger;}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{using\ }dotnamecpp::logging::LoggerConfig;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{dotnamecpp::logging::LoggerType}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory}{UtilsFactory}}\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Filesystem\ factories}}
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IFileReader>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948}{createFileReader}}();}
+\DoxyCodeLine{00032\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IFileWriter>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701}{createFileWriter}}();}
+\DoxyCodeLine{00034\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IPathResolver>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c}{createPathResolver}}();}
+\DoxyCodeLine{00036\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IDirectoryManager>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78}{createDirectoryManager}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Platform\ factories}}
+\DoxyCodeLine{00040\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<IPlatformInfo>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d}{createPlatformInfo}}();}
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<IPlatformInfo>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d}{createPlatformInfo}}(\mbox{\hyperlink{namespacedotnamecpp_1_1utils_adc87d22083ac63618f63c881286f96f8}{Platform}}\ platform);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Assets\ factories}}
+\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IAssetManager>}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f}{createAssetManager}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&executablePath,\ \textcolor{keyword}{const}\ std::string\ \&appName);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ JSON\ factories}}
+\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IJsonSerializer>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965}{createJsonSerializer}}();}
+\DoxyCodeLine{00053\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ICustomStringsLoader>}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_aff59f9352b744e132ab2bbf5371eb52a}{createCustomStringsLoader}}(std::shared\_ptr<IAssetManager>\ assetManager,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&filename\ =\ \textcolor{stringliteral}{"{}customstrings.json"{}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ String\ factories}}
+\DoxyCodeLine{00059\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IStringFormatter>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db}{createStringFormatter}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Logger\ factories}}
+\DoxyCodeLine{00063\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461}{createLogger}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a179f075ebc46e9cddf8f9f8f806e1efa}{LoggerType}}\ type,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \&config);}
+\DoxyCodeLine{00065\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b}{createDefaultLogger}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Application\ initialization\ helper}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{AppComponents}}\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents_a04f44a32016351b0ad44ca5d2ee4bc76}{logger}};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ std::shared\_ptr<IAssetManager>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents_a8fa49a05bcb13dbbb9cb8f4617b9f899}{assetManager}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ std::unique\_ptr<IPlatformInfo>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents_a42521c58f7b55eeca6c169ea164e75ac}{platformInfo}};}
+\DoxyCodeLine{00073\ \ \ \ \ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{AppComponents}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567}{createAppComponents}}(\textcolor{keyword}{const}\ std::string\ \&appName,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{LoggerConfig}}\ \&loggerConfig);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Convenience:\ Create\ complete\ utility\ set}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{UtilsBundle}}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ std::shared\_ptr<IFileReader>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_afe3ca46d8d1c55c70e439b49a784288a}{fileReader}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ std::shared\_ptr<IFileWriter>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_a697d5d386cad32cfd58042332e911b81}{fileWriter}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ std::shared\_ptr<IPathResolver>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_a6c4076edb6077afe637f4edbf0cb6147}{pathResolver}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ std::shared\_ptr<IDirectoryManager>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_ab05e96ae8d13e0206e1d14417c2453fd}{directoryManager}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ std::unique\_ptr<IPlatformInfo>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_a3a5502a2c4054cb90f73e4293614beaa}{platformInfo}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ std::shared\_ptr<IJsonSerializer>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_adf23cd3f092144bd162157088b3a2da1}{jsonSerializer}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ std::shared\_ptr<IStringFormatter>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_a3bd5af4005b513a303d13bfedc50bd6d}{stringFormatter}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ std::shared\_ptr<ILogger>\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle_a3b2df10fbf270965aed6bd1582600930}{logger}};}
+\DoxyCodeLine{00095\ \ \ \ \ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{UtilsBundle}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049}{createBundle}}();}
+\DoxyCodeLine{00099\ \ \ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+
+\end{DoxyCode}

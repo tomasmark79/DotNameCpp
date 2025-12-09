@@ -1,0 +1,372 @@
+\doxysection{Console\+Logger.\+hpp}
+\hypertarget{ConsoleLogger_8hpp_source}{}\label{ConsoleLogger_8hpp_source}\index{src/Utils/Logger/ConsoleLogger.hpp@{src/Utils/Logger/ConsoleLogger.hpp}}
+\mbox{\hyperlink{ConsoleLogger_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONSOLELOGGER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONSOLELOGGER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ILogger_8hpp}{ILogger.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}fmt/core.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{WindowsHeaders_8hpp}{Utils/Platform/WindowsHeaders.hpp}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <io.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ isatty\ \_isatty}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ fileno\ \_fileno}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{dotnamecpp::logging::ILogger}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ std::mutex\ logMutex\_;}
+\DoxyCodeLine{00030\ \ \ std::ofstream\ logFile\_;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{bool}\ addNewLine\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00032\ \ \ std::string\ appPrefix\_;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifdef\ DEBUG}}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ currentLevel\_\ =\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp::logging::Level::LOG\_DEBUG}};}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ currentLevel\_\ =\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp::logging::Level::LOG\_INFO}};}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{bool}\ colorEnabled\_\ =\ \textcolor{keyword}{true};\ \ \ \ \textcolor{comment}{//\ User\ can\ override}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{bool}\ autoDetectColor\_\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Auto-\/detect\ TTY\ support}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classConsoleLogger_a242e88aa9495249d5a7fbdfc4f8886ee}{\string~ConsoleLogger}}()\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (logFile\_.is\_open())\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ logFile\_.close();}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classConsoleLogger_aef5adf04fa11cfb6f1c8df808c4f9734}{ConsoleLogger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&\mbox{\hyperlink{classConsoleLogger_a8c773a671915651392234e88eebcd159}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{classConsoleLogger_a861ef16d038d599c9ce3a22d2d0644ac}{ConsoleLogger}}(\mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&\&other)\ noexcept}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ :\ logFile\_(std::move(other.logFile\_)),\ addNewLine\_(other.addNewLine\_),}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ appPrefix\_(std::move(other.appPrefix\_)),\ currentLevel\_(other.currentLevel\_),}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ colorEnabled\_(other.colorEnabled\_),\ autoDetectColor\_(other.autoDetectColor\_)\ \{\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&\mbox{\hyperlink{classConsoleLogger_a1139c6c8d32dafaf463e68c1e3ab1554}{operator=}}(\mbox{\hyperlink{classConsoleLogger_ae0625f526f9c9ad18fa86609ef29a6b6}{ConsoleLogger}}\ \&\&other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ std::lock\ to\ avoid\ deadlocks}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ std::lock(logMutex\_,\ other.logMutex\_);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock1(logMutex\_,\ std::adopt\_lock);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock2(other.logMutex\_,\ std::adopt\_lock);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ logFile\_\ =\ std::move(other.logFile\_);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ addNewLine\_\ =\ other.addNewLine\_;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ appPrefix\_\ =\ std::move(other.appPrefix\_);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ currentLevel\_\ =\ other.currentLevel\_;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ colorEnabled\_\ =\ other.colorEnabled\_;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ autoDetectColor\_\ =\ other.autoDetectColor\_;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a872f1edb1c3f27151aea7893257e84f9}{debug}}(\textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp::logging::Level::LOG\_DEBUG}},\ message,\ caller);}
+\DoxyCodeLine{00082\ \ \ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_ab610c1dfc5564e00841dfeae547f836f}{info}}(\textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp::logging::Level::LOG\_INFO}},\ message,\ caller);}
+\DoxyCodeLine{00086\ \ \ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a7c16af28ba75ff33649181778e73c070}{warning}}(\textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{dotnamecpp::logging::Level::LOG\_WARNING}},\ message,\ caller);}
+\DoxyCodeLine{00090\ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a8973d67f0a94cf2af0c5c5df4f303ffe}{error}}(\textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{dotnamecpp::logging::Level::LOG\_ERROR}},\ message,\ caller);}
+\DoxyCodeLine{00094\ \ \ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_adfe7ec1d32cf22b8280363401bc2f331}{critical}}(\textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{dotnamecpp::logging::Level::LOG\_CRITICAL}},\ message,\ caller);}
+\DoxyCodeLine{00098\ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a9aa67bea16b85fc2e7f76aa6e6faac26}{log}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level,\ \textcolor{keyword}{const}\ std::string\ \&message,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&caller)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ Get\ current\ time}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{00113\ \ \ \ \ std::time\_t\ now\_c\ =\ std::chrono::system\_clock::to\_time\_t(now);}
+\DoxyCodeLine{00114\ \ \ \ \ std::tm\ now\_tm;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ Windows\ and\ POSIX\ have\ different\ thread-\/safe\ localtime\ functions}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00118\ \ \ \ \ localtime\_s(\&now\_tm,\ \&now\_c);}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00120\ \ \ \ \ localtime\_r(\&now\_c,\ \&now\_tm);}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Create\ log\ header}}
+\DoxyCodeLine{00124\ \ \ \ \ std::ostringstream\ header;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (!appPrefix\_.empty())\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ appPrefix\_\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ std::put\_time(\&now\_tm,\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}})\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00129\ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ \mbox{\hyperlink{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a}{levelToString}}(level)\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (!caller.empty())\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ caller\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ Log\ to\ console}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (shouldUseColors())\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541}{setConsoleColor}}(level);}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ std::cout\ <<\ header.str()\ <<\ message;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (addNewLine\_)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (shouldUseColors())\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{resetConsoleColor}}();}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ Log\ to\ file\ if\ enabled}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (logFile\_.is\_open())\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ logFile\_\ <<\ header.str()\ <<\ message;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (addNewLine\_)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ logFile\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a256818f00bb0e2a062f8c11b2b46f329}{setLevel}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00158\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00159\ \ \ \ \ currentLevel\_\ =\ level;}
+\DoxyCodeLine{00160\ \ \ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00163\ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ \mbox{\hyperlink{classConsoleLogger_a240bb9e9a187812fd9ee00d7c959dee8}{getLevel}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ currentLevel\_;}
+\DoxyCodeLine{00165\ \ \ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a3e636a955ec8fdf513050894560f9c41}{setAppPrefix}}(\textcolor{keyword}{const}\ std::string\ \&prefix)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00168\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00169\ \ \ \ \ appPrefix\_\ =\ prefix;}
+\DoxyCodeLine{00170\ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00173\ \ \ std::string\ \mbox{\hyperlink{classConsoleLogger_a9445a8dec0b3bbd2d29ff2af410b8494}{getAppPrefix}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ appPrefix\_;}
+\DoxyCodeLine{00175\ \ \ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConsoleLogger_ad7ce78dcb764bd7bc2023237f6a58663}{enableFileLogging}}(\textcolor{keyword}{const}\ std::string\ \&filename)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ logFile\_.open(filename,\ std::ios::out\ |\ std::ios::app);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ logFile\_.is\_open();}
+\DoxyCodeLine{00182\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::ios\_base::failure\ \&e)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ log\ file:\ "{}}\ <<\ filename\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ e.what()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00185\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ log\ file:\ "{}}\ <<\ filename\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ e.what()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00188\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ log\ file:\ "{}}\ <<\ filename\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a8eb50c929f145bc2d613058292ceb86b}{disableFileLogging}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00195\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (logFile\_.is\_open())\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ logFile\_.close();}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00207\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a}{levelToString}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{switch}\ (level)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp::logging::Level::LOG\_DEBUG}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}DBG"{}};}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp::logging::Level::LOG\_INFO}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}INF"{}};}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{dotnamecpp::logging::Level::LOG\_WARNING}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WRN"{}};}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{dotnamecpp::logging::Level::LOG\_ERROR}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ERR"{}};}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{dotnamecpp::logging::Level::LOG\_CRITICAL}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}CRI"{}};}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}INF"{}};}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{resetConsoleColor}}()\ \{}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00224\ \ \ \ \ SetConsoleTextAttribute(GetStdHandle(STD\_OUTPUT\_HANDLE),}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREGROUND\_RED\ |\ FOREGROUND\_GREEN\ |\ FOREGROUND\_BLUE);}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#elif\ defined(\_\_EMSCRIPTEN\_\_)}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ no\ colors,\ no\ reset}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00229\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033[0m"{}};}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00231\ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00234\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setConsoleColorWindows(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{const}\ std::map<dotnamecpp::logging::Level,\ WORD>\ colorMap\ =\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp::logging::Level::LOG\_DEBUG}},}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ FOREGROUND\_BLUE\ |\ FOREGROUND\_GREEN\ |\ FOREGROUND\_INTENSITY\},}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp::logging::Level::LOG\_INFO}},\ FOREGROUND\_GREEN\ |\ FOREGROUND\_INTENSITY\},}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{dotnamecpp::logging::Level::LOG\_WARNING}},}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ FOREGROUND\_RED\ |\ FOREGROUND\_GREEN\ |\ FOREGROUND\_INTENSITY\},}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{dotnamecpp::logging::Level::LOG\_ERROR}},\ FOREGROUND\_RED\ |\ FOREGROUND\_INTENSITY\},}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \{\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{dotnamecpp::logging::Level::LOG\_CRITICAL}},}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ FOREGROUND\_RED\ |\ FOREGROUND\_INTENSITY\ |\ FOREGROUND\_BLUE\ \}\};}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ colorMap.find(level);}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ colorMap.end())\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ SetConsoleTextAttribute(GetStdHandle(STD\_OUTPUT\_HANDLE),\ it-\/>second);}
+\DoxyCodeLine{00247\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{resetConsoleColor}}();}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00252\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190}{setConsoleColorUnix}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::map<dotnamecpp::logging::Level,\ const\ char\ *>\ colorMap\ =\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8aeded50d942c7c2d37d09ba8241ff017f}{dotnamecpp::logging::Level::LOG\_DEBUG}},\ \textcolor{stringliteral}{"{}\(\backslash\)033[34m"{}}\},}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a41abf3cca8cee8cdae01749df7a991c6}{dotnamecpp::logging::Level::LOG\_INFO}},\ \textcolor{stringliteral}{"{}\(\backslash\)033[32m"{}}\},}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8ad0cb3df3102ca9270c5785af9a8c137f}{dotnamecpp::logging::Level::LOG\_WARNING}},\ \textcolor{stringliteral}{"{}\(\backslash\)033[33m"{}}\},}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a4490aa3d29644e716440fada68f54032}{dotnamecpp::logging::Level::LOG\_ERROR}},\ \textcolor{stringliteral}{"{}\(\backslash\)033[31m"{}}\},}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8a16dc01b67173b4eeeed989a563f81fd0}{dotnamecpp::logging::Level::LOG\_CRITICAL}},\ \textcolor{stringliteral}{"{}\(\backslash\)033[95m"{}}\}\};}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ colorMap.find(level);}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ colorMap.end())\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ std::cout\ <<\ it-\/>second;}
+\DoxyCodeLine{00262\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{resetConsoleColor}}();}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541}{setConsoleColor}}(\mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\ \{}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00270\ \ \ \ \ setConsoleColorWindows(level);}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#elif\ EMSCRIPTEN}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{comment}{//\ no\ colors}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a7c4374a210726f7bbe380f45a1f99190}{setConsoleColorUnix}}(level);}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00276\ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00279\ \ \ std::string\ headerName\_\ =\ \textcolor{stringliteral}{"{}DotNameLib"{}};}
+\DoxyCodeLine{00280\ \ \ \textcolor{keywordtype}{bool}\ includeName\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00281\ \ \ \textcolor{keywordtype}{bool}\ includeTime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00282\ \ \ \textcolor{keywordtype}{bool}\ includeCaller\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{bool}\ includeLevel\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00294\ \ \ \textcolor{keywordtype}{void}\ logToStream(std::ostream\ \&\mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}},\ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level,}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&message,\ \textcolor{keyword}{const}\ std::string\ \&caller,\ \textcolor{keyword}{const}\ std::tm\ \&now\_tm)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_aecacefa838b28f34a80b06d3c68fd541}{setConsoleColor}}(level);}
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}}\ <<\ buildHeader(now\_tm,\ caller,\ level)\ <<\ message;}
+\DoxyCodeLine{00298\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a787b42f6e197b60908113326b9a048fa}{resetConsoleColor}}();}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{if}\ (addNewLine\_)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00301\ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{//\ Explicitly\ flush\ the\ stream\ to\ ensure\ immediate\ output}}
+\DoxyCodeLine{00303\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger_ae44262c4573acbe810297c38c9842a16}{stream}}.flush();}
+\DoxyCodeLine{00304\ \ \ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00314\ \ \ std::string\ buildHeader(\textcolor{keyword}{const}\ std::tm\ \&now\_tm,\ \textcolor{keyword}{const}\ std::string\ \&caller,}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedotnamecpp_1_1logging_a581b3dbc10c1f8f8a70c90d7f087a0f8}{dotnamecpp::logging::Level}}\ level)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00316\ \ \ \ \ std::ostringstream\ header;}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordflow}{if}\ (includeName\_)\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ headerName\_\ <<\ \textcolor{stringliteral}{"{}]\ "{}};}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (includeTime\_)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ std::put\_time(\&now\_tm,\ \textcolor{stringliteral}{"{}\%d-\/\%m-\/\%Y\ \%H:\%M:\%S"{}})\ <<\ \textcolor{stringliteral}{"{}]\ "{}};}
+\DoxyCodeLine{00322\ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{if}\ (includeCaller\_\ \&\&\ !caller.empty())\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ caller\ <<\ \textcolor{stringliteral}{"{}]\ "{}};}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{if}\ (includeLevel\_)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ header\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ \mbox{\hyperlink{classConsoleLogger_a46e60e26db61000d04cfa66480729f2a}{levelToString}}(level)\ <<\ \textcolor{stringliteral}{"{}]\ "{}};}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{return}\ header.str();}
+\DoxyCodeLine{00330\ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00338\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_add4cfcb48e31fc7223fefc343ce324b1}{setHeaderName}}(\textcolor{keyword}{const}\ std::string\ \&headerName)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00340\ \ \ \ \ headerName\_\ =\ headerName;}
+\DoxyCodeLine{00341\ \ \ \}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00348\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}{showHeaderName}}(\textcolor{keywordtype}{bool}\ includeName)\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00350\ \ \ \ \ includeName\_\ =\ includeName;}
+\DoxyCodeLine{00351\ \ \ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00358\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}{showHeaderTime}}(\textcolor{keywordtype}{bool}\ includeTime)\ \{}
+\DoxyCodeLine{00359\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00360\ \ \ \ \ includeTime\_\ =\ includeTime;}
+\DoxyCodeLine{00361\ \ \ \}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00368\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}{showHeaderCaller}}(\textcolor{keywordtype}{bool}\ includeCaller)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00370\ \ \ \ \ includeCaller\_\ =\ includeCaller;}
+\DoxyCodeLine{00371\ \ \ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}{showHeaderLevel}}(\textcolor{keywordtype}{bool}\ includeLevel)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00380\ \ \ \ \ includeLevel\_\ =\ includeLevel;}
+\DoxyCodeLine{00381\ \ \ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00388\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659}{noHeader}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659}{noHeader}})\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classConsoleLogger_a777c72f8f45463233b5e29231b2cd659}{noHeader}})\ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}{showHeaderName}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}{showHeaderTime}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}{showHeaderCaller}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}{showHeaderLevel}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00394\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}{showHeaderName}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}{showHeaderTime}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}{showHeaderCaller}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}{showHeaderLevel}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00399\ \ \ \ \ \}}
+\DoxyCodeLine{00400\ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00410\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_ae56e4044605f57c9253807c7e10db745}{visibleHeaders}}(\textcolor{keywordtype}{bool}\ incName,\ \textcolor{keywordtype}{bool}\ incTime,\ \textcolor{keywordtype}{bool}\ incCaller,\ \textcolor{keywordtype}{bool}\ incLevel)\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a76a289d0d0a58842e365885437644fe0}{showHeaderName}}(incName);}
+\DoxyCodeLine{00412\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a09c84bad7201e76b0b8c31e25ec46efc}{showHeaderTime}}(incTime);}
+\DoxyCodeLine{00413\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_ad992cf9846433c9d08171e0da7a27d52}{showHeaderCaller}}(incCaller);}
+\DoxyCodeLine{00414\ \ \ \ \ \mbox{\hyperlink{classConsoleLogger_a93931df43572ddc3ca9246e793fa9ae8}{showHeaderLevel}}(incLevel);}
+\DoxyCodeLine{00415\ \ \ \}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00422\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_ae74070159597a83668b83dd5f84d3ac2}{setColorEnabled}}(\textcolor{keywordtype}{bool}\ enabled)\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00424\ \ \ \ \ colorEnabled\_\ =\ enabled;}
+\DoxyCodeLine{00425\ \ \ \ \ autoDetectColor\_\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Manual\ override\ disables\ auto-\/detection}}
+\DoxyCodeLine{00426\ \ \ \}}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00433\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_ae32b77fe1349bf784bac5c6f86b43ff3}{setAutoDetectColor}}(\textcolor{keywordtype}{bool}\ autoDetect)\ \{}
+\DoxyCodeLine{00434\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(logMutex\_);}
+\DoxyCodeLine{00435\ \ \ \ \ autoDetectColor\_\ =\ autoDetect;}
+\DoxyCodeLine{00436\ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00444\ \ \ \textcolor{keywordtype}{bool}\ shouldUseColors()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{if}\ (!autoDetectColor\_)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ colorEnabled\_;}
+\DoxyCodeLine{00447\ \ \ \ \ \}}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{comment}{//\ Auto-\/detect:\ check\ if\ stdout\ is\ a\ TTY}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#ifdef\ \_\_EMSCRIPTEN\_\_}}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ No\ color\ support\ in\ Emscripten}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordflow}{return}\ colorEnabled\_\ \&\&\ (isatty(fileno(stdout))\ !=\ 0);}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00454\ \ \ \}}
+\DoxyCodeLine{00455\ \};\ \textcolor{comment}{//\ class\ ConsoleLogger}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

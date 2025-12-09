@@ -1,0 +1,492 @@
+\doxysection{application/tests/\+File\+Reader\+Test.cpp File Reference}
+\hypertarget{FileReaderTest_8cpp}{}\label{FileReaderTest_8cpp}\index{application/tests/FileReaderTest.cpp@{application/tests/FileReaderTest.cpp}}
+{\ttfamily \#include $<$Utils/\+Filesystem/\+File\+Reader.\+hpp$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for File\+Reader\+Test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FileReaderTest_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_ae144e0b75ee3d13568dbaa13b8d1b0b9}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Exists\+Returns\+True\+For\+Existing\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a1518bcf969c18eef629bb0b3ec185642}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Exists\+Returns\+False\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a68c8cdd901516edf8df82970287dce13}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Exists\+Returns\+False\+For\+Directory)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a919735ce67061ce5ee10deb4ac05a3f3}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Exists\+Handles\+Unicode\+Paths)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a2dbab418fc5b9014f12804905df01d34}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Get\+Size\+Returns\+Correct\+Size)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_aed0994f6d1fe9d39d534cb60f2a186b6}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Get\+Size\+Handles\+Empty\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_aa5756d60466f1a4e1b06b4e90862a86e}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Get\+Size\+Fails\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_acf5d0870ec57649b43569f8286472d30}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Get\+Size\+Fails\+For\+Directory)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a27dbdc8d23757dfe3ecade5b5c94de4a}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Returns\+File\+Content)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a52adc5c09466e11a5917019b29f1627b}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Handles\+Empty\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a14c90d1ce716ee7ee5e179167f1d66c2}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Handles\+Unicode\+Content)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_ac54abd444b0514af6f9a47eed294e0cb}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Fails\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_ac59487bf69bed67b08d3fc878f3c351e}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Fails\+For\+Directory)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_aa79ddde8af828aa891c0dcd1c9620dc1}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Fails\+For\+Empty\+Path)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a3e54e2d4494798f1b31bf9bc3d9e476a}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Bytes\+Returns\+Correct\+Data)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a0131d32a3466ac7f4026682b24f25d4e}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Bytes\+Handles\+Empty\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a92203db8536ae7f1fa01807385f10568}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Bytes\+Works\+With\+Text\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a21fbdc04482e85168ee95265a6e6410d}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Bytes\+Fails\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a1d1de7e2e36b4c5bb4d58fd86447a38f}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Lines\+Returns\+All\+Lines)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a2cc61af8fe98e0ebcdc58770c630b5d5}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Lines\+Handles\+Single\+Line)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_ab503fd3a6ccb7f566d10e228dcc10220}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Lines\+Handles\+Empty\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_afe02515e25d8735533b0b4f9a8ab6437}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Lines\+Handles\+Trailing\+Newline)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a9b0935502ec20a7a0bff59806175b1bd}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Read\+Lines\+Fails\+For\+Nonexistent\+File)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a8dca95bb6e515a28ed4746bea25769dd}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Error\+Contains\+File\+Path)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a3a8d1ccdb41d7b8fb2e4878bdc1da44d}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Error\+Contains\+Message)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a6ec219668ac2d72be1abd31c931b757c}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Error\+To\+String\+Produces\+Output)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_acd46f0f0d3c277efe60653eaa467e1ff}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Result\+Bool\+Conversion\+Works)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a3a075140b216f72757e5c0e6f218f46b}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Result\+Dereference\+Operator\+Works)
+\item 
+\mbox{\hyperlink{FileReaderTest_8cpp_a7c84d9f0899246617c7ee841a0fd42f5}{TEST\+\_\+F}} (\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}, Result\+Value\+Or\+Works)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{FileReaderTest_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{FileReaderTest_8cpp_a8dca95bb6e515a28ed4746bea25769dd}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [1/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a8dca95bb6e515a28ed4746bea25769dd} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Error\+Contains\+File\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a8dca95bb6e515a28ed4746bea25769dd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a3a8d1ccdb41d7b8fb2e4878bdc1da44d}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [2/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a3a8d1ccdb41d7b8fb2e4878bdc1da44d} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Error\+Contains\+Message}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a3a8d1ccdb41d7b8fb2e4878bdc1da44d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a6ec219668ac2d72be1abd31c931b757c}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [3/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a6ec219668ac2d72be1abd31c931b757c} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Error\+To\+String\+Produces\+Output}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a6ec219668ac2d72be1abd31c931b757c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a919735ce67061ce5ee10deb4ac05a3f3}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [4/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a919735ce67061ce5ee10deb4ac05a3f3} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Exists\+Handles\+Unicode\+Paths}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a919735ce67061ce5ee10deb4ac05a3f3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a68c8cdd901516edf8df82970287dce13}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [5/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a68c8cdd901516edf8df82970287dce13} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Exists\+Returns\+False\+For\+Directory}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a68c8cdd901516edf8df82970287dce13_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a1518bcf969c18eef629bb0b3ec185642}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [6/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a1518bcf969c18eef629bb0b3ec185642} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Exists\+Returns\+False\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a1518bcf969c18eef629bb0b3ec185642_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_ae144e0b75ee3d13568dbaa13b8d1b0b9}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [7/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_ae144e0b75ee3d13568dbaa13b8d1b0b9} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Exists\+Returns\+True\+For\+Existing\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_ae144e0b75ee3d13568dbaa13b8d1b0b9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_acf5d0870ec57649b43569f8286472d30}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [8/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_acf5d0870ec57649b43569f8286472d30} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Get\+Size\+Fails\+For\+Directory}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{FileReaderTest_8cpp_acf5d0870ec57649b43569f8286472d30_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_aa5756d60466f1a4e1b06b4e90862a86e}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [9/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_aa5756d60466f1a4e1b06b4e90862a86e} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Get\+Size\+Fails\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{FileReaderTest_8cpp_aa5756d60466f1a4e1b06b4e90862a86e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_aed0994f6d1fe9d39d534cb60f2a186b6}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [10/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_aed0994f6d1fe9d39d534cb60f2a186b6} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Get\+Size\+Handles\+Empty\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{FileReaderTest_8cpp_aed0994f6d1fe9d39d534cb60f2a186b6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a2dbab418fc5b9014f12804905df01d34}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [11/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a2dbab418fc5b9014f12804905df01d34} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Get\+Size\+Returns\+Correct\+Size}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{FileReaderTest_8cpp_a2dbab418fc5b9014f12804905df01d34_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a21fbdc04482e85168ee95265a6e6410d}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [12/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a21fbdc04482e85168ee95265a6e6410d} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Bytes\+Fails\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FileReaderTest_8cpp_a21fbdc04482e85168ee95265a6e6410d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a0131d32a3466ac7f4026682b24f25d4e}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [13/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a0131d32a3466ac7f4026682b24f25d4e} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Bytes\+Handles\+Empty\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FileReaderTest_8cpp_a0131d32a3466ac7f4026682b24f25d4e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a3e54e2d4494798f1b31bf9bc3d9e476a}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [14/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a3e54e2d4494798f1b31bf9bc3d9e476a} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Bytes\+Returns\+Correct\+Data}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FileReaderTest_8cpp_a3e54e2d4494798f1b31bf9bc3d9e476a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a92203db8536ae7f1fa01807385f10568}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [15/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a92203db8536ae7f1fa01807385f10568} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Bytes\+Works\+With\+Text\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FileReaderTest_8cpp_a92203db8536ae7f1fa01807385f10568_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_ac59487bf69bed67b08d3fc878f3c351e}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [16/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_ac59487bf69bed67b08d3fc878f3c351e} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Fails\+For\+Directory}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_ac59487bf69bed67b08d3fc878f3c351e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_aa79ddde8af828aa891c0dcd1c9620dc1}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [17/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_aa79ddde8af828aa891c0dcd1c9620dc1} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Fails\+For\+Empty\+Path}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_aa79ddde8af828aa891c0dcd1c9620dc1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_ac54abd444b0514af6f9a47eed294e0cb}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [18/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_ac54abd444b0514af6f9a47eed294e0cb} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Fails\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_ac54abd444b0514af6f9a47eed294e0cb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a52adc5c09466e11a5917019b29f1627b}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [19/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a52adc5c09466e11a5917019b29f1627b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Handles\+Empty\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a52adc5c09466e11a5917019b29f1627b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a14c90d1ce716ee7ee5e179167f1d66c2}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [20/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a14c90d1ce716ee7ee5e179167f1d66c2} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Handles\+Unicode\+Content}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a14c90d1ce716ee7ee5e179167f1d66c2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a9b0935502ec20a7a0bff59806175b1bd}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [21/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a9b0935502ec20a7a0bff59806175b1bd} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Lines\+Fails\+For\+Nonexistent\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{FileReaderTest_8cpp_a9b0935502ec20a7a0bff59806175b1bd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_ab503fd3a6ccb7f566d10e228dcc10220}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [22/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_ab503fd3a6ccb7f566d10e228dcc10220} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Lines\+Handles\+Empty\+File}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{FileReaderTest_8cpp_ab503fd3a6ccb7f566d10e228dcc10220_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a2cc61af8fe98e0ebcdc58770c630b5d5}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [23/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a2cc61af8fe98e0ebcdc58770c630b5d5} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Lines\+Handles\+Single\+Line}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{FileReaderTest_8cpp_a2cc61af8fe98e0ebcdc58770c630b5d5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_afe02515e25d8735533b0b4f9a8ab6437}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [24/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_afe02515e25d8735533b0b4f9a8ab6437} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Lines\+Handles\+Trailing\+Newline}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{FileReaderTest_8cpp_afe02515e25d8735533b0b4f9a8ab6437_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a1d1de7e2e36b4c5bb4d58fd86447a38f}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [25/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a1d1de7e2e36b4c5bb4d58fd86447a38f} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Lines\+Returns\+All\+Lines}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{FileReaderTest_8cpp_a1d1de7e2e36b4c5bb4d58fd86447a38f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a27dbdc8d23757dfe3ecade5b5c94de4a}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [26/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a27dbdc8d23757dfe3ecade5b5c94de4a} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Read\+Returns\+File\+Content}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a27dbdc8d23757dfe3ecade5b5c94de4a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_acd46f0f0d3c277efe60653eaa467e1ff}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [27/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_acd46f0f0d3c277efe60653eaa467e1ff} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Result\+Bool\+Conversion\+Works}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_acd46f0f0d3c277efe60653eaa467e1ff_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a3a075140b216f72757e5c0e6f218f46b}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [28/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a3a075140b216f72757e5c0e6f218f46b} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Result\+Dereference\+Operator\+Works}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a3a075140b216f72757e5c0e6f218f46b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{FileReaderTest_8cpp_a7c84d9f0899246617c7ee841a0fd42f5}\index{FileReaderTest.cpp@{FileReaderTest.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!FileReaderTest.cpp@{FileReaderTest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [29/29]}}
+{\footnotesize\ttfamily \label{FileReaderTest_8cpp_a7c84d9f0899246617c7ee841a0fd42f5} 
+TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFileReaderTest}{File\+Reader\+Test}}}]{}{, }\item[{Result\+Value\+Or\+Works}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{FileReaderTest_8cpp_a7c84d9f0899246617c7ee841a0fd42f5_cgraph}
+\end{center}
+\end{figure}

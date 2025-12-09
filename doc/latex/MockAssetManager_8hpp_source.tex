@@ -1,0 +1,46 @@
+\doxysection{Mock\+Asset\+Manager.\+hpp}
+\hypertarget{MockAssetManager_8hpp_source}{}\label{MockAssetManager_8hpp_source}\index{application/tests/MockAssetManager.hpp@{application/tests/MockAssetManager.hpp}}
+\mbox{\hyperlink{MockAssetManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IAssetManager_8hpp}{Utils/Assets/IAssetManager.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMockAssetManager_a4b5097234b3a46fa928c8612bbbf9537}{MockAssetManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{dotnamecpp::assets::IAssetManager}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMockAssetManager_a4b5097234b3a46fa928c8612bbbf9537}{MockAssetManager}}(std::filesystem::path\ mockPath)}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ :\ mockPath\_(std::move(mockPath)),\ mockExists\_(true),\ mockValid\_(true)\ \{\}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{const}\ std::filesystem::path\ \&\mbox{\hyperlink{classMockAssetManager_a57ab69fcbe5dc9353276ecc1ce7b37e8}{getAssetsPath}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ mockPath\_;}
+\DoxyCodeLine{00019\ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ std::filesystem::path\ \mbox{\hyperlink{classMockAssetManager_a9caad5539a965efe5e8ee79af51ce5c1}{resolveAsset}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&relativePath)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{return}\ mockPath\_\ /\ relativePath;}
+\DoxyCodeLine{00024\ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMockAssetManager_af7bd4703685f7e58e055bed20dab6931}{assetExists}}(\textcolor{keyword}{const}\ std::filesystem::path\ \&\ \textcolor{comment}{/*relativePath*/})\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ mockExists\_;}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ [[nodiscard]]}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMockAssetManager_a8f82bea196f675915de9ff257300d6a8}{validate}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ mockValid\_;}
+\DoxyCodeLine{00034\ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Test\ control\ methods}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockAssetManager_aabd03768f97ee703033211a2deb86c65}{setMockExists}}(\textcolor{keywordtype}{bool}\ exists)\ \{\ mockExists\_\ =\ exists;\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockAssetManager_a67f93b4a0f11a87eb463062d689df854}{setMockValid}}(\textcolor{keywordtype}{bool}\ valid)\ \{\ mockValid\_\ =\ valid;\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ std::filesystem::path\ mockPath\_;}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{bool}\ mockExists\_;}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{bool}\ mockValid\_;}
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}
