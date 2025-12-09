@@ -4,6 +4,7 @@
 
 # DotNameCpp — Advanced C++ Development Template
 
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -21,7 +22,9 @@
 
 **Keyboard-driven C++ template** for VSCode: configure, build, test, format, coverage, docs, and package—all via shortcuts. Works across Linux/macOS/Windows/Emscripten with deterministic automation via `SolutionController.py`.
 
-[QuickStart Video](https://www.youtube.com/watch?v=0WoN8i8f7-o)  
+[Doxygen](https://tomasmark79.github.io/DotNameCpp/html/index.html)  
+
+[QuickStart Video](https://www.youtube.com/watch?v=0WoN8i8f7-o)(obsolete)
 
 ### Why?
 
