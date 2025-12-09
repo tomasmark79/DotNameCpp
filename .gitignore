@@ -78,10 +78,8 @@ Thumbs.db
 .cache/
 
 # Documentation generated files
-# /doc/html/
-# /doc/latex/
-/doc/man/
-/doc/rtf/
+/docs/man/
+/docs/rtf/
 graph.html
 
 # Emscripten build artifacts

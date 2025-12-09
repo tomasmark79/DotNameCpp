@@ -11,7 +11,7 @@ import webbrowser
 
 # MIT License Copyright (c) 2024-2025 Tomáš Mark
 
-controllerVersion = "v20251115"
+controllerVersion = "v20251209"
 
 systemPlatform = platform.system().lower()
 pythonVersion = sys.version.split()[0]
@@ -697,7 +697,7 @@ def doxygen_documentation():
     print(f"Doxygen documentation generated in the 'html' directory.")
 
     # Open the generated documentation in the default web browser
-    html_dir = os.path.join(workSpaceDir, "doc/html")
+    html_dir = os.path.join(workSpaceDir, "docs/html")
     index_file = os.path.join(html_dir, "index.html")
 
     if not webbrowser.open(index_file):
