@@ -57,7 +57,8 @@ namespace dotnamecpp::v1 {
 
       // Run for specified duration
       if (durationSeconds > 0) {
-        logger_->infoStream() << "MOCK BUSINESS LOGIC running for " << durationSeconds << " seconds ...";
+        logger_->infoStream() << "MOCK BUSINESS LOGIC running for " << durationSeconds
+                              << " seconds ...";
         for (int i = 0; i < durationSeconds && !shouldStop_.load(); ++i) {
           std::this_thread::sleep_for(std::chrono::seconds(1));
         }
