@@ -1,10 +1,14 @@
 <map id="dotnamecpp::utils::UtilsFactory::createFileReader" name="dotnamecpp::utils::UtilsFactory::createFileReader">
-<area shape="rect" id="Node000001" title=" " alt="" coords="502,35,701,77"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="8,5,185,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="487,52,185,34,185,29,487,47"/>
-<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a9fcea5e7ff94872b54a8c01eb2d9c965" title=" " alt="" coords="236,64,454,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="486,72,455,75,454,70,486,67"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="237,63,184,50,186,45,238,57"/>
-<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aff59f9352b744e132ab2bbf5371eb52a" title=" " alt="" coords="5,72,188,131"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="220,96,188,98,188,93,220,91"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="881,35,1080,77"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="387,5,563,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="865,52,563,34,564,29,866,47"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a9fcea5e7ff94872b54a8c01eb2d9c965" title=" " alt="" coords="614,64,833,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="865,72,834,75,833,70,864,67"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="615,63,563,50,564,45,616,57"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50" title=" " alt="" coords="384,72,566,131"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="599,96,567,98,567,93,598,91"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a76b90ad17cd7e0dc50796299c94b8567" title="Create complete application components." alt="" coords="103,80,336,123"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="368,104,337,104,337,99,368,99"/>
+<area shape="rect" id="Node000006" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,88,55,115"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="87,104,55,104,55,99,87,99"/>
 </map>

@@ -111,8 +111,8 @@ $(function(){initNavTree('AssetManagerFactory_8hpp_source.html','',''); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9">   19</a></span>    <span class="keyword">static</span> std::shared_ptr&lt;IAssetManager&gt; <a class="code hl_function" href="classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9">createDefault</a>(<span class="keyword">const</span> std::filesystem::path &amp;executablePath,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                                                        <span class="keyword">const</span> std::string &amp;appName) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      <span class="keywordflow">return</span> <a class="code hl_function" href="classdotnamecpp_1_1assets_1_1AssetManager.html#af6846c31c10bcf4a5e937f1627aa0f48">AssetManager::create</a>(executablePath, appName);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                                                        <span class="keyword">const</span> std::string &amp;<a class="code hl_variable" href="Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b">appName</a>) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      <span class="keywordflow">return</span> <a class="code hl_function" href="classdotnamecpp_1_1assets_1_1AssetManager.html#af6846c31c10bcf4a5e937f1627aa0f48">AssetManager::create</a>(executablePath, <a class="code hl_variable" href="Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b">appName</a>);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
@@ -125,6 +125,7 @@ $(function(){initNavTree('AssetManagerFactory_8hpp_source.html','',''); });
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace dotnamecpp::assets</span></div>
+<div class="ttc" id="aApplication_8cpp_html_a3c9f34bd2e11a5d854fc61609b3edb3b"><div class="ttname"><a href="Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b">appName</a></div><div class="ttdeci">const std::string appName</div><div class="ttdef"><b>Definition</b> Application.cpp:6</div></div>
 <div class="ttc" id="aAssetManager_8hpp_html"><div class="ttname"><a href="AssetManager_8hpp.html">AssetManager.hpp</a></div></div>
 <div class="ttc" id="aIAssetManager_8hpp_html"><div class="ttname"><a href="IAssetManager_8hpp.html">IAssetManager.hpp</a></div></div>
 <div class="ttc" id="aclassdotnamecpp_1_1assets_1_1AssetManagerFactory_html"><div class="ttname"><a href="classdotnamecpp_1_1assets_1_1AssetManagerFactory.html">dotnamecpp::assets::AssetManagerFactory</a></div><div class="ttdef"><b>Definition</b> AssetManagerFactory.hpp:10</div></div>

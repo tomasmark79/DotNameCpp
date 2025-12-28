@@ -2,6 +2,7 @@ var NAVTREEINDEX0 =
 {
 "Application_8cpp.html":[2,0,0,0,0],
 "Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[2,0,0,0,0,0],
+"Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b":[2,0,0,0,0,1],
 "AssetManagerFactory_8hpp.html":[2,0,2,0,0,2],
 "AssetManagerFactory_8hpp_source.html":[2,0,2,0,0,2],
 "AssetManagerTest_8cpp.html":[2,0,0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classdotnamecpp_1_1logging_1_1ILogger.html#a37d915eab48db9aef11e1802350682fc":[0,0,0,1,0,8],
 "classdotnamecpp_1_1logging_1_1ILogger.html#a37d915eab48db9aef11e1802350682fc":[1,0,0,1,0,8],
 "classdotnamecpp_1_1logging_1_1ILogger.html#a39f4de43fae67a3a13b1840b8781ec52":[0,0,0,1,0,13],
-"classdotnamecpp_1_1logging_1_1ILogger.html#a39f4de43fae67a3a13b1840b8781ec52":[1,0,0,1,0,13],
-"classdotnamecpp_1_1logging_1_1ILogger.html#a3aa7b8a20576832023048f01699bf3a7":[0,0,0,1,0,16]
+"classdotnamecpp_1_1logging_1_1ILogger.html#a39f4de43fae67a3a13b1840b8781ec52":[1,0,0,1,0,13]
 };

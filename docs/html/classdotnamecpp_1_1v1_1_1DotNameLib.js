@@ -7,7 +7,5 @@ var classdotnamecpp_1_1v1_1_1DotNameLib =
     [ "getAssetManager", "classdotnamecpp_1_1v1_1_1DotNameLib.html#a1b2d8e4db1545a31ded7282e01d77e6f", null ],
     [ "isInitialized", "classdotnamecpp_1_1v1_1_1DotNameLib.html#a900a5ae10f78283ed8c4c9af0949f889", null ],
     [ "operator=", "classdotnamecpp_1_1v1_1_1DotNameLib.html#ae0f1646e03409e09ff5061d2d148b313", null ],
-    [ "operator=", "classdotnamecpp_1_1v1_1_1DotNameLib.html#ac2b85f335dc1af8f8e5e266fdcd09009", null ],
-    [ "run", "classdotnamecpp_1_1v1_1_1DotNameLib.html#a2617ff9a52b10dab56da15d3d404852e", null ],
-    [ "stop", "classdotnamecpp_1_1v1_1_1DotNameLib.html#a3a4ba1058249391680660f16202113af", null ]
+    [ "operator=", "classdotnamecpp_1_1v1_1_1DotNameLib.html#ac2b85f335dc1af8f8e5e266fdcd09009", null ]
 ];

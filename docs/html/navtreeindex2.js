@@ -1,16 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classdotnamecpp_1_1utils_1_1IDirectoryManager.html#ab317f2b5b5569989ae94aee11d338ec6":[1,0,0,2,8,6],
-"classdotnamecpp_1_1utils_1_1IDirectoryManager.html#adef9d88657de199c5cdefa03c03c6a6f":[0,0,0,2,8,1],
-"classdotnamecpp_1_1utils_1_1IDirectoryManager.html#adef9d88657de199c5cdefa03c03c6a6f":[1,0,0,2,8,1],
-"classdotnamecpp_1_1utils_1_1IDirectoryManager.html#aed585752d5f85f9802fb5bcc6269c305":[0,0,0,2,8,3],
-"classdotnamecpp_1_1utils_1_1IDirectoryManager.html#aed585752d5f85f9802fb5bcc6269c305":[1,0,0,2,8,3],
-"classdotnamecpp_1_1utils_1_1IFileReader.html":[0,0,0,2,9],
-"classdotnamecpp_1_1utils_1_1IFileReader.html":[1,0,0,2,9],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a2ffc86003d347e08e5557557f92a80b5":[0,0,0,2,9,4],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a2ffc86003d347e08e5557557f92a80b5":[1,0,0,2,9,4],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a339f506d8d4d2c5c56f656ba4f0fee29":[0,0,0,2,9,1],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a339f506d8d4d2c5c56f656ba4f0fee29":[1,0,0,2,9,1],
 "classdotnamecpp_1_1utils_1_1IFileReader.html#a4103e9177ee91547bd3eb911ad4de5a6":[0,0,0,2,9,2],
 "classdotnamecpp_1_1utils_1_1IFileReader.html#a4103e9177ee91547bd3eb911ad4de5a6":[1,0,0,2,9,2],
 "classdotnamecpp_1_1utils_1_1IFileReader.html#a5864b320a63334e9118c85e686ecf94b":[0,0,0,2,9,5],
@@ -249,5 +238,16 @@ var NAVTREEINDEX2 =
 "classdotnamecpp_1_1utils_1_1Result.html#ad094503a290427e5615cb4d6d4b8a87d":[1,0,0,2,21,16],
 "classdotnamecpp_1_1utils_1_1Result.html#ae885acdf59e7a58c817724cee134580b":[0,0,0,2,21,1],
 "classdotnamecpp_1_1utils_1_1Result.html#ae885acdf59e7a58c817724cee134580b":[1,0,0,2,21,1],
-"classdotnamecpp_1_1utils_1_1Result.html#af02b90e320fab0143675ea42d9ff92bc":[0,0,0,2,21,5]
+"classdotnamecpp_1_1utils_1_1Result.html#af02b90e320fab0143675ea42d9ff92bc":[0,0,0,2,21,5],
+"classdotnamecpp_1_1utils_1_1Result.html#af02b90e320fab0143675ea42d9ff92bc":[1,0,0,2,21,5],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html":[0,0,0,2,22],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html":[1,0,0,2,22],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a258bcdabde117a3e56320d8e65938ae7":[0,0,0,2,22,5],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a258bcdabde117a3e56320d8e65938ae7":[1,0,0,2,22,5],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a3306ff6e362664758e7ba1e2a6bf38a2":[0,0,0,2,22,0],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a3306ff6e362664758e7ba1e2a6bf38a2":[1,0,0,2,22,0],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a4ea93798f6ca5564aeea68bce5ef4c43":[0,0,0,2,22,2],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a4ea93798f6ca5564aeea68bce5ef4c43":[1,0,0,2,22,2],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a527f175b268d5e08b33c98ce91ee511a":[0,0,0,2,22,1],
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a527f175b268d5e08b33c98ce91ee511a":[1,0,0,2,22,1]
 };

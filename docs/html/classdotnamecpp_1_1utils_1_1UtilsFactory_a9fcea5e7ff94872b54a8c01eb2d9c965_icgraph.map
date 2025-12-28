@@ -1,7 +1,11 @@
 <map id="dotnamecpp::utils::UtilsFactory::createJsonSerializer" name="dotnamecpp::utils::UtilsFactory::createJsonSerializer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="236,43,454,85"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="8,5,185,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,48,185,43,185,37,220,43"/>
-<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aff59f9352b744e132ab2bbf5371eb52a" title=" " alt="" coords="5,72,188,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,85,188,90,188,85,219,80"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="614,43,833,85"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="387,5,563,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,48,563,43,564,37,599,43"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50" title=" " alt="" coords="384,72,566,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="599,85,567,90,566,85,598,80"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a76b90ad17cd7e0dc50796299c94b8567" title="Create complete application components." alt="" coords="103,80,336,123"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="368,104,337,104,337,99,368,99"/>
+<area shape="rect" id="Node000005" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,88,55,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,104,55,104,55,99,87,99"/>
 </map>

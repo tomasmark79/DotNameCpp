@@ -26,44 +26,30 @@
 \DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a4619e5e9f0e2e7d9969b59121139d3e5}{CustomStringsLoader}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5459988af3abd9dd3dcc967cd76d9d9f}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a4619e5e9f0e2e7d9969b59121139d3e5}{CustomStringsLoader}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_adfe45cd74c5c746250e3c9b758580c39}{\string~CustomStringsLoader}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5d2006b1d591214fb66ce12caef210c5}{load}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00029\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5c05e0646fd9022644f099b863722482}{getLocalizedString}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id},}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&locale\ =\ \textcolor{stringliteral}{"{}en"{}})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00025\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5d2006b1d591214fb66ce12caef210c5}{load}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]\ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_aa1674f55c47eeab9546bab8fc074ebcc}{getPath}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00030\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_aac14716f40108318e67a2ec4effb87f3}{getCustomKey}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&key)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00032\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00033\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a8b1ccb81005b501b9271d30267efad4e}{getEmail}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00036\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a3991730a9a7a3c2e7419b6eead1414b4}{getUrl}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00039\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a50a5cd35ce870354ab655609ff4abab1}{getTel}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00042\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_aa1674f55c47eeab9546bab8fc074ebcc}{getPath}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a5c05e0646fd9022644f099b863722482}{getLocalizedString}}(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&locale\ =\ \textcolor{stringliteral}{"{}en"{}})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ ensureLoaded()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]\ std::optional<nlohmann::json>\ findById(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::shared\_ptr<IAssetManager>\ assetManager\_;}
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<IJsonSerializer>\ jsonSerializer\_;}
+\DoxyCodeLine{00042\ \ \ \ \ std::string\ filename\_;}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00045\ \ \ \ \ std::string\ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1CustomStringsLoader_a966326ef7ffc00798f274779492e80b4}{getCustomStringSign}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00048\ \ \ \ \ std::shared\_ptr<IAssetManager>\ assetManager\_;}
-\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<IJsonSerializer>\ jsonSerializer\_;}
-\DoxyCodeLine{00050\ \ \ \ \ std::string\ filename\_;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Cached\ data}}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ cacheMutex\_;}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{mutable}\ std::optional<nlohmann::json>\ cachedData\_;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1Result}{Result<nlohmann::json,\ JsonError>}}\ ensureLoaded()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00060\ \ \ \ \ std::optional<nlohmann::json>\ findById(\textcolor{keyword}{const}\ std::string\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00061\ \ \ \};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Cached\ data}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ cacheMutex\_;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{mutable}\ std::optional<nlohmann::json>\ cachedData\_;}
+\DoxyCodeLine{00047\ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::utils}}
 
 \end{DoxyCode}

@@ -12,7 +12,7 @@ var searchData=
   ['createassetmanager_9',['createAssetManager',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#adb1debe875686643fe487a625750400f',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createbundle_10',['createBundle',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createconsole_11',['createConsole',['../classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65',1,'dotnamecpp::logging::LoggerFactory']]],
-  ['createcustomstringsloader_12',['createCustomStringsLoader',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#aff59f9352b744e132ab2bbf5371eb52a',1,'dotnamecpp::utils::UtilsFactory']]],
+  ['createcustomstringsloader_12',['createCustomStringsLoader',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createdefault_13',['createDefault',['../classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9',1,'dotnamecpp::assets::AssetManagerFactory']]],
   ['createdefaultlogger_14',['createDefaultLogger',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#a85aa2ef9b8d0cec5f67e3953f0d1937b',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createdirectory_15',['createDirectory',['../classdotnamecpp_1_1utils_1_1DirectoryManager.html#a39e243bd000b60289dcd420e3c43746f',1,'dotnamecpp::utils::DirectoryManager::createDirectory()'],['../classdotnamecpp_1_1utils_1_1IDirectoryManager.html#adef9d88657de199c5cdefa03c03c6a6f',1,'dotnamecpp::utils::IDirectoryManager::createDirectory()']]],
@@ -31,6 +31,7 @@ var searchData=
   ['criticalfmt_28',['criticalFmt',['../classdotnamecpp_1_1logging_1_1ILogger.html#acefba8bf09fe905714797903bca19016',1,'dotnamecpp::logging::ILogger::criticalFmt()'],['../classdotnamecpp_1_1utils_1_1ILogger.html#acefba8bf09fe905714797903bca19016',1,'dotnamecpp::utils::ILogger::criticalFmt()']]],
   ['criticalstream_29',['criticalStream',['../classdotnamecpp_1_1logging_1_1ILogger.html#a8076aa2b9e0b0181adfc0a35f5ac7010',1,'dotnamecpp::logging::ILogger::criticalStream()'],['../classdotnamecpp_1_1utils_1_1ILogger.html#a8076aa2b9e0b0181adfc0a35f5ac7010',1,'dotnamecpp::utils::ILogger::criticalStream()']]],
   ['customstringsloader_30',['CustomStringsLoader',['../classdotnamecpp_1_1utils_1_1CustomStringsLoader.html',1,'dotnamecpp::utils::CustomStringsLoader'],['../classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#a4619e5e9f0e2e7d9969b59121139d3e5',1,'dotnamecpp::utils::CustomStringsLoader::CustomStringsLoader(std::shared_ptr&lt; IAssetManager &gt; assetManager, std::shared_ptr&lt; IJsonSerializer &gt; jsonSerializer, std::string filename=&quot;customstrings.json&quot;)'],['../classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#aede915667ccf3068a3f0bcf13fa421f5',1,'dotnamecpp::utils::CustomStringsLoader::CustomStringsLoader(const CustomStringsLoader &amp;)=delete'],['../classdotnamecpp_1_1utils_1_1CustomStringsLoader.html#aab2f7d96865928dd5c48f132f3d6af6e',1,'dotnamecpp::utils::CustomStringsLoader::CustomStringsLoader(CustomStringsLoader &amp;&amp;)=delete']]],
-  ['customstringsloader_2ecpp_31',['CustomStringsLoader.cpp',['../CustomStringsLoader_8cpp.html',1,'']]],
-  ['customstringsloader_2ehpp_32',['CustomStringsLoader.hpp',['../CustomStringsLoader_8hpp.html',1,'']]]
+  ['customstringsloader_31',['customStringsLoader',['../structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html#a79326bda89fcb153ab5811c1dde6ed4e',1,'dotnamecpp::utils::UtilsFactory::AppComponents']]],
+  ['customstringsloader_2ecpp_32',['CustomStringsLoader.cpp',['../CustomStringsLoader_8cpp.html',1,'']]],
+  ['customstringsloader_2ehpp_33',['CustomStringsLoader.hpp',['../CustomStringsLoader_8hpp.html',1,'']]]
 ];

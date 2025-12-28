@@ -56,9 +56,9 @@
 <text xml:space="preserve" text-anchor="start" x="14" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">static std::shared</text>
 <text xml:space="preserve" text-anchor="start" x="14" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; ICustomStringsLoader</text>
 <text xml:space="preserve" text-anchor="start" x="14" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; createCustomStringsLoader</text>
-<text xml:space="preserve" text-anchor="start" x="14" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::shared_ptr&lt; IAssetManager</text>
-<text xml:space="preserve" text-anchor="start" x="14" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; assetManager, const std::string</text>
-<text xml:space="preserve" text-anchor="start" x="14" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;filename=&quot;customstrings.json&quot;)</text>
+<text xml:space="preserve" text-anchor="start" x="14" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">(const std::filesystem::path</text>
+<text xml:space="preserve" text-anchor="start" x="14" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;executablePath, const std::</text>
+<text xml:space="preserve" text-anchor="start" x="14" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">string &amp;appName)</text>
 <text xml:space="preserve" text-anchor="start" x="4" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text xml:space="preserve" text-anchor="start" x="14" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">static std::shared</text>
 <text xml:space="preserve" text-anchor="start" x="14" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; IStringFormatter</text>

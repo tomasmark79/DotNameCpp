@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Construct a new object.">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="329,-107 182.5,-107 182.5,-75 329,-75 329,-107"/>
 <text xml:space="preserve" text-anchor="start" x="190.5" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">dotnamecpp::v1::DotNameLib</text>
 <text xml:space="preserve" text-anchor="middle" x="255.75" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">::DotNameLib</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classdotnamecpp_1_1v1_1_1DotNameLib.html#a225dc0e0260a6902133955ec24840cba" target="_top" xlink:title="Copy and move operations are deleted.">
+<g id="a_Node000002"><a xlink:href="classdotnamecpp_1_1v1_1_1DotNameLib.html#a225dc0e0260a6902133955ec24840cba" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="146.5,-182 0,-182 0,-150 146.5,-150 146.5,-182"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">dotnamecpp::v1::DotNameLib</text>
 <text xml:space="preserve" text-anchor="middle" x="73.25" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">::DotNameLib</text>

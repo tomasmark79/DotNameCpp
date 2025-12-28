@@ -1,21 +1,30 @@
 <map id="dotnamecpp::utils::UtilsFactory::createAppComponents" name="dotnamecpp::utils::UtilsFactory::createAppComponents">
-<area shape="rect" id="Node000001" title="Create complete application components." alt="" coords="5,88,239,131"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#adb1debe875686643fe487a625750400f" title=" " alt="" coords="287,17,507,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,85,296,62,297,67,209,90"/>
-<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#accf95777b78081e29cd677b633ab9461" title=" " alt="" coords="309,88,484,131"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="239,107,293,107,293,112,239,112"/>
-<area shape="rect" id="Node000009" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a5dd47e86b64ad3d8efb881d5b6db1f9d" title=" " alt="" coords="293,159,500,201"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="209,129,297,152,296,157,207,134"/>
-<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9" title="Create a Default object." alt="" coords="564,5,722,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="507,34,549,34,549,39,508,40"/>
-<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1assets_1_1AssetManager.html#af6846c31c10bcf4a5e937f1627aa0f48" title="Create a new Asset Manager instance." alt="" coords="803,13,960,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="722,32,788,32,788,37,722,37"/>
-<area shape="rect" id="Node000006" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a2811f86fe84698397f09f3ae18959511" title="Create a logger instance based on the specified type and configuration." alt="" coords="565,88,721,131"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="485,107,550,107,550,112,485,112"/>
-<area shape="rect" id="Node000007" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65" title="Create a Console object logger." alt="" coords="779,84,984,127"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="722,105,763,105,764,110,722,111"/>
-<area shape="rect" id="Node000008" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a1cf52c1ddb57eae93a5aab46b593d021" title="Create a Null object logger." alt="" coords="792,151,971,193"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="722,127,784,144,782,149,721,132"/>
-<area shape="rect" id="Node000010" href="$classdotnamecpp_1_1utils_1_1PlatformInfoFactory.html#ab7dafcf5ba115a99f7d80fa045639f84" title=" " alt="" coords="555,155,731,213"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="501,179,539,180,539,185,501,184"/>
+<area shape="rect" id="Node000001" title="Create complete application components." alt="" coords="5,184,239,227"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#adb1debe875686643fe487a625750400f" title=" " alt="" coords="542,80,762,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,181,216,150,286,124,347,111,409,103,526,96,527,101,409,108,348,116,287,129,218,155,160,186"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50" title=" " alt="" coords="299,139,482,197"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="239,186,283,180,284,185,239,192"/>
+<area shape="rect" id="Node000009" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#accf95777b78081e29cd677b633ab9461" title=" " alt="" coords="303,221,478,264"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="239,219,288,226,287,231,239,224"/>
+<area shape="rect" id="Node000013" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a5dd47e86b64ad3d8efb881d5b6db1f9d" title=" " alt="" coords="287,292,494,335"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="173,225,288,274,314,284,312,289,286,278,171,230"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9" title="Create a Default object." alt="" coords="834,5,991,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="738,77,818,56,819,61,739,82"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1assets_1_1AssetManager.html#af6846c31c10bcf4a5e937f1627aa0f48" title="Create a new Asset Manager instance." alt="" coords="1063,13,1220,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="992,32,1047,32,1047,37,992,37"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="481,142,550,124,552,130,483,147"/>
+<area shape="rect" id="Node000006" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a9fcea5e7ff94872b54a8c01eb2d9c965" title=" " alt="" coords="543,147,761,189"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="482,165,527,165,527,171,482,171"/>
+<area shape="rect" id="Node000007" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#ad559863ad0bfa1fe1805f82089cfe948" title=" " alt="" coords="813,88,1012,131"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="749,143,799,132,801,137,750,149"/>
+<area shape="rect" id="Node000008" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa935a454b1b16e1f69ee05949cf37701" title=" " alt="" coords="817,155,1008,197"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="762,169,801,170,801,175,762,174"/>
+<area shape="rect" id="Node000010" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a2811f86fe84698397f09f3ae18959511" title="Create a logger instance based on the specified type and configuration." alt="" coords="574,221,730,264"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="478,240,558,240,558,245,478,245"/>
+<area shape="rect" id="Node000011" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65" title="Create a Console object logger." alt="" coords="810,221,1015,264"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="731,240,795,240,795,245,731,245"/>
+<area shape="rect" id="Node000012" href="$classdotnamecpp_1_1logging_1_1LoggerFactory.html#a1cf52c1ddb57eae93a5aab46b593d021" title="Create a Null object logger." alt="" coords="823,288,1002,331"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="731,260,812,281,811,286,730,265"/>
+<area shape="rect" id="Node000014" href="$classdotnamecpp_1_1utils_1_1PlatformInfoFactory.html#ab7dafcf5ba115a99f7d80fa045639f84" title=" " alt="" coords="564,288,740,347"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="495,312,548,313,548,318,494,318"/>
 </map>

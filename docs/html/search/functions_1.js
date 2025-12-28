@@ -6,7 +6,7 @@ var searchData=
   ['createassetmanager_3',['createAssetManager',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#adb1debe875686643fe487a625750400f',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createbundle_4',['createBundle',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createconsole_5',['createConsole',['../classdotnamecpp_1_1logging_1_1LoggerFactory.html#a66665981d61ca1baae6f1801a597bb65',1,'dotnamecpp::logging::LoggerFactory']]],
-  ['createcustomstringsloader_6',['createCustomStringsLoader',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#aff59f9352b744e132ab2bbf5371eb52a',1,'dotnamecpp::utils::UtilsFactory']]],
+  ['createcustomstringsloader_6',['createCustomStringsLoader',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createdefault_7',['createDefault',['../classdotnamecpp_1_1assets_1_1AssetManagerFactory.html#ac8586007318eb5a7692241afdaed9ba9',1,'dotnamecpp::assets::AssetManagerFactory']]],
   ['createdefaultlogger_8',['createDefaultLogger',['../classdotnamecpp_1_1utils_1_1UtilsFactory.html#a85aa2ef9b8d0cec5f67e3953f0d1937b',1,'dotnamecpp::utils::UtilsFactory']]],
   ['createdirectory_9',['createDirectory',['../classdotnamecpp_1_1utils_1_1DirectoryManager.html#a39e243bd000b60289dcd420e3c43746f',1,'dotnamecpp::utils::DirectoryManager::createDirectory()'],['../classdotnamecpp_1_1utils_1_1IDirectoryManager.html#adef9d88657de199c5cdefa03c03c6a6f',1,'dotnamecpp::utils::IDirectoryManager::createDirectory()']]],
