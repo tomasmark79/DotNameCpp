@@ -36,14 +36,15 @@ int main(int argc, char **argv) {
     auto &platformInfo = utilsComponents.platformInfo;
     auto &customStringsLoader = utilsComponents.customStringsLoader;
 
+    const std::string notFound = "[Not Found]";
     logger->infoStream()
-        << "Author: "
-        << customStringsLoader->getLocalizedString("Author", "en").value_or("Not found");
+        << customStringsLoader->getLocalizedString("Author", "en").value_or(notFound);
     logger->infoStream()
-        << "GitHub"
-        << ": " << customStringsLoader->getLocalizedString("GitHub", "en").value_or("Not found")
-        << " - " << customStringsLoader->getCustomKey("GitHub", "url").value_or("Not found");
+        << customStringsLoader->getLocalizedString("GitHub", "en").value_or(notFound) << " - "
+        << customStringsLoader->getCustomKey("GitHub", "url").value_or(notFound);
+
     logger->infoStream() << platformInfo->getPlatformName() << " platform detected.";
+
     logger->infoStream() << appName + " started ...";
 
     auto library = std::make_unique<v1::DotNameLib>(logger, assetManager);
