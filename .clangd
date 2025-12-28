@@ -16,8 +16,8 @@ InlayHints:
   Enabled: Yes
   BlockEnd: No
   Designators: No
-  ParameterNames: Yes
-  DeducedTypes: Yes
+  ParameterNames: No
+  DeducedTypes: No
   TypeNameLimit: 0
 
 CompileFlags:
