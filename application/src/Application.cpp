@@ -47,8 +47,11 @@ int main(int argc, char **argv) {
         << " - " << customStringsLoader->getCustomKey("GitHub", "url").value_or("Not found");
     logger->infoStream() << platformInfo->getPlatformName() << " platform detected.";
 
-    // req C++20+
+#if __cplusplus >= 202002L
     logger->infoWithLocation(appName + " started ...");
+#else
+    logger->infoStream() << appName + " started ...";
+#endif
 
     // Initialize library injecting components like logger and asset manager
     // TODO: Injecting Factory of Factories
