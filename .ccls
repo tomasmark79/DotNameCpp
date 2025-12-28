@@ -12,7 +12,7 @@ clang
 # -I./src/
 # -I./application/src/
 # -I./application/
-# -std=c++17
+# -std=c++20
 # -Wall
 # -Wextra
 # -Wpedantic
