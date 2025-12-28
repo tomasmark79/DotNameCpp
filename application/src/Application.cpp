@@ -11,8 +11,6 @@ int main(int argc, char **argv) {
   using namespace dotnamecpp::logging;
   using namespace dotnamecpp::utils;
 
-  constexpr int runFakeDurationSeconds = 1;
-
   try {
     // cxxopts
     cxxopts::Options options(appName, "DotName C++ Application");
@@ -46,23 +44,11 @@ int main(int argc, char **argv) {
         << ": " << customStringsLoader->getLocalizedString("GitHub", "en").value_or("Not found")
         << " - " << customStringsLoader->getCustomKey("GitHub", "url").value_or("Not found");
     logger->infoStream() << platformInfo->getPlatformName() << " platform detected.";
-
-#if __cplusplus >= 202002L
-    logger->infoWithLocation(appName + " started ...");
-#else
     logger->infoStream() << appName + " started ...";
-#endif
 
-    // Initialize library injecting components like logger and asset manager
-    // TODO: Injecting Factory of Factories
     auto library = std::make_unique<v1::DotNameLib>(logger, assetManager);
     if (!library->isInitialized()) {
       logger->errorStream() << "Library initialization failed";
-      return EXIT_FAILURE;
-    }
-
-    if (!library->run(runFakeDurationSeconds)) {
-      logger->errorStream() << "Failed to run library";
       return EXIT_FAILURE;
     }
 
