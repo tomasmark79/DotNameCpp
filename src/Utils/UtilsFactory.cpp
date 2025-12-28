@@ -7,6 +7,7 @@
 #include "Logger/LoggerFactory.hpp"
 #include "Platform/PlatformInfoFactory.hpp"
 #include "String/StringFormatter.hpp"
+#include "Utils/Platform/IPlatformInfo.hpp"
 #include "Json/CustomStringsLoader.hpp"
 #include "Json/JsonSerializer.hpp"
 
@@ -45,16 +46,19 @@ namespace dotnamecpp::utils {
     return dotnamecpp::assets::AssetManagerFactory::createDefault(executablePath, appName);
   }
 
-  // JSON factories
+  // Json factories
   std::shared_ptr<IJsonSerializer> UtilsFactory::createJsonSerializer() {
     auto fileReader = createFileReader();
     auto fileWriter = createFileWriter();
     return std::make_shared<JsonSerializer>(fileReader, fileWriter);
   }
 
+  // Custom strings loader factory
   std::shared_ptr<ICustomStringsLoader>
-      UtilsFactory::createCustomStringsLoader(std::shared_ptr<IAssetManager> assetManager,
-                                              const std::string &filename) {
+      UtilsFactory::createCustomStringsLoader(const std::filesystem::path &executablePath,
+                                              const std::string &appName) {
+    auto assetManager = createAssetManager(executablePath, appName);
+    const std::string filename = "customstrings.json";
     if (!assetManager) {
       throw std::invalid_argument(
           "UtilsFactory::createCustomStringsLoader requires valid asset manager");
@@ -82,7 +86,7 @@ namespace dotnamecpp::utils {
     return createLogger(LoggerType::Console, config);
   }
 
-  // Application initialization helper
+  // Create complete application components
   UtilsFactory::AppComponents UtilsFactory::createAppComponents(const std::string &appName,
                                                                 const LoggerConfig &loggerConfig) {
     // Create platform info to get executable path
@@ -93,18 +97,15 @@ namespace dotnamecpp::utils {
                                execPathResult.error().toString());
     }
 
-    // Create logger
     auto logger = createLogger(LoggerType::Console, loggerConfig);
-
-    // Create asset manager
     auto assetManager = createAssetManager(execPathResult.value(), appName);
-
+    auto customStringsLoader = createCustomStringsLoader(execPathResult.value(), appName);
     return AppComponents{.logger = std::move(logger),
                          .assetManager = std::move(assetManager),
-                         .platformInfo = std::move(platformInfo)};
+                         .platformInfo = std::move(platformInfo),
+                         .customStringsLoader = std::move(customStringsLoader)};
   }
-
-  // Convenience: Create complete utility set
+  // Convenience: create a bundle of common utils
   UtilsFactory::UtilsBundle UtilsFactory::createBundle() {
     return UtilsBundle{.fileReader = createFileReader(),
                        .fileWriter = createFileWriter(),

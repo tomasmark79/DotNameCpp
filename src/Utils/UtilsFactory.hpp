@@ -35,8 +35,6 @@ namespace dotnamecpp::utils {
     static std::shared_ptr<IPathResolver> createPathResolver();
     [[nodiscard]]
     static std::shared_ptr<IDirectoryManager> createDirectoryManager();
-
-    // Platform factories
     [[nodiscard]]
     static std::unique_ptr<IPlatformInfo> createPlatformInfo();
     [[nodiscard]]
@@ -48,12 +46,13 @@ namespace dotnamecpp::utils {
         createAssetManager(const std::filesystem::path &executablePath, const std::string &appName);
 
     // JSON factories
-    [[nodiscard]]
-    static std::shared_ptr<IJsonSerializer> createJsonSerializer();
+    [[nodiscard]] static std::shared_ptr<IJsonSerializer> createJsonSerializer();
+
+    // Custom strings loader factory
     [[nodiscard]]
     static std::shared_ptr<ICustomStringsLoader>
-        createCustomStringsLoader(std::shared_ptr<IAssetManager> assetManager,
-                                  const std::string &filename = "customstrings.json");
+        createCustomStringsLoader(const std::filesystem::path &executablePath,
+                                  const std::string &appName);
 
     // String factories
     [[nodiscard]]
@@ -70,19 +69,20 @@ namespace dotnamecpp::utils {
       std::shared_ptr<ILogger> logger;
       std::shared_ptr<IAssetManager> assetManager;
       std::unique_ptr<IPlatformInfo> platformInfo;
+      std::shared_ptr<ICustomStringsLoader> customStringsLoader;
     };
 
     /**
      * @brief Create complete application components
      * @param appName Application name for asset resolution
      * @param loggerConfig Logger configuration
-     * @return AppComponents with logger, assetManager, and platformInfo
+     * @return AppComponents with logger, assetManager, platformInfo, customStringsLoader
      */
     [[nodiscard]]
     static AppComponents createAppComponents(const std::string &appName,
                                              const LoggerConfig &loggerConfig);
 
-    // Convenience: Create complete utility set
+    // Convenience: create a bundle of common utils
     struct UtilsBundle {
       std::shared_ptr<IFileReader> fileReader;
       std::shared_ptr<IFileWriter> fileWriter;
@@ -94,8 +94,7 @@ namespace dotnamecpp::utils {
       std::shared_ptr<ILogger> logger;
     };
 
-    [[nodiscard]]
-    static UtilsBundle createBundle();
+    [[nodiscard]] static UtilsBundle createBundle();
   };
 
 } // namespace dotnamecpp::utils
