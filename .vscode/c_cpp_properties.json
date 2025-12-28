@@ -13,7 +13,7 @@
             "defines": [],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c11",
-            "cppStandard": "c++17",
+            "cppStandard": "c++20",
             "intelliSenseMode": "linux-gcc-x64",
             "recursiveIncludes": {
                 "reduce": "always",
