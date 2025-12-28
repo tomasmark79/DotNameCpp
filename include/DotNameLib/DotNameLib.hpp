@@ -6,14 +6,12 @@
 #include <memory>
 
 namespace dotnamecpp::v1 {
+  using namespace dotnamecpp::utils;
   class DotNameLib {
 
   public:
-    DotNameLib(std::shared_ptr<logging::ILogger> logger,
-               std::shared_ptr<dotnamecpp::assets::IAssetManager> assetManager);
-
+    DotNameLib(const UtilsFactory::AppComponents &utilsComponents);
     ~DotNameLib();
-
     DotNameLib(const DotNameLib &other) = delete;
     DotNameLib &operator=(const DotNameLib &other) = delete;
     DotNameLib(DotNameLib &&other) = delete;

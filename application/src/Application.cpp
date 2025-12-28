@@ -32,22 +32,21 @@ int main(int argc, char **argv) {
                               .appPrefix = appName});
 
     auto &logger = utilsComponents.logger;
-    auto &assetManager = utilsComponents.assetManager;
+    [[maybe_unused]] auto &assetManager = utilsComponents.assetManager;
     auto &platformInfo = utilsComponents.platformInfo;
     auto &customStringsLoader = utilsComponents.customStringsLoader;
 
-    const std::string notFound = "[Not Found]";
-    logger->infoStream()
-        << customStringsLoader->getLocalizedString("Author", "en").value_or(notFound);
-    logger->infoStream()
-        << customStringsLoader->getLocalizedString("GitHub", "en").value_or(notFound) << " - "
-        << customStringsLoader->getCustomKey("GitHub", "url").value_or(notFound);
+    const std::string na = "[Not Found]";
+    logger->infoStream() << customStringsLoader->getLocalizedString("Author", "en").value_or(na);
+    logger->infoStream() << customStringsLoader->getLocalizedString("GitHub", "en").value_or(na)
+                         << " - "
+                         << customStringsLoader->getCustomKey("GitHub", "url").value_or(na);
 
     logger->infoStream() << platformInfo->getPlatformName() << " platform detected.";
 
     logger->infoStream() << appName + " started ...";
 
-    auto library = std::make_unique<v1::DotNameLib>(logger, assetManager);
+    auto library = std::make_unique<dotnamecpp::v1::DotNameLib>(utilsComponents);
     if (!library->isInitialized()) {
       logger->errorStream() << "Library initialization failed";
       return EXIT_FAILURE;
