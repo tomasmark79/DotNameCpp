@@ -119,25 +119,34 @@
     <script type="text/javascript">
       var canvas = document.getElementById('canvas');
       
+
+      // --- Throttled resize logging ---
+      let lastResizeLog = 0;
+      const RESIZE_LOG_INTERVAL = 2000; // ms
       function resizeCanvas() {
         // Get actual viewport dimensions (like the working version)
         const width = window.innerWidth || document.documentElement.clientWidth;
         const height = window.innerHeight || document.documentElement.clientHeight;
-        
+
         // Set both CSS size and canvas resolution (NO device pixel ratio scaling!)
         canvas.style.width = width + 'px';
         canvas.style.height = height + 'px';
         canvas.width = width;
         canvas.height = height;
-        
-        console.log('Canvas resized - Size:', width + 'x' + height);
+
+        // Throttle logging
+        const now = Date.now();
+        if (now - lastResizeLog > RESIZE_LOG_INTERVAL) {
+          console.log('Canvas resized - Size:', width + 'x' + height);
+          lastResizeLog = now;
+        }
       }
-      
+
       window.addEventListener('resize', resizeCanvas);
       window.addEventListener('orientationchange', function () {
         setTimeout(resizeCanvas, 100);
       });
-      
+
       resizeCanvas();
 
       // --- Simplified WebGL Context Initialization (like working version) ---
