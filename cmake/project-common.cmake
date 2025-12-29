@@ -38,7 +38,7 @@ set(TEST_NAMESPACE dotname)
 # Common build options
 # ==============================================================================
 
-option(ENABLE_GTESTS "Build and run unit tests" OFF)
+option(ENABLE_GTESTS "Build and run unit tests" ON)
 option(ENABLE_CCACHE "Use ccache compiler cache" OFF)
 option(BUILD_SHARED_LIBS "Build shared (.so) libraries" OFF)
 option(USE_STATIC_RUNTIME "Link C++ runtime statically" OFF)
@@ -48,7 +48,7 @@ option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
 # sudo dnf install libasan libubsan libtsan liblsan
 # sudo dnf install libasan-static libubsan-static libtsan-static liblsan-static
 # Sanitizer not work together with active tests yet!
-option(SANITIZE_ADDRESS "Enable address sanitizer" ON)
+option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 option(SANITIZE_UNDEFINED "Enable undefined behavior sanitizer" OFF)
 option(SANITIZE_THREAD "Enable thread sanitizer" OFF)
 option(SANITIZE_MEMORY "Enable memory sanitizer" OFF)
