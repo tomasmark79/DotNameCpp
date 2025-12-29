@@ -1,5 +1,5 @@
 clang
-# Configuration file for ccls IntelliSense LSP server
+# Configuration file for ccls IntelliSense LSP server if prefered over clangd
 # %h -x c-header
 # %hpp -x c++-header
 # %hxx -x c++-header
