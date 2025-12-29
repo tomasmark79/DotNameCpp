@@ -9,7 +9,7 @@ project(
     # Version should be synchronized with git/github tags
     VERSION 0.0.5
     LANGUAGES C CXX
-    DESCRIPTION "DotNameCpp is a C++ template project demonstrating best practices for modern C++ development with CMake."
+    DESCRIPTION "DotNameCpp template project configuration."
     HOMEPAGE_URL "https://github.com/tomasmark79/DotNameCpp")
 
 # Detect if this is the main project or included as a sub-project (via CPM)
@@ -28,7 +28,7 @@ if(NOT IS_MAIN_PROJECT)
     set(BUILD_LIBRARY ON)
     set(BUILD_APPLICATION OFF)
     message(STATUS "DotNameCpp included as sub-project - building library only")
-# Default: build both if nothing specified explicitly by user in main project
+    # Default: build both if nothing specified explicitly by user in main project
 elseif(NOT DEFINED BUILD_LIBRARY AND NOT DEFINED BUILD_APPLICATION)
     set(BUILD_LIBRARY ON)
     set(BUILD_APPLICATION ON)
