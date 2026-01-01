@@ -34,8 +34,8 @@ int main(int argc, char **argv) {
     // ---
     ctx.logger->infoStream()
         << appName << " (c) "
-        << ctx.customStringsLoader->getLocalizedString("Author", "cs").value_or(NA) << " -"
-        << ctx.customStringsLoader->getLocalizedString("GitHub", "cs").value_or(NA) << " - "
+        << ctx.customStringsLoader->getLocalizedString("Author", "cs").value_or(NA) << " - "
+        << ctx.customStringsLoader->getLocalizedString("GitHub", "cs").value_or(NA) << ": "
         << ctx.customStringsLoader->getCustomKey("GitHub", "url").value_or(NA);
     ctx.logger->infoStream() << ctx.platformInfo->getPlatformName() << " platform detected.";
 
