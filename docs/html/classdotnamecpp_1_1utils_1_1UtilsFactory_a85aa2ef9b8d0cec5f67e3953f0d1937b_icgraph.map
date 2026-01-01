@@ -1,5 +1,5 @@
 <map id="dotnamecpp::utils::UtilsFactory::createDefaultLogger" name="dotnamecpp::utils::UtilsFactory::createDefaultLogger">
-<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,408,64"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="5,13,182,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,37,182,37,182,32,214,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="269,5,447,64"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aeaf4149909c078d06a163612d5e9cb6e" title="Create basic utilities context with default logger." alt="" coords="5,13,221,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,37,221,37,221,32,253,32"/>
 </map>

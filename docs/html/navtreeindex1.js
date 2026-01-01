@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classdotnamecpp_1_1logging_1_1ILogger.html#a39f4de43fae67a3a13b1840b8781ec52":[1,0,0,1,0,13],
 "classdotnamecpp_1_1logging_1_1ILogger.html#a3aa7b8a20576832023048f01699bf3a7":[0,0,0,1,0,16],
 "classdotnamecpp_1_1logging_1_1ILogger.html#a3aa7b8a20576832023048f01699bf3a7":[1,0,0,1,0,16],
 "classdotnamecpp_1_1logging_1_1ILogger.html#a3bf006d13b3b8b48b008e6d51250da4a":[0,0,0,1,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classdotnamecpp_1_1utils_1_1IFileReader.html":[1,0,0,2,9],
 "classdotnamecpp_1_1utils_1_1IFileReader.html#a2ffc86003d347e08e5557557f92a80b5":[0,0,0,2,9,4],
 "classdotnamecpp_1_1utils_1_1IFileReader.html#a2ffc86003d347e08e5557557f92a80b5":[1,0,0,2,9,4],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a339f506d8d4d2c5c56f656ba4f0fee29":[0,0,0,2,9,1],
-"classdotnamecpp_1_1utils_1_1IFileReader.html#a339f506d8d4d2c5c56f656ba4f0fee29":[1,0,0,2,9,1]
+"classdotnamecpp_1_1utils_1_1IFileReader.html#a339f506d8d4d2c5c56f656ba4f0fee29":[0,0,0,2,9,1]
 };

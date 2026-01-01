@@ -1,13 +1,15 @@
 <map id="dotnamecpp::logging::LoggerFactory::create" name="dotnamecpp::logging::LoggerFactory::create">
-<area shape="rect" id="Node000001" title="Create a logger instance based on the specified type and configuration." alt="" coords="734,43,891,85"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#accf95777b78081e29cd677b633ab9461" title=" " alt="" coords="511,43,686,85"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="718,67,687,67,687,61,718,61"/>
-<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a76b90ad17cd7e0dc50796299c94b8567" title="Create complete application components." alt="" coords="230,5,463,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="495,51,463,47,464,41,496,46"/>
-<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a85aa2ef9b8d0cec5f67e3953f0d1937b" title=" " alt="" coords="257,72,436,131"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="496,82,436,91,436,85,495,77"/>
-<area shape="rect" id="Node000004" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="69,13,118,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,29,119,29,119,24,214,24"/>
-<area shape="rect" id="Node000006" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="5,80,182,123"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="242,104,182,104,182,99,242,99"/>
+<area shape="rect" id="Node000001" title="Create a logger instance based on the specified type and configuration." alt="" coords="750,80,907,123"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#accf95777b78081e29cd677b633ab9461" title=" " alt="" coords="527,80,702,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="734,104,703,104,703,99,734,99"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a392047dd9934efdef6b1333296e5b70a" title="Create minimal context without app&#45;specific components." alt="" coords="269,5,479,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="528,77,444,51,446,46,530,72"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a85aa2ef9b8d0cec5f67e3953f0d1937b" title=" " alt="" coords="285,72,463,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="511,104,464,104,464,99,511,99"/>
+<area shape="rect" id="Node000006" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a98799ec5918fdefe4c195ae9c88335bc" title="Create full application context with all components." alt="" coords="272,155,476,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="530,130,446,157,444,151,528,125"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aeaf4149909c078d06a163612d5e9cb6e" title="Create basic utilities context with default logger." alt="" coords="5,80,221,123"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="269,104,221,104,221,99,269,99"/>
+<area shape="rect" id="Node000007" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="88,163,138,189"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="257,179,138,179,138,173,257,173"/>
 </map>

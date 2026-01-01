@@ -1,11 +1,14 @@
 <map id="dotnamecpp::utils::UtilsFactory::createJsonSerializer" name="dotnamecpp::utils::UtilsFactory::createJsonSerializer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="614,43,833,85"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="387,5,563,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,48,563,43,564,37,599,43"/>
-<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50" title=" " alt="" coords="384,72,566,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="599,85,567,90,566,85,598,80"/>
-<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a76b90ad17cd7e0dc50796299c94b8567" title="Create complete application components." alt="" coords="103,80,336,123"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="368,104,337,104,337,99,368,99"/>
-<area shape="rect" id="Node000005" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,88,55,115"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,104,55,104,55,99,87,99"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="617,109,836,152"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aeaf4149909c078d06a163612d5e9cb6e" title="Create basic utilities context with default logger." alt="" coords="354,5,569,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="666,105,568,62,536,51,538,46,570,58,668,100"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a392047dd9934efdef6b1333296e5b70a" title="Create minimal context without app&#45;specific components." alt="" coords="356,72,567,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="601,116,567,111,567,106,602,110"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aa0d9f669087b9bc6a0859324fe2afe50" title=" " alt="" coords="370,139,553,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="602,151,554,158,553,152,602,146"/>
+<area shape="rect" id="Node000005" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a98799ec5918fdefe4c195ae9c88335bc" title="Create full application context with all components." alt="" coords="103,180,306,223"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="681,163,629,191,570,212,502,223,433,227,366,225,306,220,307,214,366,220,433,221,502,218,569,207,627,186,679,158"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="355,184,307,191,306,185,355,179"/>
+<area shape="rect" id="Node000006" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,188,55,215"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,204,55,204,55,199,87,199"/>
 </map>

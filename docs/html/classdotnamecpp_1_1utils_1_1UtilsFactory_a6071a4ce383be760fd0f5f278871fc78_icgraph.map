@@ -1,5 +1,11 @@
 <map id="dotnamecpp::utils::UtilsFactory::createDirectoryManager" name="dotnamecpp::utils::UtilsFactory::createDirectoryManager">
-<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,419,64"/>
-<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#afcf1273b868694eaeb8390bc41241049" title=" " alt="" coords="5,13,182,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,37,182,37,182,32,214,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="366,64,555,123"/>
+<area shape="rect" id="Node000002" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#aeaf4149909c078d06a163612d5e9cb6e" title="Create basic utilities context with default logger." alt="" coords="103,5,318,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="350,67,292,51,294,46,351,62"/>
+<area shape="rect" id="Node000003" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a392047dd9934efdef6b1333296e5b70a" title="Create minimal context without app&#45;specific components." alt="" coords="105,72,316,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="350,96,316,96,316,91,350,91"/>
+<area shape="rect" id="Node000004" href="$classdotnamecpp_1_1utils_1_1UtilsFactory.html#a98799ec5918fdefe4c195ae9c88335bc" title="Create full application context with all components." alt="" coords="109,139,312,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="351,125,294,141,292,136,350,120"/>
+<area shape="rect" id="Node000005" href="$Application_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,147,55,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="93,163,55,163,55,157,93,157"/>
 </map>

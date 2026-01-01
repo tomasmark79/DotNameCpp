@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "dotnamecpp::utils::UtilsFactory::AppComponents", "structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html", null ],
+    [ "dotnamecpp::utils::UtilsFactory::ApplicationContext", "structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html", null ],
     [ "dotnamecpp::assets::AssetManagerFactory", "classdotnamecpp_1_1assets_1_1AssetManagerFactory.html", null ],
     [ "dotnamecpp::v1::DotNameLib", "classdotnamecpp_1_1v1_1_1DotNameLib.html", null ],
     [ "std::enable_shared_from_this", null, [
@@ -57,6 +57,5 @@ var hierarchy =
       [ "ConsoleLoggerTest", "classConsoleLoggerTest.html", null ],
       [ "FileReaderTest", "classFileReaderTest.html", null ]
     ] ],
-    [ "dotnamecpp::utils::UtilsFactory::UtilsBundle", "structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle.html", null ],
     [ "dotnamecpp::utils::UtilsFactory", "classdotnamecpp_1_1utils_1_1UtilsFactory.html", null ]
 ];

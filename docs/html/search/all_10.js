@@ -18,7 +18,7 @@ var searchData=
   ['simplefile_5f_15',['simpleFile_',['../classFileReaderTest.html#a33360f7df8f63360ebe644766fd60dbe',1,'FileReaderTest']]],
   ['stream_16',['stream',['../classdotnamecpp_1_1logging_1_1ILogger.html#ae44262c4573acbe810297c38c9842a16',1,'dotnamecpp::logging::ILogger::stream()'],['../classdotnamecpp_1_1utils_1_1ILogger.html#ae44262c4573acbe810297c38c9842a16',1,'dotnamecpp::utils::ILogger::stream()']]],
   ['stringformatter_17',['StringFormatter',['../classdotnamecpp_1_1utils_1_1StringFormatter.html',1,'dotnamecpp::utils::StringFormatter'],['../classdotnamecpp_1_1utils_1_1StringFormatter.html#ac168acd454a993b15efe0ad9970eb78c',1,'dotnamecpp::utils::StringFormatter::StringFormatter()=default'],['../classdotnamecpp_1_1utils_1_1StringFormatter.html#a9248b007a7c80b0c8677fd12122a4cc1',1,'dotnamecpp::utils::StringFormatter::StringFormatter(const StringFormatter &amp;)=delete'],['../classdotnamecpp_1_1utils_1_1StringFormatter.html#a7c279457678987318d7acb33a1c99c5d',1,'dotnamecpp::utils::StringFormatter::StringFormatter(StringFormatter &amp;&amp;)=delete']]],
-  ['stringformatter_18',['stringFormatter',['../structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle.html#a3bd5af4005b513a303d13bfedc50bd6d',1,'dotnamecpp::utils::UtilsFactory::UtilsBundle']]],
+  ['stringformatter_18',['stringFormatter',['../structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html#a0b48ba2d02f72e268316e9dba2e110be',1,'dotnamecpp::utils::UtilsFactory::ApplicationContext']]],
   ['stringformatter_2ecpp_19',['StringFormatter.cpp',['../StringFormatter_8cpp.html',1,'']]],
   ['stringformatter_2ehpp_20',['StringFormatter.hpp',['../StringFormatter_8hpp.html',1,'']]]
 ];

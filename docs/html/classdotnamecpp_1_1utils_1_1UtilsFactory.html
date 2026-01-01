@@ -107,8 +107,7 @@ Collaboration diagram for dotnamecpp::utils::UtilsFactory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:AppComponents" id="r_AppComponents"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html">AppComponents</a></td></tr>
-<tr class="memitem:UtilsBundle" id="r_UtilsBundle"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle.html">UtilsBundle</a></td></tr>
+<tr class="memitem:ApplicationContext" id="r_ApplicationContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -124,60 +123,14 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af91cb262af886be48e1ec821f2f9e8db" id="r_af91cb262af886be48e1ec821f2f9e8db"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classdotnamecpp_1_1utils_1_1IStringFormatter.html">IStringFormatter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af91cb262af886be48e1ec821f2f9e8db">createStringFormatter</a> ()</td></tr>
 <tr class="memitem:accf95777b78081e29cd677b633ab9461" id="r_accf95777b78081e29cd677b633ab9461"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classdotnamecpp_1_1logging_1_1ILogger.html">ILogger</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accf95777b78081e29cd677b633ab9461">createLogger</a> (<a class="el" href="namespacedotnamecpp_1_1logging.html#a179f075ebc46e9cddf8f9f8f806e1efa">LoggerType</a> type, const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;config)</td></tr>
 <tr class="memitem:a85aa2ef9b8d0cec5f67e3953f0d1937b" id="r_a85aa2ef9b8d0cec5f67e3953f0d1937b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classdotnamecpp_1_1logging_1_1ILogger.html">ILogger</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85aa2ef9b8d0cec5f67e3953f0d1937b">createDefaultLogger</a> ()</td></tr>
-<tr class="memitem:a76b90ad17cd7e0dc50796299c94b8567" id="r_a76b90ad17cd7e0dc50796299c94b8567"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html">AppComponents</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76b90ad17cd7e0dc50796299c94b8567">createAppComponents</a> (const std::string &amp;<a class="el" href="Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b">appName</a>, const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;loggerConfig)</td></tr>
-<tr class="memdesc:a76b90ad17cd7e0dc50796299c94b8567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create complete application components.  <br /></td></tr>
-<tr class="memitem:afcf1273b868694eaeb8390bc41241049" id="r_afcf1273b868694eaeb8390bc41241049"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle.html">UtilsBundle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcf1273b868694eaeb8390bc41241049">createBundle</a> ()</td></tr>
+<tr class="memitem:a98799ec5918fdefe4c195ae9c88335bc" id="r_a98799ec5918fdefe4c195ae9c88335bc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98799ec5918fdefe4c195ae9c88335bc">createFullContext</a> (const std::string &amp;<a class="el" href="Application_8cpp.html#a3c9f34bd2e11a5d854fc61609b3edb3b">appName</a>, const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;loggerConfig)</td></tr>
+<tr class="memdesc:a98799ec5918fdefe4c195ae9c88335bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create full application context with all components.  <br /></td></tr>
+<tr class="memitem:a392047dd9934efdef6b1333296e5b70a" id="r_a392047dd9934efdef6b1333296e5b70a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a392047dd9934efdef6b1333296e5b70a">createCoreContext</a> (const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;loggerConfig)</td></tr>
+<tr class="memdesc:a392047dd9934efdef6b1333296e5b70a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create minimal context without app-specific components.  <br /></td></tr>
+<tr class="memitem:aeaf4149909c078d06a163612d5e9cb6e" id="r_aeaf4149909c078d06a163612d5e9cb6e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaf4149909c078d06a163612d5e9cb6e">createBasicContext</a> ()</td></tr>
+<tr class="memdesc:aeaf4149909c078d06a163612d5e9cb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create basic utilities context with default logger.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a76b90ad17cd7e0dc50796299c94b8567" name="a76b90ad17cd7e0dc50796299c94b8567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76b90ad17cd7e0dc50796299c94b8567">&#9670;&#160;</a></span>createAppComponents()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html">UtilsFactory::AppComponents</a> dotnamecpp::utils::UtilsFactory::createAppComponents </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>appName</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>loggerConfig</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create complete application components. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">appName</td><td>Application name for asset resolution </td></tr>
-    <tr><td class="paramname">loggerConfig</td><td>Logger configuration </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents.html">AppComponents</a> with logger, assetManager, platformInfo, customStringsLoader </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567_cgraph.svg" width="100%" height="564"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567_icgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="adb1debe875686643fe487a625750400f" name="adb1debe875686643fe487a625750400f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb1debe875686643fe487a625750400f">&#9670;&#160;</a></span>createAssetManager()</h2>
 
@@ -217,8 +170,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="afcf1273b868694eaeb8390bc41241049" name="afcf1273b868694eaeb8390bc41241049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcf1273b868694eaeb8390bc41241049">&#9670;&#160;</a></span>createBundle()</h2>
+<a id="aeaf4149909c078d06a163612d5e9cb6e" name="aeaf4149909c078d06a163612d5e9cb6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf4149909c078d06a163612d5e9cb6e">&#9670;&#160;</a></span>createBasicContext()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +180,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle.html">UtilsFactory::UtilsBundle</a> dotnamecpp::utils::UtilsFactory::createBundle </td>
+          <td class="memname"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">UtilsFactory::ApplicationContext</a> dotnamecpp::utils::UtilsFactory::createBasicContext </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -239,10 +192,52 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Create basic utilities context with default logger. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a> with basic utilities and default logger </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_aeaf4149909c078d06a163612d5e9cb6e_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a392047dd9934efdef6b1333296e5b70a" name="a392047dd9934efdef6b1333296e5b70a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392047dd9934efdef6b1333296e5b70a">&#9670;&#160;</a></span>createCoreContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">UtilsFactory::ApplicationContext</a> dotnamecpp::utils::UtilsFactory::createCoreContext </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>loggerConfig</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create minimal context without app-specific components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loggerConfig</td><td>Logger configuration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a> with core utilities only (no assetManager/customStringsLoader) </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a392047dd9934efdef6b1333296e5b70a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -281,7 +276,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_aa0d9f669087b9bc6a0859324fe2afe50_icgraph.svg" width="572" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_aa0d9f669087b9bc6a0859324fe2afe50_icgraph.svg" width="542" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -316,7 +311,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b_icgraph.svg" width="414" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b_icgraph.svg" width="452" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -346,7 +341,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78_icgraph.svg" width="424" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78_icgraph.svg" width="562" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -376,7 +371,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_ad559863ad0bfa1fe1805f82089cfe948_icgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -406,7 +401,56 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701_icgraph.svg" width="100%" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a98799ec5918fdefe4c195ae9c88335bc" name="a98799ec5918fdefe4c195ae9c88335bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98799ec5918fdefe4c195ae9c88335bc">&#9670;&#160;</a></span>createFullContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">UtilsFactory::ApplicationContext</a> dotnamecpp::utils::UtilsFactory::createFullContext </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>appName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdotnamecpp_1_1logging_1_1LoggerConfig.html">LoggerConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>loggerConfig</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create full application context with all components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appName</td><td>Application name for asset resolution </td></tr>
+    <tr><td class="paramname">loggerConfig</td><td>Logger configuration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Complete <a class="el" href="structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext.html">ApplicationContext</a> with all utilities initialized </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc_icgraph.svg" width="312" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -441,7 +485,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965_icgraph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -480,7 +524,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_accf95777b78081e29cd677b633ab9461_icgraph.svg" width="100%" height="452"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -510,7 +554,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c_icgraph.svg" width="451" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c_icgraph.svg" width="587" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -545,7 +589,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d_icgraph.svg" width="598" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_a5dd47e86b64ad3d8efb881d5b6db1f9d_icgraph.svg" width="579" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -605,7 +649,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db_icgraph.svg" width="406" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db_icgraph.svg" width="542" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

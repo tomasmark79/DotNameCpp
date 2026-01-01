@@ -10,31 +10,29 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1v1}{dotnamecpp::v1}}\ \{}
-\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \{}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}(std::shared\_ptr<logging::ILogger>\ logger,}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<dotnamecpp::assets::IAssetManager>\ assetManager);}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237}{\string~DotNameLib}}();}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba}{DotNameLib}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&other)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&other)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32}{DotNameLib}}(\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1fd83be4d25bcfec3e544b3efe49b5d4}{DotNameLib}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a900a5ae10f78283ed8c4c9af0949f889}{isInitialized}}()\ const\ noexcept;}
-\DoxyCodeLine{00023\ \ \ \ \ [[nodiscard]]}
-\DoxyCodeLine{00024\ \ \ \ \ const\ std::shared\_ptr<\mbox{\hyperlink{namespacedotnamecpp}{dotnamecpp}}::\mbox{\hyperlink{namespacedotnamecpp_1_1assets}{assets}}::IAssetManager>\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f}{getAssetManager}}()\ const\ noexcept;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ private:}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInitialized\_\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *libName\_\ =\ \textcolor{stringliteral}{"{}DotNameLib\ v"{}}\ DOTNAMELIB\_VERSION;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ std::shared\_ptr<dotnamecpp::logging::ILogger>\ logger\_;}
-\DoxyCodeLine{00031\ \ \ \ \ std::shared\_ptr<dotnamecpp::assets::IAssetManager>\ assetManager\_;}
-\DoxyCodeLine{00032\ \ \ \};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::v1}}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacedotnamecpp_1_1utils}{dotnamecpp::utils}};}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{UtilsFactory::ApplicationContext}}\ \&context);}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a674cffc7cedc2687940cdb23daed9237}{\string~DotNameLib}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a225dc0e0260a6902133955ec24840cba}{DotNameLib}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ae0f1646e03409e09ff5061d2d148b313}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1eed4ef063df7daa393a2396ee800c32}{DotNameLib}}(\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_ac2b85f335dc1af8f8e5e266fdcd09009}{operator=}}(\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_abc7b4d3d63675da2816f547ad405cb01}{DotNameLib}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a900a5ae10f78283ed8c4c9af0949f889}{isInitialized}}()\ const\ noexcept;}
+\DoxyCodeLine{00021\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ \ \ const\ std::shared\_ptr<\mbox{\hyperlink{namespacedotnamecpp}{dotnamecpp}}::\mbox{\hyperlink{namespacedotnamecpp_1_1assets}{assets}}::\mbox{\hyperlink{classdotnamecpp_1_1assets_1_1IAssetManager}{IAssetManager}}>\ \&\mbox{\hyperlink{classdotnamecpp_1_1v1_1_1DotNameLib_a1b2d8e4db1545a31ded7282e01d77e6f}{getAssetManager}}()\ const\ noexcept;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ private:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInitialized\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *libName\_\ =\ \textcolor{stringliteral}{"{}DotNameLib\ v"{}}\ DOTNAMELIB\_VERSION;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::shared\_ptr<dotnamecpp::logging::ILogger>\ logger\_;}
+\DoxyCodeLine{00029\ \ \ \ \ std::shared\_ptr<dotnamecpp::assets::IAssetManager>\ assetManager\_;}
+\DoxyCodeLine{00030\ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \}\ \textcolor{comment}{//\ namespace\ dotnamecpp::v1}}
 
 \end{DoxyCode}

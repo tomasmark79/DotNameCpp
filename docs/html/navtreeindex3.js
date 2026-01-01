@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a527f175b268d5e08b33c98ce91ee511a":[1,0,0,2,22,1],
 "classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a58eae90c3014f12647027fffc6b5efa5":[0,0,0,2,22,3],
 "classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#a58eae90c3014f12647027fffc6b5efa5":[1,0,0,2,22,3],
 "classdotnamecpp_1_1utils_1_1Result_3_01void_00_01E_01_4.html#adf1c5f19efd1eac18e9d32470ce2f8ea":[0,0,0,2,22,6],
@@ -92,14 +93,14 @@ var NAVTREEINDEX3 =
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a1b2d8e4db1545a31ded7282e01d77e6f":[1,0,0,3,0,4],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a1eed4ef063df7daa393a2396ee800c32":[0,0,0,3,0,3],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a1eed4ef063df7daa393a2396ee800c32":[1,0,0,3,0,3],
-"classdotnamecpp_1_1v1_1_1DotNameLib.html#a1fd83be4d25bcfec3e544b3efe49b5d4":[0,0,0,3,0,0],
-"classdotnamecpp_1_1v1_1_1DotNameLib.html#a1fd83be4d25bcfec3e544b3efe49b5d4":[1,0,0,3,0,0],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a225dc0e0260a6902133955ec24840cba":[0,0,0,3,0,2],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a225dc0e0260a6902133955ec24840cba":[1,0,0,3,0,2],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a674cffc7cedc2687940cdb23daed9237":[0,0,0,3,0,1],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a674cffc7cedc2687940cdb23daed9237":[1,0,0,3,0,1],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a900a5ae10f78283ed8c4c9af0949f889":[0,0,0,3,0,5],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#a900a5ae10f78283ed8c4c9af0949f889":[1,0,0,3,0,5],
+"classdotnamecpp_1_1v1_1_1DotNameLib.html#abc7b4d3d63675da2816f547ad405cb01":[0,0,0,3,0,0],
+"classdotnamecpp_1_1v1_1_1DotNameLib.html#abc7b4d3d63675da2816f547ad405cb01":[1,0,0,3,0,0],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#ac2b85f335dc1af8f8e5e266fdcd09009":[0,0,0,3,0,7],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#ac2b85f335dc1af8f8e5e266fdcd09009":[1,0,0,3,0,7],
 "classdotnamecpp_1_1v1_1_1DotNameLib.html#ae0f1646e03409e09ff5061d2d148b313":[0,0,0,3,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structdotnamecpp_1_1utils_1_1JsonError.html#ab3fd291b13cb2ed21cbb76d6e234063d":[1,0,0,2,16,0],
 "structdotnamecpp_1_1utils_1_1JsonError.html#ab6f92554807ee263ed07dc7810f2d2ab":[0,0,0,2,16,3],
 "structdotnamecpp_1_1utils_1_1JsonError.html#ab6f92554807ee263ed07dc7810f2d2ab":[1,0,0,2,16,3],
-"structdotnamecpp_1_1utils_1_1LoggerConfig.html":[0,0,0,2,18],
-"structdotnamecpp_1_1utils_1_1LoggerConfig.html":[1,0,0,2,18]
+"structdotnamecpp_1_1utils_1_1LoggerConfig.html":[0,0,0,2,18]
 };

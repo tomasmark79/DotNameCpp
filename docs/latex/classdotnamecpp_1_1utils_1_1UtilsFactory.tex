@@ -17,9 +17,7 @@ Collaboration diagram for dotnamecpp\+::utils\+::Utils\+Factory\+:
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components}}
-\item 
-struct \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Bundle}}
+struct \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -48,51 +46,17 @@ static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1
 \item 
 static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1logging_1_1ILogger}{ILogger}} $>$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b}{create\+Default\+Logger}} ()
 \item 
-static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567}{create\+App\+Components}} (const std\+::string \&\mbox{\hyperlink{Application_8cpp_a3c9f34bd2e11a5d854fc61609b3edb3b}{app\+Name}}, const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&logger\+Config)
-\begin{DoxyCompactList}\small\item\em Create complete application components. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Bundle}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049}{create\+Bundle}} ()
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc}{create\+Full\+Context}} (const std\+::string \&\mbox{\hyperlink{Application_8cpp_a3c9f34bd2e11a5d854fc61609b3edb3b}{app\+Name}}, const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&logger\+Config)
+\begin{DoxyCompactList}\small\item\em Create full application context with all components. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_a392047dd9934efdef6b1333296e5b70a}{create\+Core\+Context}} (const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&logger\+Config)
+\begin{DoxyCompactList}\small\item\em Create minimal context without app-\/specific components. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context}} \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1UtilsFactory_aeaf4149909c078d06a163612d5e9cb6e}{create\+Basic\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Create basic utilities context with default logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
 \Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createAppComponents@{createAppComponents}}
-\index{createAppComponents@{createAppComponents}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
-\doxysubsubsection{\texorpdfstring{createAppComponents()}{createAppComponents()}}
-{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567} 
-\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{Utils\+Factory\+::\+App\+Components}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+App\+Components (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{app\+Name}{, }\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{logger\+Config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
-
-
-
-Create complete application components. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em app\+Name} & Application name for asset resolution \\
-\hline
-{\em logger\+Config} & Logger configuration \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\doxylink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1AppComponents}{App\+Components} with logger, asset\+Manager, platform\+Info, custom\+Strings\+Loader 
-\end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a76b90ad17cd7e0dc50796299c94b8567_icgraph}
-\end{center}
-\end{figure}
 \Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createAssetManager@{createAssetManager}}
 \index{createAssetManager@{createAssetManager}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
 \doxysubsubsection{\texorpdfstring{createAssetManager()}{createAssetManager()}}
@@ -114,17 +78,51 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_adb1debe875686643fe487a625750400f_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createBundle@{createBundle}}
-\index{createBundle@{createBundle}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
-\doxysubsubsection{\texorpdfstring{createBundle()}{createBundle()}}
-{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049} 
-\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1UtilsBundle}{Utils\+Factory\+::\+Utils\+Bundle}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Bundle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_aeaf4149909c078d06a163612d5e9cb6e}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createBasicContext@{createBasicContext}}
+\index{createBasicContext@{createBasicContext}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createBasicContext()}{createBasicContext()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_aeaf4149909c078d06a163612d5e9cb6e} 
+\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Utils\+Factory\+::\+Application\+Context}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Basic\+Context (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Create basic utilities context with default logger. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context} with basic utilities and default logger 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_afcf1273b868694eaeb8390bc41241049_cgraph}
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_aeaf4149909c078d06a163612d5e9cb6e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a392047dd9934efdef6b1333296e5b70a}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createCoreContext@{createCoreContext}}
+\index{createCoreContext@{createCoreContext}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createCoreContext()}{createCoreContext()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a392047dd9934efdef6b1333296e5b70a} 
+\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Utils\+Factory\+::\+Application\+Context}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Core\+Context (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{logger\+Config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+
+
+Create minimal context without app-\/specific components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger\+Config} & Logger configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context} with core utilities only (no asset\+Manager/custom\+Strings\+Loader) 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a392047dd9934efdef6b1333296e5b70a_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_aa0d9f669087b9bc6a0859324fe2afe50}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createCustomStringsLoader@{createCustomStringsLoader}}
@@ -133,8 +131,7 @@ Here is the call graph for this function\+:\nopagebreak
 {\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_aa0d9f669087b9bc6a0859324fe2afe50} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1ICustomStringsLoader}{ICustom\+Strings\+Loader}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Custom\+Strings\+Loader (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{executable\+Path}{, }\item[{const std\+::string \&}]{app\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -162,7 +159,8 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a85aa2ef9b8d0cec5f67e3953f0d1937b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -175,7 +173,8 @@ Here is the caller graph for this function\+:\nopagebreak
 {\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a6071a4ce383be760fd0f5f278871fc78} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IDirectoryManager}{IDirectory\+Manager}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Directory\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -208,6 +207,42 @@ Here is the caller graph for this function\+:
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_aa935a454b1b16e1f69ee05949cf37701_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createFullContext@{createFullContext}}
+\index{createFullContext@{createFullContext}!dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}}
+\doxysubsubsection{\texorpdfstring{createFullContext()}{createFullContext()}}
+{\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc} 
+\mbox{\hyperlink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Utils\+Factory\+::\+Application\+Context}} dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Full\+Context (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{app\+Name}{, }\item[{const \mbox{\hyperlink{structdotnamecpp_1_1logging_1_1LoggerConfig}{Logger\+Config}} \&}]{logger\+Config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+
+
+Create full application context with all components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+Name} & Application name for asset resolution \\
+\hline
+{\em logger\+Config} & Logger configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Complete \doxylink{structdotnamecpp_1_1utils_1_1UtilsFactory_1_1ApplicationContext}{Application\+Context} with all utilities initialized 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{classdotnamecpp_1_1utils_1_1UtilsFactory_a98799ec5918fdefe4c195ae9c88335bc_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{classdotnamecpp_1_1utils_1_1UtilsFactory_a9fcea5e7ff94872b54a8c01eb2d9c965}\index{dotnamecpp::utils::UtilsFactory@{dotnamecpp::utils::UtilsFactory}!createJsonSerializer@{createJsonSerializer}}
@@ -258,7 +293,8 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_a0c936eaf300e6f9b9014659d4ce6801c} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IPathResolver}{IPath\+Resolver}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+Path\+Resolver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -305,7 +341,8 @@ Here is the call graph for this function\+:\nopagebreak
 {\footnotesize\ttfamily \label{classdotnamecpp_1_1utils_1_1UtilsFactory_af91cb262af886be48e1ec821f2f9e8db} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdotnamecpp_1_1utils_1_1IStringFormatter}{IString\+Formatter}} $>$ dotnamecpp\+::utils\+::\+Utils\+Factory\+::create\+String\+Formatter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

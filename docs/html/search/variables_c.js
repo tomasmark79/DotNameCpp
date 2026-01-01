@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unicodefile_5f_0',['unicodeFile_',['../classFileReaderTest.html#abf4842120244b942326c6e64092aad6a',1,'FileReaderTest']]]
+  ['testassetspath_5f_0',['testAssetsPath_',['../classAssetManagerTest.html#a4170f3e3983ed47d595acca8febd09cf',1,'AssetManagerTest']]],
+  ['testdir_5f_1',['testDir_',['../classFileReaderTest.html#a43777500d49b5dd8455cac96ea8e88d8',1,'FileReaderTest']]]
 ];
