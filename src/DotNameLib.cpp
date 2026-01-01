@@ -2,10 +2,10 @@
 
 namespace dotnamecpp::v1 {
 
-  DotNameLib::DotNameLib(const UtilsFactory::AppComponents &utilsComponents)
-      : logger_(utilsComponents.logger ? utilsComponents.logger
-                                       : std::make_shared<dotnamecpp::logging::NullLogger>()),
-        assetManager_(utilsComponents.assetManager) {
+  DotNameLib::DotNameLib(const UtilsFactory::ApplicationContext &context)
+      : logger_(context.logger ? context.logger
+                               : std::make_shared<dotnamecpp::logging::NullLogger>()),
+        assetManager_(context.assetManager) {
 
     if (!assetManager_ || !assetManager_->validate()) {
       logger_->errorStream() << "Invalid or missing asset manager";

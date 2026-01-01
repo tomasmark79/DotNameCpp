@@ -10,8 +10,8 @@
         {
             "id": "GitHub",
             "data": {
-                "en": "Repository on GitHub",
-                "cs": "Repozitář na GitHubu",
+                "en": "GitHub Repository",
+                "cs": "GitHub Repozitář",
                 "url": "https://github.com/tomasmark79"
             }
         }

@@ -4,6 +4,7 @@
 #include <iostream>
 
 const std::string appName = "DotNameApplication";
+const std::string NA = "[Not Found]";
 
 int main(int argc, char **argv) {
 
@@ -12,59 +13,41 @@ int main(int argc, char **argv) {
   using namespace dotnamecpp::utils;
 
   try {
-    // cxxopts
+    // ---
     cxxopts::Options options(appName, "DotName C++ Application");
     options.add_options()("h,help", "Print usage");
     options.add_options()("w,write2file", "Write output to file",
                           cxxopts::value<bool>()->default_value("false"));
-
     auto result = options.parse(argc, argv);
     if (result.count("help") > 0) {
       std::cout << options.help() << '\n';
       return EXIT_SUCCESS;
     }
 
-    auto utilsComponents = UtilsFactory::createAppComponents(
+    // ---
+    auto ctx = UtilsFactory::createFullContext(
         appName, LoggerConfig{.level = Level::LOG_INFO,
                               .enableFileLogging = result["write2file"].as<bool>(),
                               .logFilePath = "application.log",
                               .colorOutput = true,
                               .appPrefix = appName});
+    // ---
+    ctx.logger->infoStream()
+        << appName << " (c) "
+        << ctx.customStringsLoader->getLocalizedString("Author", "cs").value_or(NA) << " -"
+        << ctx.customStringsLoader->getLocalizedString("GitHub", "cs").value_or(NA) << " - "
+        << ctx.customStringsLoader->getCustomKey("GitHub", "url").value_or(NA);
+    ctx.logger->infoStream() << ctx.platformInfo->getPlatformName() << " platform detected.";
 
-    auto &logger = utilsComponents.logger;
-    [[maybe_unused]] auto &assetManager = utilsComponents.assetManager;
-    auto &platformInfo = utilsComponents.platformInfo;
-    auto &customStringsLoader = utilsComponents.customStringsLoader;
-
-    auto utilsTools =
-        UtilsFactory::UtilsBundle{.fileReader = UtilsFactory::createFileReader(),
-                                  .fileWriter = UtilsFactory::createFileWriter(),
-                                  .pathResolver = UtilsFactory::createPathResolver(),
-                                  .directoryManager = UtilsFactory::createDirectoryManager(),
-                                  .platformInfo = UtilsFactory::createPlatformInfo(),
-                                  .jsonSerializer = UtilsFactory::createJsonSerializer(),
-                                  .stringFormatter = UtilsFactory::createStringFormatter(),
-                                  .logger = logger};
-
-    logger->infoStream() << appName << " " << utilsTools.stringFormatter->addDots("1234567890");
-
-    const std::string na = "[Not Found]";
-    logger->infoStream() << customStringsLoader->getLocalizedString("Author", "en").value_or(na);
-    logger->infoStream() << customStringsLoader->getLocalizedString("GitHub", "en").value_or(na)
-                         << " - "
-                         << customStringsLoader->getCustomKey("GitHub", "url").value_or(na);
-
-    logger->infoStream() << platformInfo->getPlatformName() << " platform detected.";
-
-    logger->infoStream() << appName + " started ...";
-
-    auto library = std::make_unique<dotnamecpp::v1::DotNameLib>(utilsComponents);
+    // ---
+    auto library = std::make_unique<dotnamecpp::v1::DotNameLib>(ctx);
     if (!library->isInitialized()) {
-      logger->errorStream() << "Library initialization failed";
+      ctx.logger->errorStream() << "Library initialization failed";
       return EXIT_FAILURE;
     }
 
-    logger->infoStream() << appName << " ... shutting down";
+    // ---
+    ctx.logger->infoStream() << appName << " ... shutting down";
     return EXIT_SUCCESS;
 
   } catch (const std::exception &e) {

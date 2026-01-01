@@ -26,7 +26,6 @@ namespace dotnamecpp::utils {
 
   class UtilsFactory {
   public:
-    // Filesystem factories
     [[nodiscard]]
     static std::shared_ptr<IFileReader> createFileReader();
     [[nodiscard]]
@@ -39,62 +38,68 @@ namespace dotnamecpp::utils {
     static std::unique_ptr<IPlatformInfo> createPlatformInfo();
     [[nodiscard]]
     static std::unique_ptr<IPlatformInfo> createPlatformInfo(Platform platform);
-
-    // Assets factories
     [[nodiscard]]
     static std::shared_ptr<IAssetManager>
         createAssetManager(const std::filesystem::path &executablePath, const std::string &appName);
-
-    // JSON factories
-    [[nodiscard]] static std::shared_ptr<IJsonSerializer> createJsonSerializer();
-
-    // Custom strings loader factory
+    [[nodiscard]]
+    static std::shared_ptr<IJsonSerializer> createJsonSerializer();
     [[nodiscard]]
     static std::shared_ptr<ICustomStringsLoader>
         createCustomStringsLoader(const std::filesystem::path &executablePath,
                                   const std::string &appName);
-
-    // String factories
     [[nodiscard]]
     static std::shared_ptr<IStringFormatter> createStringFormatter();
-
-    // Logger factories
     [[nodiscard]]
     static std::shared_ptr<ILogger> createLogger(LoggerType type, const LoggerConfig &config);
     [[nodiscard]]
     static std::shared_ptr<ILogger> createDefaultLogger();
 
-    // Application initialization helper
-    struct AppComponents {
+    // Unified application context
+    struct ApplicationContext {
+
+      // System components
       std::shared_ptr<ILogger> logger;
-      std::shared_ptr<IAssetManager> assetManager;
       std::unique_ptr<IPlatformInfo> platformInfo;
-      std::shared_ptr<ICustomStringsLoader> customStringsLoader;
-    };
 
-    /**
-     * @brief Create complete application components
-     * @param appName Application name for asset resolution
-     * @param loggerConfig Logger configuration
-     * @return AppComponents with logger, assetManager, platformInfo, customStringsLoader
-     */
-    [[nodiscard]]
-    static AppComponents createAppComponents(const std::string &appName,
-                                             const LoggerConfig &loggerConfig);
-
-    // Convenience: create a bundle of common utils
-    struct UtilsBundle {
+      // File system utilities
       std::shared_ptr<IFileReader> fileReader;
       std::shared_ptr<IFileWriter> fileWriter;
       std::shared_ptr<IPathResolver> pathResolver;
       std::shared_ptr<IDirectoryManager> directoryManager;
-      std::unique_ptr<IPlatformInfo> platformInfo;
+
+      // Serialization & formatting
       std::shared_ptr<IJsonSerializer> jsonSerializer;
       std::shared_ptr<IStringFormatter> stringFormatter;
-      std::shared_ptr<ILogger> logger;
+
+      // Application-specific (nullable for flexibility)
+      std::shared_ptr<IAssetManager> assetManager;
+      std::shared_ptr<ICustomStringsLoader> customStringsLoader;
     };
 
-    [[nodiscard]] static UtilsBundle createBundle();
+    /**
+     * @brief Create full application context with all components
+     * @param appName Application name for asset resolution
+     * @param loggerConfig Logger configuration
+     * @return Complete ApplicationContext with all utilities initialized
+     */
+    [[nodiscard]]
+    static ApplicationContext createFullContext(const std::string &appName,
+                                                const LoggerConfig &loggerConfig);
+
+    /**
+     * @brief Create minimal context without app-specific components
+     * @param loggerConfig Logger configuration
+     * @return ApplicationContext with core utilities only (no assetManager/customStringsLoader)
+     */
+    [[nodiscard]]
+    static ApplicationContext createCoreContext(const LoggerConfig &loggerConfig);
+
+    /**
+     * @brief Create basic utilities context with default logger
+     * @return ApplicationContext with basic utilities and default logger
+     */
+    [[nodiscard]]
+    static ApplicationContext createBasicContext();
   };
 
 } // namespace dotnamecpp::utils

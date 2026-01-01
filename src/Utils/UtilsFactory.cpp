@@ -82,9 +82,11 @@ namespace dotnamecpp::utils {
     return createLogger(LoggerType::Console, config);
   }
 
-  // Create complete application components
-  UtilsFactory::AppComponents UtilsFactory::createAppComponents(const std::string &appName,
-                                                                const LoggerConfig &loggerConfig) {
+  // Create full application context with all components
+  UtilsFactory::ApplicationContext
+      UtilsFactory::createFullContext(const std::string &appName,
+                                      const LoggerConfig &loggerConfig) {
+
     // Create platform info to get executable path
     auto platformInfo = createPlatformInfo();
     auto execPathResult = platformInfo->getExecutablePath();
@@ -96,21 +98,46 @@ namespace dotnamecpp::utils {
     auto logger = createLogger(LoggerType::Console, loggerConfig);
     auto assetManager = createAssetManager(execPathResult.value(), appName);
     auto customStringsLoader = createCustomStringsLoader(execPathResult.value(), appName);
-    return AppComponents{.logger = std::move(logger),
-                         .assetManager = std::move(assetManager),
-                         .platformInfo = std::move(platformInfo),
-                         .customStringsLoader = std::move(customStringsLoader)};
+
+    return ApplicationContext{.logger = std::move(logger),
+                              .platformInfo = std::move(platformInfo),
+                              .fileReader = createFileReader(),
+                              .fileWriter = createFileWriter(),
+                              .pathResolver = createPathResolver(),
+                              .directoryManager = createDirectoryManager(),
+                              .jsonSerializer = createJsonSerializer(),
+                              .stringFormatter = createStringFormatter(),
+                              .assetManager = std::move(assetManager),
+                              .customStringsLoader = std::move(customStringsLoader)};
   }
-  // Convenience: create a bundle of common utils
-  UtilsFactory::UtilsBundle UtilsFactory::createBundle() {
-    return UtilsBundle{.fileReader = createFileReader(),
-                       .fileWriter = createFileWriter(),
-                       .pathResolver = createPathResolver(),
-                       .directoryManager = createDirectoryManager(),
-                       .platformInfo = createPlatformInfo(),
-                       .jsonSerializer = createJsonSerializer(),
-                       .stringFormatter = createStringFormatter(),
-                       .logger = createDefaultLogger()};
+
+  // Create minimal context without app-specific components
+  UtilsFactory::ApplicationContext
+      UtilsFactory::createCoreContext(const LoggerConfig &loggerConfig) {
+    return ApplicationContext{.logger = createLogger(LoggerType::Console, loggerConfig),
+                              .platformInfo = createPlatformInfo(),
+                              .fileReader = createFileReader(),
+                              .fileWriter = createFileWriter(),
+                              .pathResolver = createPathResolver(),
+                              .directoryManager = createDirectoryManager(),
+                              .jsonSerializer = createJsonSerializer(),
+                              .stringFormatter = createStringFormatter(),
+                              .assetManager = nullptr,
+                              .customStringsLoader = nullptr};
+  }
+
+  // Create basic utilities context with default logger
+  UtilsFactory::ApplicationContext UtilsFactory::createBasicContext() {
+    return ApplicationContext{.logger = createDefaultLogger(),
+                              .platformInfo = createPlatformInfo(),
+                              .fileReader = createFileReader(),
+                              .fileWriter = createFileWriter(),
+                              .pathResolver = createPathResolver(),
+                              .directoryManager = createDirectoryManager(),
+                              .jsonSerializer = createJsonSerializer(),
+                              .stringFormatter = createStringFormatter(),
+                              .assetManager = nullptr,
+                              .customStringsLoader = nullptr};
   }
 
 } // namespace dotnamecpp::utils

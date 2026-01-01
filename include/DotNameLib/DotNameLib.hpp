@@ -10,7 +10,7 @@ namespace dotnamecpp::v1 {
   class DotNameLib {
 
   public:
-    DotNameLib(const UtilsFactory::AppComponents &utilsComponents);
+    DotNameLib(const UtilsFactory::ApplicationContext &context);
     ~DotNameLib();
     DotNameLib(const DotNameLib &other) = delete;
     DotNameLib &operator=(const DotNameLib &other) = delete;
