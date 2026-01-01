@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dbg Debug Application",
+            "name": "Dbg Default debug Application",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/application/default/debug/bin/DotNameApplication",
@@ -23,13 +23,53 @@
             "preLaunchTask": "Direct Build"
         },
         {
-            "name": "Dbg Release Application",
+            "name": "Dbg Default release Application",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/application/default/release/bin/DotNameApplication",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/application/default/release/bin/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Dbg x86_64_linux_clang debug Application",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/application/x86_64_linux_clang/debug/bin/DotNameApplication",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/application/x86_64_linux_clang/debug/bin/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Dbg x86_64_linux_clang release Application",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/application/x86_64_linux_clang/release/bin/DotNameApplication",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/application/x86_64_linux_clang/release/bin/",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
