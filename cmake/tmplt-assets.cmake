@@ -1,4 +1,4 @@
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2026 Tomáš Mark
 
 # This CMake script will copy and install assets for the application application. The assets are
 # copied from the source directory to the build directory and installed to the installation

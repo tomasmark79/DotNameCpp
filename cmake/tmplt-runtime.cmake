@@ -1,4 +1,4 @@
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2026 Tomáš Mark
 
 # !!! -lstdc++ mus not be used in the final link command
 # build/application/default/debug/CMakeFiles/index2.dir/link.txt

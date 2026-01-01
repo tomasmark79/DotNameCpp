@@ -9,7 +9,7 @@ import logging
 import hashlib
 from dateutil import parser as date_parser
 
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2026 Tomáš Mark
 
 # ==============================================================================
 # SolutionUpgrader - Automated project file synchronization from GitHub template

@@ -1,4 +1,4 @@
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2026 Tomáš Mark
 
 function(apply_address_sanitizer TARGET_NAME)
     target_compile_options(${TARGET_NAME} PRIVATE -fsanitize=address -fno-omit-frame-pointer)
