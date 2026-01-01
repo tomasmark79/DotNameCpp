@@ -59,10 +59,6 @@ namespace dotnamecpp::utils {
                                               const std::string &appName) {
     auto assetManager = createAssetManager(executablePath, appName);
     const std::string filename = "customstrings.json";
-    if (!assetManager) {
-      throw std::invalid_argument(
-          "UtilsFactory::createCustomStringsLoader requires valid asset manager");
-    }
     auto jsonSerializer = createJsonSerializer();
     return std::make_shared<CustomStringsLoader>(assetManager, jsonSerializer, filename);
   }
