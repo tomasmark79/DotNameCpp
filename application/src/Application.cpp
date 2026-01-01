@@ -36,6 +36,18 @@ int main(int argc, char **argv) {
     auto &platformInfo = utilsComponents.platformInfo;
     auto &customStringsLoader = utilsComponents.customStringsLoader;
 
+    auto utilsTools =
+        UtilsFactory::UtilsBundle{.fileReader = UtilsFactory::createFileReader(),
+                                  .fileWriter = UtilsFactory::createFileWriter(),
+                                  .pathResolver = UtilsFactory::createPathResolver(),
+                                  .directoryManager = UtilsFactory::createDirectoryManager(),
+                                  .platformInfo = UtilsFactory::createPlatformInfo(),
+                                  .jsonSerializer = UtilsFactory::createJsonSerializer(),
+                                  .stringFormatter = UtilsFactory::createStringFormatter(),
+                                  .logger = logger};
+
+    logger->infoStream() << appName << " " << utilsTools.stringFormatter->addDots("1234567890");
+
     const std::string na = "[Not Found]";
     logger->infoStream() << customStringsLoader->getLocalizedString("Author", "en").value_or(na);
     logger->infoStream() << customStringsLoader->getLocalizedString("GitHub", "en").value_or(na)
