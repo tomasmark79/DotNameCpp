@@ -1,5 +1,8 @@
 #include "StringFormatter.hpp"
 
+#include <algorithm>
+#include <ranges>
+
 namespace dotnamecpp::utils {
 
   std::string StringFormatter::addDots(const std::string &str) const {
@@ -8,16 +11,18 @@ namespace dotnamecpp::utils {
     }
 
     std::string result;
-    result.reserve(str.length() + (str.length() / 3)); // Pre-allocate
+    result.reserve(str.length() + (str.length() / 3));
 
-    for (size_t i = 0; i < str.length(); ++i) {
-      result += str[i];
-      // Add dot every 3 digits from the right (except at the end)
-      if ((str.length() - i - 1) % 3 == 0 && i != str.length() - 1) {
+    int count = 0;
+    for (char it : std::ranges::reverse_view(str)) {
+      if (count > 0 && count % 3 == 0) {
         result += '.';
       }
+      result += it;
+      count++;
     }
 
+    std::ranges::reverse(result);
     return result;
   }
 
