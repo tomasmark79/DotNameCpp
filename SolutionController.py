@@ -11,7 +11,7 @@ import webbrowser
 
 # MIT License Copyright (c) 2024-2026 Tomáš Mark
 
-controllerVersion = "v20260101"
+controllerVersion = "v20260105"
 
 systemPlatform = platform.system().lower()
 pythonVersion = sys.version.split()[0]
@@ -142,7 +142,11 @@ def print_header():
 print_header()
 
 def get_version_and_names_from_cmake_lists():
-    # Read root CMakeLists.txt for version
+    # Read library cmake file for library version
+    with open('cmake/project-library.cmake', 'r') as file:
+        library_content = file.read()
+    
+    # Read root CMakeLists.txt for root project version
     with open('CMakeLists.txt', 'r') as file:
         cmake_content = file.read()
     
@@ -150,14 +154,17 @@ def get_version_and_names_from_cmake_lists():
     with open('cmake/project-common.cmake', 'r') as file:
         common_content = file.read()
     
+    # Extract version from library project
+    lib_ver = re.search(r'VERSION\s+(\d+\.\d+\.\d+)', library_content).group(1)
+    
     # Extract version from root project
-    lib_ver = re.search(r'VERSION\s+(\d+\.\d+\.\d+)', cmake_content).group(1)
+    root_ver = re.search(r'VERSION\s+(\d+\.\d+\.\d+)', cmake_content).group(1)
     
     # Extract names from common cmake file
     lib_name = re.search(r'set\(LIBRARY_NAME\s+(\w+)', common_content).group(1)
     app_name = re.search(r'set\(APPLICATION_NAME\s+(\w+)', common_content).group(1)
     
-    return lib_ver, lib_name, app_name
+    return lib_ver, root_ver, lib_name, app_name
 
 def log2file(message):
     with open(os.path.join(workSpaceDir, "SolutionController.log"), "a") as f:
@@ -460,7 +467,7 @@ def installation_spltr():
         cmake_install(get_build_dir("application"))
 
 def license_spltr():
-    lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
+    lib_ver, root_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
     if lib_flag:
         cmake_build(get_build_dir("library"), f"write-licenses-{lib_name}")
     if app_flag:
@@ -482,7 +489,7 @@ def reorder_build_type_to_end(preset_name, build_type):
 
 def release_tarballs_spltr():
     os.makedirs(tarrballsOutputDir, exist_ok=True)
-    lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
+    lib_ver, root_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
 
     if buildArch in valid_archs:
         if lib_flag:
@@ -572,7 +579,7 @@ def launch_emrun_server():
 
     # Get the application name and version from CMakeLists.txt
     try:
-        lib_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
+        lib_ver, root_ver, lib_name, app_name = get_version_and_names_from_cmake_lists()
     except Exception as e:
         exit_with_error(f"Failed to read project names from CMakeLists.txt: {e}")
     
