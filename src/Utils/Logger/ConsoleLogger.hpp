@@ -151,6 +151,7 @@ public:
       if (addNewLine_) {
         logFile_ << "\n";
       }
+      logFile_.flush(); // Force immediate write to disk
     }
   };
 
