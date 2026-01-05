@@ -9,7 +9,7 @@ import uuid
 import json
 import webbrowser
 
-# MIT License Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2026 Tomáš Mark
 
 controllerVersion = "v20260101"
 
@@ -128,7 +128,7 @@ if not buildArch == "noNeedArch":
             exit_with_error("Undefined build architecture. Exiting.")
 
 def print_header():
-    print(f"{GREEN}DotNameCpp Solution Controller (c)  Tomáš Mark - {controllerVersion}{NC}")
+    print(f"{GREEN}DotNameCpp Solution Controller (c) 2024-2026 Tomáš Mark - {controllerVersion}{NC}")
     print(f"{GREY}Python runtime\t: {pythonVersion}{NC}")
     print(f"{LIGHTBLUE}taskName\t: {taskName}{NC}")
     print(f"Build Product\t: {LIGHTRED}{buildProduct}{NC}")
