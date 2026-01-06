@@ -39,7 +39,8 @@ set(TEST_NAMESPACE dotname)
 # ==============================================================================
 
 option(ENABLE_GTESTS "Build and run unit tests" ON)
-option(ENABLE_CCACHE "Use ccache compiler cache" OFF)
+# sudo dnf install ccache
+option(ENABLE_CCACHE "Use ccache compiler cache" ON)
 option(BUILD_SHARED_LIBS "Build shared (.so) libraries" OFF)
 option(USE_STATIC_RUNTIME "Link C++ runtime statically" OFF)
 option(ENABLE_IPO "Enable link-time optimization" OFF)
