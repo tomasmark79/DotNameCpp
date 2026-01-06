@@ -400,14 +400,17 @@ option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
 
 ### CMake Dependencies (Forked for Stability)
 
+
 This project uses forked versions of key CMake utilities hosted on the maintainer's GitHub for future stability and version control:
 
 - **[CPM.cmake](https://github.com/tomasmark79/CPM.cmake)** - CMake package manager for automated dependency fetching
+> **Useful CMake Snippets** Check out [useful CMake snippets](cmake/useful-cmake-snippets.md) for integrating popular libraries using CPM.cmake.
 - **[PackageProject.cmake](https://github.com/tomasmark79/PackageProject.cmake)** - CMake library packaging and installation helper
 - **[CPMLicenses.cmake](https://github.com/tomasmark79/CPMLicenses.cmake)** - Automated third-party license collection
 
 > **Note:** These forks ensure long-term stability and allow for custom modifications if upstream changes break compatibility. The original projects are properly credited in respective repositories.
 
+ 
 ---
 
 ## Development Tools
