@@ -18,6 +18,9 @@ pythonVersion = sys.version.split()[0]
 baseName = os.path.basename(__file__)
 workSpaceDir = os.path.dirname(os.path.abspath(__file__))
 
+# Detect bash executable path (works on NixOS and other systems)
+bashExecutable = shutil.which('bash') or '/bin/bash'
+
 # CMake user presets file name just for [read only] here
 user_presets_file = "CMakeUserPresets.json"
 
@@ -176,7 +179,7 @@ def execute_command(cmd):
     if systemPlatform == "windows":
         result = subprocess.run(cmd, shell=True)
     else:
-        result = subprocess.run(cmd, shell=True, executable="/bin/bash")
+        result = subprocess.run(cmd, shell=True, executable=bashExecutable)
     if result.returncode != 0:
         exit_with_error(f"Command failed: {cmd}")
 
@@ -280,7 +283,7 @@ def cmake_configure(src, bdir, isCMakeDebugger=False, enable_coverage=False):
                     f'--debugger-pipe /tmp/cmake-debugger-pipe-{unique_id}'
                 )
             # Execute comfigure bash command
-            execute_subprocess(bashCmd, "/bin/bash")
+            execute_subprocess(bashCmd, bashExecutable)
         # Windows
         if systemPlatform == "windows":
             # CMake configuration for Windows x64 with Conan toolchain
@@ -373,7 +376,7 @@ def cmake_build(bdir, target=None):
         execute_subprocess(winCmd, "cmd.exe")
     elif os.path.exists(conan_build_sh_file):
         bashCmd = f'source "{conan_build_sh_file}" && cmake --build "{os.path.abspath(bdir)}" {target} -j {os.cpu_count()}'
-        execute_subprocess(bashCmd, "/bin/bash")
+        execute_subprocess(bashCmd, bashExecutable)
     else:
         # Fallback without conan environment
         if systemPlatform == "windows":
@@ -394,7 +397,7 @@ def cmake_build_presets():
 
     # Load the list of included preset files
     cmd = f'jq -r \'.include[]\' "{user_presets_file}"'
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True, executable="/bin/bash")
+    result = subprocess.run(cmd, shell=True, capture_output=True, text=True, executable=bashExecutable)
     if result.returncode != 0:
         exit_with_error(f"Error reading {user_presets_file}: {result.stderr.strip()}")
 
@@ -405,7 +408,7 @@ def cmake_build_presets():
         if os.path.isfile(file):
             # Extract build presets
             cmd = f'jq -r \'.buildPresets[].name\' "{file}"'
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, executable="/bin/bash")
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, executable=bashExecutable)
             if result.returncode != 0:
                 print(f"Error reading {file}: {result.stderr.strip()}")
                 continue
@@ -416,7 +419,7 @@ def cmake_build_presets():
             for preset in presets:
                 print(f"Building preset: {preset} from {file}")
                 build_cmd = f'cmake --build --preset "{preset}"'
-                build_result = subprocess.run(build_cmd, shell=True, executable="/bin/bash")
+                build_result = subprocess.run(build_cmd, shell=True, executable=bashExecutable)
                 if build_result.returncode != 0:
                     print(f"Error building preset {preset} from {file}")
         else:
@@ -614,7 +617,7 @@ def launch_emrun_server():
                            creationflags=subprocess.CREATE_NEW_CONSOLE)
         else:
             # Unix-like
-            subprocess.Popen(f"nohup emrun {workSpaceDir} > /dev/null 2>&1 &", shell=True, executable="/bin/bash")
+            subprocess.Popen(f"nohup emrun {workSpaceDir} > /dev/null 2>&1 &", shell=True, executable=bashExecutable)
        
         print(f"{GREEN}Emrun server started successfully!{NC}")
         print(f"{LIGHTBLUE}Server should be available at: http://localhost:6931/{NC}")
