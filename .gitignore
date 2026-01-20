@@ -96,4 +96,7 @@ graph.html
 
 # CMake user presets
 CMakeUserPresets.json
+.direnv/
+
+
 
