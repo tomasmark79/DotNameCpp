@@ -39,20 +39,33 @@ set(TEST_NAMESPACE dotname)
 # ==============================================================================
 
 option(ENABLE_GTESTS "Build and run unit tests" ON)
-# sudo dnf install ccache
 option(ENABLE_CCACHE "Use ccache compiler cache" ON)
 option(BUILD_SHARED_LIBS "Build shared (.so) libraries" OFF)
 option(USE_STATIC_RUNTIME "Link C++ runtime statically" OFF)
 option(ENABLE_IPO "Enable link-time optimization" OFF)
 option(ENABLE_HARDENING "Enable security hardening" OFF)
 option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
+
+# ==============================================================================
+# Sanitizer configuration
+# ==============================================================================
 # sudo dnf install libasan libubsan libtsan liblsan
 # sudo dnf install libasan-static libubsan-static libtsan-static liblsan-static
-# Sanitizer not work together with active tests yet!
-option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
-option(SANITIZE_UNDEFINED "Enable undefined behavior sanitizer" OFF)
-option(SANITIZE_THREAD "Enable thread sanitizer" OFF)
-option(SANITIZE_MEMORY "Enable memory sanitizer" OFF)
+#
+# SANITIZER_MODE values (compatible combinations only):
+#   0 = None           - No sanitizers
+#   1 = ASAN           - Address Sanitizer
+#   2 = UBSAN          - Undefined Behavior Sanitizer
+#   3 = ASAN + UBSAN   - Address + Undefined
+#   4 = TSAN           - Thread Sanitizer
+#   5 = TSAN + UBSAN   - Thread + Undefined
+#   6 = MSAN           - Memory Sanitizer (Clang only)
+#   7 = MSAN + UBSAN   - Memory + Undefined (Clang only)
+#
+# Note: ASAN, TSAN, and MSAN are mutually exclusive
+set(SANITIZER_MODE
+    0
+    CACHE STRING "Sanitizer mode (0-7, see comments for combinations)")
 
 # ==============================================================================
 # ccache setup

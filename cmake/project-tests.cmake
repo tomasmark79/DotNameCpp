@@ -28,6 +28,9 @@ if(GTest_ADDED)
                                             $<BUILD_INTERFACE:${gtest_SOURCE_DIR}>)
     target_include_directories(gtest_main PUBLIC $<BUILD_INTERFACE:${gtest_SOURCE_DIR}/include>
                                                  $<BUILD_INTERFACE:${gtest_SOURCE_DIR}>)
+    # Apply sanitizers to GTest targets to ensure compatibility with tested code
+    apply_sanitizers(gtest)
+    apply_sanitizers(gtest_main)
 endif()
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
@@ -49,10 +52,9 @@ else()
 endif()
 
 # ==============================================================================
-# Set target properties
+# Apply common target settings (includes sanitizers, debug info, etc.)
 # ==============================================================================
-include(${CMAKE_CURRENT_LIST_DIR}/tmplt-debug.cmake)
-apply_debug_info_control(${TEST_NAME})
+apply_common_target_settings(${TEST_NAME})
 
 # emscripten handler
 include(${CMAKE_CURRENT_LIST_DIR}/tmplt-emscripten.cmake)
