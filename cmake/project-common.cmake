@@ -37,7 +37,6 @@ set(TEST_NAMESPACE dotname)
 # ==============================================================================
 # Common build options
 # ==============================================================================
-
 option(ENABLE_GTESTS "Build and run unit tests" ON)
 option(ENABLE_CCACHE "Use ccache compiler cache" ON)
 option(BUILD_SHARED_LIBS "Build shared (.so) libraries" OFF)
@@ -47,19 +46,14 @@ option(ENABLE_HARDENING "Enable security hardening" OFF)
 option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
 
 # ==============================================================================
-# Sanitizer configuration
-# ==============================================================================
-#
 # SANITIZER_MODE values:
+# ==============================================================================
 #   0 = None           - No sanitizers
 #   1 = ASAN           - Address Sanitizer
 #   2 = UBSAN          - Undefined Behavior Sanitizer
-#   3 = ASAN + UBSAN   - Address + Undefined (recommended)
+#   3 = ASAN + UBSAN   - Address + Undefined
 #   4 = TSAN           - Thread Sanitizer
 #   5 = TSAN + UBSAN   - Thread + Undefined
-#   6, 7 = NOT SUPPORTED (MSAN requires custom LLVM build with instrumented libc++)
-#
-# Note: ASAN and TSAN are mutually exclusive
 set(SANITIZER_MODE
     0
     CACHE STRING "Sanitizer mode (0-5)")
