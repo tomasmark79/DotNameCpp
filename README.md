@@ -293,7 +293,7 @@ cmake -B build/application/default/debug \
   -DCMAKE_TOOLCHAIN_FILE=build/application/default/debug/conan_toolchain.cmake \
   -DCMAKE_BUILD_TYPE=Debug \
   -DBUILD_LIBRARY=ON -DBUILD_APPLICATION=ON \
-  -DSANITIZE_ADDRESS=ON
+  -DSANITIZER_MODE=3  # ASAN + UBSAN
 
 # With Link-Time Optimization (Release builds)
 cmake -B build/application/default/release \
@@ -357,7 +357,18 @@ option(ENABLE_CCACHE "Use ccache compiler cache" ON)
 option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
 option(ENABLE_IPO "Enable link-time optimization" OFF)
 option(ENABLE_HARDENING "Enable security hardening" OFF)
-option(SANITIZE_ADDRESS "Enable address sanitizer" OFF)
+
+# Sanitizer configuration (compatible combinations only)
+# SANITIZER_MODE values:
+#   0 = None           - No sanitizers
+#   1 = ASAN           - Address Sanitizer
+#   2 = UBSAN          - Undefined Behavior Sanitizer
+#   3 = ASAN + UBSAN   - Address + Undefined
+#   4 = TSAN           - Thread Sanitizer
+#   5 = TSAN + UBSAN   - Thread + Undefined
+#   6 = MSAN           - Memory Sanitizer (Clang only)
+#   7 = MSAN + UBSAN   - Memory + Undefined (Clang only)
+set(SANITIZER_MODE 0 CACHE STRING "Sanitizer mode (0-7)")
 ```
 
 ---
