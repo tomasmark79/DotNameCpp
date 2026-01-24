@@ -10,6 +10,9 @@ format:
   max_prefix_chars: 10
   dangle_align: prefix
 
+markup:
+  enable_markup: false
+
 parse:
   additional_commands:
     cpmaddpackage:
