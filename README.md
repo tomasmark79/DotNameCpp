@@ -358,7 +358,7 @@ option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
 option(ENABLE_IPO "Enable link-time optimization" OFF)
 option(ENABLE_HARDENING "Enable security hardening" OFF)
 
-# Sanitizer configuration (compatible combinations only)
+# Sanitizer configuration
 # SANITIZER_MODE values:
 #   0 = None           - No sanitizers
 #   1 = ASAN           - Address Sanitizer
@@ -366,9 +366,8 @@ option(ENABLE_HARDENING "Enable security hardening" OFF)
 #   3 = ASAN + UBSAN   - Address + Undefined
 #   4 = TSAN           - Thread Sanitizer
 #   5 = TSAN + UBSAN   - Thread + Undefined
-#   6 = MSAN           - Memory Sanitizer (Clang only)
-#   7 = MSAN + UBSAN   - Memory + Undefined (Clang only)
-set(SANITIZER_MODE 0 CACHE STRING "Sanitizer mode (0-7)")
+# Note: ASAN and TSAN are mutually exclusive
+set(SANITIZER_MODE 0 CACHE STRING "Sanitizer mode (0-5)")
 ```
 
 ---

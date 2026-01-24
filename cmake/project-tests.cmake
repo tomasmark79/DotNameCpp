@@ -42,7 +42,7 @@ target_link_libraries(${TEST_NAME} PRIVATE GTest::gtest GTest::gtest_main
                                            dotname::${TEST_NAME_LOWER}_application_common)
 set_target_properties(${TEST_NAME} PROPERTIES OUTPUT_NAME "${TEST_NAME}")
 
-# Skip test discovery when cross-compiling (includes Emscripten)
+# Skip test discovery when cross-compiling
 if(DOTNAME_CROSSCOMPILING)
     message(STATUS "Skipping gtest_discover_tests for ${TEST_NAME} (cross-compiling)")
 else()

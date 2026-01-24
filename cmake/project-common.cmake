@@ -49,23 +49,20 @@ option(ENABLE_COVERAGE "Enable code coverage analysis" OFF)
 # ==============================================================================
 # Sanitizer configuration
 # ==============================================================================
-# sudo dnf install libasan libubsan libtsan liblsan
-# sudo dnf install libasan-static libubsan-static libtsan-static liblsan-static
 #
-# SANITIZER_MODE values (compatible combinations only):
+# SANITIZER_MODE values:
 #   0 = None           - No sanitizers
 #   1 = ASAN           - Address Sanitizer
 #   2 = UBSAN          - Undefined Behavior Sanitizer
-#   3 = ASAN + UBSAN   - Address + Undefined
+#   3 = ASAN + UBSAN   - Address + Undefined (recommended)
 #   4 = TSAN           - Thread Sanitizer
 #   5 = TSAN + UBSAN   - Thread + Undefined
-#   6 = MSAN           - Memory Sanitizer (Clang only)
-#   7 = MSAN + UBSAN   - Memory + Undefined (Clang only)
+#   6, 7 = NOT SUPPORTED (MSAN requires custom LLVM build with instrumented libc++)
 #
-# Note: ASAN, TSAN, and MSAN are mutually exclusive
+# Note: ASAN and TSAN are mutually exclusive
 set(SANITIZER_MODE
     0
-    CACHE STRING "Sanitizer mode (0-7, see comments for combinations)")
+    CACHE STRING "Sanitizer mode (0-5)")
 
 # ==============================================================================
 # ccache setup
