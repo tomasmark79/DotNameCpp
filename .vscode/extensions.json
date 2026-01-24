@@ -1,5 +1,6 @@
 {
     "recommendations": [
+        "mkhl.direnv",
         "ms-vscode.cpptools",
         "harikrishnan94.cxx-compiler-explorer",
         "fleexo.cpp-class-creator",
