@@ -22,6 +22,8 @@
 ## Overview
 **A keyboard-driven, CMake-based C++ template for VSCode**. It automates the full dev cycle (configure, build, test, format, docs, package) via shortcuts and works cross-platform.
 
+> 🐧 **Primary Development Platform**: This template is now primarily developed on **NixOS**. Nix shell (`flake.nix` / `shell.nix`) provides a reproducible development environment with all required dependencies. For other distributions, standard package managers can be used.
+
 ### Why?
 
 - **Keyboard-first**: One shortcut → structured task chain
