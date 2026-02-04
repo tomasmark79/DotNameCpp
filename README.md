@@ -6,6 +6,10 @@
 
 > 🌱 **Help Keep This Going** - Your support makes a real difference. If you value my work and want to help me continue creating, please consider making a donation. 💙 **Donate here:** [https://paypal.me/TomasMark](https://paypal.me/TomasMark) - Every contribution is truly appreciated ✨  
 
+## Notice by author
+🤫 Due to the cognitive complexity of this template, I, as the author of this project, have decided to use Meson technology for configuring new 2026+ C++ projects. When there are updates, I will post them here.
+
+
 ## Table of Contents
 
 - [Overview](#overview)
