@@ -6,9 +6,8 @@
 
 > 🌱 **Help Keep This Going** - Your support makes a real difference. If you value my work and want to help me continue creating, please consider making a donation. 💙 **Donate here:** [https://paypal.me/TomasMark](https://paypal.me/TomasMark) - Every contribution is truly appreciated ✨  
 
-## Notice by author
-🤫 Due to the cognitive complexity of this template, I, as the author of this project, have decided to use Meson technology for configuring new 2026+ C++ projects. When there are updates, I will post them here.
-
+## Time to Step Ahead
+Given the cognitive complexity of the DotNameCpp template, I have decided to move forward and use native NixOS and Meson for configuring new C++ projects starting in 2026. [The new NixonCpp template is here](https://github.com/tomasmark79/NixonCpp).
 
 ## Table of Contents
 
